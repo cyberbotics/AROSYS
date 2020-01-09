@@ -302,10 +302,10 @@
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U0CfsjFFEeq_MOMSSP8_wg"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_U0B4ozFFEeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U0B4pDFFEeq_MOMSSP8_wg" x="197" y="48" width="30" height="30"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U0B4pDFFEeq_MOMSSP8_wg" x="245" y="48" width="30" height="30"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_U0BRkTFFEeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="10" bold="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U0BRkjFFEeq_MOMSSP8_wg" x="36" y="36" width="207" height="87"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U0BRkjFFEeq_MOMSSP8_wg" x="36" y="36" width="255" height="87"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_gUrb4DFGEeq_MOMSSP8_wg" type="2002" element="_gUkuMDFGEeq_MOMSSP8_wg">
           <children xmi:type="notation:Node" xmi:id="_gUrb4zFGEeq_MOMSSP8_wg" type="5006"/>
@@ -339,9 +339,9 @@
             <children xmi:type="notation:Node" xmi:id="_gUtRFTFGEeq_MOMSSP8_wg" type="5010">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_gUtRFjFGEeq_MOMSSP8_wg" x="31" y="5"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_gUvGQDFGEeq_MOMSSP8_wg" type="3014" element="_gUnKczFGEeq_MOMSSP8_wg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_gUvGQTFGEeq_MOMSSP8_wg" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gUvGQjFGEeq_MOMSSP8_wg"/>
+            <children xmi:type="notation:Node" xmi:id="_1ivS8DLkEeqA4PWW0bNfVA" type="3014" element="_1igpcTLkEeqA4PWW0bNfVA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_1ivS8TLkEeqA4PWW0bNfVA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1ivS8jLkEeqA4PWW0bNfVA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_gUtREzFGEeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gUtRFDFGEeq_MOMSSP8_wg" x="-22" y="72" width="30" height="30"/>
@@ -350,9 +350,9 @@
             <children xmi:type="notation:Node" xmi:id="_gUt4IzFGEeq_MOMSSP8_wg" type="5010">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_gUt4JDFGEeq_MOMSSP8_wg" x="31" y="5"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_gUvGQzFGEeq_MOMSSP8_wg" type="3014" element="_gUnKdTFGEeq_MOMSSP8_wg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_gUvGRDFGEeq_MOMSSP8_wg" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gUvGRTFGEeq_MOMSSP8_wg"/>
+            <children xmi:type="notation:Node" xmi:id="_1iv6ADLkEeqA4PWW0bNfVA" type="3014" element="_1ihQgTLkEeqA4PWW0bNfVA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_1iv6ATLkEeqA4PWW0bNfVA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1iv6AjLkEeqA4PWW0bNfVA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_gUt4ITFGEeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gUt4IjFGEeq_MOMSSP8_wg" x="-22" y="36" width="30" height="30"/>
@@ -361,9 +361,9 @@
             <children xmi:type="notation:Node" xmi:id="_gUufMzFGEeq_MOMSSP8_wg" type="5010">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_gUufNDFGEeq_MOMSSP8_wg" x="31" y="5"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_gUvGRjFGEeq_MOMSSP8_wg" type="3014" element="_gUnxgDFGEeq_MOMSSP8_wg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_gUvGRzFGEeq_MOMSSP8_wg" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gUvGSDFGEeq_MOMSSP8_wg"/>
+            <children xmi:type="notation:Node" xmi:id="_1iv6AzLkEeqA4PWW0bNfVA" type="3014" element="_1ihQhDLkEeqA4PWW0bNfVA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_1iv6BDLkEeqA4PWW0bNfVA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1iv6BTLkEeqA4PWW0bNfVA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_gUufMTFGEeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gUufMjFGEeq_MOMSSP8_wg" x="209" y="107" width="30" height="30"/>
@@ -392,9 +392,9 @@
             <children xmi:type="notation:Node" xmi:id="_dTvcUzK4Eeq_MOMSSP8_wg" type="5010">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_dTvcVDK4Eeq_MOMSSP8_wg" x="31" y="5"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_dTwDYzK4Eeq_MOMSSP8_wg" type="3014" element="_dTrK4zK4Eeq_MOMSSP8_wg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_dTwDZDK4Eeq_MOMSSP8_wg" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dTwDZTK4Eeq_MOMSSP8_wg"/>
+            <children xmi:type="notation:Node" xmi:id="_1iwhEDLkEeqA4PWW0bNfVA" type="3014" element="_1ih3kzLkEeqA4PWW0bNfVA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_1iwhETLkEeqA4PWW0bNfVA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1iwhEjLkEeqA4PWW0bNfVA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_dTvcUTK4Eeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dTvcUjK4Eeq_MOMSSP8_wg" x="245" y="36" width="30" height="30"/>
@@ -475,7 +475,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:CustomStyle" uid="_gUnKczFGEeq_MOMSSP8_wg" showIcon="false" id="inprov">
+        <ownedStyle xmi:type="diagram:CustomStyle" uid="_1igpcTLkEeqA4PWW0bNfVA" showIcon="false" id="inprov">
           <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@conditionnalStyles.0/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']"/>
@@ -486,7 +486,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:CustomStyle" uid="_gUnKdTFGEeq_MOMSSP8_wg" showIcon="false" id="inprov">
+        <ownedStyle xmi:type="diagram:CustomStyle" uid="_1ihQgTLkEeqA4PWW0bNfVA" showIcon="false" id="inprov">
           <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@conditionnalStyles.0/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']"/>
@@ -497,7 +497,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:CustomStyle" uid="_gUnxgDFGEeq_MOMSSP8_wg" showIcon="false" id="2wansw">
+        <ownedStyle xmi:type="diagram:CustomStyle" uid="_1ihQhDLkEeqA4PWW0bNfVA" showIcon="false" id="2wansw">
           <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@conditionnalStyles.1/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']"/>
@@ -531,7 +531,7 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:CustomStyle" uid="_dTrK4zK4Eeq_MOMSSP8_wg" showIcon="false" id="outreq">
+        <ownedStyle xmi:type="diagram:CustomStyle" uid="_1ih3kzLkEeqA4PWW0bNfVA" showIcon="false" id="outreq">
           <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='RequiredServiceNode']/@conditionnalStyles.0/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='RequiredServiceNode']"/>

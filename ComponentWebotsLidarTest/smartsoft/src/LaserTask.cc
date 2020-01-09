@@ -53,7 +53,7 @@ int LaserTask::on_entry()
 	scan.set_scan_integer_field_of_view(27000, 18000); //  -50*180, 50
 	scan.set_min_distance(lidar->getMinRange()*1000.0); // in mm
 	scan.set_max_distance(lidar->getMaxRange()*1000.0); // in mm
-	scan.set_scan_length_unit(0.001); // unit = mm, for meter use 1.0
+	scan.set_scan_length_unit(1); // unit = mm, for meter use 1.0
 	std::cout << "LaserTask 3" << std::endl;
 
 	// --- Points
@@ -75,6 +75,7 @@ int LaserTask::on_execute()
     //Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
     //otherwise the values will not be updated
 	if (robot->step(TIME_STEP) != -1) {
+
 		// --- Time settings
 		timeval _receive_time;
 		gettimeofday(&_receive_time, 0);
@@ -101,7 +102,7 @@ int LaserTask::on_execute()
 
 			scan.set_scan_index(i, i);
 			scan.set_scan_integer_distance(i, dist); // in mm
-			std::cout << "LID["<< i << "] dist: " << scan.get_scan_distance(i) << std::endl;
+			std::cout << "1LID["<< i << "] dist: " << scan.get_scan_distance(i) << std::endl;
 		}
 		std::cout << "LaserTask TEST 6" << std::endl;
 		scan.set_scan_valid(true);

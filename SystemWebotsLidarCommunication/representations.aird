@@ -376,9 +376,9 @@
             <children xmi:type="notation:Node" xmi:id="_YYGgiDE-Eeq_MOMSSP8_wg" type="5010">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_YYGgiTE-Eeq_MOMSSP8_wg" x="31" y="5"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_YYHupjE-Eeq_MOMSSP8_wg" type="3014" element="_YYC2JjE-Eeq_MOMSSP8_wg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_YYHupzE-Eeq_MOMSSP8_wg" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YYHuqDE-Eeq_MOMSSP8_wg"/>
+            <children xmi:type="notation:Node" xmi:id="_lOZFQDLlEeqA4PWW0bNfVA" type="3014" element="_lOS-ozLlEeqA4PWW0bNfVA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lOZFQTLlEeqA4PWW0bNfVA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lOZFQjLlEeqA4PWW0bNfVA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_YYGghjE-Eeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YYGghzE-Eeq_MOMSSP8_wg" x="245" y="48" width="30" height="30"/>
@@ -387,9 +387,9 @@
             <children xmi:type="notation:Node" xmi:id="_YYHHkzE-Eeq_MOMSSP8_wg" type="5010">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_YYHHlDE-Eeq_MOMSSP8_wg" x="31" y="5"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_YYI8wDE-Eeq_MOMSSP8_wg" type="3014" element="_YYDdMjE-Eeq_MOMSSP8_wg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_YYI8wTE-Eeq_MOMSSP8_wg" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YYI8wjE-Eeq_MOMSSP8_wg"/>
+            <children xmi:type="notation:Node" xmi:id="_lOZsUDLlEeqA4PWW0bNfVA" type="3014" element="_lOS-pjLlEeqA4PWW0bNfVA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lOZsUTLlEeqA4PWW0bNfVA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lOZsUjLlEeqA4PWW0bNfVA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_YYHHkTE-Eeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YYHHkjE-Eeq_MOMSSP8_wg" x="120" y="-22" width="30" height="30"/>
@@ -398,9 +398,9 @@
             <children xmi:type="notation:Node" xmi:id="_YYHHmDE-Eeq_MOMSSP8_wg" type="5010">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_YYHHmTE-Eeq_MOMSSP8_wg" x="31" y="5"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_YYI8wzE-Eeq_MOMSSP8_wg" type="3014" element="_YYDdNTE-Eeq_MOMSSP8_wg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_YYI8xDE-Eeq_MOMSSP8_wg" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YYI8xTE-Eeq_MOMSSP8_wg"/>
+            <children xmi:type="notation:Node" xmi:id="_lOaTYDLlEeqA4PWW0bNfVA" type="3014" element="_lOTlsjLlEeqA4PWW0bNfVA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lOaTYTLlEeqA4PWW0bNfVA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lOaTYjLlEeqA4PWW0bNfVA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_YYHHljE-Eeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YYHHlzE-Eeq_MOMSSP8_wg" x="-22" y="86" width="30" height="30"/>
@@ -449,9 +449,9 @@
             <children xmi:type="notation:Node" xmi:id="_fgeRYDE-Eeq_MOMSSP8_wg" type="5010">
               <layoutConstraint xmi:type="notation:Location" xmi:id="_fgeRYTE-Eeq_MOMSSP8_wg" x="-149" y="18"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_fge4cDE-Eeq_MOMSSP8_wg" type="3014" element="_fgZY5DE-Eeq_MOMSSP8_wg">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_fge4cTE-Eeq_MOMSSP8_wg" fontName="Ubuntu"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fge4cjE-Eeq_MOMSSP8_wg"/>
+            <children xmi:type="notation:Node" xmi:id="_lOaTYzLlEeqA4PWW0bNfVA" type="3014" element="_lOUz0TLlEeqA4PWW0bNfVA">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_lOaTZDLlEeqA4PWW0bNfVA" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lOaTZTLlEeqA4PWW0bNfVA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_fgdqUTE-Eeq_MOMSSP8_wg" fontName="Ubuntu" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fgdqUjE-Eeq_MOMSSP8_wg" x="108" y="29" width="30" height="30"/>
@@ -525,10 +525,10 @@
         </edges>
       </data>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_SsHZQCJEEeq_pP0Dom4CGg" name="ComponentWebotsSimulator: ComponentWebotsSimulator" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_SsHZQCJEEeq_pP0Dom4CGg" name="ComponentWebotsSimulator: " tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYCPEzE-Eeq_MOMSSP8_wg" name="BaseStateServiceOut" tooltipText="OutputProvider" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYCPEzE-Eeq_MOMSSP8_wg" tooltipText="OutputProvider" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.0"/>
         <semanticElements xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -539,7 +539,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYC2IjE-Eeq_MOMSSP8_wg" name="BatteryEventServiceOut" tooltipText="OutputProvider" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYC2IjE-Eeq_MOMSSP8_wg" tooltipText="OutputProvider" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.1"/>
         <semanticElements xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.1"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -550,36 +550,36 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYC2JTE-Eeq_MOMSSP8_wg" name="LocalizationUpdateServiceIn" tooltipText="InputProvider" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYC2JTE-Eeq_MOMSSP8_wg" tooltipText="OutputProvider" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.2"/>
         <semanticElements xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.2"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:CustomStyle" uid="_YYC2JjE-Eeq_MOMSSP8_wg" showIcon="false" id="inprov">
-          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@conditionnalStyles.0/@style"/>
+        <ownedStyle xmi:type="diagram:CustomStyle" uid="_lOS-ozLlEeqA4PWW0bNfVA" showIcon="false" id="outprov">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYDdMTE-Eeq_MOMSSP8_wg" name="NavigationVelocityServiceIn" tooltipText="InputProvider" incomingEdges="_Yr4l4DFDEeq_MOMSSP8_wg" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYDdMTE-Eeq_MOMSSP8_wg" tooltipText="OutputProvider" incomingEdges="_Yr4l4DFDEeq_MOMSSP8_wg" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.3"/>
         <semanticElements xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.3"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:CustomStyle" uid="_YYDdMjE-Eeq_MOMSSP8_wg" showIcon="false" id="inprov">
-          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@conditionnalStyles.0/@style"/>
+        <ownedStyle xmi:type="diagram:CustomStyle" uid="_lOS-pjLlEeqA4PWW0bNfVA" showIcon="false" id="outprov">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYDdNDE-Eeq_MOMSSP8_wg" name="BaseStateAnswerer" tooltipText="2WayAnswer" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YYDdNDE-Eeq_MOMSSP8_wg" tooltipText="OutputProvider" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.4"/>
         <semanticElements xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.0/@ports.4"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:CustomStyle" uid="_YYDdNTE-Eeq_MOMSSP8_wg" showIcon="false" id="2wansw">
-          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@conditionnalStyles.1/@style"/>
+        <ownedStyle xmi:type="diagram:CustomStyle" uid="_lOTlsjLlEeqA4PWW0bNfVA" showIcon="false" id="outprov">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='ProvidedServiceNode']"/>
       </ownedBorderedNodes>
@@ -592,10 +592,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_T4qE4CJEEeq_pP0Dom4CGg" name="ComponentWebotsLidarTest: ComponentWebotsLidarTest" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_T4qE4CJEEeq_pP0Dom4CGg" name="ComponentWebotsLidarTest: " tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsLidarCommunication.componentArch#//@components.1"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsLidarCommunication.componentArch#//@components.1"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_5RoNQDB4Eeq_MOMSSP8_wg" name="LaserServiceOut" tooltipText="OutputProvider" incomingEdges="_YAbOEDFDEeq_MOMSSP8_wg" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_5RoNQDB4Eeq_MOMSSP8_wg" tooltipText="OutputProvider" incomingEdges="_YAbOEDFDEeq_MOMSSP8_wg" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.1/@ports.0"/>
         <semanticElements xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.1/@ports.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -615,10 +615,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_fgUgYDE-Eeq_MOMSSP8_wg" name="ComponentLaserObstacleAvoidTest: ComponentLaserObstacleAvoidTest" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_fgUgYDE-Eeq_MOMSSP8_wg" name="ComponentLaserObstacleAvoidTest: " tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsLidarCommunication.componentArch#//@components.2"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsLidarCommunication.componentArch#//@components.2"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_fgZY4TE-Eeq_MOMSSP8_wg" name="LaserServiceIn" tooltipText="InputRequestor" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_fgZY4TE-Eeq_MOMSSP8_wg" tooltipText="InputRequestor" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:RequiredService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.2/@ports.0"/>
         <semanticElements xmi:type="ComponentArchitecture:RequiredService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.2/@ports.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -629,14 +629,14 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='RequiredServiceNode']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_fgZY4zE-Eeq_MOMSSP8_wg" name="NavigationVelocityServiceOut" tooltipText="OutputRequestor" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_fgZY4zE-Eeq_MOMSSP8_wg" tooltipText="InputRequestor" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:RequiredService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.2/@ports.1"/>
         <semanticElements xmi:type="ComponentArchitecture:RequiredService" href="model/SystemWebotsLidarCommunication.componentArch#//@components.2/@ports.1"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:CustomStyle" uid="_fgZY5DE-Eeq_MOMSSP8_wg" showIcon="false" id="outreq">
-          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='RequiredServiceNode']/@conditionnalStyles.0/@style"/>
+        <ownedStyle xmi:type="diagram:CustomStyle" uid="_lOUz0TLlEeqA4PWW0bNfVA" showIcon="false" id="inreq">
+          <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='RequiredServiceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']/@borderedNodeMappings[name='RequiredServiceNode']"/>
       </ownedBorderedNodes>
@@ -683,7 +683,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YAbOEDFDEeq_MOMSSP8_wg" name="CommMobileLaserScan" sourceNode="_9cmxIjFCEeq_MOMSSP8_wg" targetNode="_5RoNQDB4Eeq_MOMSSP8_wg">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YAbOEDFDEeq_MOMSSP8_wg" sourceNode="_9cmxIjFCEeq_MOMSSP8_wg" targetNode="_5RoNQDB4Eeq_MOMSSP8_wg">
       <target xmi:type="ComponentArchitecture:Connection" href="model/SystemWebotsLidarCommunication.componentArch#//@connections.0"/>
       <semanticElements xmi:type="ComponentArchitecture:Connection" href="model/SystemWebotsLidarCommunication.componentArch#//@connections.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YAbOETFDEeq_MOMSSP8_wg" targetArrow="NoDecoration" size="2">
@@ -692,7 +692,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@edgeMappings[name='ConnectionEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Yr4l4DFDEeq_MOMSSP8_wg" name="CommNavigationVelocity" sourceNode="_9cmxJDFCEeq_MOMSSP8_wg" targetNode="_YYDdMTE-Eeq_MOMSSP8_wg">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Yr4l4DFDEeq_MOMSSP8_wg" sourceNode="_9cmxJDFCEeq_MOMSSP8_wg" targetNode="_YYDdMTE-Eeq_MOMSSP8_wg">
       <target xmi:type="ComponentArchitecture:Connection" href="model/SystemWebotsLidarCommunication.componentArch#//@connections.1"/>
       <semanticElements xmi:type="ComponentArchitecture:Connection" href="model/SystemWebotsLidarCommunication.componentArch#//@connections.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Yr4l4TFDEeq_MOMSSP8_wg" targetArrow="NoDecoration" size="2">

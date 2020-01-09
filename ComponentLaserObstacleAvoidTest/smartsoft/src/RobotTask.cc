@@ -109,7 +109,7 @@ int RobotTask::on_execute()
 		uint count = laserScan.get_scan_size();
 		for (uint j=0; j < count; ++j) {
 			if (laserScan.get_scan_distance(j) > 0.0)
-			std::cout << "1OBS["<< j << "] dist: " << laserScan.get_scan_distance(j) << std::endl;
+			std::cout << "2OBS["<< j << "] dist: " << laserScan.get_scan_distance(j) << std::endl;
 		}
 	// END TEST
 
