@@ -3,9 +3,7 @@
 	<name>SystemWebotsLidarCommunication</name>
 	<comment></comment>
 	<projects>
-		<project>ComponentLaserObstacleAvoid</project>
 		<project>ComponentLaserObstacleAvoidTest</project>
-		<project>ComponentWebotsLidar</project>
 		<project>ComponentWebotsLidarTest</project>
 		<project>ComponentWebotsSimulator</project>
 	</projects>

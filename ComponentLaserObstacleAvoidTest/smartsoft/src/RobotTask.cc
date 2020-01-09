@@ -59,24 +59,7 @@ int RobotTask::on_execute()
 	/////////////////////////////////////////////
 	// to get the incoming data, use this methods:
 
-	// get laser scan => doesn't work
-	/*
-	//CommBasicObjects::CommMobileLaserScan laserScan;
-	//status = this->laserServiceInGetUpdate(laserScan);
-
-
-	if(status != Smart::SMART_OK) {
-		std::cerr << "Getting laser scan failed: " << status << std::endl;
-		sleep(2);
-		return 0;
-	}
-	else {
-		std::cout << "Laser scan received: " << laserScan << std::endl;
-	}
-	*/
-
-
-	// wait for scan (PushNewest)
+	// get laser scan:
 	status = COMP->laserServiceIn->getUpdateWait(laserScan);
 
 	// Check if the transmission worked
@@ -92,11 +75,9 @@ int RobotTask::on_execute()
 			sleep(1);
 	}
 	else
-	{
-		// laserscan received
 		std::cout << "LaserScan received" << std::endl;
 
-	}
+
 
 	std::cout << "Hello from RobotTask TEST" << std::endl;
 
@@ -104,32 +85,64 @@ int RobotTask::on_execute()
 	// Do something with laserScan to get v and w
 	// runcycle
 
-	// TEST
+	// TEST => Worked
 		updateCounter++;
 		uint count = laserScan.get_scan_size();
 		for (uint j=0; j < count; ++j) {
 			if (laserScan.get_scan_distance(j) > 0.0)
 			std::cout << "2OBS["<< j << "] dist: " << laserScan.get_scan_distance(j) << std::endl;
 		}
+
+		// Calculate v and w
 	// END TEST
 
 	//////////////////////////////////////////////
 	// Provide v and w to the service port
-	/*
+
 	// Check the speed limits
 	// threshold speed:
-	if(velocity >  500) velocity= 500;
-	if(velocity < -500) velocity=-500;
-	if(turnrate >  20)  turnrate= 20;
-	if(turnrate < -20)  turnrate=-20;
+	//if(velocity >  500) {velocity= 500; up = false;}  // { ,...} useless, just for test
+	//if(velocity < -500) {velocity=-500; up = true;}
+	//if(turnrate >  20)  {turnrate= 20;  up = false;}
+	//if(turnrate < -20)  {turnrate=-20;  up = true;}
+
+	if (up){  // useless, just for test
+		if (velocity>500) {
+			velocity= 500;
+			up = false;
+		}
+		else if (turnrate>20) {
+			turnrate= 20;
+			up = false;
+		}
+		else{
+			velocity +=10;
+			turnrate +=0.01;
+		}
+	}
+	else{  // useless, just for test
+		if (velocity<-500) {
+			velocity=-500;
+			up = true;
+		}
+		else if (turnrate<-20) {
+			turnrate=-20;
+			up = true;
+		}
+		else{
+			velocity -=10;
+			turnrate -=0.01;
+		}
+	}
+
 
 	// Create and fill the communication object
 	CommBasicObjects::CommNavigationVelocity navigationVelocity;
-	navigationVelocity.set_vX(velocity*0.5, 0.001);
-	navigationVelocity.set_omega(turnrate*0.0575);
+	navigationVelocity.set_vX(velocity, 0.001);
+	navigationVelocity.set_omega(turnrate);
 
-	std::cout << "Velocity : " << velocity << std::endl;
-	std::cout << "Turnrate : " << turnrate << std::endl;
+	std::cout << "1_Velocity : " << velocity << std::endl;
+	std::cout << "1_Turnrate : " << turnrate << std::endl;
 
 	// Provide result to output port, thereby command the robot:
 	status = this->navigationVelocityServiceOutPut(navigationVelocity);
@@ -143,7 +156,7 @@ int RobotTask::on_execute()
 	else {
 		std::cout << "Sent navigation velocity " << navigationVelocity << std::endl;
 	}
-	*/
+	//*/
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;

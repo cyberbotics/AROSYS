@@ -33,8 +33,6 @@ WebotsControllerTask::~WebotsControllerTask()
 
 int WebotsControllerTask::on_entry()
 {
-	// do initialization procedures here, which are called once, each time the task is started
-	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
 	// create Robot Instance
 	robot = new webots::Robot();
@@ -90,19 +88,18 @@ int WebotsControllerTask::on_execute()
 	// this method is called from an outside loop,
 	// hence, NEVER use an infinite loop (like "while(1)") here inside!!!
 	// also do not use blocking calls which do not result from smartsoft kernel
-	
 	std::cout << "Hello from WebotsControllerTask " << std::endl;
-
 	double omega;
 	double leftSpeed;
 	double rightSpeed;
 
 
+
 	COMP->WebotsMutex.acquire();
 
 	// Acquisition
-	omega     = COMP -> omega;
-    leftSpeed = normalizeBaseVelocity(COMP -> velocityLeftWheel);
+	omega     = COMP->omega;
+    leftSpeed = normalizeBaseVelocity(COMP->velocityLeftWheel);
 
     // Set velocities and check limits
     rightSpeed = leftSpeed - omega;

@@ -18,4 +18,5 @@ ComponentInstance ComponentWebotsSimulator instantiates ComponentWebotsSimulator
 		RequiredService NavigationVelocityServiceOut
 	}
 	Connection ComponentLaserObstacleAvoidTest.LaserServiceIn -> ComponentWebotsLidarTest.LaserServiceOut
+Connection ComponentLaserObstacleAvoidTest.NavigationVelocityServiceOut -> ComponentWebotsSimulator.NavigationVelocityServiceIn
 }

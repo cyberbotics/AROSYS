@@ -29,6 +29,7 @@
 
 class WebotsControllerTask  : public WebotsControllerTaskCore
 {
+
 private:
 	webots::Robot *robot;
 	webots::Motor *rightMotor;
