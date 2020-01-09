@@ -1,0 +1,15 @@
+DeploymentModel SystemLidarOnlyTest using ComponentArchitecture SystemLidarOnlyTest
+{
+TargetPlatformReference PC1 using SystemLidarOnlyTest.PC1
+	{
+		UploadDirectory "/tmp"
+		NetworkInterface eth1
+	}
+	NamingService
+	{
+		deploy-to PC1 }
+	ComponentArtefact ComponentWebotsLidarTest deploy-to PC1
+
+	ComponentArtefact  ComponentWebotsSimulator deploy-to PC1
+	ComponentArtefact ComponentLaserObstacleAvoidTest deploy-to PC1
+}

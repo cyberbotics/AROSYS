@@ -1,0 +1,18 @@
+DeploymentModel SystemWebotsLidarCommunication using ComponentArchitecture SystemWebotsLidarCommunication
+{
+	TargetPlatformReference PC1 using SystemWebotsLidarCommunication.PC1
+	{
+		UploadDirectory "/tmp"
+		NetworkInterface eth1
+	}
+
+	NamingService
+	{
+		deploy-to PC1 
+	}
+
+	ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
+	ComponentArtefact ComponentWebotsLidarTest    deploy-to PC1
+	ComponentArtefact ComponentWebotsSimulator    deploy-to PC1
+ComponentArtefact ComponentLaserObstacleAvoidTest deploy-to PC1
+}

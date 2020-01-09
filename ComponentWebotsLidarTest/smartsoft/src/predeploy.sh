@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Use this variable to name files that are to be deployed to the data
+# instance directory of
+# the component (<COMPONENT INSTANCE NAME>_data/) on the target host.
+#
+# Files can be relative to component project directory or absolute.
+# Add one file or directory per line.
+#
+# Examples:
+#
+# DEPLOY_LIBRARIES="../bin/libMyLibrary.so"
+#
+# DEPLOY_COMPONENT_FILES="
+# $SMART_ROOT_ACE/myFILE
+# $SMART_ROOT_ACE/myFILE2
+# "
+
+# Indicates the name of the robot that own the Lidar
+export WEBOTS_ROBOT_NAME="SickLMS291"
+
+### Webot's controller libraries importation into SmartMDSD
+export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib)
+export DEPLOY_LIBRARIES="
+$WEBOTS_LIBRARY/libController.so
+$WEBOTS_LIBRARY/libCppController.so
+"
+
+# It is also possible to copy the library.so directly in SmartMDSD's lib folder using:
+#cp $WEBOTS_HOME/lib/libController.so $SMART_ROOT_ACE/lib/
+#cp $WEBOTS_HOME/lib/libCppController.so $SMART_ROOT_ACE/lib/
+
