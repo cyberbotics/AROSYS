@@ -39,13 +39,14 @@
 #define WHEEL_RADIUS 0.0975 // in meter
 #define MAX_SPEED 12.3      // in rad/s
 
-#define CRUISING_SPEED 5.0     // in rad/s
-#define NEAR_OBS_THRESHOLD 1.0 // in meter
-#define FAR_OBS_THRESHOLD 5.0  // in meter
-#define FAST_DECR_FACTOR 0.9
-#define SLOW_DECR_FACTOR 0.5
+#define CRUISING_SPEED 2.5     // in rad/s
+#define NEAR_OBSTACLE_THRESHOLD 0.8 // in %, 1 = nothing, 0= stuck in obstacle
+#define FAR_OBSTACLE_THRESHOLD 0.4  // in %, 1 = nothing, 0= stuck in obstacle
+#define FAST_DECREASE_FACTOR 0.9
+#define SLOW_DECREASE_FACTOR 0.5
 #define DIVISION_FACTOR 8.0
-#define UNUSED_POINTS 15
+#define UNIT_FACTOR 1000.0 // to pass from meter to mm
+#define UNUSED_POINT 15
 #define N_SECTOR 5
 
 
