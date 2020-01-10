@@ -138,6 +138,11 @@ else{  // useless, just for test
 }
 */
 
+	// TODO: Remove the following 2 lines. Used to check lidar's value
+	//velocity = 0.0;
+	//turnrate = 0.0;
+
+
 	// Create and fill the communication object
 	CommBasicObjects::CommNavigationVelocity navigationVelocity;
 	navigationVelocity.set_vX(velocity, 0.001);

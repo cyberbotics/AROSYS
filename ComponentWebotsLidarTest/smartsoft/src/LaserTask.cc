@@ -8,7 +8,7 @@
 // 89075 Ulm (Germany)
 //
 // Information about the SmartSoft MDSD Toolchain is available at:
-// www.servicerobotik-ulm.de
+// www.servicewb_robotik-ulm.de
 //
 // This file is generated once. Modify this file to your needs. 
 // If you want the toolchain to re-generate this file, please 
@@ -38,26 +38,27 @@ int LaserTask::on_entry()
 	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
 	// create Robot Instance
-	robot = new webots::Robot();
+	wb_robot = new webots::Robot();
 
-	// set Lidar
-	lidar=robot->getLidar("Sick LMS 291");
-	lidar->enable(TIME_STEP);
-	lidar->enablePointCloud();
+	// Connects to the sensor from Webots
+	wb_lidar=wb_robot->getLidar("Sick LMS 291");
+	wb_lidar->enable(TIME_STEP);
+	wb_lidar->enablePointCloud();
 
-	// Set Webots Lidar properties to CommMobileLaserScan Domain Model
-	std::cout << "LaserTask 2" << std::endl;
-
+	// Set Webots sensor's properties to CommMobileLaserScan model
 	// --- Properties
-	// --- doc: servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
-	scan.set_scan_integer_field_of_view(27000, 18000); //  -50*180, 50
-	scan.set_min_distance(lidar->getMinRange()*1000.0); // in mm
-	scan.set_max_distance(lidar->getMaxRange()*1000.0); // in mm
-	scan.set_scan_length_unit(1); // unit = mm, for meter use 1.0
+	// --- doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
+	scan.set_scan_integer_field_of_view(27000, RES*UNIT_FACTOR); //  -50*180, 50
+	// TODO Test if it does the same with -90 instead of 270
+	//scan.set_scan_integer_field_of_view(-RES*UNIT_FACTOR/2.0, RES*UNIT_FACTOR); // in 0.01 degree units
+	//TRY THIS
+	scan.set_scan_length_unit(MEASURE_UNIT);
+	scan.set_min_distance(wb_lidar->getMinRange()*1000.0); // in mm
+	scan.set_max_distance(wb_lidar->getMaxRange()*1000.0); // in mm
 	std::cout << "LaserTask 3" << std::endl;
 
 	// --- Points
-	unsigned int num_valid_points = lidar->getNumberOfPoints();
+	unsigned int num_valid_points = wb_lidar->getNumberOfPoints();
 	scan.set_scan_size(num_valid_points);
 
 	return 0;
@@ -74,7 +75,7 @@ int LaserTask::on_execute()
 
     //Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
     //otherwise the values will not be updated
-	if (robot->step(TIME_STEP) != -1) {
+	if (wb_robot->step(TIME_STEP) != -1) {
 
 		// --- Time settings
 		timeval _receive_time;
@@ -85,24 +86,26 @@ int LaserTask::on_execute()
 
 		// Get Lidar value using the DomainModel
 		// --- Points
-		unsigned int num_valid_points = lidar->getNumberOfPoints();
+		unsigned int num_valid_points = wb_lidar->getNumberOfPoints();
 		scan.set_scan_size(num_valid_points);
 		scan.set_scan_update_count(scan_count);
 		std::cout << "LaserTask TEST 4" << std::endl;
 
 		// Create an array of Lidar's values
 		const float *rangeImageVector;
-		rangeImageVector = (const float *)(void *)lidar->getRangeImage(); // in m
+		rangeImageVector = (const float *)(void *)wb_lidar->getRangeImage(); // in m
 		std::cout << "LaserTask TEST 5" << std::endl;
 
 		// Pass Lidar's values to CommMobileLaserScan
-		for(unsigned int i=0; i<num_valid_points; ++i)
+		for(unsigned int k=0; k<num_valid_points/3.0; ++k)
 		{
+			int i = 0;
+			i = k*3;
 			const unsigned int dist = (unsigned int)(rangeImageVector[i]*1000.0); // in mm
 
 			scan.set_scan_index(i, i);
 			scan.set_scan_integer_distance(i, dist); // in mm
-			std::cout << "1LID["<< i << "] dist: " << scan.get_scan_distance(i) << std::endl;
+			std::cout << "2LID["<< i << "] dist: " << scan.get_scan_distance(i) << std::endl;
 		}
 		std::cout << "LaserTask TEST 6" << std::endl;
 		scan.set_scan_valid(true);
@@ -130,7 +133,7 @@ int LaserTask::on_execute()
 
 int LaserTask::on_exit()
 {
-	delete robot;
+	delete wb_robot;
 
 	// use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
 	return 0;

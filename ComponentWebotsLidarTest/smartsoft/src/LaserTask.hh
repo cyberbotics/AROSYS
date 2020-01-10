@@ -26,11 +26,17 @@
 // This parameter has to be the same in the ComponentWebotsSimulator
 #define TIME_STEP 64
 
+// Modifies these parameters according to the sensor used
+#define FOV 80.0 // in meter
+#define RES 180  // in degree
+#define UNIT_FACTOR 100.0 // By default, it is in 0.01 unit
+#define MEASURE_UNIT 1.0 // 1.0 for meter, 0.001 for mm
+
 class LaserTask  : public LaserTaskCore
 {
 private:
-	webots::Robot *robot;
-	webots::Lidar *lidar;
+	webots::Robot *wb_robot;
+	webots::Lidar *wb_lidar;
 
 	// TODO: Verify if it should be private or public
 	//static uint scan_count;
