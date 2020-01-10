@@ -48,10 +48,9 @@ int LaserTask::on_entry()
 	// Set Webots sensor's properties to CommMobileLaserScan model
 	// --- Properties
 	// --- doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
-	scan.set_scan_integer_field_of_view(27000, RES*UNIT_FACTOR); //  -50*180, 50
+	scan.set_scan_integer_field_of_view(-RES*UNIT_FACTOR/2.0, RES*UNIT_FACTOR);
 	// TODO Test if it does the same with -90 instead of 270
 	//scan.set_scan_integer_field_of_view(-RES*UNIT_FACTOR/2.0, RES*UNIT_FACTOR); // in 0.01 degree units
-	//TRY THIS
 	scan.set_scan_length_unit(MEASURE_UNIT);
 	scan.set_min_distance(wb_lidar->getMinRange()*1000.0); // in mm
 	scan.set_max_distance(wb_lidar->getMaxRange()*1000.0); // in mm

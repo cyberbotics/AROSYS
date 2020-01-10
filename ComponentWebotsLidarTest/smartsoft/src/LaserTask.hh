@@ -30,7 +30,7 @@
 #define FOV 80.0 // in meter
 #define RES 180  // in degree
 #define UNIT_FACTOR 100.0 // By default, it is in 0.01 unit
-#define MEASURE_UNIT 1.0 // 1.0 for meter, 0.001 for mm
+#define MEASURE_UNIT 1.0 // From the sensor (1.0 for meter, 0.001 for mm)
 
 class LaserTask  : public LaserTaskCore
 {
