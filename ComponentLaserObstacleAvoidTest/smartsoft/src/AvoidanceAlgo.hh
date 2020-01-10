@@ -33,16 +33,20 @@
 #ifndef SIMPLE_AVOID_HH
 #define SIMPLE_AVOID_HH
 
+// These 4 parameters have to be the same in the ComponentWebotsSimulator
+#define MAX_LIDAR_DIST 80.0 // in meter
+#define WHEEL_GAP 0.269     // in meter
+#define WHEEL_RADIUS 0.0975 // in meter
+#define MAX_SPEED 12.3      // in rad/s
 
-#define MAX_SPEED 2.0
-#define CRUISING_SPEED 5.0
-#define NEAR_OBS_THRESHOLD 0.3
-#define FAR_OBS_THRESHOLD 0.7
+#define CRUISING_SPEED 5.0     // in rad/s
+#define NEAR_OBS_THRESHOLD 1.0 // in meter
+#define FAR_OBS_THRESHOLD 5.0  // in meter
 #define FAST_DECR_FACTOR 0.9
 #define SLOW_DECR_FACTOR 0.5
-#define UNUSED_POINTS 20
+#define DIVISION_FACTOR 8.0
+#define UNUSED_POINTS 15
 #define N_SECTOR 5
-#define MAX_LIDAR_DIST 80.0
 
 
 #include <CommBasicObjects/CommMobileLaserScan.hh>
@@ -52,10 +56,12 @@
 class AvoidanceAlgo
 {
 private:
-    double check_speed(double speed);
+	// Checks speed limits in rad/s
+    static double check_speed(double speed);
 
 public:
-    void runCycle(CommBasicObjects::CommMobileLaserScan scan,
+    // Calculates the linear velocity and turnrate according to sensor's information
+    static void run_cycle(CommBasicObjects::CommMobileLaserScan scan,
     		      double &out_speed, double &out_turnrate);
 };
 

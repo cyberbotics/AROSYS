@@ -40,16 +40,16 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 	std::cout << "NavigationVelocity - vY = "    << input.get_vY()   << std::endl;
 	std::cout << "NavigationVelocity - omega = " << input.getOmega() << std::endl;
 
-	const double vLeft  = input.get_vX();
-	const double vRight = input.get_vY();
-	const double omega  = input.get_omega();
+	//const double vLeft  = input.get_vX();
+	//const double vRight = input.get_vY();
+	//const double omega  = input.get_omega();
 
-	//PASS TO ComponentCore
+	// Get from the port and pass to ComponentWebotsSimulatorCore to be accessible
 	COMP->WebotsMutex.acquire();
 
-	COMP->velocityLeftWheel = vLeft;
-	COMP->velocityRightWheel= vRight;
-	COMP->omega = omega;
+	COMP->left_velocity  = input.get_vX();
+	COMP->right_velocity = input.get_vY(); // not sure if useful, need to be tested
+	COMP->turnrate       = input.get_omega();
 
 	COMP->WebotsMutex.release();
 

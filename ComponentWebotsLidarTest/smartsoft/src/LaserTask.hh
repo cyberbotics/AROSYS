@@ -23,6 +23,7 @@
 #include <webots/Lidar.hpp>
 
 // TODO: Try to get it from the world if possible
+// This parameter has to be the same in the ComponentWebotsSimulator
 #define TIME_STEP 64
 
 class LaserTask  : public LaserTaskCore

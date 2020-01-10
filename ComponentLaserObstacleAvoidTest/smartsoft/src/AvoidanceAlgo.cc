@@ -8,18 +8,20 @@
 #include <CommBasicObjects/CommMobileLaserScan.hh>
 #include <CommBasicObjects/CommNavigationVelocity.hh>
 
-
-double check_speed(double speed) {
+// Checks speed limits in rad/s
+double AvoidanceAlgo::check_speed(double speed) {
   if (speed > MAX_SPEED)
-    speed = MAX_SPEED;
+	  speed = MAX_SPEED;
+  if (speed < -MAX_SPEED)
+	  speed = -MAX_SPEED;
   return speed;
 }
 
-
-void AvoidanceAlgo::runCycle(CommBasicObjects::CommMobileLaserScan scan, double &out_speed, double &out_turnrate) {
-	CommBasicObjects::CommNavigationVelocity vel;
+// Calculates the linear velocity and turnrate according to sensor's information
+void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan, double &out_speed, double &out_turnrate) {
 
 	// Variables
+	CommBasicObjects::CommNavigationVelocity vel;
 	double new_speed = 0.0, left_speed = 0.0, right_speed = 0.0, new_turnrate = 0.0;
 	uint count = scan.get_scan_size();
 
@@ -29,9 +31,9 @@ void AvoidanceAlgo::runCycle(CommBasicObjects::CommMobileLaserScan scan, double 
 	for (int i = 0; i<N_SECTOR; i++)
 		sector_range[i] = UNUSED_POINTS + (i+1) * sector_size;
 
-	// Defines usefull points (above 80m/8.0 = 10m, points not used)
+	// Defines useful points (above 80m/8.0 = 10m, points not used)
 	const float max_range = MAX_LIDAR_DIST;
-	const double range_threshold = max_range / 8.0;
+	const double range_threshold = max_range / DIVISION_FACTOR;
 	const float *lidar_value = NULL;
 
 	// Initialize dynamic variables
@@ -57,6 +59,13 @@ void AvoidanceAlgo::runCycle(CommBasicObjects::CommMobileLaserScan scan, double 
 	front_obs /= sector_size;
 	front_right_obs /= sector_size;
 	right_obs /= sector_size;
+
+	std::cout << "   left_obs: " << left_obs 		<< std::endl;
+	std::cout << " f_left_obs: " << front_left_obs 	<< std::endl;
+	std::cout << "      f_obs: " << front_obs 		<< std::endl;
+	std::cout << "f_right_obs: " << front_right_obs << std::endl;
+	std::cout << "  right_obs: " << right_obs 		<< std::endl;
+
 
 	// Compute the speed according to the information on obstacles
 	// compute the speed according to the information on obstacles
@@ -97,6 +106,9 @@ void AvoidanceAlgo::runCycle(CommBasicObjects::CommMobileLaserScan scan, double 
 		right_speed = CRUISING_SPEED;
 	}
 
+	std::cout << " left_speed: " << left_speed  << std::endl;
+	std::cout << "right_speed: " << right_speed << std::endl;
+
 	// reset dynamic variables to zero
 	left_obs = 0.0;
 	front_left_obs = 0.0;
@@ -105,7 +117,7 @@ void AvoidanceAlgo::runCycle(CommBasicObjects::CommMobileLaserScan scan, double 
 	right_obs = 0.0;
 
 	// Send commands to the robot
-	out_speed = sqrt(left_speed*left_speed+right_speed*right_speed);
-	out_turnrate = (right_speed-left_speed);
+	out_speed = WHEEL_RADIUS*(right_speed+left_speed)/2.0;
+	out_turnrate = WHEEL_RADIUS*(right_speed-left_speed)/WHEEL_GAP;
 }
 

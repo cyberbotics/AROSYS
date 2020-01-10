@@ -16,7 +16,7 @@
 //--------------------------------------------------------------------------
 #include "RobotTask.hh"
 #include "ComponentLaserObstacleAvoidTest.hh"
-
+#include "AvoidanceAlgo.hh"
 #include <iostream>
 
 RobotTask::RobotTask(SmartACE::SmartComponent *comp) 
@@ -53,7 +53,6 @@ int RobotTask::on_execute()
 	// hence, NEVER use an infinite loop (like "while(1)") here inside!!!
 	// also do not use blocking calls which do not result from smartsoft kernel
 	
-
 	Smart::StatusCode status;
 
 	/////////////////////////////////////////////
@@ -83,8 +82,11 @@ int RobotTask::on_execute()
 
 	//////////////////////////////////////////////
 	// Do something with laserScan to get v and w
-	// runcycle
+	double velocity = 0.0;
+	double turnrate = 0.0;
+	AvoidanceAlgo::run_cycle(laserScan, velocity, turnrate);
 
+/*
 	// TEST => Worked
 		updateCounter++;
 		uint count = laserScan.get_scan_size();
@@ -96,45 +98,45 @@ int RobotTask::on_execute()
 		// Calculate v and w
 	// END TEST
 
-	//////////////////////////////////////////////
-	// Provide v and w to the service port
+//////////////////////////////////////////////
+// Provide v and w to the service port
 
-	// Check the speed limits
-	// threshold speed:
-	//if(velocity >  500) {velocity= 500; up = false;}  // { ,...} useless, just for test
-	//if(velocity < -500) {velocity=-500; up = true;}
-	//if(turnrate >  20)  {turnrate= 20;  up = false;}
-	//if(turnrate < -20)  {turnrate=-20;  up = true;}
+// Check the speed limits
+// threshold speed:
+//if(velocity >  500) {velocity= 500; up = false;}  // { ,...} useless, just for test
+//if(velocity < -500) {velocity=-500; up = true;}
+//if(turnrate >  20)  {turnrate= 20;  up = false;}
+//if(turnrate < -20)  {turnrate=-20;  up = true;}
 
-	if (up){  // useless, just for test
-		if (velocity>500) {
-			velocity= 500;
-			up = false;
-		}
-		else if (turnrate>20) {
-			turnrate= 20;
-			up = false;
-		}
-		else{
-			velocity +=10;
-			turnrate +=0.01;
-		}
+if (up){  // useless, just for test
+	if (velocity>500) {
+		velocity= 500;
+		up = false;
 	}
-	else{  // useless, just for test
-		if (velocity<-500) {
-			velocity=-500;
-			up = true;
-		}
-		else if (turnrate<-20) {
-			turnrate=-20;
-			up = true;
-		}
-		else{
-			velocity -=10;
-			turnrate -=0.01;
-		}
+	else if (turnrate>20) {
+		turnrate= 20;
+		up = false;
 	}
-
+	else{
+		velocity +=10;
+		turnrate +=0.01;
+	}
+}
+else{  // useless, just for test
+	if (velocity<-500) {
+		velocity=-500;
+		up = true;
+	}
+	else if (turnrate<-20) {
+		turnrate=-20;
+		up = true;
+	}
+	else{
+		velocity -=10;
+		turnrate -=0.01;
+	}
+}
+*/
 
 	// Create and fill the communication object
 	CommBasicObjects::CommNavigationVelocity navigationVelocity;
@@ -156,7 +158,7 @@ int RobotTask::on_execute()
 	else {
 		std::cout << "Sent navigation velocity " << navigationVelocity << std::endl;
 	}
-	//*/
+
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;

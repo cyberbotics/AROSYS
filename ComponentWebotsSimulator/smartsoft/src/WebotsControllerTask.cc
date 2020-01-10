@@ -35,7 +35,7 @@ int WebotsControllerTask::on_entry()
 {
 
 	// create Robot Instance
-	robot = new webots::Robot();
+	wb_robot = new webots::Robot();
 
 	// set Motors
 
@@ -58,75 +58,75 @@ int WebotsControllerTask::on_entry()
 	// }
 	// end of TODO
 
-	leftMotor = robot->getMotor("left wheel");
-	rightMotor = robot->getMotor("right wheel");
+	wb_left_motor  = wb_robot->getMotor("left wheel");
+	wb_right_motor = wb_robot->getMotor("right wheel");
 
-	leftMotor->setPosition(INFINITY);
-	rightMotor->setPosition(INFINITY);
+	wb_left_motor ->setPosition(INFINITY);
+	wb_right_motor->setPosition(INFINITY);
 
-	leftMotor->setVelocity(0);
-	rightMotor->setVelocity(0);
+	wb_left_motor ->setVelocity(0);
+	wb_right_motor->setVelocity(0);
 
 	return 0;
 }
 
-void checkVelocity(double& leftSpeed, double& rightSpeed){
-    if(-leftSpeed > MAX_SPEED){leftSpeed = -MAX_SPEED;}
-    if( leftSpeed > MAX_SPEED){leftSpeed =  MAX_SPEED;}
+void check_velocity(double& left_speed, double& right_speed){
+    if(-left_speed > MAX_SPEED) left_speed = -MAX_SPEED;
+    if( left_speed > MAX_SPEED) left_speed =  MAX_SPEED;
 
-    if(-rightSpeed > MAX_SPEED){rightSpeed = -MAX_SPEED;}
-    if( rightSpeed > MAX_SPEED){rightSpeed =  MAX_SPEED;}
+    if(-right_speed > MAX_SPEED) right_speed = -MAX_SPEED;
+    if( right_speed > MAX_SPEED) right_speed =  MAX_SPEED;
 }
 
-double normalizeBaseVelocity(double joyNavVal,double max_speed=MAX_SPEED){
-	joyNavVal=(joyNavVal*max_speed)/10;
-	return joyNavVal;
-}
 
 int WebotsControllerTask::on_execute()
 {
 	// this method is called from an outside loop,
 	// hence, NEVER use an infinite loop (like "while(1)") here inside!!!
 	// also do not use blocking calls which do not result from smartsoft kernel
+
 	std::cout << "Hello from WebotsControllerTask " << std::endl;
-	double omega;
-	double leftSpeed;
-	double rightSpeed;
 
-
-
-	COMP->WebotsMutex.acquire();
+	double speed = 0.0;
+	double omega = 0.0;
+	double left_speed  = 0.0;
+	double right_speed = 0.0;
 
 	// Acquisition
-	omega     = COMP->omega;
-    leftSpeed = normalizeBaseVelocity(COMP->velocityLeftWheel);
+	COMP->WebotsMutex.acquire();
+	omega = COMP->turnrate;
+	// TODO: See if there is a need of having speed_l/r
+    speed = COMP->left_velocity;
 
-    // Set velocities and check limits
-    rightSpeed = leftSpeed - omega;
-    leftSpeed  = leftSpeed + omega;
-    checkVelocity(leftSpeed,rightSpeed);
+    // Set velocities in rad/s for motors and check limits
+    right_speed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
+    left_speed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
+    check_velocity(left_speed, right_speed);
 
     //Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
     //otherwise the values will not be updated
-    if (robot->step(TIME_STEP) != -1) {
+    if (wb_robot->step(TIME_STEP) != -1) {
 
     	// pass values to motors
-    	leftMotor  -> setVelocity(leftSpeed);
-    	rightMotor -> setVelocity(rightSpeed);
-    	std::cout  << "leftSpeed  : " << leftSpeed  << std::endl;
-    	std::cout  << "rightSpeed : " << rightSpeed << std::endl;
-    	std::cout  << "omega      : " << omega      << std::endl;
+    	wb_left_motor  -> setVelocity(left_speed);
+    	wb_right_motor -> setVelocity(right_speed);
+    	std::cout  << "left_speed  : " << left_speed  << std::endl;
+    	std::cout  << "right_speed : " << right_speed << std::endl;
+    	std::cout  << "omega       : " << omega       << std::endl;
 
     }
 
+    // Release
     COMP->WebotsMutex.release();
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;
 }
+
+
 int WebotsControllerTask::on_exit()
 {
-	delete robot;
+	delete wb_robot;
 
 	// use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
 	return 0;

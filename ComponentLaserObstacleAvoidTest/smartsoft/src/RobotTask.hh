@@ -22,7 +22,7 @@
 class RobotTask  : public RobotTaskCore
 {
 private:
-	bool up = true;   // useless, just for test
+	//bool up = true;   // useless, just for test
 	CommBasicObjects::CommMobileLaserScan laserScan;
 	double velocity = 0.0;
 	double turnrate = 0.0;
