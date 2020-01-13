@@ -31,11 +31,14 @@ std::cout << "count: " << count << std::endl;
   int sector_range[N_SECTOR] = {0};
   int sector_size = (count - 2.0 * UNUSED_POINT - 1.0) / N_SECTOR; //29
 std::cout << "sector_size: " << sector_size << std::endl;
-  for (int i = 0; i < N_SECTOR; i++)
-    sector_range[i] = UNUSED_POINT + (i + 1) * sector_size;
+  for (int i = 0; i < N_SECTOR; i++){
+    int temp = UNUSED_POINT + (i + 1) * sector_size;
+    std::cout << "sector range["<<i<<"] = " << temp << std::endl;
+    sector_range[i] = temp;
+  }
 
   // defines usefull points (above 80m / 8.0 = 10m, points not used)
-  const float max_range = MAX_LIDAR_DIST*UNIT_FACTOR; // 80000mm ? *UNIT_FACTOR
+  const float max_range = MAX_LIDAR_DIST*UNIT_FACTOR;
 std::cout << "max_range: " << max_range << std::endl;
 
   const double range_threshold = max_range / 8.0; // 10000mm
@@ -55,11 +58,11 @@ for (int i = UNUSED_POINT; i < count - UNUSED_POINT - 1; ++i) {
 	if (dist < range_threshold) {
 		std::cout << " " << std::endl;
 		std::cout << "["<< i<<"] dist: " << dist << std::endl;
-    if                         (i < sector_range[0])	left_obstacle 		   += (1.0 - dist / max_range);
-    if (sector_range[0] <= i && i < sector_range[1])	front_left_obstacle  += (1.0 - dist / max_range);
-    if (sector_range[1] <= i && i < sector_range[2])	front_obstacle 		   += (1.0 - dist / max_range);
-    if (sector_range[2] <= i && i < sector_range[3])	front_right_obstacle += (1.0 - dist / max_range);
-    if (sector_range[3] <= i && i < sector_range[4]+1)	right_obstacle 		 += (1.0 - dist / max_range);
+    if                         (i < sector_range[0])	  left_obstacle 		   += (1.0 - dist / max_range);
+    if (sector_range[0] <= i && i < sector_range[1])	  front_left_obstacle  += (1.0 - dist / max_range);
+    if (sector_range[1] <= i && i < sector_range[2])	  front_obstacle 		   += (1.0 - dist / max_range);
+    if (sector_range[2] <= i && i < sector_range[3])	  front_right_obstacle += (1.0 - dist / max_range);
+    if (sector_range[3] <= i && i < sector_range[4]+1)	right_obstacle 		   += (1.0 - dist / max_range);
   }
 }
 std::cout << " " << std::endl;
@@ -123,8 +126,10 @@ std::cout << "  right_obs: " << right_obstacle 		<< std::endl;
     right_speed = CRUISING_SPEED;
   }
 
+  std::cout << " " << std::endl;
 	std::cout << " left_speed: " << left_speed  << std::endl;
 	std::cout << "right_speed: " << right_speed << std::endl;
+  std::cout << " " << std::endl;
 
 	// reset dynamic variables to zero
   left_obstacle = 0.0;
