@@ -1,9 +1,5 @@
 ComponentDefinition ComponentWebotsLidarTest logo "/ComponentWebotsLidarTest/model/logo.png"
 {
-	AnswerPort laserQueryServer implements CommBasicObjects.LaserQueryService {
-	}
-	RequestHandler laserQueryServerHandler triggeredFrom laserQueryServer {
-	}
 	Activity LaserTask
 	{
 	}
