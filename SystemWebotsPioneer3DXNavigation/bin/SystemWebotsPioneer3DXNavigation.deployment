@@ -1,3 +1,10 @@
 DeploymentModel SystemWebotsPioneer3DXNavigation using ComponentArchitecture SystemWebotsPioneer3DXNavigation
 {
+TargetPlatformReference PC1 using SystemWebotsPioneer3DXNavigation.PC1
+	{
+		UploadDirectory "/tmp"
+		NetworkInterface eth1
+	}
+	ComponentArtefact ComponentWebots deploy-to PC1
+	ComponentArtefact ComponentWebotsLidarTest deploy-to PC1
 }

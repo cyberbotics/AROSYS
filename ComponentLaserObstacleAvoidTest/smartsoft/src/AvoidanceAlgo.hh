@@ -33,21 +33,24 @@
 #ifndef SIMPLE_AVOID_HH
 #define SIMPLE_AVOID_HH
 
-// These 4 parameters have to be the same in the ComponentWebotsSimulator
+// These parameters have to be consistent with the robot used
 #define MAX_LIDAR_DIST 80.0 // in meter
+#define MAX_SPEED 12.3      // in rad/s
 #define WHEEL_GAP 0.269     // in meter
 #define WHEEL_RADIUS 0.0975 // in meter
-#define MAX_SPEED 12.3      // in rad/s
+#define CRUISING_SPEED 5.0  // in rad/s
 
-#define CRUISING_SPEED 2.5     // in rad/s
-#define NEAR_OBSTACLE_THRESHOLD 0.8 // in %, 1 = nothing, 0= stuck in obstacle
-#define FAR_OBSTACLE_THRESHOLD 0.4  // in %, 1 = nothing, 0= stuck in obstacle
+// Parameters that can be modified
+#define N_SECTOR 5
+#define UNUSED_POINT 15
+#define DIST_THRESHOLD 5.0  // in meter
+
+// Tuning parameters
+#define FAR 0.4
+#define NEAR 0.75
+#define M_TO_CM 100.0 // convert meter to cm
 #define FAST_DECREASE_FACTOR 0.9
 #define SLOW_DECREASE_FACTOR 0.5
-#define DIVISION_FACTOR 8.0
-#define UNIT_FACTOR 1000.0 // to pass from meter to mm
-#define UNUSED_POINT 15
-#define N_SECTOR 5
 
 
 #include <CommBasicObjects/CommMobileLaserScan.hh>
@@ -56,12 +59,13 @@
 
 class AvoidanceAlgo
 {
+
 private:
 	// Checks speed limits in rad/s
     static double check_speed(double speed);
 
 public:
-    // Calculates the linear velocity and turnrate according to sensor's information
+    // Calculates the linear velocity and turnrate according to sensor's data
     static void run_cycle(CommBasicObjects::CommMobileLaserScan scan,
     		      double &out_speed, double &out_turnrate);
 };

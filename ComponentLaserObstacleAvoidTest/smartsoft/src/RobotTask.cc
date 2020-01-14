@@ -55,10 +55,9 @@ int RobotTask::on_execute()
 
 	Smart::StatusCode status;
 
-	/////////////////////////////////////////////
-	// to get the incoming data, use this methods:
+	//std::cout << "Hello from RobotTask" << std::endl;
 
-	// get laser scan:
+	// Get laser scan from the port
 	status = COMP->laserServiceIn->getUpdateWait(laserScan);
 
 	// Check if the transmission worked
@@ -76,98 +75,37 @@ int RobotTask::on_execute()
 	else
 		std::cout << "LaserScan received" << std::endl;
 
-
-
-	std::cout << "Hello from RobotTask TEST" << std::endl;
-
-	//////////////////////////////////////////////
-	// Do something with laserScan to get v and w
+	// Using laser scan compute v and w
 	double velocity = 0.0;
 	double turnrate = 0.0;
 	AvoidanceAlgo::run_cycle(laserScan, velocity, turnrate);
 
-/*
-	// TEST => Worked
-		updateCounter++;
-		uint count = laserScan.get_scan_size();
-		for (uint j=0; j < count; ++j) {
-			if (laserScan.get_scan_distance(j) > 0.0)
-			std::cout << "2OBS["<< j << "] dist: " << laserScan.get_scan_distance(j) << std::endl;
-		}
-
-		// Calculate v and w
-	// END TEST
-
-//////////////////////////////////////////////
-// Provide v and w to the service port
-
-// Check the speed limits
-// threshold speed:
-//if(velocity >  500) {velocity= 500; up = false;}  // { ,...} useless, just for test
-//if(velocity < -500) {velocity=-500; up = true;}
-//if(turnrate >  20)  {turnrate= 20;  up = false;}
-//if(turnrate < -20)  {turnrate=-20;  up = true;}
-
-if (up){  // useless, just for test
-	if (velocity>500) {
-		velocity= 500;
-		up = false;
-	}
-	else if (turnrate>20) {
-		turnrate= 20;
-		up = false;
-	}
-	else{
-		velocity +=10;
-		turnrate +=0.01;
-	}
-}
-else{  // useless, just for test
-	if (velocity<-500) {
-		velocity=-500;
-		up = true;
-	}
-	else if (turnrate<-20) {
-		turnrate=-20;
-		up = true;
-	}
-	else{
-		velocity -=10;
-		turnrate -=0.01;
-	}
-}
-*/
-
-	// TODO: Remove the following 2 lines. Used to check lidar's value
-	//velocity = 0.0;
-	//turnrate = 0.0;
-
-
-	// Create and fill the communication object
+	// Create and fill the communication object for v and w
 	CommBasicObjects::CommNavigationVelocity navigationVelocity;
 	navigationVelocity.set_vX(velocity, 0.001);
 	navigationVelocity.set_omega(turnrate);
 
-	std::cout << "1_Velocity : " << velocity << std::endl;
-	std::cout << "1_Turnrate : " << turnrate << std::endl;
+	//std::cout << "Velocity : " << velocity << std::endl;
+	//std::cout << "Turnrate : " << turnrate << std::endl;
 
-	// Provide result to output port, thereby command the robot:
+	// Provide result to output port
 	status = this->navigationVelocityServiceOutPut(navigationVelocity);
 
 	// Check if the transmission worked
 	if(status != Smart::SMART_OK) {
 		std::cerr << status << std::endl;
-		std::cout << "Error providing navigation velocity: " << status << std::endl;
+		std::cout << "Error providing navigation command: " << status << std::endl;
 		sleep(1);
 	}
-	else {
-		std::cout << "Sent navigation velocity " << navigationVelocity << std::endl;
-	}
+	else
+		std::cout << "Navigation commands sent" << navigationVelocity << std::endl;
 
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;
 }
+
+
 int RobotTask::on_exit()
 {
 	// use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again

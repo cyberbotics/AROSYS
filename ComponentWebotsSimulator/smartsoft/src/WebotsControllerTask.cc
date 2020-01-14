@@ -34,7 +34,6 @@ WebotsControllerTask::~WebotsControllerTask()
 }
 
 
-
 int WebotsControllerTask::on_entry()
 {
 
@@ -81,26 +80,26 @@ int WebotsControllerTask::on_execute()
 
 	// Acquisition
 	COMP->WebotsMutex.acquire();
+
+	// Get values from port
 	omega = COMP->turnrate;
-	// TODO: See if there is a need of having speed_l/r
     speed = COMP->left_velocity;
 
     // Set velocities in rad/s for motors and check limits
     right_speed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
-    left_speed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
+    left_speed = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
     check_velocity(left_speed, right_speed);
 
-    //Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
+	//std::cout  << "left_speed  : " << left_speed  << std::endl;
+	//std::cout  << "right_speed : " << right_speed << std::endl;
+	//std::cout  << "omega       : " << omega       << std::endl;
+
+    // Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
     //otherwise the values will not be updated
     if (wb_robot->step(wb_time_step) != -1) {
-
-    	// pass values to motors
-    	wb_left_motor  -> setVelocity(left_speed);
-    	wb_right_motor -> setVelocity(right_speed);
-    	//std::cout  << "left_speed  : " << left_speed  << std::endl;
-    	//std::cout  << "right_speed : " << right_speed << std::endl;
-    	//std::cout  << "omega       : " << omega       << std::endl;
-
+    	// Pass values to motors in Webots side
+    	wb_left_motor->setVelocity(left_speed);
+    	wb_right_motor->setVelocity(right_speed);
     }
 
     // Release

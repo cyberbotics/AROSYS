@@ -66,20 +66,17 @@ int LaserTask::on_entry()
 	wb_lidar->enable(wb_time_step);
 	wb_lidar->enablePointCloud();
 
-	// Set Webots sensor's properties to CommMobileLaserScan model
+	// Set Webots sensor's properties to SmartMDSD model
 	// Useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
-	// --- Properties
 	scan_count = 0;
 	wb_h_res = wb_lidar->getHorizontalResolution();
+	num_valid_points = wb_lidar->getNumberOfPoints();
+	scan.set_scan_size(num_valid_points);
 	scan.set_scan_update_count(scan_count);
 	scan.set_scan_integer_field_of_view(-wb_h_res*UNIT_FACTOR/2.0, wb_h_res*UNIT_FACTOR);
 	scan.set_min_distance(wb_lidar->getMinRange()*M_TO_CM);
 	scan.set_max_distance(wb_lidar->getMaxRange()*M_TO_CM);
 	scan.set_scan_length_unit(MEASURE_UNIT);
-
-	// --- Points
-	num_valid_points = wb_lidar->getNumberOfPoints();
-	scan.set_scan_size(num_valid_points);
 
 	return 0;
 }
@@ -95,33 +92,27 @@ int LaserTask::on_execute()
     //otherwise the values will not be updated
 	if (wb_robot->step(wb_time_step) != -1) {
 
-		// --- Time settings
+		// Time settings and update scan count
 		timeval _receive_time;
 		gettimeofday(&_receive_time, 0);
 		scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receive_time));
-
-		// Get sensor's values using the DomainModel
 		scan.set_scan_update_count(scan_count);
-		//unsigned int num_valid_points = wb_lidar->getNumberOfPoints();
-		//scan.set_scan_size(num_valid_points);
 
-		// Create an array of Lidar's values
+		// Get sensor's values from Webots side
 		const float *rangeImageVector;
 		rangeImageVector = (const float *)(void *)wb_lidar->getRangeImage(); // in m
 
-		// Pass Lidar's values to CommMobileLaserScan
+		// Pass sensor's values to SmartMDSD side
 		for(unsigned int i=0; i<num_valid_points; ++i)
 		{
 			unsigned int dist = (unsigned int)(rangeImageVector[i]*100.0); // in cm due to LaserScanPoint structure definition
 			scan.set_scan_index(i, i);
 			scan.set_scan_integer_distance(i, dist); // in cm due to LaserScanPoint structure definition
-			if(i%2==0)
-				std::cout << "LID["<< i << "] dist: " << scan.get_scan_distance(i) << " - " << rangeImageVector[i] << std::endl;
 		}
 		scan.set_scan_valid(true);
 	}
 
-	// Send LaserScan out
+	// Send out laser scan through port
     laserServiceOutPut(scan);
     ++scan_count;
     scan.set_scan_valid(false);

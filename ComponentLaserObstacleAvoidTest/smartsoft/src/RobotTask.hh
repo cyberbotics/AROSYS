@@ -21,12 +21,13 @@
 
 class RobotTask  : public RobotTaskCore
 {
+
 private:
-	//bool up = true;   // useless, just for test
-	CommBasicObjects::CommMobileLaserScan laserScan;
+	int updateCounter = 0;
 	double velocity = 0.0;
 	double turnrate = 0.0;
-	int updateCounter;
+	CommBasicObjects::CommMobileLaserScan laserScan;
+
 	virtual void on_LaserServiceIn(const CommBasicObjects::CommMobileLaserScan &input);
 
 public:

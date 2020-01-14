@@ -21,17 +21,13 @@
 
 #include <webots/Motor.hpp>
 #include <webots/Robot.hpp>
-#include <webots/Lidar.hpp>
 
 
-// These 4 parameters have to be the same in the ComponentWebotsSimulator
-#define MAX_LIDAR_DIST 80.0 // in meter
+// These parameters have to be consistent with the robot used
 #define WHEEL_GAP 0.269     // in meter
 #define WHEEL_RADIUS 0.0975 // in meter
 #define MAX_SPEED 12.3      // in rad/s
 
-// This parameter has to be the same in the ComponentWebotsLidar
-#define TIME_STEP 64
 
 class WebotsControllerTask  : public WebotsControllerTaskCore
 {
@@ -41,7 +37,6 @@ private:
 	webots::Robot *wb_robot;
 	webots::Motor *wb_right_motor;
 	webots::Motor *wb_left_motor;
-	webots::Lidar *wb_lidar;
 
 
 public:
