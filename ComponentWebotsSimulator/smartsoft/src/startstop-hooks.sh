@@ -29,7 +29,6 @@ post-stop)
 	# Close Webots windows
 	echo " Webots is closing..."
 	killall webots
-	echo " Webots is closed."
 ;;
 
 *)

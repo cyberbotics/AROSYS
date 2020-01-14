@@ -19,6 +19,10 @@
 
 #include <iostream>
 
+#include <webots/Device.hpp>
+#include <webots/Node.hpp>
+
+
 PioneerTask::PioneerTask(SmartACE::SmartComponent *comp) 
 :	PioneerTaskCore(comp)
 {
@@ -29,13 +33,13 @@ PioneerTask::~PioneerTask()
 	std::cout << "destructor PioneerTask\n";
 }
 
-// MAX_SPEED AVEC DES FONCTIONS
-void check_velocity(double& left_speed, double& right_speed){
-    if(-left_speed > MAX_SPEED) left_speed = -MAX_SPEED;
-    if( left_speed > MAX_SPEED) left_speed =  MAX_SPEED;
 
-    if(-right_speed > MAX_SPEED) right_speed = -MAX_SPEED;
-    if( right_speed > MAX_SPEED) right_speed =  MAX_SPEED;
+void check_velocity(double& left_speed, double& right_speed, double max_speed){
+    if(-left_speed > max_speed)  left_speed  = -max_speed;
+    if( left_speed > max_speed)  left_speed  =  max_speed;
+
+    if(-right_speed > max_speed) right_speed = -max_speed;
+    if( right_speed > max_speed) right_speed =  max_speed;
 }
 
 int PioneerTask::on_entry()
@@ -47,27 +51,10 @@ int PioneerTask::on_entry()
 	// create Robot Instance
 	wb_robot = new webots::Robot();
 
-	// set Motors
+	// Get timestep from the world
+	wb_time_step = wb_robot->getBasicTimeStep();
 
-	// TODO: Update this code to be more generic
-	// int n_devices = wb_robot_get_number_of_devices();
-	// int i;
-	// for(i=0; i<n_devices; i++) {
-	// 	WbDeviceTag tag = wb_robot_get_device_by_index(i);
-	//
-	//	const char *name = wb_device_get_name(tag);
-	//	wbNodeType type = wb_device_get_node_type(tag);
-	//
-	//	// do something with the device
-	//	printf("Device #%d name = %s\n", i, name);
-	//
-	//	if (type == WB_NODE_ROTATIONAL_MOTOR){
-	//		// do something with the MOTOR
-	// 		printf("Device #%d is a rotational motor\n", i);
-	//	}
-	// }
-	// end of TODO
-
+	// set Motors (name from PROTO definition in Webots)
 	wb_left_motor  = wb_robot->getMotor("left wheel");
 	wb_right_motor = wb_robot->getMotor("right wheel");
 
@@ -76,6 +63,8 @@ int PioneerTask::on_entry()
 
 	wb_left_motor ->setVelocity(0);
 	wb_right_motor->setVelocity(0);
+
+	motor_max_speed = wb_left_motor->getMaxVelocity(); // in rad/s
 
 	return 0;
 }
@@ -95,19 +84,20 @@ int PioneerTask::on_execute()
 	double right_speed = 0.0;
 
 	// Acquisition
-	COMP->WebotsMutex.acquire();
+	COMP->PioneerMutex.acquire();
 	omega = COMP->turnrate;
+
 	// TODO: See if there is a need of having speed_l/r
 	speed = COMP->left_velocity;
 
 	// Set velocities in rad/s for motors and check limits
 	right_speed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
 	left_speed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
-	check_velocity(left_speed, right_speed);
+	check_velocity(left_speed, right_speed, motor_max_speed);
 
 	//Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
 	//otherwise the values will not be updated
-	if (wb_robot->step(TIME_STEP) != -1) {
+	if (wb_robot->step(wb_time_step) != -1) {
 
 		// pass values to motors
 		wb_left_motor  -> setVelocity(left_speed);
@@ -119,7 +109,7 @@ int PioneerTask::on_execute()
 	}
 
 	// Release
-	COMP->WebotsMutex.release();
+	COMP->PioneerMutex.release();
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;

@@ -35,10 +35,10 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 	// (do not use blocking calls here, otherwise this might block the InputPort NavigationVelocityServiceIn)
 
 	// print output
-	std::cout << "NavigationVelocity - input = " << input            << std::endl;
-	std::cout << "NavigationVelocity - vX = "    << input.get_vX()   << std::endl;
-	std::cout << "NavigationVelocity - vY = "    << input.get_vY()   << std::endl;
-	std::cout << "NavigationVelocity - omega = " << input.getOmega() << std::endl;
+	//std::cout << "NavigationVelocity - input = " << input            << std::endl;
+	//std::cout << "NavigationVelocity - vX = "    << input.get_vX()   << std::endl;
+	//std::cout << "NavigationVelocity - vY = "    << input.get_vY()   << std::endl;
+	//std::cout << "NavigationVelocity - omega = " << input.getOmega() << std::endl;
 
 	//const double vLeft  = input.get_vX();
 	//const double vRight = input.get_vY();

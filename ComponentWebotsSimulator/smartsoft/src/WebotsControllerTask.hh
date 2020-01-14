@@ -37,6 +37,7 @@ class WebotsControllerTask  : public WebotsControllerTaskCore
 {
 
 private:
+	int wb_time_step;
 	webots::Robot *wb_robot;
 	webots::Motor *wb_right_motor;
 	webots::Motor *wb_left_motor;

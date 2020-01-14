@@ -20,7 +20,7 @@
 #include <iostream>
 #include <cstdint>
 #include <climits>
-//#include <string>
+
 #include <webots/Device.hpp>
 #include <webots/Node.hpp>
 

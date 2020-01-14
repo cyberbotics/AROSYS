@@ -23,26 +23,22 @@
 #include <webots/Robot.hpp>
 #include <webots/Lidar.hpp>
 
-// TODO: MODIFIER
-// These 4 parameters have to be the same in the ComponentWebotsSimulator
-#define MAX_LIDAR_DIST 80.0 // in meter
-#define WHEEL_GAP 0.269     // in meter
+// Pioneer 3-DX specification
+#define WHEEL_GAP    0.269  // in meter
 #define WHEEL_RADIUS 0.0975 // in meter
-#define MAX_SPEED 12.3      // in rad/s
 
-// TODO: RENDRE GENERIC
-// This parameter has to be the same in the ComponentWebotsLidar
-#define TIME_STEP 64
 
 class PioneerTask  : public PioneerTaskCore
 {
 
 private:
 	// TODO: ADAPTER
+	int wb_time_step;
+	double motor_max_speed; // in rad/s
 	webots::Robot *wb_robot;
 	webots::Motor *wb_right_motor;
 	webots::Motor *wb_left_motor;
-	webots::Lidar *wb_lidar;
+
 
 public:
 	PioneerTask(SmartACE::SmartComponent *comp);

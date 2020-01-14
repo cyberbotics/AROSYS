@@ -26,7 +26,7 @@ private:
 
 public:
 	ComponentWebotsPioneer3DXCore();
-	SmartACE::SmartMutex WebotsMutex;
+	SmartACE::SmartMutex PioneerMutex;
 	double right_velocity;
 	double left_velocity;
 	double turnrate;

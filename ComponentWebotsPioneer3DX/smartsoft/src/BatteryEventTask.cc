@@ -46,7 +46,7 @@ int BatteryEventTask::on_execute()
 	// to get the incoming data, use this methods:
 	Smart::StatusCode status;
 
-	std::cout << "Hello from BatteryEventTask " << std::endl;
+	//std::cout << "Hello from BatteryEventTask " << std::endl;
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;

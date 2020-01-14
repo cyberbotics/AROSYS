@@ -19,6 +19,10 @@
 
 #include <iostream>
 
+#include <webots/Device.hpp>
+#include <webots/Node.hpp>
+
+
 WebotsControllerTask::WebotsControllerTask(SmartACE::SmartComponent *comp) 
 :	WebotsControllerTaskCore(comp)
 {
@@ -37,27 +41,10 @@ int WebotsControllerTask::on_entry()
 	// create Robot Instance
 	wb_robot = new webots::Robot();
 
+	// Get timestep from the world
+	wb_time_step = wb_robot->getBasicTimeStep();
+
 	// set Motors
-
-	// TODO: Update this code to be more generic
-	// int n_devices = wb_robot_get_number_of_devices();
-	// int i;
-	// for(i=0; i<n_devices; i++) {
-	// 	WbDeviceTag tag = wb_robot_get_device_by_index(i);
-	//
-	//	const char *name = wb_device_get_name(tag);
-	//	wbNodeType type = wb_device_get_node_type(tag);
-	//
-	//	// do something with the device
-	//	printf("Device #%d name = %s\n", i, name);
-	//
-	//	if (type == WB_NODE_ROTATIONAL_MOTOR){
-	//		// do something with the MOTOR
-	// 		printf("Device #%d is a rotational motor\n", i);
-	//	}
-	// }
-	// end of TODO
-
 	wb_left_motor  = wb_robot->getMotor("left wheel");
 	wb_right_motor = wb_robot->getMotor("right wheel");
 
@@ -85,7 +72,7 @@ int WebotsControllerTask::on_execute()
 	// hence, NEVER use an infinite loop (like "while(1)") here inside!!!
 	// also do not use blocking calls which do not result from smartsoft kernel
 
-	std::cout << "Hello from WebotsControllerTask " << std::endl;
+	//std::cout << "Hello from WebotsControllerTask " << std::endl;
 
 	double speed = 0.0;
 	double omega = 0.0;
@@ -105,14 +92,14 @@ int WebotsControllerTask::on_execute()
 
     //Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
     //otherwise the values will not be updated
-    if (wb_robot->step(TIME_STEP) != -1) {
+    if (wb_robot->step(wb_time_step) != -1) {
 
     	// pass values to motors
     	wb_left_motor  -> setVelocity(left_speed);
     	wb_right_motor -> setVelocity(right_speed);
-    	std::cout  << "left_speed  : " << left_speed  << std::endl;
-    	std::cout  << "right_speed : " << right_speed << std::endl;
-    	std::cout  << "omega       : " << omega       << std::endl;
+    	//std::cout  << "left_speed  : " << left_speed  << std::endl;
+    	//std::cout  << "right_speed : " << right_speed << std::endl;
+    	//std::cout  << "omega       : " << omega       << std::endl;
 
     }
 
