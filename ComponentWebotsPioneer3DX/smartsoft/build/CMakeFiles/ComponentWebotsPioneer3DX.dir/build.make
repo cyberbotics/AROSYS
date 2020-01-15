@@ -81,33 +81,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o.provides:
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o.provides.build: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o
 
 
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o: ../src/PioneerTask.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTask.cc
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTask.cc > CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.i
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTask.cc -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.s
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o.requires:
-
-.PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o.requires
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o.provides: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o.requires
-	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o.provides.build
-.PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o.provides
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o.provides.build: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o
-
-
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o: ../src/LocalizationUpdateHandler.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/LocalizationUpdateHandler.cc
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.i: cmake_force
@@ -131,7 +107,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o.prov
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o: ../src/SmartStateChangeHandler.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/SmartStateChangeHandler.cc
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.i: cmake_force
@@ -155,7 +131,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o.provid
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o: ../src/ComponentWebotsPioneer3DXCore.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/ComponentWebotsPioneer3DXCore.cc
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.i: cmake_force
@@ -179,7 +155,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o.
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o: ../src/CompHandler.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/CompHandler.cc
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.i: cmake_force
@@ -199,6 +175,30 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o.provides: CMakeFil
 .PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o.provides
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o.provides.build: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o
+
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o: ../src/Pioneer3DXTask.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTask.cc
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTask.cc > CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.i
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTask.cc -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.s
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o.requires:
+
+.PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o.requires
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o.provides: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o.requires
+	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o.provides.build
+.PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o.provides
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o.provides.build: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o
 
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventTask.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
@@ -513,9 +513,33 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o.provi
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o.provides.build: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o
 
 
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o: ../src-gen/Pioneer3DXTaskCore.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTaskCore.cc
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTaskCore.cc > CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.i
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTaskCore.cc -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.s
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o.requires:
+
+.PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o.requires
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o.provides: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o.requires
+	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o.provides.build
+.PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o.provides
+
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o.provides.build: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o
+
+
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o: ../src-gen/NavigationVelocityHandlerCore.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/NavigationVelocityHandlerCore.cc
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.i: cmake_force
@@ -535,30 +559,6 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.c
 .PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o.provides
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o.provides.build: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o
-
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o: ../src-gen/PioneerTaskCore.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o -c /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTaskCore.cc
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTaskCore.cc > CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.i
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTaskCore.cc -o CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.s
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o.requires:
-
-.PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o.requires
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o.provides: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o.requires
-	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o.provides.build
-.PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o.provides
-
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o.provides.build: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o
 
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXImpl.cc.o: CMakeFiles/ComponentWebotsPioneer3DX.dir/flags.make
@@ -612,11 +612,11 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DX.cc.o.
 # Object files for target ComponentWebotsPioneer3DX
 ComponentWebotsPioneer3DX_OBJECTS = \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o" \
-"CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o" \
+"CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventTask.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventServiceOutEventTestHandler.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BaseStateQueryHandler.cc.o" \
@@ -630,8 +630,8 @@ ComponentWebotsPioneer3DX_OBJECTS = \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/LocalizationUpdateHandlerCore.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityServiceInUpcallManager.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o" \
+"CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o" \
-"CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXImpl.cc.o" \
 "CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DX.cc.o"
 
@@ -639,11 +639,11 @@ ComponentWebotsPioneer3DX_OBJECTS = \
 ComponentWebotsPioneer3DX_EXTERNAL_OBJECTS =
 
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o
-ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o
+ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventTask.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventServiceOutEventTestHandler.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BaseStateQueryHandler.cc.o
@@ -657,8 +657,8 @@ ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Base
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/LocalizationUpdateHandlerCore.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityServiceInUpcallManager.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o
+ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o
-ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXImpl.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DX.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make
@@ -679,11 +679,11 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/build: ComponentWebotsPioneer3DX
 .PHONY : CMakeFiles/ComponentWebotsPioneer3DX.dir/build
 
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o.requires
-CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/LocalizationUpdateHandler.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ComponentWebotsPioneer3DXCore.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o.requires
+CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventTask.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventServiceOutEventTestHandler.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BaseStateQueryHandler.cc.o.requires
@@ -697,8 +697,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPio
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/LocalizationUpdateHandlerCore.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityServiceInUpcallManager.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o.requires
+CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityHandlerCore.cc.o.requires
-CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXImpl.cc.o.requires
 CMakeFiles/ComponentWebotsPioneer3DX.dir/requires: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DX.cc.o.requires
 

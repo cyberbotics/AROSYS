@@ -50,6 +50,7 @@ set(WEBOTS ${CMAKE_SHARED_LIBRARY_PREFIX}Controller${CMAKE_SHARED_LIBRARY_SUFFIX
 
 
 INCLUDE(${CMAKE_CURRENT_LIST_DIR}/src-gen/MixedPortIncludes.cmake)
+
 # these are the regular includes (add your own includes, if needed)
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_LIST_DIR}/src

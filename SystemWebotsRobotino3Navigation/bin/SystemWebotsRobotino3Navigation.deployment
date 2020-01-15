@@ -1,0 +1,15 @@
+DeploymentModel SystemWebotsRobotino3Navigation using ComponentArchitecture SystemWebotsRobotino3Navigation
+{
+TargetPlatformReference PC1 using SystemWebotsRobotino3Navigation.PC1
+	{
+		UploadDirectory "/tmp"
+		NetworkInterface eth1
+	}
+	NamingService
+	{
+		deploy-to PC1 }
+	ComponentArtefact ComponentLaserObstacleAvoidTest deploy-to PC1
+	ComponentArtefact ComponentWebots deploy-to PC1
+	ComponentArtefact ComponentWebotsLidarTest deploy-to PC1
+	ComponentArtefact ComponentWebotsRobotino3 deploy-to PC1
+}

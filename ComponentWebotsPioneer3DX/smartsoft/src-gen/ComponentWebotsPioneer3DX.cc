@@ -50,8 +50,8 @@ ComponentWebotsPioneer3DX::ComponentWebotsPioneer3DX()
 	navigationVelocityServiceIn = NULL;
 	navigationVelocityServiceInInputTaskTrigger = NULL;
 	navigationVelocityServiceInUpcallManager = NULL;
-	pioneerTask = NULL;
-	pioneerTaskTrigger = NULL;
+	pioneer3DXTask = NULL;
+	pioneer3DXTaskTrigger = NULL;
 	stateChangeHandler = NULL;
 	stateSlave = NULL;
 	wiringSlave = NULL;
@@ -79,12 +79,12 @@ ComponentWebotsPioneer3DX::ComponentWebotsPioneer3DX()
 	connections.batteryEventTask.scheduler = "DEFAULT";
 	connections.batteryEventTask.priority = -1;
 	connections.batteryEventTask.cpuAffinity = -1;
-	connections.pioneerTask.minActFreq = 0.0;
-	connections.pioneerTask.maxActFreq = 0.0;
+	connections.pioneer3DXTask.minActFreq = 0.0;
+	connections.pioneer3DXTask.maxActFreq = 0.0;
 	// scheduling default parameters
-	connections.pioneerTask.scheduler = "DEFAULT";
-	connections.pioneerTask.priority = -1;
-	connections.pioneerTask.cpuAffinity = -1;
+	connections.pioneer3DXTask.scheduler = "DEFAULT";
+	connections.pioneer3DXTask.priority = -1;
+	connections.pioneer3DXTask.cpuAffinity = -1;
 	connections.localizationUpdateHandler.prescale = 1;
 	connections.navigationVelocityHandler.prescale = 1;
 	
@@ -154,19 +154,19 @@ void ComponentWebotsPioneer3DX::startAllTasks() {
 	} else {
 		batteryEventTask->start();
 	}
-	// start task PioneerTask
-	if(connections.pioneerTask.scheduler != "DEFAULT") {
-		ACE_Sched_Params pioneerTask_SchedParams(ACE_SCHED_OTHER, ACE_THR_PRI_OTHER_DEF);
-		if(connections.pioneerTask.scheduler == "FIFO") {
-			pioneerTask_SchedParams.policy(ACE_SCHED_FIFO);
-			pioneerTask_SchedParams.priority(ACE_THR_PRI_FIFO_MIN);
-		} else if(connections.pioneerTask.scheduler == "RR") {
-			pioneerTask_SchedParams.policy(ACE_SCHED_RR);
-			pioneerTask_SchedParams.priority(ACE_THR_PRI_RR_MIN);
+	// start task Pioneer3DXTask
+	if(connections.pioneer3DXTask.scheduler != "DEFAULT") {
+		ACE_Sched_Params pioneer3DXTask_SchedParams(ACE_SCHED_OTHER, ACE_THR_PRI_OTHER_DEF);
+		if(connections.pioneer3DXTask.scheduler == "FIFO") {
+			pioneer3DXTask_SchedParams.policy(ACE_SCHED_FIFO);
+			pioneer3DXTask_SchedParams.priority(ACE_THR_PRI_FIFO_MIN);
+		} else if(connections.pioneer3DXTask.scheduler == "RR") {
+			pioneer3DXTask_SchedParams.policy(ACE_SCHED_RR);
+			pioneer3DXTask_SchedParams.priority(ACE_THR_PRI_RR_MIN);
 		}
-		pioneerTask->start(pioneerTask_SchedParams, connections.pioneerTask.cpuAffinity);
+		pioneer3DXTask->start(pioneer3DXTask_SchedParams, connections.pioneer3DXTask.cpuAffinity);
 	} else {
-		pioneerTask->start();
+		pioneer3DXTask->start();
 	}
 }
 
@@ -302,28 +302,28 @@ void ComponentWebotsPioneer3DX::init(int argc, char *argv[])
 			}
 		} 
 		
-		// create Task PioneerTask
-		pioneerTask = new PioneerTask(component);
+		// create Task Pioneer3DXTask
+		pioneer3DXTask = new Pioneer3DXTask(component);
 		// configure input-links
 		// configure task-trigger (if task is configurable)
-		if(connections.pioneerTask.trigger == "PeriodicTimer") {
+		if(connections.pioneer3DXTask.trigger == "PeriodicTimer") {
 			// create PeriodicTimerTrigger
-			int microseconds = 1000*1000 / connections.pioneerTask.periodicActFreq;
+			int microseconds = 1000*1000 / connections.pioneer3DXTask.periodicActFreq;
 			if(microseconds > 0) {
 				Smart::TimedTaskTrigger *triggerPtr = new Smart::TimedTaskTrigger();
-				triggerPtr->attach(pioneerTask);
+				triggerPtr->attach(pioneer3DXTask);
 				component->getTimerManager()->scheduleTimer(triggerPtr, (void *) 0, std::chrono::microseconds(microseconds), std::chrono::microseconds(microseconds));
 				// store trigger in class member
-				pioneerTaskTrigger = triggerPtr;
+				pioneer3DXTaskTrigger = triggerPtr;
 			} else {
-				std::cerr << "ERROR: could not set-up Timer with cycle-time " << microseconds << " as activation source for Task PioneerTask" << std::endl;
+				std::cerr << "ERROR: could not set-up Timer with cycle-time " << microseconds << " as activation source for Task Pioneer3DXTask" << std::endl;
 			}
-		} else if(connections.pioneerTask.trigger == "DataTriggered") {
-			pioneerTaskTrigger = getInputTaskTriggerFromString(connections.pioneerTask.inPortRef);
-			if(pioneerTaskTrigger != NULL) {
-				pioneerTaskTrigger->attach(pioneerTask, connections.pioneerTask.prescale);
+		} else if(connections.pioneer3DXTask.trigger == "DataTriggered") {
+			pioneer3DXTaskTrigger = getInputTaskTriggerFromString(connections.pioneer3DXTask.inPortRef);
+			if(pioneer3DXTaskTrigger != NULL) {
+				pioneer3DXTaskTrigger->attach(pioneer3DXTask, connections.pioneer3DXTask.prescale);
 			} else {
-				std::cerr << "ERROR: could not set-up InPort " << connections.pioneerTask.inPortRef << " as activation source for Task PioneerTask" << std::endl;
+				std::cerr << "ERROR: could not set-up InPort " << connections.pioneer3DXTask.inPortRef << " as activation source for Task Pioneer3DXTask" << std::endl;
 			}
 		} 
 		
@@ -395,9 +395,9 @@ void ComponentWebotsPioneer3DX::fini()
 	}
 	// unlink all UpcallManagers
 	// unlink the TaskTrigger
-	if(pioneerTaskTrigger != NULL){
-		pioneerTaskTrigger->detach(pioneerTask);
-		delete pioneerTask;
+	if(pioneer3DXTaskTrigger != NULL){
+		pioneer3DXTaskTrigger->detach(pioneer3DXTask);
+		delete pioneer3DXTask;
 	}
 
 	// destroy all input-handler
@@ -570,24 +570,24 @@ void ComponentWebotsPioneer3DX::loadParameter(int argc, char *argv[])
 		if(parameter.checkIfParameterExists("BatteryEventTask", "cpuAffinity")) {
 			parameter.getInteger("BatteryEventTask", "cpuAffinity", connections.batteryEventTask.cpuAffinity);
 		}
-		// load parameters for task PioneerTask
-		parameter.getDouble("PioneerTask", "minActFreqHz", connections.pioneerTask.minActFreq);
-		parameter.getDouble("PioneerTask", "maxActFreqHz", connections.pioneerTask.maxActFreq);
-		parameter.getString("PioneerTask", "triggerType", connections.pioneerTask.trigger);
-		if(connections.pioneerTask.trigger == "PeriodicTimer") {
-			parameter.getDouble("PioneerTask", "periodicActFreqHz", connections.pioneerTask.periodicActFreq);
-		} else if(connections.pioneerTask.trigger == "DataTriggered") {
-			parameter.getString("PioneerTask", "inPortRef", connections.pioneerTask.inPortRef);
-			parameter.getInteger("PioneerTask", "prescale", connections.pioneerTask.prescale);
+		// load parameters for task Pioneer3DXTask
+		parameter.getDouble("Pioneer3DXTask", "minActFreqHz", connections.pioneer3DXTask.minActFreq);
+		parameter.getDouble("Pioneer3DXTask", "maxActFreqHz", connections.pioneer3DXTask.maxActFreq);
+		parameter.getString("Pioneer3DXTask", "triggerType", connections.pioneer3DXTask.trigger);
+		if(connections.pioneer3DXTask.trigger == "PeriodicTimer") {
+			parameter.getDouble("Pioneer3DXTask", "periodicActFreqHz", connections.pioneer3DXTask.periodicActFreq);
+		} else if(connections.pioneer3DXTask.trigger == "DataTriggered") {
+			parameter.getString("Pioneer3DXTask", "inPortRef", connections.pioneer3DXTask.inPortRef);
+			parameter.getInteger("Pioneer3DXTask", "prescale", connections.pioneer3DXTask.prescale);
 		}
-		if(parameter.checkIfParameterExists("PioneerTask", "scheduler")) {
-			parameter.getString("PioneerTask", "scheduler", connections.pioneerTask.scheduler);
+		if(parameter.checkIfParameterExists("Pioneer3DXTask", "scheduler")) {
+			parameter.getString("Pioneer3DXTask", "scheduler", connections.pioneer3DXTask.scheduler);
 		}
-		if(parameter.checkIfParameterExists("PioneerTask", "priority")) {
-			parameter.getInteger("PioneerTask", "priority", connections.pioneerTask.priority);
+		if(parameter.checkIfParameterExists("Pioneer3DXTask", "priority")) {
+			parameter.getInteger("Pioneer3DXTask", "priority", connections.pioneer3DXTask.priority);
 		}
-		if(parameter.checkIfParameterExists("PioneerTask", "cpuAffinity")) {
-			parameter.getInteger("PioneerTask", "cpuAffinity", connections.pioneerTask.cpuAffinity);
+		if(parameter.checkIfParameterExists("Pioneer3DXTask", "cpuAffinity")) {
+			parameter.getInteger("Pioneer3DXTask", "cpuAffinity", connections.pioneer3DXTask.cpuAffinity);
 		}
 		if(parameter.checkIfParameterExists("LocalizationUpdateHandler", "prescale")) {
 			parameter.getInteger("LocalizationUpdateHandler", "prescale", connections.localizationUpdateHandler.prescale);

@@ -17,7 +17,7 @@
 # "
 
 # Indicates the name of the robot that own the Lidar
-export WEBOTS_ROBOT_NAME="SickLMS291"
+export WEBOTS_ROBOT_NAME="Lidar"
 
 ### Webot's controller libraries importation into SmartMDSD
 export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib/controller)

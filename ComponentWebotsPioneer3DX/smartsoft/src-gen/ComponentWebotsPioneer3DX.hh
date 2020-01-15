@@ -56,7 +56,7 @@ class ComponentWebotsPioneer3DXExtension;
 
 // include tasks
 #include "BatteryEventTask.hh"
-#include "PioneerTask.hh"
+#include "Pioneer3DXTask.hh"
 // include UpcallManagers
 #include "LocalizationUpdateServiceInUpcallManager.hh"
 #include "NavigationVelocityServiceInUpcallManager.hh"
@@ -119,8 +119,8 @@ public:
 	// define tasks
 	Smart::TaskTriggerSubject* batteryEventTaskTrigger;
 	BatteryEventTask *batteryEventTask;
-	Smart::TaskTriggerSubject* pioneerTaskTrigger;
-	PioneerTask *pioneerTask;
+	Smart::TaskTriggerSubject* pioneer3DXTaskTrigger;
+	Pioneer3DXTask *pioneer3DXTask;
 	
 	// define input-ports
 	// InputPort LocalizationUpdateServiceIn
@@ -250,7 +250,7 @@ public:
 			int priority;
 			int cpuAffinity;
 		} batteryEventTask;
-		struct PioneerTask_struct {
+		struct Pioneer3DXTask_struct {
 			double minActFreq;
 			double maxActFreq;
 			std::string trigger;
@@ -265,7 +265,7 @@ public:
 			std::string scheduler;
 			int priority;
 			int cpuAffinity;
-		} pioneerTask;
+		} pioneer3DXTask;
 		
 		//--- upcall parameter ---
 		struct LocalizationUpdateHandler_struct {

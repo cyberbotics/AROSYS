@@ -87,8 +87,8 @@ CommBasicObjects/CommVoidACE.hh
 -
 BatteryEventTask.hh
 ../src-gen/BatteryEventTask.hh
-PioneerTask.hh
-../src-gen/PioneerTask.hh
+Pioneer3DXTask.hh
+../src-gen/Pioneer3DXTask.hh
 LocalizationUpdateServiceInUpcallManager.hh
 ../src-gen/LocalizationUpdateServiceInUpcallManager.hh
 NavigationVelocityServiceInUpcallManager.hh
@@ -198,15 +198,15 @@ aceSmartSoft.hh
 NavigationVelocityServiceInUpcallInterface.hh
 ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
 
-../src-gen/PioneerTaskCore.hh
+../src-gen/Pioneer3DXTaskCore.hh
 aceSmartSoft.hh
 ../src-gen/aceSmartSoft.hh
 CommBasicObjects/CommBaseState.hh
 -
-PioneerTaskObserverInterface.hh
+Pioneer3DXTaskObserverInterface.hh
 -
 
-../src-gen/PioneerTaskObserverInterface.hh
+../src-gen/Pioneer3DXTaskObserverInterface.hh
 
 ../src-gen/SmartStateChangeHandlerCore.hh
 aceSmartSoft.hh
@@ -256,12 +256,16 @@ NavigationVelocityHandlerCore.hh
 ParameterStateStructCore.hh
 ../src/ParameterStateStructCore.hh
 
-../src/PioneerTask.hh
-PioneerTaskCore.hh
-../src/PioneerTaskCore.hh
+../src/Pioneer3DXTask.hh
+Pioneer3DXTaskCore.hh
+../src/Pioneer3DXTaskCore.hh
 webots/Motor.hpp
 -
 webots/Robot.hpp
+-
+webots/Device.hpp
+-
+webots/Node.hpp
 -
 
 ../src/SmartStateChangeHandler.hh
@@ -2533,8 +2537,8 @@ CommBasicObjects/CommVoidACE.hh
 -
 BatteryEventTask.hh
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/BatteryEventTask.hh
-PioneerTask.hh
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTask.hh
+Pioneer3DXTask.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTask.hh
 LocalizationUpdateServiceInUpcallManager.hh
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/LocalizationUpdateServiceInUpcallManager.hh
 NavigationVelocityServiceInUpcallManager.hh
@@ -2684,20 +2688,20 @@ aceSmartSoft.hh
 NavigationVelocityServiceInUpcallInterface.hh
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/NavigationVelocityServiceInUpcallInterface.hh
 
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTaskCore.cc
-PioneerTaskCore.hh
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTaskCore.hh
-PioneerTask.hh
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTask.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTaskCore.cc
+Pioneer3DXTaskCore.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTaskCore.hh
+Pioneer3DXTask.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTask.hh
 ComponentWebotsPioneer3DX.hh
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DX.hh
 
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTaskCore.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTaskCore.hh
 aceSmartSoft.hh
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/aceSmartSoft.hh
 CommBasicObjects/CommBaseState.hh
 -
-PioneerTaskObserverInterface.hh
+Pioneer3DXTaskObserverInterface.hh
 -
 
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/main.cc
@@ -2814,24 +2818,24 @@ ComponentWebotsPioneer3DX.hh
 ParameterStateStructCore.hh
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/ParameterStateStructCore.hh
 
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTask.cc
-PioneerTask.hh
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTask.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTask.cc
+Pioneer3DXTask.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTask.hh
 ComponentWebotsPioneer3DX.hh
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/ComponentWebotsPioneer3DX.hh
 iostream
 -
-webots/Device.hpp
--
-webots/Node.hpp
--
 
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTask.hh
-PioneerTaskCore.hh
-/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTaskCore.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTask.hh
+Pioneer3DXTaskCore.hh
+/home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTaskCore.hh
 webots/Motor.hpp
 -
 webots/Robot.hpp
+-
+webots/Device.hpp
+-
+webots/Node.hpp
 -
 
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/SmartStateChangeHandler.cc

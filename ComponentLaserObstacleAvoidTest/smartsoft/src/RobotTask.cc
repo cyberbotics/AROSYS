@@ -82,6 +82,7 @@ int RobotTask::on_execute()
 	// Create and fill the communication object for v and w
 	CommBasicObjects::CommNavigationVelocity navigationVelocity;
 	navigationVelocity.set_vX(velocity, 0.001);
+	navigationVelocity.set_vY(0.0, 0.001);
 	navigationVelocity.set_omega(turnrate);
 
 	//std::cout << "Velocity : " << velocity << std::endl;

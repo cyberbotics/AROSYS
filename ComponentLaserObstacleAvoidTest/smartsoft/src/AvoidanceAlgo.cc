@@ -8,14 +8,6 @@
 #include <CommBasicObjects/CommNavigationVelocity.hh>
 
 
-// Checks speed limits in rad/s
-double AvoidanceAlgo::check_speed(double speed) {
-  if (speed >  MAX_SPEED)  speed =  MAX_SPEED;
-  if (speed < -MAX_SPEED)  speed = -MAX_SPEED;
-  return speed;
-}
-
-
 // Calculates the linear velocity and turnrate according to sensor's data
 void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan, double &out_speed, double &out_turnrate) {
 
@@ -61,26 +53,26 @@ void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan, double
 	if (left_obstacle > right_obstacle && left_obstacle > NEAR) {
 
 		const double speed_factor = (1.0 - FAST_DECREASE_FACTOR * left_obstacle) * MAX_SPEED / left_obstacle;
-		left_speed = check_speed(speed_factor * left_obstacle);
-		right_speed = check_speed(speed_factor * right_obstacle);
+		left_speed = speed_factor * left_obstacle;
+		right_speed = speed_factor * right_obstacle;
 
 	} else if (front_left_obstacle > front_right_obstacle && front_left_obstacle > FAR) {
 
 		const double speed_factor = (1.0 - SLOW_DECREASE_FACTOR * front_left_obstacle) * MAX_SPEED / front_left_obstacle;
-		left_speed = check_speed(speed_factor * front_left_obstacle);
-		right_speed = check_speed(speed_factor * front_right_obstacle);
+		left_speed = speed_factor * front_left_obstacle;
+		right_speed = speed_factor * front_right_obstacle;
 
 	} else if (front_right_obstacle > front_left_obstacle && front_right_obstacle > FAR) {
 
 		const double speed_factor = (1.0 - SLOW_DECREASE_FACTOR * front_right_obstacle) * MAX_SPEED / front_right_obstacle;
-		left_speed = check_speed(speed_factor * front_left_obstacle);
-		right_speed = check_speed(speed_factor * front_right_obstacle);
+		left_speed = speed_factor * front_left_obstacle;
+		right_speed = speed_factor * front_right_obstacle;
 
 	} else if (right_obstacle > left_obstacle && right_obstacle > NEAR) {
 
 		const double speed_factor = (1.0 - FAST_DECREASE_FACTOR * right_obstacle) * MAX_SPEED / right_obstacle;
-		left_speed = check_speed(speed_factor * left_obstacle);
-		right_speed = check_speed(speed_factor * right_obstacle);
+		left_speed = speed_factor * left_obstacle;
+		right_speed = speed_factor * right_obstacle;
 
 	} else if (front_obstacle > NEAR) {
 
@@ -88,13 +80,13 @@ void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan, double
 		// more obstacles on the right, so make a left u-turn to avoid being stuck
 		if (front_right_obstacle > front_left_obstacle || right_obstacle > left_obstacle) {
 
-			left_speed = check_speed(0.1*speed_factor * front_obstacle);
-			right_speed = check_speed(5*speed_factor * front_obstacle);
+			left_speed = 0.1*speed_factor * front_obstacle;
+			right_speed = 5*speed_factor * front_obstacle;
 
 		} else {
 
-			left_speed = check_speed(5*speed_factor * front_obstacle);
-			right_speed = check_speed(0.1*speed_factor * front_obstacle);
+			left_speed = 5*speed_factor * front_obstacle;
+			right_speed = 0.1*speed_factor * front_obstacle;
 		}
 	} else {
 		left_speed = CRUISING_SPEED;
@@ -105,6 +97,6 @@ void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan, double
 	//std::cout << "right_speed: " << right_speed << std::endl;
 
 	// Send result
-	out_speed = check_speed(WHEEL_RADIUS*(right_speed+left_speed)/2.0);
-	out_turnrate = 0.25*check_speed(WHEEL_RADIUS*(right_speed-left_speed)/WHEEL_GAP);
+	out_speed = WHEEL_RADIUS*(right_speed+left_speed)/2.0;
+	out_turnrate = WHEEL_RADIUS*(right_speed-left_speed)/WHEEL_GAP;
 }

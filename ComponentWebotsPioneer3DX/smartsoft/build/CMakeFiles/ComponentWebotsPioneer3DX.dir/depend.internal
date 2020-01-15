@@ -778,8 +778,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o
  ../src-gen/LocalizationUpdateHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityHandlerCore.hh
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -790,7 +790,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -1149,7 +1149,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/BatteryEventTaskCore.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/BatteryEventTaskCore.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/BatteryEventTaskCore.hh
@@ -1604,8 +1606,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DX.cc.o
  ../src-gen/LocalizationUpdateHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityHandlerCore.hh
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -1617,7 +1619,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DX.cc.o
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -1977,7 +1979,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DX.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DX.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DX.hh
@@ -2432,8 +2436,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXAcePor
  ../src-gen/LocalizationUpdateHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityHandlerCore.hh
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -2444,7 +2448,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXAcePor
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -2803,7 +2807,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXAcePor
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DX.hh
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DXAcePortFactory.cc
@@ -3258,8 +3264,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXExtens
  ../src-gen/LocalizationUpdateHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityHandlerCore.hh
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -3270,7 +3276,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXExtens
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -3629,7 +3635,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXExtens
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DX.hh
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DXExtension.cc
@@ -7154,7 +7162,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityServiceInUpca
  /opt/ACE_wrappers/ace/os_include/sys/os_utsname.h
  /opt/ACE_wrappers/ace/os_include/sys/os_wait.h
  /opt/ACE_wrappers/ace/streams.h
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o
  ../src-gen/BaseStateQueryHandlerCore.hh
  ../src-gen/BaseStateQueryHandlerObserverInterface.hh
  ../src-gen/BatteryEventTaskCore.hh
@@ -7163,7 +7171,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o
  ../src-gen/LocalizationUpdateHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityHandlerCore.hh
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -7174,7 +7182,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -7533,7 +7541,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DX.hh
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DXExtension.hh
@@ -7542,8 +7552,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/LocalizationUpdateServiceInUpcallManager.hh
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/NavigationVelocityServiceInUpcallInterface.hh
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/NavigationVelocityServiceInUpcallManager.hh
- /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTaskCore.cc
- /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/PioneerTaskCore.hh
+ /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTaskCore.cc
+ /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/Pioneer3DXTaskCore.hh
  /opt/ACE_wrappers/ace/ACE.h
  /opt/ACE_wrappers/ace/ACE.inl
  /opt/ACE_wrappers/ace/ACE_export.h
@@ -7987,8 +7997,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/main.cc.o
  ../src-gen/LocalizationUpdateHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityHandlerCore.hh
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -7999,7 +8009,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/main.cc.o
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -8358,7 +8368,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/main.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DX.hh
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/ComponentWebotsPioneer3DXExtension.hh
@@ -8818,8 +8830,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/params/ParameterUpdateHandler.c
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallManager.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src/BaseStateQueryHandler.hh
@@ -8829,7 +8841,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/params/ParameterUpdateHandler.c
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -9188,7 +9200,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/params/ParameterUpdateHandler.c
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/params/ParameterUpdateHandler.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src-gen/params/ParameterUpdateHandler.hh
@@ -9642,8 +9656,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BaseStateQueryHandler.cc.o
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallManager.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -9653,7 +9667,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BaseStateQueryHandler.cc.o
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -10012,7 +10026,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BaseStateQueryHandler.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/BaseStateQueryHandler.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/BaseStateQueryHandler.hh
@@ -10998,8 +11014,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventTask.cc.o
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallManager.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -11009,7 +11025,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventTask.cc.o
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -11368,7 +11384,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/BatteryEventTask.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/BatteryEventTask.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/BatteryEventTask.hh
@@ -11822,8 +11840,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallManager.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -11833,7 +11851,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -12192,7 +12210,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/CompHandler.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/CompHandler.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/CompHandler.hh
@@ -13923,8 +13943,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/NavigationVelocityHandler.cc.o
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallManager.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -13934,7 +13954,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/NavigationVelocityHandler.cc.o
  ../src/ComponentWebotsPioneer3DXCore.hh
  ../src/LocalizationUpdateHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -14293,7 +14313,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/NavigationVelocityHandler.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/NavigationVelocityHandler.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/NavigationVelocityHandler.hh
@@ -14747,8 +14769,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallManager.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -14758,7 +14780,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o
  ../src/ComponentWebotsPioneer3DXCore.hh
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  ../src/SmartStateChangeHandler.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
@@ -15117,7 +15139,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/ParameterStateStruct.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/ParameterStateStruct.hh
@@ -15555,7 +15579,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.o
  /opt/ACE_wrappers/ace/os_include/sys/os_utsname.h
  /opt/ACE_wrappers/ace/os_include/sys/os_wait.h
  /opt/ACE_wrappers/ace/streams.h
-CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o
+CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o
  ../src-gen/BaseStateQueryHandlerCore.hh
  ../src-gen/BaseStateQueryHandlerObserverInterface.hh
  ../src-gen/BatteryEventTaskCore.hh
@@ -15571,8 +15595,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallManager.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -15945,8 +15969,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
- /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTask.cc
- /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/PioneerTask.hh
+ /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTask.cc
+ /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/Pioneer3DXTask.hh
  /opt/ACE_wrappers/ace/ACE.h
  /opt/ACE_wrappers/ace/ACE.inl
  /opt/ACE_wrappers/ace/ACE_export.h
@@ -16397,8 +16421,8 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o
  ../src-gen/NavigationVelocityHandlerObserverInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallInterface.hh
  ../src-gen/NavigationVelocityServiceInUpcallManager.hh
- ../src-gen/PioneerTaskCore.hh
- ../src-gen/PioneerTaskObserverInterface.hh
+ ../src-gen/Pioneer3DXTaskCore.hh
+ ../src-gen/Pioneer3DXTaskObserverInterface.hh
  ../src-gen/SmartStateChangeHandlerCore.hh
  ../src-gen/params/ParameterStateStructCore.hh
  ../src-gen/params/ParameterUpdateHandler.hh
@@ -16409,7 +16433,7 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o
  ../src/LocalizationUpdateHandler.hh
  ../src/NavigationVelocityHandler.hh
  ../src/ParameterStateStruct.hh
- ../src/PioneerTask.hh
+ ../src/Pioneer3DXTask.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePose.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseCore.hh
  /home/smartsoft/SOFTWARE/smartsoft/include/CommBasicObjects/CommBasePoseData.hh
@@ -16767,7 +16791,9 @@ CMakeFiles/ComponentWebotsPioneer3DX.dir/src/SmartStateChangeHandler.cc.o
  /home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/smartKnuthMorrisPratt.hh
  /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Device.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Field.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
+ /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Node.hpp
  /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Robot.hpp
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/SmartStateChangeHandler.cc
  /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/SmartStateChangeHandler.hh
