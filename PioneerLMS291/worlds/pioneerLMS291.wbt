@@ -1,0 +1,84 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.6965141994602344 -0.5797495542595565 -0.42279832578442667 4.807794588314388
+  position 10.041696309134169 22.380630885427355 5.133315394859644
+  follow "Pioneer 3-DX"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 13 13
+  floorTileSize 1 1
+  wallHeight 2
+}
+Pioneer3dx {
+  translation 2.5 0.0949252 4.5
+  controller "<extern>"
+  extensionSlot [
+    Robot {
+      translation 0 0.22 0
+      children [
+        SickLms291 {
+        }
+      ]
+      name "SickLMS291"
+      controller "<extern>"
+    }
+  ]
+}
+WoodenBox {
+  translation 1.43078 1 -3.5643
+  rotation 0 1 0 0.523599
+  name "wooden box(6)"
+  size 0.6 2 0.6
+  mass 2
+}
+WoodenBox {
+  translation 5.43138 1 -5.13504
+  rotation 0 1 0 0.523599
+  name "wooden box(4)"
+  size 0.6 2 0.6
+  mass 2
+}
+WoodenBox {
+  translation 1.81397 1 -0.808265
+  rotation 0 1 0 -0.523595307179586
+  name "wooden box(8)"
+  size 0.6 2 0.6
+  mass 2
+}
+WoodenBox {
+  translation 0.541234 1 3.33409
+  rotation 0 1 0 -0.261795307179586
+  name "wooden box(7)"
+  size 0.6 2 0.6
+  mass 2
+}
+WoodenBox {
+  translation -3.2904 0.8 3.79365
+  name "wooden box(2)"
+  size 0.6 2 0.6
+  mass 2
+}
+WoodenBox {
+  translation 3.77484 1 1.9396
+  name "wooden box(3)"
+  size 0.6 2 0.6
+}
+WoodenBox {
+  translation -1.58589 1 1.4136
+  rotation 0 1 0 0.261799
+  name "wooden box(9)"
+  size 0.6 2 0.6
+}
+WoodenBox {
+  translation -2.24033 1 -2.81935
+  rotation 0 1 0 0.261799
+  name "wooden box(1)"
+  size 0.6 2 0.6
+  mass 2
+}

@@ -1,0 +1,42 @@
+#VRML_SIM R2019b utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2630956754509977 -0.9122313957288263 -0.3140295307859135 4.521732167792558
+  position 7.425147932830546 5.897035362933402 -0.6496370628372519
+  follow "Pioneer 3-DX"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  rotation 0 0 1 4.692820414042842e-06
+  floorSize 4 5
+  wallHeight 1.2
+}
+Pioneer3dx {
+  translation 0.75 0.0949252 2.00285
+  controller "<extern>"
+  extensionSlot [
+    SickLms291 {
+      translation 0 0.216 0
+    }
+  ]
+}
+WoodenBox {
+  translation -1.49549 0.299214 0.343467
+  rotation -0.0016541989212607076 0.9999969823578395 -0.0018162877370666182 -0.0003245749949364494
+  mass 2
+}
+WoodenBox {
+  translation 1.20912 0.3 0.030385
+  rotation 0 1 0 -3.0717958665604783e-07
+  name "wooden box(3)"
+}
+WoodenBox {
+  translation 0.198962 0.299217 -1.1668
+  rotation -0.000118999999025985 -0.9999999918150001 -4.6999999615305e-05 0.028242
+  name "wooden box(1)"
+  mass 2
+}
