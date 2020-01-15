@@ -662,8 +662,8 @@ ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pion
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DXImpl.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/ComponentWebotsPioneer3DX.cc.o
 ComponentWebotsPioneer3DX: CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make
-ComponentWebotsPioneer3DX: /home/smartsoft/SOFTWARE/webots/lib/libController.so
-ComponentWebotsPioneer3DX: /home/smartsoft/SOFTWARE/webots/lib/libCppController.so
+ComponentWebotsPioneer3DX: /home/smartsoft/SOFTWARE/webots/lib/controller/libController.so
+ComponentWebotsPioneer3DX: /home/smartsoft/SOFTWARE/webots/lib/controller/libCppController.so
 ComponentWebotsPioneer3DX: /home/smartsoft/SOFTWARE/smartsoft/repos/AceSmartSoftFramework/build/AceSmartSoftKernel/libAceSmartSoftKernel.so.3.2.0
 ComponentWebotsPioneer3DX: /home/smartsoft/SOFTWARE/smartsoft-ace-mdsd-v3/repos/DomainModelsRepositories/CommBasicObjects/smartsoft/build/libCommBasicObjects.so.1.0.0
 ComponentWebotsPioneer3DX: /opt/ACE_wrappers/lib/libACE.so

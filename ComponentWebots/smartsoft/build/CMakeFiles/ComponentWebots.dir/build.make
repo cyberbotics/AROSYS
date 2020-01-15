@@ -272,8 +272,8 @@ ComponentWebots: CMakeFiles/ComponentWebots.dir/src-gen/ComponentWebotsExtension
 ComponentWebots: CMakeFiles/ComponentWebots.dir/src-gen/ComponentWebots.cc.o
 ComponentWebots: CMakeFiles/ComponentWebots.dir/src-gen/ComponentWebotsImpl.cc.o
 ComponentWebots: CMakeFiles/ComponentWebots.dir/build.make
-ComponentWebots: /home/smartsoft/SOFTWARE/webots/lib/libController.so
-ComponentWebots: /home/smartsoft/SOFTWARE/webots/lib/libCppController.so
+ComponentWebots: /home/smartsoft/SOFTWARE/webots/lib/controller/libController.so
+ComponentWebots: /home/smartsoft/SOFTWARE/webots/lib/controller/libCppController.so
 ComponentWebots: /home/smartsoft/SOFTWARE/smartsoft/repos/AceSmartSoftFramework/build/AceSmartSoftKernel/libAceSmartSoftKernel.so.3.2.0
 ComponentWebots: /opt/ACE_wrappers/lib/libACE.so
 ComponentWebots: CMakeFiles/ComponentWebots.dir/link.txt

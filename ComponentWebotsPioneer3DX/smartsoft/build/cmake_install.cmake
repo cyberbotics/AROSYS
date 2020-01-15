@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -44,7 +44,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ComponentWebotsPioneer3DX")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ComponentWebotsPioneer3DX"
-         OLD_RPATH "/home/smartsoft/SOFTWARE/webots/lib:/home/smartsoft/SOFTWARE/smartsoft/repos/AceSmartSoftFramework/build/AceSmartSoftKernel:/home/smartsoft/SOFTWARE/smartsoft-ace-mdsd-v3/repos/DomainModelsRepositories/CommBasicObjects/smartsoft/build:/opt/ACE_wrappers/lib:/home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/build:/home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartProperty/build:"
+         OLD_RPATH "/home/smartsoft/SOFTWARE/webots/lib:/home/smartsoft/SOFTWARE/webots/lib/controller:/home/smartsoft/SOFTWARE/smartsoft/repos/AceSmartSoftFramework/build/AceSmartSoftKernel:/home/smartsoft/SOFTWARE/smartsoft-ace-mdsd-v3/repos/DomainModelsRepositories/CommBasicObjects/smartsoft/build:/opt/ACE_wrappers/lib:/home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartXml/build:/home/smartsoft/SOFTWARE/smartsoft/repos/UtilityRepository/smartProperty/build:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ComponentWebotsPioneer3DX")
