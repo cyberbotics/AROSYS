@@ -16,5 +16,15 @@
 # $SMART_ROOT_ACE/myFILE2
 # "
 
-DEPLOY_LIBRARIES=""
-DEPLOY_COMPONENT_FILES=""
+# Don't forget to set the name of the robot in startstop-hooks.sh file
+
+### Webot's controller libraries importation into SmartMDSD
+export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib)
+export DEPLOY_LIBRARIES="
+$WEBOTS_LIBRARY/libController.so
+$WEBOTS_LIBRARY/libCppController.so
+"
+
+# It is also possible to copy the library.so directly in SmartMDSD's lib folder using:
+#cp $WEBOTS_HOME/lib/libController.so $SMART_ROOT_ACE/lib/
+#cp $WEBOTS_HOME/lib/libCppController.so $SMART_ROOT_ACE/lib/

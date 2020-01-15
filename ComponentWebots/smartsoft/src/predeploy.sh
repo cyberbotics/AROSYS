@@ -83,5 +83,5 @@ echo " --------------------------------------------------------"
 ### Launch Webots with the defined world and startup options
 echo " Webots will be launched..."
 xterm -title "Webots Simulator" -hold -e bash $WEBOTS_HOME/webots $OPTIONS $WEBOTS_WORLD_PATH &
-sleep 5
+sleep 8
 echo " Webots is running..."

@@ -41,7 +41,19 @@ true > $PID_COMPONENT_NAMES
 echo "Starting scenario..."
 date -R
 
+# CONFIGURE NAMING SERVICE
+	export SMART_NS_ADDR=localhost:20002
 
+echo "Stopping Naming Service..."
+killall AceSmartSoftNamingService &
+test -e SMART_NAMES && rm -f SMART_NAMES
+sleep 1
+echo Starting Naming Service...
+rm -f AceSmartSoftNamingService.log
+xterm -l -lf AceSmartSoftNamingService.log -title "AceSmartSoftNamingService" -hold -e "export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; ./NamingService/AceSmartSoftNamingService --ns-port 20002 --ns-dir ./ --ns-file SMART_NAMES --filename=ns_config.ini; echo; echo; echo 'Naming Service exited'; /bin/bash" &
+echo $! >> $PID_XTERM
+echo AceSmartSoftNamingService >> $PID_COMPONENT_NAMES
+sleep 1
 
 ## start components
 export SMART_IP=localhost
@@ -144,6 +156,7 @@ rm $PID_XTERM
 
 
 
+test -e SMART_NAMES && rm -f SMART_NAMES
 
 bash startstop-hooks-ComponentLaserObstacleAvoidTest.sh post-stop
 bash startstop-hooks-ComponentWebots.sh post-stop

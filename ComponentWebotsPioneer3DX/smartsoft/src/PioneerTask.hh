@@ -21,7 +21,7 @@
 
 #include <webots/Motor.hpp>
 #include <webots/Robot.hpp>
-#include <webots/Lidar.hpp>
+
 
 // Pioneer 3-DX specification
 #define WHEEL_GAP    0.269  // in meter
@@ -32,7 +32,6 @@ class PioneerTask  : public PioneerTaskCore
 {
 
 private:
-	// TODO: ADAPTER
 	int wb_time_step;
 	double motor_max_speed; // in rad/s
 	webots::Robot *wb_robot;

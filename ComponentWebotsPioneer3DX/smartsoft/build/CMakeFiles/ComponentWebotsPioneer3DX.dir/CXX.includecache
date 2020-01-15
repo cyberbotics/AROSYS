@@ -263,8 +263,6 @@ webots/Motor.hpp
 -
 webots/Robot.hpp
 -
-webots/Lidar.hpp
--
 
 ../src/SmartStateChangeHandler.hh
 aceSmartSoft.hh
@@ -2406,8 +2404,6 @@ string
 vector
 -
 
-/home/smartsoft/SOFTWARE/webots/include/controller/c/webots/lidar_point.h
-
 /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
 math.h
 -
@@ -2425,12 +2421,6 @@ webots/Node.hpp
 -
 ../../c/webots/types.h
 /home/smartsoft/SOFTWARE/webots/include/controller/c/webots/types.h
-
-/home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Lidar.hpp
-webots/Device.hpp
--
-../../c/webots/lidar_point.h
-/home/smartsoft/SOFTWARE/webots/include/controller/c/webots/lidar_point.h
 
 /home/smartsoft/SOFTWARE/webots/include/controller/cpp/webots/Motor.hpp
 webots/Device.hpp
@@ -2842,8 +2832,6 @@ PioneerTaskCore.hh
 webots/Motor.hpp
 -
 webots/Robot.hpp
--
-webots/Lidar.hpp
 -
 
 /home/smartsoft/github/RobMoSys/ComponentWebotsPioneer3DX/smartsoft/src/SmartStateChangeHandler.cc

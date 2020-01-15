@@ -8,7 +8,6 @@ case "$1" in
 
 pre-start)
 	echo "Triggering pre-start hooks FROM COMPONENT ComponentWebotsSimulator ..."
-	export WEBOTS_ROBOT_NAME="Pioneer 3-DX"
 	# Insert commands you want to call prior to starting the components
 ;;
 

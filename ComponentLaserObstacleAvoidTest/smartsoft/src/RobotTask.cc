@@ -32,7 +32,6 @@ RobotTask::~RobotTask()
 
 void RobotTask::on_LaserServiceIn(const CommBasicObjects::CommMobileLaserScan &input)
 {
-	std::cout << "LASER IN EVENT: " << input.get_scan_distance(0) << std::endl;
 	// upcall triggered from InputPort LaserServiceIn
 	// - use a local mutex here, because this upcal is called asynchroneously from outside of this task
 	// - do not use longer blocking calls here since this upcall blocks the InputPort LaserServiceIn

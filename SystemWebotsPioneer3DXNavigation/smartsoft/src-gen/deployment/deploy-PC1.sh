@@ -200,6 +200,8 @@ $SMART_ROOT_ACE/lib/libAceSmartSoftKernel.so.*
 $SMART_ROOT_ACE/lib/libSmartProperty.so.*
 src-gen/deployment/tiler.sh
 src-gen/deployment/start-PC1.sh
+$SMART_ROOT_ACE/bin/NamingService
+src-gen/deployment/ns_config.ini
 src/ComponentLaserObstacleAvoidTest_data
 src/startstop-hooks-ComponentLaserObstacleAvoidTest.sh
 $SMART_ROOT_ACE/bin/ComponentLaserObstacleAvoidTest

@@ -35,10 +35,10 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 	// (do not use blocking calls here, otherwise this might block the InputPort NavigationVelocityServiceIn)
 
 	// print output
-	std::cout << "Velocity - input = " << input     << std::endl;
-	std::cout << " => vX = "    << input.get_vX()   << std::endl;
-	std::cout << " => vY = "    << input.get_vY()   << std::endl;
-	std::cout << " => omega = " << input.getOmega() << std::endl;
+	//std::cout << "Velocity - input = " << input     << std::endl;
+	//std::cout << " => vX = "    << input.get_vX()   << std::endl;
+	//std::cout << " => vY = "    << input.get_vY()   << std::endl;
+	//std::cout << " => omega = " << input.getOmega() << std::endl;
 
 	// Get from the port and pass to ComponentPioneer3DXCore to be accessible
 	COMP->PioneerMutex.acquire();

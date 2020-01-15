@@ -47,7 +47,6 @@ int PioneerTask::on_entry()
 	// do initialization procedures here, which are called once, each time the task is started
 	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
-
 	// create Robot Instance
 	wb_robot = new webots::Robot();
 
@@ -76,7 +75,7 @@ int PioneerTask::on_execute()
 	// hence, NEVER use an infinite loop (like "while(1)") here inside!!!
 	// also do not use blocking calls which do not result from smartsoft kernel
 	
-	std::cout << "Hello from WebotsControllerTask " << std::endl;
+	//std::cout << "Hello from PioneerTask " << std::endl;
 
 	double speed = 0.0;
 	double omega = 0.0;
@@ -85,9 +84,9 @@ int PioneerTask::on_execute()
 
 	// Acquisition
 	COMP->PioneerMutex.acquire();
-	omega = COMP->turnrate;
 
-	// TODO: See if there is a need of having speed_l/r
+	// Get values from port
+	omega = COMP->turnrate;
 	speed = COMP->left_velocity;
 
 	// Set velocities in rad/s for motors and check limits
@@ -95,17 +94,17 @@ int PioneerTask::on_execute()
 	left_speed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
 	check_velocity(left_speed, right_speed, motor_max_speed);
 
+	//std::cout  << "left_speed  : " << left_speed  << std::endl;
+	//std::cout  << "right_speed : " << right_speed << std::endl;
+	//std::cout  << "omega       : " << omega       << std::endl;
+
 	//Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
 	//otherwise the values will not be updated
 	if (wb_robot->step(wb_time_step) != -1) {
 
-		// pass values to motors
+		// Pass values to motors in Webots side
 		wb_left_motor  -> setVelocity(left_speed);
 		wb_right_motor -> setVelocity(right_speed);
-		std::cout  << "left_speed  : " << left_speed  << std::endl;
-		std::cout  << "right_speed : " << right_speed << std::endl;
-		std::cout  << "omega       : " << omega       << std::endl;
-
 	}
 
 	// Release
