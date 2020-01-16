@@ -16,9 +16,6 @@
 # $SMART_ROOT_ACE/myFILE2
 # "
 
-## TODO: Find a way to generate this instead of editing a generated file
-# Don't forget to set the name of the robot in src-gen/start-PC1.sh file of the system
-
 ### Webot's controller libraries importation into SmartMDSD
 export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib/controller)
 export DEPLOY_LIBRARIES="
