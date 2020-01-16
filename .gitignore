@@ -1,0 +1,10 @@
+################
+# Global rules #
+################
+
+
+# untracked directories
+bin
+opcua-backend
+smartsoft/build
+smartsoft/src-gen
