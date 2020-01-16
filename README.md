@@ -1,7 +1,7 @@
 # RobMoSys
 
 ## Components
-The following three components are work in progress to create new components for RobMoSys in order to be able to use them in the Webots' simulator.
+The following components are new components for RobMoSys in order to be able to use them in the Webots' simulator.
 
 #### ComponentLaserObstacleAvoid
 This component will calculate the velocity commands using sensor's data to avoid obstacles.
@@ -32,6 +32,7 @@ This component configures in SmartSoft all versions of TIAGo's  robot from Pal R
 
 
 ## System
+The following systems are examples to be able to test new components.
 
 #### SystemWebotsPioneer3DXNavigation
 This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) robot (`ComponentWebotsPioneer3DX`) to navigate in a square arena filled with obstacles.
