@@ -1,20 +1,21 @@
 # RobMoSys
 
 ## Components
-The following components are new components for RobMoSys in order to be able to use them in the Webots' simulator.
+The following components are new components for RobMoSys in order to be able to use them with the [Webots' simulator](https://cyberbotics.com).
 
 #### ComponentLaserObstacleAvoid
 This component will calculate the velocity commands using sensor's data to avoid obstacles.
 * `input:` a sensor (such as a lidar)
 * `output:` velocity commands (such as a linear velocity and a turnrate)
-The Pioneer 3-DX robot and a lidar (Sick LMS 291) are used for tests.
+
+The [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx)/[Robotino 3](https://cyberbotics.com/doc/guide/robotino3) robot and a lidar ([Sick LMS 291](https://cyberbotics.com/doc/guide/lidar-sensors#sick-lms-291)/[Hokuyo URG-04LX-UG01](https://cyberbotics.com/doc/guide/lidar-sensors#hokuyo-urg-04lx-ug01)) are used for tests.
 
 #### ComponentWebots
-This component allow the user to use Webots simulator instead of Gazebo, PlayerStage, etc.. In its predeploy script, it is possible to specify the world used and his path as well as the option used at launch. It is also possible to modify the install path of Webots if needed. There exists a pre-requirement to use Webots. You have to execute this command one time in a Terminal and restart the computer/Virtual Machine. Don't forget to adapt the path if necessary.
+This component allow the user to use Webots simulator instead of Gazebo, PlayerStage, etc. It is possible to modify the install path of Webots if needed. There exists a pre-requirement to use Webots. You have to execute this command one time in a Terminal and restart the computer/Virtual Machine. Don't forget to adapt the path if necessary.
 `echo -e "export WEBOTS_HOME=/home/smartsoft/SOFTWARE/webots" >> ~/.profile`
 
 #### ComponentWebotsLidar
-This component configures the sensors in SmartSoft according to Webots prototype sensors and provides the sensor's data.
+This component configures lidar's sensors in SmartSoft according to Webots prototype sensors and provides the sensor's data.
 
 #### ComponentWebotsPioneer3DX
 This component configures in SmartSoft the Pioneer 3-DX robot from Adept according to Webots prototype robot.
