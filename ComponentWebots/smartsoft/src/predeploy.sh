@@ -28,17 +28,6 @@
 # Execute this command one time in a Terminal to be able to launch Webots software and restart the computer/Virtual Machine
 #echo -e "export WEBOTS_HOME=/home/smartsoft/SOFTWARE/webots" >> ~/.profile
 
-
-### Configuration (paths, world and startup options)
-# It is possible to add some starting options when launching Webots.
-# (more info: https://cyberbotics.com/doc/guide/starting-webots)
-##### ---------------------------------------------------------------------------
-# The user can modify the following parameters for his simulation.
-export OPTIONS='--batch --mode=realtime world.wbt'
-# Do not modify below this line.
-##### ---------------------------------------------------------------------------
-
-
 ### Webot's controller libraries importation into SmartMDSD
 export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib/controller)
 export DEPLOY_LIBRARIES="
@@ -62,4 +51,3 @@ fi
 
 echo " |> Webots' configuration is done and libraries are set."
 echo " --------------------------------------------------------"
-
