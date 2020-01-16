@@ -69,6 +69,7 @@ WoodenBox {
   translation 3.77484 1 1.9396
   name "wooden box(3)"
   size 0.6 2 0.6
+  mass 2
 }
 WoodenBox {
   translation -1.58589 1 1.4136

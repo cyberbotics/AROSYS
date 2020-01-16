@@ -8,7 +8,7 @@
 // 89075 Ulm (Germany)
 //
 // Information about the SmartSoft MDSD Toolchain is available at:
-// www.servicewb_robotik-ulm.de
+// www.servicerobotik-ulm.de
 //
 // This file is generated once. Modify this file to your needs.
 // If you want the toolchain to re-generate this file, please
