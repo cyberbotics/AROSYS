@@ -100,7 +100,7 @@ echo "executing startstop-hooks-ComponentWebotsLidarTest.sh (errors might be ign
 bash startstop-hooks-ComponentWebotsLidarTest.sh pre-start
 cd $SCRIPT_DIR/ComponentWebotsLidarTest_data
 rm -f "../ComponentWebotsLidarTest.log"
-xterm -l -lf "../ComponentWebotsLidarTest.log" -title "ComponentWebotsLidarTest@PC1 Component" -hold -e "export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; $SCRIPT_DIR/ComponentWebotsLidarTest -filename=$SCRIPT_DIR/ComponentWebotsLidarTest.ini; echo; echo; echo 'ComponentWebotsLidarTest exited.'; echo; /bin/bash --login" &
+xterm -l -lf "../ComponentWebotsLidarTest.log" -title "ComponentWebotsLidarTest@PC1 Component" -hold -e "export WEBOTS_ROBOT_NAME=Lidar;export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; $SCRIPT_DIR/ComponentWebotsLidarTest -filename=$SCRIPT_DIR/ComponentWebotsLidarTest.ini; echo; echo; echo 'ComponentWebotsLidarTest exited.'; echo; /bin/bash --login" &
 echo $! >> $PID_XTERM
 echo ComponentWebotsLidarTest >> $PID_COMPONENT_NAMES
 cd $SCRIPT_DIR
@@ -116,7 +116,7 @@ echo "executing startstop-hooks-ComponentWebotsPioneer3DX.sh (errors might be ig
 bash startstop-hooks-ComponentWebotsPioneer3DX.sh pre-start
 cd $SCRIPT_DIR/ComponentWebotsPioneer3DX_data
 rm -f "../ComponentWebotsPioneer3DX.log"
-xterm -l -lf "../ComponentWebotsPioneer3DX.log" -title "ComponentWebotsPioneer3DX@PC1 Component" -hold -e "export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; $SCRIPT_DIR/ComponentWebotsPioneer3DX -filename=$SCRIPT_DIR/ComponentWebotsPioneer3DX.ini; echo; echo; echo 'ComponentWebotsPioneer3DX exited.'; echo; /bin/bash --login" &
+xterm -l -lf "../ComponentWebotsPioneer3DX.log" -title "ComponentWebotsPioneer3DX@PC1 Component" -hold -e "export WEBOTS_ROBOT_NAME=Pioneer3DX;export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; $SCRIPT_DIR/ComponentWebotsPioneer3DX -filename=$SCRIPT_DIR/ComponentWebotsPioneer3DX.ini; echo; echo; echo 'ComponentWebotsPioneer3DX exited.'; echo; /bin/bash --login" &
 echo $! >> $PID_XTERM
 echo ComponentWebotsPioneer3DX >> $PID_COMPONENT_NAMES
 cd $SCRIPT_DIR

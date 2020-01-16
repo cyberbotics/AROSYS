@@ -100,7 +100,7 @@ echo "executing startstop-hooks-ComponentWebotsLidarTest.sh (errors might be ign
 bash startstop-hooks-ComponentWebotsLidarTest.sh pre-start
 cd $SCRIPT_DIR/ComponentWebotsLidarTest_data
 rm -f "../ComponentWebotsLidarTest.log"
-xterm -l -lf "../ComponentWebotsLidarTest.log" -title "ComponentWebotsLidarTest@PC1 Component" -hold -e "export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; $SCRIPT_DIR/ComponentWebotsLidarTest -filename=$SCRIPT_DIR/ComponentWebotsLidarTest.ini; echo; echo; echo 'ComponentWebotsLidarTest exited.'; echo; /bin/bash --login" &
+xterm -l -lf "../ComponentWebotsLidarTest.log" -title "ComponentWebotsLidarTest@PC1 Component" -hold -e "export WEBOTS_ROBOT_NAME=Lidar;export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; $SCRIPT_DIR/ComponentWebotsLidarTest -filename=$SCRIPT_DIR/ComponentWebotsLidarTest.ini; echo; echo; echo 'ComponentWebotsLidarTest exited.'; echo; /bin/bash --login" &
 echo $! >> $PID_XTERM
 echo ComponentWebotsLidarTest >> $PID_COMPONENT_NAMES
 cd $SCRIPT_DIR
@@ -116,7 +116,7 @@ echo "executing startstop-hooks-ComponentWebotsRobotino3.sh (errors might be ign
 bash startstop-hooks-ComponentWebotsRobotino3.sh pre-start
 cd $SCRIPT_DIR/ComponentWebotsRobotino3_data
 rm -f "../ComponentWebotsRobotino3.log"
-xterm -l -lf "../ComponentWebotsRobotino3.log" -title "ComponentWebotsRobotino3@PC1 Component" -hold -e "export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; $SCRIPT_DIR/ComponentWebotsRobotino3 -filename=$SCRIPT_DIR/ComponentWebotsRobotino3.ini; echo; echo; echo 'ComponentWebotsRobotino3 exited.'; echo; /bin/bash --login" &
+xterm -l -lf "../ComponentWebotsRobotino3.log" -title "ComponentWebotsRobotino3@PC1 Component" -hold -e "export WEBOTS_ROBOT_NAME=Robotino3;export LD_LIBRARY_PATH=$SCRIPT_DIR:\$LD_LIBRARY_PATH; $SCRIPT_DIR/ComponentWebotsRobotino3 -filename=$SCRIPT_DIR/ComponentWebotsRobotino3.ini; echo; echo; echo 'ComponentWebotsRobotino3 exited.'; echo; /bin/bash --login" &
 echo $! >> $PID_XTERM
 echo ComponentWebotsRobotino3 >> $PID_COMPONENT_NAMES
 cd $SCRIPT_DIR

@@ -9,7 +9,6 @@ case "$1" in
 pre-start)
 	echo "Triggering pre-start hooks FROM COMPONENT ComponentWebotsRobotino3 ..."
 	# Insert commands you want to call prior to starting the components
-	export WEBOTS_ROBOT_NAME="Robotino 3"
 ;;
 
 post-start)

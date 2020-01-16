@@ -73,7 +73,7 @@ private:
 public:
     // Calculates the linear velocity and turnrate according to sensor's data
     static void run_cycle(CommBasicObjects::CommMobileLaserScan scan,
-    		      double &out_speed, double &out_turnrate);
+    		      double &out_speed_x, double &out_speed_y, double &out_speed_w);
 };
 
 #endif

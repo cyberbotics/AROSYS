@@ -27,9 +27,9 @@ private:
 public:
 	ComponentWebotsRobotino3Core();
 	SmartACE::SmartMutex Robotino3Mutex;
-	double vel_X;
-	double vel_Y;
-	double turnrate;
+	double vel_X; // in m/s
+	double vel_Y; // in m/s
+	double vel_W; // in rad/s
 };
 	
 #endif

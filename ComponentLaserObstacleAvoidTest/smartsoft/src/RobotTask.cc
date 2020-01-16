@@ -75,18 +75,28 @@ int RobotTask::on_execute()
 		std::cout << "LaserScan received" << std::endl;
 
 	// Using laser scan compute v and w
-	double velocity = 0.0;
-	double turnrate = 0.0;
-	AvoidanceAlgo::run_cycle(laserScan, velocity, turnrate);
+	double velocity_X = 0.0; // in m/s
+	double velocity_Y = 0.0; // in m/s
+	double turnrate_W = 0.0; // in rad/s
+	AvoidanceAlgo::run_cycle(laserScan, velocity_X, velocity_Y, turnrate_W);
 
 	// Create and fill the communication object for v and w
 	CommBasicObjects::CommNavigationVelocity navigationVelocity;
-	navigationVelocity.set_vX(velocity, 0.001);
-	navigationVelocity.set_vY(0.0, 0.001);
-	navigationVelocity.set_omega(turnrate);
 
-	//std::cout << "Velocity : " << velocity << std::endl;
-	//std::cout << "Turnrate : " << turnrate << std::endl;
+	// For test
+	velocity_X = -5.0;
+	velocity_Y = 0.0;
+	turnrate_W = 0.0;
+
+	navigationVelocity.set_vX(velocity_X, 1.0); // in m/s
+	navigationVelocity.set_vY(velocity_Y, 1.0); // in m/s
+	navigationVelocity.set_omega(turnrate_W);   // in rad/s
+
+	std::cout << " " << std::endl;
+	std::cout << "[Obstacle Avoid] To be send:" << std::endl;
+	std::cout << "Velocity X: " << velocity_X << std::endl;
+	std::cout << "Velocity Y: " << velocity_Y << std::endl;
+	std::cout << "Turnrate W: " << turnrate_W << std::endl;
 
 	// Provide result to output port
 	status = this->navigationVelocityServiceOutPut(navigationVelocity);

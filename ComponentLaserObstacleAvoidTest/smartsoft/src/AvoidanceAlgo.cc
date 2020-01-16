@@ -9,7 +9,8 @@
 
 
 // Calculates the linear velocity and turnrate according to sensor's data
-void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan, double &out_speed, double &out_turnrate) {
+void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan,
+							  double &out_speed_x, double &out_speed_y, double &out_speed_w) {
 
 	// Initialize variables
 	double left_speed = 0.0;
@@ -97,6 +98,7 @@ void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan, double
 	//std::cout << "right_speed: " << right_speed << std::endl;
 
 	// Send result
-	out_speed = WHEEL_RADIUS*(right_speed+left_speed)/2.0;
-	out_turnrate = WHEEL_RADIUS*(right_speed-left_speed)/WHEEL_GAP;
+	out_speed_x = WHEEL_RADIUS*(right_speed+left_speed)/2.0;
+	out_speed_y = 0.0; // Because it is a two wheeled robot
+	out_speed_w = WHEEL_RADIUS*(right_speed-left_speed)/WHEEL_GAP;
 }
