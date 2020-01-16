@@ -16,7 +16,6 @@ post-start)
 	### Launch Webots with the defined world and startup options
 	echo " Starting Webots..."
 	xterm -title "Webots Simulator" -hold -e bash $WEBOTS_HOME/webots --batch --mode=realtime $PWD/ComponentWebots_data/world.wbt &
-	echo " Webots Quit..."
 	# Insert commands you want to call after all components were started
 ;;
 
