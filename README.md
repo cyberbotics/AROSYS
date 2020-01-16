@@ -11,7 +11,7 @@ This component will compute the velocity commands using sensor's data to avoid o
 The [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx)/[Robotino 3](https://cyberbotics.com/doc/guide/robotino3) robot and a lidar ([Sick LMS 291](https://cyberbotics.com/doc/guide/lidar-sensors#sick-lms-291)/[Hokuyo URG-04LX-UG01](https://cyberbotics.com/doc/guide/lidar-sensors#hokuyo-urg-04lx-ug01)) are used for tests.
 
 #### ComponentWebots
-This component allow the user to use Webots simulator instead of Gazebo, PlayerStage, etc. It is possible to modify the install path of Webots if needed. There exists a pre-requirement to use Webots. You have to execute this command one time in a Terminal and restart the computer/Virtual Machine. Don't forget to adapt the path if necessary.
+This component allows the user to use Webots simulator instead of Gazebo, PlayerStage, etc. It is possible to modify the install path of Webots if needed. There exists a pre-requirement to use Webots. You have to execute this command once in a Terminal and restart the computer/Virtual Machine. Don't forget to adapt the path if necessary.
 `echo -e "export WEBOTS_HOME=/home/smartsoft/SOFTWARE/webots" >> ~/.profile`
 
 #### ComponentWebotsLidar
