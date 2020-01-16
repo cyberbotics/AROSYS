@@ -1,3 +1,0 @@
-/home/smartsoft/github/RobMoSys/SystemWebotsRobotino3Navigation/smartsoft/build/CMakeFiles/edit_cache.dir
-/home/smartsoft/github/RobMoSys/SystemWebotsRobotino3Navigation/smartsoft/build/CMakeFiles/rebuild_cache.dir
-/home/smartsoft/github/RobMoSys/SystemWebotsRobotino3Navigation/smartsoft/build/CMakeFiles/SystemWebotsRobotino3Navigation.dir

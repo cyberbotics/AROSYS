@@ -1,6 +1,0 @@
-TargetPlatformModel SystemWebotsPioneer3DXNavigation
-{
-TargetPlatformDefinition PC1
-	{
-		NetworkInterface eth1 { HostAddress "localhost" }
-	} }

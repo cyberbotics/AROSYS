@@ -1,6 +1,0 @@
-TargetPlatformModel SystemWebotsRobotino3Navigation
-{
-TargetPlatformDefinition PC1
-	{
-		NetworkInterface eth1 { HostAddress "localhost" }
-	} }
