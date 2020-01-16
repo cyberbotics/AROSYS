@@ -34,7 +34,8 @@
 # (more info: https://cyberbotics.com/doc/guide/starting-webots)
 ##### ---------------------------------------------------------------------------
 # The user can modify the following parameters for his simulation.
-export WORLD_SELECTED=PioneerLMS291/worlds/pioneerLMS291.wbt
+#export WORLD_SELECTED=PioneerLMS291/worlds/pioneerLMS291.wbt
+export WORLD_SELECTED=Robotino3/worlds/robotino3.wbt
 export WEBOTS_WORLD_PATH=$SMART_ROOT_ACE/repos/DataRepository/webots/$WORLD_SELECTED
 export OPTIONS='--batch --mode=realtime'
 # Do not modify below this line.

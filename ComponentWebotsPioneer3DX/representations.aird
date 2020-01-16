@@ -166,22 +166,6 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MHUlAjYYEeq1Q9u9eVoneg" x="-384" y="48" width="495" height="231"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_MHSv0jYYEeq1Q9u9eVoneg"/>
-        <edges xmi:type="notation:Edge" xmi:id="_YBhtMDYYEeq1Q9u9eVoneg" type="4001" element="_YBAv0DYYEeq1Q9u9eVoneg" source="_YBbmkzYYEeq1Q9u9eVoneg" target="_YBXVIDYYEeq1Q9u9eVoneg">
-          <children xmi:type="notation:Node" xmi:id="_YBiUQDYYEeq1Q9u9eVoneg" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YBiUQTYYEeq1Q9u9eVoneg" x="-3" y="2"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_YBi7UDYYEeq1Q9u9eVoneg" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YBi7UTYYEeq1Q9u9eVoneg" x="-8" y="-7"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_YBjiYDYYEeq1Q9u9eVoneg" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YBjiYTYYEeq1Q9u9eVoneg" x="-9" y="-5"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_YBhtMTYYEeq1Q9u9eVoneg"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_YBhtMjYYEeq1Q9u9eVoneg" fontName="Ubuntu" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YBhtMzYYEeq1Q9u9eVoneg" points="[32, -237, -142, 11]$[163, -233, -11, 15]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YBlXkDYYEeq1Q9u9eVoneg" id="(0.5,11.333333333333334)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YBlXkTYYEeq1Q9u9eVoneg" id="(0.5,0.5)"/>
-        </edges>
         <edges xmi:type="notation:Edge" xmi:id="_YBl-oDYYEeq1Q9u9eVoneg" type="4001" element="_YBBW5DYYEeq1Q9u9eVoneg" source="_YBaYcDYYEeq1Q9u9eVoneg" target="_YBX8MDYYEeq1Q9u9eVoneg">
           <children xmi:type="notation:Node" xmi:id="_YBl-pDYYEeq1Q9u9eVoneg" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YBl-pTYYEeq1Q9u9eVoneg" x="-9" y="-1"/>
@@ -278,6 +262,22 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YBnz1jYYEeq1Q9u9eVoneg" id="(0.03536977491961415,0.7272727272727273)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YBnz1zYYEeq1Q9u9eVoneg" id="(0.9,0.5)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1u-osDeFEeqB2pihkNJcrQ" type="4001" element="_1u2F1DeFEeqB2pihkNJcrQ" source="_YBbmkzYYEeq1Q9u9eVoneg" target="_YBXVIDYYEeq1Q9u9eVoneg">
+          <children xmi:type="notation:Node" xmi:id="_1u_PwDeFEeqB2pihkNJcrQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1u_PwTeFEeqB2pihkNJcrQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1u_PwjeFEeqB2pihkNJcrQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1u_PwzeFEeqB2pihkNJcrQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1u_PxDeFEeqB2pihkNJcrQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1u_PxTeFEeqB2pihkNJcrQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1u-osTeFEeqB2pihkNJcrQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1u-osjeFEeqB2pihkNJcrQ" fontName="Ubuntu" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1u-oszeFEeqB2pihkNJcrQ" points="[1, 0, -253, -14]$[239, 13, -15, -1]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1u_20DeFEeqB2pihkNJcrQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1u_20TeFEeqB2pihkNJcrQ" id="(0.5,0.5)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MHC4MDYYEeq1Q9u9eVoneg" name="ComponentWebotsPioneer3DX" tooltipText="ComponentDefinition: ComponentWebotsPioneer3DX&#xA;">
@@ -305,7 +305,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMappingImport" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']/@additionalLayers[name='SeRoNet']/@containerMappings[name='ComponentContainerImport']/@borderedNodeMappings[name='InputPortNodeImport']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YAkq8zYYEeq1Q9u9eVoneg" name="BaseStateServiceOut" tooltipText="OutputPort" incomingEdges="_YBAv0DYYEeq1Q9u9eVoneg" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_YAkq8zYYEeq1Q9u9eVoneg" name="BaseStateServiceOut" tooltipText="OutputPort" incomingEdges="_1u2F1DeFEeqB2pihkNJcrQ" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentDefinition:OutputPort" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.4"/>
         <semanticElements xmi:type="ComponentDefinition:OutputPort" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.4"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -369,7 +369,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']/@defaultLayer/@containerMappings[name='ComponentContainer']/@subContainerMappings[name='ActivityContainer']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_YAoVUDYYEeq1Q9u9eVoneg" name="PioneerTask" tooltipText="Activity" outgoingEdges="_YBAv0DYYEeq1Q9u9eVoneg">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_YAoVUDYYEeq1Q9u9eVoneg" name="Pioneer3DXTask" tooltipText="Activity" outgoingEdges="_1u2F1DeFEeqB2pihkNJcrQ">
         <target xmi:type="ComponentDefinition:Activity" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.3"/>
         <semanticElements xmi:type="ComponentDefinition:Activity" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.3"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -442,15 +442,6 @@
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']/@defaultLayer/@containerMappings[name='ComponentContainer']/@subContainerMappings[name='ComponentParametersContainer']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YBAv0DYYEeq1Q9u9eVoneg" sourceNode="_YAoVUDYYEeq1Q9u9eVoneg" targetNode="_YAkq8zYYEeq1Q9u9eVoneg">
-      <target xmi:type="ComponentDefinition:OutputPort" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.4"/>
-      <semanticElements xmi:type="ComponentDefinition:OutputPort" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.4"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YBBW4DYYEeq1Q9u9eVoneg" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']/@defaultLayer/@edgeMappings[name='ActivityOutputEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_YBBW4TYYEeq1Q9u9eVoneg"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']/@defaultLayer/@edgeMappings[name='ActivityOutputEdge']"/>
-    </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YBBW5DYYEeq1Q9u9eVoneg" sourceNode="_YAnuQDYYEeq1Q9u9eVoneg" targetNode="_YAlSATYYEeq1Q9u9eVoneg">
       <target xmi:type="ComponentDefinition:OutputPort" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.9"/>
       <semanticElements xmi:type="ComponentDefinition:OutputPort" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.9"/>
@@ -503,6 +494,15 @@
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_YBNkIjYYEeq1Q9u9eVoneg"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']/@defaultLayer/@edgeMappings[name='ParametersEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1u2F1DeFEeqB2pihkNJcrQ" sourceNode="_YAoVUDYYEeq1Q9u9eVoneg" targetNode="_YAkq8zYYEeq1Q9u9eVoneg">
+      <target xmi:type="ComponentDefinition:OutputPort" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.4"/>
+      <semanticElements xmi:type="ComponentDefinition:OutputPort" href="model/ComponentWebotsPioneer3DX.component#//@component/@elements.4"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1u2s4DeFEeqB2pihkNJcrQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']/@defaultLayer/@edgeMappings[name='ActivityOutputEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1u2s4TeFEeqB2pihkNJcrQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']/@defaultLayer/@edgeMappings[name='ActivityOutputEdge']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.sirius.component.design/description/component.odesign#//@ownedViewpoints[name='ComponentDefinitionViewpoint']/@ownedRepresentations[name='ComponentDefinitionDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_MG9_sDYYEeq1Q9u9eVoneg"/>

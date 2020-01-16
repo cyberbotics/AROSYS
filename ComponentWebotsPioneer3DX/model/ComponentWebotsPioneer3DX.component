@@ -7,10 +7,10 @@ ComponentDefinition ComponentWebotsPioneer3DX logo "/ComponentWebotsPioneer3DX/m
 	Activity BatteryEventTask
 	{
 	}
-	Activity PioneerTask
+	Activity Pioneer3DXTask
 	{
 	}
-	OutputPort BaseStateServiceOut implements CommBasicObjects.BaseStateService realizedBy PioneerTask {
+	OutputPort BaseStateServiceOut implements CommBasicObjects.BaseStateService realizedBy Pioneer3DXTask {
 	}
 	AnswerPort BaseStateAnswerer implements CommBasicObjects.BaseStateQueryService {
 	}

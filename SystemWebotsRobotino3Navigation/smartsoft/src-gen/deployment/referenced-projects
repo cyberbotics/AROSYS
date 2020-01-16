@@ -1,0 +1,8 @@
+# This file is generated using the SmartMDSD Toolchain.
+# Any changes will be overwritten next time the deployment project
+# is deployed/run from within the SmartMDSD toolchain.
+
+REFERENCED_PROJECT_ComponentLaserObstacleAvoidTest="/home/smartsoft/github/RobMoSys/ComponentLaserObstacleAvoidTest"
+REFERENCED_PROJECT_ComponentWebots="/home/smartsoft/github/RobMoSys/ComponentWebots"
+REFERENCED_PROJECT_ComponentWebotsLidarTest="/home/smartsoft/github/RobMoSys/ComponentWebotsLidarTest"
+REFERENCED_PROJECT_ComponentWebotsRobotino3="/home/smartsoft/github/RobMoSys/ComponentWebotsRobotino3"

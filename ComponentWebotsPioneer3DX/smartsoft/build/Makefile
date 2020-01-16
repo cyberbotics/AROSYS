@@ -502,32 +502,32 @@ src-gen/NavigationVelocityServiceInUpcallManager.cc.s:
 	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/NavigationVelocityServiceInUpcallManager.cc.s
 .PHONY : src-gen/NavigationVelocityServiceInUpcallManager.cc.s
 
-src-gen/PioneerTaskCore.o: src-gen/PioneerTaskCore.cc.o
+src-gen/Pioneer3DXTaskCore.o: src-gen/Pioneer3DXTaskCore.cc.o
 
-.PHONY : src-gen/PioneerTaskCore.o
+.PHONY : src-gen/Pioneer3DXTaskCore.o
 
 # target to build an object file
-src-gen/PioneerTaskCore.cc.o:
-	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.o
-.PHONY : src-gen/PioneerTaskCore.cc.o
+src-gen/Pioneer3DXTaskCore.cc.o:
+	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.o
+.PHONY : src-gen/Pioneer3DXTaskCore.cc.o
 
-src-gen/PioneerTaskCore.i: src-gen/PioneerTaskCore.cc.i
+src-gen/Pioneer3DXTaskCore.i: src-gen/Pioneer3DXTaskCore.cc.i
 
-.PHONY : src-gen/PioneerTaskCore.i
+.PHONY : src-gen/Pioneer3DXTaskCore.i
 
 # target to preprocess a source file
-src-gen/PioneerTaskCore.cc.i:
-	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.i
-.PHONY : src-gen/PioneerTaskCore.cc.i
+src-gen/Pioneer3DXTaskCore.cc.i:
+	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.i
+.PHONY : src-gen/Pioneer3DXTaskCore.cc.i
 
-src-gen/PioneerTaskCore.s: src-gen/PioneerTaskCore.cc.s
+src-gen/Pioneer3DXTaskCore.s: src-gen/Pioneer3DXTaskCore.cc.s
 
-.PHONY : src-gen/PioneerTaskCore.s
+.PHONY : src-gen/Pioneer3DXTaskCore.s
 
 # target to generate assembly for a file
-src-gen/PioneerTaskCore.cc.s:
-	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/PioneerTaskCore.cc.s
-.PHONY : src-gen/PioneerTaskCore.cc.s
+src-gen/Pioneer3DXTaskCore.cc.s:
+	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src-gen/Pioneer3DXTaskCore.cc.s
+.PHONY : src-gen/Pioneer3DXTaskCore.cc.s
 
 src-gen/main.o: src-gen/main.cc.o
 
@@ -799,32 +799,32 @@ src/ParameterStateStruct.cc.s:
 	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/ParameterStateStruct.cc.s
 .PHONY : src/ParameterStateStruct.cc.s
 
-src/PioneerTask.o: src/PioneerTask.cc.o
+src/Pioneer3DXTask.o: src/Pioneer3DXTask.cc.o
 
-.PHONY : src/PioneerTask.o
+.PHONY : src/Pioneer3DXTask.o
 
 # target to build an object file
-src/PioneerTask.cc.o:
-	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.o
-.PHONY : src/PioneerTask.cc.o
+src/Pioneer3DXTask.cc.o:
+	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.o
+.PHONY : src/Pioneer3DXTask.cc.o
 
-src/PioneerTask.i: src/PioneerTask.cc.i
+src/Pioneer3DXTask.i: src/Pioneer3DXTask.cc.i
 
-.PHONY : src/PioneerTask.i
+.PHONY : src/Pioneer3DXTask.i
 
 # target to preprocess a source file
-src/PioneerTask.cc.i:
-	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.i
-.PHONY : src/PioneerTask.cc.i
+src/Pioneer3DXTask.cc.i:
+	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.i
+.PHONY : src/Pioneer3DXTask.cc.i
 
-src/PioneerTask.s: src/PioneerTask.cc.s
+src/Pioneer3DXTask.s: src/Pioneer3DXTask.cc.s
 
-.PHONY : src/PioneerTask.s
+.PHONY : src/Pioneer3DXTask.s
 
 # target to generate assembly for a file
-src/PioneerTask.cc.s:
-	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/PioneerTask.cc.s
-.PHONY : src/PioneerTask.cc.s
+src/Pioneer3DXTask.cc.s:
+	$(MAKE) -f CMakeFiles/ComponentWebotsPioneer3DX.dir/build.make CMakeFiles/ComponentWebotsPioneer3DX.dir/src/Pioneer3DXTask.cc.s
+.PHONY : src/Pioneer3DXTask.cc.s
 
 src/SmartStateChangeHandler.o: src/SmartStateChangeHandler.cc.o
 
@@ -901,9 +901,9 @@ help:
 	@echo "... src-gen/NavigationVelocityServiceInUpcallManager.o"
 	@echo "... src-gen/NavigationVelocityServiceInUpcallManager.i"
 	@echo "... src-gen/NavigationVelocityServiceInUpcallManager.s"
-	@echo "... src-gen/PioneerTaskCore.o"
-	@echo "... src-gen/PioneerTaskCore.i"
-	@echo "... src-gen/PioneerTaskCore.s"
+	@echo "... src-gen/Pioneer3DXTaskCore.o"
+	@echo "... src-gen/Pioneer3DXTaskCore.i"
+	@echo "... src-gen/Pioneer3DXTaskCore.s"
 	@echo "... src-gen/main.o"
 	@echo "... src-gen/main.i"
 	@echo "... src-gen/main.s"
@@ -934,9 +934,9 @@ help:
 	@echo "... src/ParameterStateStruct.o"
 	@echo "... src/ParameterStateStruct.i"
 	@echo "... src/ParameterStateStruct.s"
-	@echo "... src/PioneerTask.o"
-	@echo "... src/PioneerTask.i"
-	@echo "... src/PioneerTask.s"
+	@echo "... src/Pioneer3DXTask.o"
+	@echo "... src/Pioneer3DXTask.i"
+	@echo "... src/Pioneer3DXTask.s"
 	@echo "... src/SmartStateChangeHandler.o"
 	@echo "... src/SmartStateChangeHandler.i"
 	@echo "... src/SmartStateChangeHandler.s"

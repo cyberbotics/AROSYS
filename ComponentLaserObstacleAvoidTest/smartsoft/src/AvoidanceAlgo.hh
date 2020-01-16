@@ -34,11 +34,19 @@
 #define SIMPLE_AVOID_HH
 
 // These parameters have to be consistent with the robot used
-#define MAX_LIDAR_DIST 80.0 // in meter
+
+/* --- Pioneer 3-DX ---
 #define MAX_SPEED 12.3      // in rad/s
 #define WHEEL_GAP 0.269     // in meter
 #define WHEEL_RADIUS 0.0975 // in meter
 #define CRUISING_SPEED 5.0  // in rad/s
+*/
+
+// --- Robotino 3 ---
+#define MAX_SPEED 44.4      // in rad/s
+#define WHEEL_GAP 0.184     // in meter
+#define WHEEL_RADIUS 0.0625 // in meter
+#define CRUISING_SPEED 20.0 // in rad/s
 
 // Parameters that can be modified
 #define N_SECTOR 5
@@ -61,8 +69,6 @@ class AvoidanceAlgo
 {
 
 private:
-	// Checks speed limits in rad/s
-    static double check_speed(double speed);
 
 public:
     // Calculates the linear velocity and turnrate according to sensor's data

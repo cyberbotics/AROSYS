@@ -9,6 +9,7 @@ case "$1" in
 pre-start)
 	echo "Triggering pre-start hooks FROM COMPONENT ComponentWebotsPioneer3DX ..."
 	# Insert commands you want to call prior to starting the components
+	export WEBOTS_ROBOT_NAME="Pioneer 3-DX"
 ;;
 
 post-start)
@@ -24,8 +25,6 @@ pre-stop)
 post-stop)
 	echo "Triggering post-stop hooks FROM COMPONENT ComponentWebotsPioneer3DX ..."
 	# Insert commands you want to call after all components were stopped
-	
-	# Close Webots windows
 	echo " Webots is closing..."
 	killall webots
 ;;
