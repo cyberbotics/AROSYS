@@ -1,0 +1,12 @@
+################
+# Global rules #
+################
+
+
+# untracked directories
+.settings
+bin
+build
+opcua-backend
+datasheet-gen
+src-gen
