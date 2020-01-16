@@ -1,0 +1,7 @@
+ComponentDefinition ComponentWebotsLidar logo "/ComponentWebotsLidar/model/logo.png"
+{
+	Activity LaserTask {
+	}
+	OutputPort LaserServiceOut implements CommBasicObjects.LaserService realizedBy LaserTask {
+	}
+}
