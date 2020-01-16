@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# This script provides methods to call custom commands pre/post of starting/stoping the component during launch on the device. 
-# This script is being executed on the target device where the component is running. 
+# This script provides methods to call custom commands pre/post of starting/stoping the component during launch on the device.
+# This script is being executed on the target device where the component is running.
 # For example the script can be used to start and stop the morse simulator automatically.
 
 case "$1" in
@@ -24,9 +24,6 @@ pre-stop)
 post-stop)
 	echo "Triggering post-stop hooks FROM COMPONENT ComponentWebotsSimulator ..."
 	# Insert commands you want to call after all components were stopped
-
-	# Close Webots windows
-	echo " Webots is closing..."
 	killall webots
 ;;
 

@@ -33,6 +33,7 @@ WoodenBox {
   translation 1.20912 0.3 0.030385
   rotation 0 1 0 -3.0717958665604783e-07
   name "wooden box(3)"
+  mass 2
 }
 WoodenBox {
   translation 0.198962 0.299217 -1.1668
