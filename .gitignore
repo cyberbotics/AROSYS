@@ -4,6 +4,7 @@
 
 
 # untracked directories
+.settings
 bin
 build
 opcua-backend
