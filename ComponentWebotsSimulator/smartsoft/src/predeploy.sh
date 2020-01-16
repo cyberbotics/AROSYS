@@ -33,7 +33,6 @@
 # (more info: https://cyberbotics.com/doc/guide/starting-webots)
 ##### ---------------------------------------------------------------------------
 # The user can modify the following parameters for his simulation.
-export WEBOTS_ROBOT_NAME="Pioneer 3-DX"
 export WORLD_SELECTED=PioneerLMS291/worlds/pioneerLMS291.wbt
 export WEBOTS_WORLD_PATH=$SMART_ROOT_ACE/repos/DataRepository/webots/$WORLD_SELECTED
 export OPTIONS='--batch --mode=realtime'
@@ -42,15 +41,15 @@ export OPTIONS='--batch --mode=realtime'
 
 
 ### Webot's controller libraries importation into SmartMDSD
-export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib)
+export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib/controller)
 export DEPLOY_LIBRARIES="
 $WEBOTS_LIBRARY/libController.so
 $WEBOTS_LIBRARY/libCppController.so
 "
 
 # It is also possible to copy the library.so directly in SmartMDSD's lib folder using:
-#cp $WEBOTS_HOME/lib/libController.so $SMART_ROOT_ACE/lib/
-#cp $WEBOTS_HOME/lib/libCppController.so $SMART_ROOT_ACE/lib/
+#cp $WEBOTS_HOME/lib/controller/libController.so $SMART_ROOT_ACE/lib/
+#cp $WEBOTS_HOME/lib/controller/libCppController.so $SMART_ROOT_ACE/lib/
 
 
 ### Paths verification:

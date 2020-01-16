@@ -26,7 +26,6 @@ private:
 
 public:
 	ComponentWebotsLidarTestCore();
-	// TODO: Maybe some variables to initialize
 };
 	
 #endif

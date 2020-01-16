@@ -1,0 +1,27 @@
+ComponentDefinition ComponentWebotsPioneer3DX logo "/ComponentWebotsPioneer3DX/model/logo.png"
+{
+	InputPort LocalizationUpdateServiceIn implements CommNavigationObjects.LocalizationUpdateService {
+	}
+	InputPort NavigationVelocityServiceIn implements CommNavigationObjects.NavigationVelocityService {
+	}
+	Activity BatteryEventTask
+	{
+	}
+	Activity Pioneer3DXTask
+	{
+	}
+	OutputPort BaseStateServiceOut implements CommBasicObjects.BaseStateService realizedBy Pioneer3DXTask {
+	}
+	AnswerPort BaseStateAnswerer implements CommBasicObjects.BaseStateQueryService {
+	}
+	RequestHandler BaseStateQueryHandler triggeredFrom BaseStateAnswerer {
+	}
+	InputHandler LocalizationUpdateHandler triggeredFrom LocalizationUpdateServiceIn { }
+	InputHandler NavigationVelocityHandler triggeredFrom NavigationVelocityServiceIn { }
+	OutputPort BatteryEventServiceOut implements CommNavigationObjects.BatteryEventService realizedBy BatteryEventTask {
+	}
+	ComponentParameters ComponentWebotsPioneer3DXParams slave CoordinationPort;
+	
+	CoordinationSlavePort CoordinationPort implements CommBasicObjects.DefaultCoordinationService { }
+
+}

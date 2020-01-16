@@ -27,9 +27,9 @@ private:
 public:
 	ComponentWebotsSimulatorCore();
 	SmartACE::SmartMutex WebotsMutex;
-	double velocityLeftWheel;
-	double velocityRightWheel;
-	double omega;
+	double right_velocity;
+	double left_velocity;
+	double turnrate;
 };
 	
 #endif

@@ -21,19 +21,22 @@
 
 #include <webots/Motor.hpp>
 #include <webots/Robot.hpp>
-#include <webots/Lidar.hpp>
 
-#define OMEGA_ADJUST 0
-#define MAX_SPEED 2.5
-#define TIME_STEP 64
+
+// These parameters have to be consistent with the robot used
+#define WHEEL_GAP 0.269     // in meter
+#define WHEEL_RADIUS 0.0975 // in meter
+#define MAX_SPEED 12.3      // in rad/s
+
 
 class WebotsControllerTask  : public WebotsControllerTaskCore
 {
+
 private:
-	webots::Robot *robot;
-	webots::Motor *rightMotor;
-	webots::Motor *leftMotor;
-	webots::Lidar *lidar;
+	int wb_time_step;
+	webots::Robot *wb_robot;
+	webots::Motor *wb_right_motor;
+	webots::Motor *wb_left_motor;
 
 
 public:
