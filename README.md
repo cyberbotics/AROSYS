@@ -4,7 +4,7 @@
 The following components are new components for RobMoSys in order to be able to use them with the [Webots' simulator](https://cyberbotics.com).
 
 #### ComponentLaserObstacleAvoid
-This component will calculate the velocity commands using sensor's data to avoid obstacles.
+This component will compute the velocity commands using sensor's data to avoid obstacles.
 * `input:` a sensor (such as a lidar)
 * `output:` velocity commands (such as a linear velocity and a turnrate)
 
