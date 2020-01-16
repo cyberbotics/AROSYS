@@ -5,6 +5,7 @@
 
 # untracked directories
 bin
+build
 opcua-backend
-smartsoft/build
-smartsoft/src-gen
+datasheet-gen
+src-gen
