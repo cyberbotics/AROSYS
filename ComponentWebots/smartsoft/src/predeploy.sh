@@ -42,9 +42,9 @@ $WEBOTS_LIBRARY/libCppController.so
 echo " --------------------------------------------------------"
 if [ -z "$WEBOTS_HOME" ]
 then
-  echo " |> Error: \$WEBOTS_HOME is not defined, please define it in ~/.profile."
+echo " |> Error: \$WEBOTS_HOME is not defined, please define it in ~/.profile."
 else
-  echo " |> WEBOTS_HOME: $WEBOTS_HOME"
+echo " |> WEBOTS_HOME: $WEBOTS_HOME"
 fi
 
 echo " |> Webots' configuration is done and libraries are set."
