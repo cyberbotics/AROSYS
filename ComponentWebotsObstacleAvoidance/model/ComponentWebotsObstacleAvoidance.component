@@ -1,10 +1,11 @@
 ComponentDefinition ComponentWebotsObstacleAvoidance logo "/ComponentWebotsObstacleAvoidance/model/logo.png"
 {
-	Activity ComputingTask
-	{
-		InputPortLink LaserServiceIn { oversamplingOk undersamplingOk }
+	Activity ComputingTask {
+		InputPortLink LaserServiceIn { 
+			oversamplingOk undersamplingOk
+		}
 		DefaultTrigger 
-	InputPortTrigger LaserServiceIn
+		InputPortTrigger LaserServiceIn
 	}
 	InputPort LaserServiceIn implements CommBasicObjects.LaserService {
 	}

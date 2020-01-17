@@ -9,6 +9,8 @@ ComponentDefinition ComponentWebotsRobotino3 logo "/ComponentWebotsRobotino3/mod
 	}
 	Activity Robotino3Task
 	{
+	InputPortLink NavigationVelocityServiceIn { oversamplingOk undersamplingOk }
+		DefaultTrigger PeriodicTimer 1.0 Hz
 	}
 	OutputPort BaseStateServiceOut implements CommBasicObjects.BaseStateService realizedBy Robotino3Task {
 	}
