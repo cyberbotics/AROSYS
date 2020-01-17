@@ -16,13 +16,11 @@
 # $SMART_ROOT_ACE/myFILE2
 # "
 
-
-#-----------------------------------------------------------------------
-#   /|\                                                           /|\
-#  / | \  Don't modify except in the part where it is allowed!   / | \
-# /__o__\                                                       /__o__\
-#-----------------------------------------------------------------------
-
+###############################################
+##  Please do not modify anything else than  ##
+##  the path in the Pre-requirement section  ##
+##  which serves to set WEBOTS_HOME path.     ##
+###############################################
 
 ### Pre-requirement
 # Execute this command one time in a Terminal to be able to launch Webots software and restart the computer/Virtual Machine
