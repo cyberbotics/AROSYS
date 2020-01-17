@@ -41,6 +41,24 @@ int LaserTask::on_entry()
 	// do initialization procedures here, which are called once, each time the task is started
 	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
+	// assign this controller to the correct robot in Webots
+	char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
+	if (!robotName) {
+		std::cout  << "WEBOTS_ROBOT_NAME not defined" << std::endl;
+		FILE *f = fopen("robotName.txt", "rb");
+		if (!f) {
+			std::cout  << "'robotName.txt' file not found." << std::endl;
+			return -1;
+		}
+		char name[256];
+		int ret = fscanf(f, "%[^\n]", name);
+		if (ret == 0) {
+			std::cout  << "First line of the 'robotName.txt' file is empty." << std::endl;
+			return -1;
+		}
+		char environment[256] = "WEBOTS_ROBOT_NAME=";
+		putenv(strcat(environment, name));
+	}
 
 	// create Robot Instance
 	wb_robot = new webots::Robot();

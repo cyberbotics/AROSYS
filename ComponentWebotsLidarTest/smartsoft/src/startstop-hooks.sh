@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# This script provides methods to call custom commands pre/post of starting/stoping the component during launch on the device. 
-# This script is being executed on the target device where the component is running. 
+# This script provides methods to call custom commands pre/post of starting/stoping the component during launch on the device.
+# This script is being executed on the target device where the component is running.
 # For example the script can be used to start and stop the morse simulator automatically.
 
 case "$1" in
 
 pre-start)
 	echo "Triggering pre-start hooks FROM COMPONENT ComponentWebotsLidarTest ..."
-	export WEBOTS_ROBOT_NAME="SickLMS291"
 	# Insert commands you want to call prior to starting the components
 ;;
 
