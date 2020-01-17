@@ -148,6 +148,8 @@ int Robotino3Task::on_execute()
 		wb_motor_1->setVelocity(v_motor_1);
 		wb_motor_2->setVelocity(v_motor_2);
 	}
+	else
+		return -1;
 
 	// Release
 	COMP->Robotino3Mutex.release();

@@ -130,6 +130,8 @@ int LaserTask::on_execute()
 		}
 		scan.set_scan_valid(true);
 	}
+	else
+		return -1;
 
 	// Send out laser scan through port
 	laserServiceOutPut(scan);
