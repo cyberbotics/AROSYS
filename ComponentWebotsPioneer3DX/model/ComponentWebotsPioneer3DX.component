@@ -9,6 +9,8 @@ ComponentDefinition ComponentWebotsPioneer3DX logo "/ComponentWebotsPioneer3DX/m
 	}
 	Activity Pioneer3DXTask
 	{
+	InputPortLink NavigationVelocityServiceIn { oversamplingOk undersamplingOk }
+		DefaultTrigger PeriodicTimer 10.0 Hz
 	}
 	OutputPort BaseStateServiceOut implements CommBasicObjects.BaseStateService realizedBy Pioneer3DXTask {
 	}

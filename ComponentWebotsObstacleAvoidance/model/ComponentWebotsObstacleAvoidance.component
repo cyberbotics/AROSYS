@@ -3,7 +3,8 @@ ComponentDefinition ComponentWebotsObstacleAvoidance logo "/ComponentWebotsObsta
 	Activity ComputingTask
 	{
 		InputPortLink LaserServiceIn { oversamplingOk undersamplingOk }
-		DefaultTrigger PeriodicTimer 10.0 Hz
+		DefaultTrigger 
+	InputPortTrigger LaserServiceIn
 	}
 	InputPort LaserServiceIn implements CommBasicObjects.LaserService {
 	}
