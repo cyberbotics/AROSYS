@@ -6,10 +6,12 @@ TargetPlatformReference PC1 using SystemWebotsPioneer3DXNavigation.PC1
 		NetworkInterface eth1
 	}
 	ComponentArtefact ComponentWebots deploy-to PC1
-	ComponentArtefact ComponentWebotsLidarTest deploy-to PC1
-NamingService
+
+	NamingService
 	{
 		deploy-to PC1 }
-	ComponentArtefact ComponentLaserObstacleAvoidTest deploy-to PC1
+
 	ComponentArtefact ComponentWebotsPioneer3DX deploy-to PC1
+ComponentArtefact  ComponentWebotsLidar deploy-to PC1
+	ComponentArtefact ComponentWebotsObstacleAvoidance deploy-to PC1
 }

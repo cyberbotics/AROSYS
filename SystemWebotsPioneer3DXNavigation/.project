@@ -3,9 +3,9 @@
 	<name>SystemWebotsPioneer3DXNavigation</name>
 	<comment></comment>
 	<projects>
-		<project>ComponentLaserObstacleAvoidTest</project>
 		<project>ComponentWebots</project>
-		<project>ComponentWebotsLidarTest</project>
+		<project>ComponentWebotsLidar</project>
+		<project>ComponentWebotsObstacleAvoidance</project>
 		<project>ComponentWebotsPioneer3DX</project>
 	</projects>
 	<buildSpec>
