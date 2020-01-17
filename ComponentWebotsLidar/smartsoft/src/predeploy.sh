@@ -16,6 +16,10 @@
 # $SMART_ROOT_ACE/myFILE2
 # "
 
+######################################
+##  Please do not modify this file  ##
+######################################
+
 ### Webot's controller libraries importation into SmartMDSD
 export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib/controller)
 export DEPLOY_LIBRARIES="
