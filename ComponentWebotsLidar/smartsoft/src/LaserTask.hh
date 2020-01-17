@@ -46,23 +46,22 @@
 class LaserTask  : public LaserTaskCore
 {
 private:
-	int wbTimeStep;
-	int horizontalResolution;
-	webots::Robot *webotsRobot;
-	webots::Lidar *webotsLidar;
+  int wbTimeStep;
+  int horizontalResolution;
+  webots::Robot *webotsRobot;
+  webots::Lidar *webotsLidar;
 
-	unsigned int numberValidPoints;
-	CommBasicObjects::CommMobileLaserScan scan;
+  unsigned int numberValidPoints;
+  CommBasicObjects::CommMobileLaserScan scan;
 
 public:
-	unsigned long scanCount;
-	LaserTask(SmartACE::SmartComponent *comp);
-	virtual ~LaserTask();
+  unsigned long scanCount;
+  LaserTask(SmartACE::SmartComponent *comp);
+  virtual ~LaserTask();
 
-	virtual int on_entry();
-	virtual int on_execute();
-	virtual int on_exit();
+  virtual int on_entry();
+  virtual int on_execute();
+  virtual int on_exit();
 };
 
 #endif
-

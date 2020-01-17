@@ -22,13 +22,13 @@
 // Called when a substate is entered
 void SmartStateChangeHandler::handleEnterState(const std::string & substate) throw()
 {
-	// change this code to your needs !!!
+  // change this code to your needs !!!
 
 }
 
 // Called when a substate is left
 void SmartStateChangeHandler::handleQuitState(const std::string & substate) throw()
 {
-	// change this code to your needs !!!
+  // change this code to your needs !!!
 
 }
