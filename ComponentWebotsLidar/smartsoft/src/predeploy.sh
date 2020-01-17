@@ -26,7 +26,3 @@ export DEPLOY_LIBRARIES="
 $WEBOTS_LIBRARY/libController.so
 $WEBOTS_LIBRARY/libCppController.so
 "
-
-# It is also possible to copy the library.so directly in SmartMDSD's lib folder using:
-#cp $WEBOTS_HOME/lib/controller/libController.so $SMART_ROOT_ACE/lib/
-#cp $WEBOTS_HOME/lib/controller/libCppController.so $SMART_ROOT_ACE/lib/
