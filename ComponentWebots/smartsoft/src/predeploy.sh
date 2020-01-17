@@ -19,7 +19,7 @@
 ###############################################
 ##  Please do not modify anything else than  ##
 ##  the path in the Pre-requirement section  ##
-##  which serves to set WEBOTS_HOME path.     ##
+##  which serves to set WEBOTS_HOME          ##
 ###############################################
 
 ### Pre-requirement
