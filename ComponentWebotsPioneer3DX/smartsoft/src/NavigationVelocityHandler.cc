@@ -36,15 +36,15 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 
 	// print output
 	std::cout << "Velocity - input = " << input     << std::endl;
-	std::cout << " => vX = "    << input.get_vX()   << std::endl;
-	std::cout << " => vY = "    << input.get_vY()   << std::endl;
+	std::cout << " => vX = "    << input.get_vX(1.0)   << std::endl;
+	std::cout << " => vY = "    << input.get_vY(1.0)   << std::endl;
 	std::cout << " => omega = " << input.getOmega() << std::endl;
 
 	// Get from the port and pass to ComponentPioneer3DXCore to be accessible
 	COMP->PioneerMutex.acquire();
 
-	COMP->v_X = input.get_vX();
-	COMP->v_Y = input.get_vY();
+	COMP->v_X = input.get_vX(1.0);
+	COMP->v_Y = input.get_vY(1.0);
 	COMP->v_W = input.get_omega();
 
 	COMP->PioneerMutex.release();

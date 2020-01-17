@@ -53,6 +53,7 @@
 #define N_SECTOR 5
 #define UNUSED_POINT 15
 #define DIST_THRESHOLD 5.0  // in meter
+#define TOL 0.000001
 
 // Tuning parameters
 #define FAR 0.4

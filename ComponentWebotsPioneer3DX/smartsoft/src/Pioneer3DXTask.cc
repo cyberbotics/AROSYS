@@ -104,12 +104,18 @@ int Pioneer3DXTask::on_execute()
 	speed = COMP->v_X;
 	omega = COMP->v_W;
 
+	std::cout  << " " << std::endl;
+	std::cout  << "Pioneer get1:" << std::endl;
+	std::cout  << "speed : " << speed  << std::endl;
+	std::cout  << "omega : " << omega  << std::endl;
+
 	// Set velocities in rad/s for motors and check limits
 	right_speed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
 	left_speed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
 	check_velocity(left_speed, right_speed, motor_max_speed);
 
 	std::cout  << " " << std::endl;
+	std::cout  << "Pioneer get2:" << std::endl;
 	std::cout  << "left_speed  : " << left_speed  << std::endl;
 	std::cout  << "right_speed : " << right_speed << std::endl;
 	std::cout  << "omega       : " << omega       << std::endl;

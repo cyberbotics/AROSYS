@@ -45,6 +45,7 @@ int ComputingTask::on_entry()
 	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 	return 0;
 }
+
 int ComputingTask::on_execute()
 {
 	// this method is called from an outside loop,
@@ -87,12 +88,14 @@ int ComputingTask::on_execute()
 	//velocity_Y = 0.0;
 	//turnrate_W = 0.0;
 
+	std::cout << "Nav0 " << navigationVelocity << std::endl;
 	navigationVelocity.set_vX(velocity_X, 1.0); // in m/s
 	navigationVelocity.set_vY(velocity_Y, 1.0); // in m/s
 	navigationVelocity.set_omega(turnrate_W);   // in rad/s
+	std::cout << "Nav1 " << navigationVelocity << std::endl;
 
 	std::cout << " " << std::endl;
-	std::cout << "[Obstacle Avoid] To be send:" << std::endl;
+	std::cout << "[avoid3] Send to Pioneer:" << std::endl;
 	std::cout << "Velocity X: " << velocity_X << std::endl;
 	std::cout << "Velocity Y: " << velocity_Y << std::endl;
 	std::cout << "Turnrate W: " << turnrate_W << std::endl;
@@ -108,7 +111,7 @@ int ComputingTask::on_execute()
 		sleep(1);
 	}
 	else
-		std::cout << "Navigation commands sent" << navigationVelocity << std::endl;
+		std::cout << "Navigation commands sent " << navigationVelocity << std::endl;
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;

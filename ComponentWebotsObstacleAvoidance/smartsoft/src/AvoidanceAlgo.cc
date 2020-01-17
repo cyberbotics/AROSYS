@@ -36,13 +36,19 @@ void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan,
 
 		double dist = scan.get_scan_distance(i);
 		if (dist <= max_dist) {
-			if                         (i < sector_range[0])	left_obstacle 		 += (1.0 - dist / max_dist);
+			if                         (i < sector_range[0])	left_obstacle        += (1.0 - dist / max_dist);
 			if (sector_range[0] <= i && i < sector_range[1])	front_left_obstacle  += (1.0 - dist / max_dist);
-			if (sector_range[1] <= i && i < sector_range[2])	front_obstacle 		 += (1.0 - dist / max_dist);
+			if (sector_range[1] <= i && i < sector_range[2])	front_obstacle       += (1.0 - dist / max_dist);
 			if (sector_range[2] <= i && i < sector_range[3])	front_right_obstacle += (1.0 - dist / max_dist);
-			if (sector_range[3] <= i && i < sector_range[4]+1)	right_obstacle 		 += (1.0 - dist / max_dist);
+			if (sector_range[3] <= i && i < sector_range[4]+1)	right_obstacle       += (1.0 - dist / max_dist);
 		}
 	}
+
+	std::cout << "       left_obstacle: " << left_obstacle  << std::endl;
+	std::cout << " front_left_obstacle: " << front_left_obstacle  << std::endl;
+	std::cout << "      front_obstacle: " << front_obstacle  << std::endl;
+	std::cout << "front_right_obstacle: " << front_right_obstacle  << std::endl;
+	std::cout << "      right_obstacle: " << right_obstacle  << std::endl;
 
 	// Normalize the obstacle detection
 	left_obstacle        /= sector_size;
@@ -95,11 +101,18 @@ void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan,
 	}
 
 	std::cout << " " << std::endl;
-	std::cout << "[avoid] left_speed: " << left_speed  << std::endl;
-	std::cout << "[avoid]right_speed: " << right_speed << std::endl;
+	std::cout << "[avoid1] left_speed: " << left_speed  << std::endl;
+	std::cout << "[avoid1]right_speed: " << right_speed << std::endl;
 
 	// Send result
 	out_speed_x = WHEEL_RADIUS*(right_speed+left_speed)/2.0;
 	out_speed_y = 0.0; // Because it is a two wheeled robot
 	out_speed_w = WHEEL_RADIUS*(right_speed-left_speed)/WHEEL_GAP;
+	//if (out_speed_w < TOL)
+		//out_speed_w = 0.0;
+
+	std::cout << " " << std::endl;
+	std::cout << "[avoid2] out_speed_x: " << out_speed_x << std::endl;
+	std::cout << "[avoid2] out_speed_y: " << out_speed_y << std::endl;
+	std::cout << "[avoid2] out_speed_w: " << out_speed_w << std::endl;
 }
