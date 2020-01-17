@@ -128,6 +128,8 @@ int Pioneer3DXTask::on_execute()
 		wb_left_motor  -> setVelocity(left_speed);
 		wb_right_motor -> setVelocity(right_speed);
 	}
+	else
+		return -1;
 
 	// Release
 	COMP->PioneerMutex.release();
