@@ -108,8 +108,8 @@ void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan,
 	out_speed_x = WHEEL_RADIUS*(right_speed+left_speed)/2.0;
 	out_speed_y = 0.0; // Because it is a two wheeled robot
 	out_speed_w = WHEEL_RADIUS*(right_speed-left_speed)/WHEEL_GAP;
-	//if (out_speed_w < TOL)
-		//out_speed_w = 0.0;
+	if (out_speed_w < TOL)
+		out_speed_w = 0.0;
 
 	std::cout << " " << std::endl;
 	std::cout << "[avoid2] out_speed_x: " << out_speed_x << std::endl;

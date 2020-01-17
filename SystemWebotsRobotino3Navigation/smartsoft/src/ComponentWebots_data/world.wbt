@@ -24,8 +24,8 @@ Robotino3 {
     Robotino3HokuyoMountingSupport {
       extensionSlot [
         Robot {
-	        name "Lidar"
-	        controller "<extern>"
+	  name "Lidar"
+	  controller "<extern>"
           children [
             HokuyoUrg04lxug01 {
               rotation 0 1 0 3.14159
