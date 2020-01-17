@@ -45,7 +45,7 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 
 	COMP->v_X = input.get_vX();
 	COMP->v_Y = input.get_vY();
-	COMP->turnrate = input.get_omega();
+	COMP->v_W = input.get_omega();
 
 	COMP->PioneerMutex.release();
 

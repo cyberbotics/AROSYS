@@ -102,7 +102,7 @@ int Pioneer3DXTask::on_execute()
 
 	// Get values from port
 	speed = COMP->v_X;
-	omega = COMP->turnrate;
+	omega = COMP->v_W;
 
 	// Set velocities in rad/s for motors and check limits
 	right_speed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);

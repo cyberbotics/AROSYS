@@ -29,7 +29,7 @@ public:
 	SmartACE::SmartMutex PioneerMutex;
 	double v_X;
 	double v_Y;
-	double turnrate;
+	double v_W;
 };
 	
 #endif

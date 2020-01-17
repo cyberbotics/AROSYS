@@ -17,7 +17,7 @@ RectangleArena {
 }
 Pioneer3dx {
   translation 2.5 0.0949252 4.5
-  name "Pioneer"
+  name "Pioneer3DX"
   controller "<extern>"
   extensionSlot [
     Robot {
@@ -26,7 +26,7 @@ Pioneer3dx {
         SickLms291 {
         }
       ]
-      name "SickLMS291"
+      name "Lidar"
       controller "<extern>"
     }
   ]

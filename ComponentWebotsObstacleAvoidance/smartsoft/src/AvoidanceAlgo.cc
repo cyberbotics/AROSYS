@@ -94,8 +94,9 @@ void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan,
 		right_speed = CRUISING_SPEED;
 	}
 
-	//std::cout << " left_speed: " << left_speed  << std::endl;
-	//std::cout << "right_speed: " << right_speed << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << "[avoid] left_speed: " << left_speed  << std::endl;
+	std::cout << "[avoid]right_speed: " << right_speed << std::endl;
 
 	// Send result
 	out_speed_x = WHEEL_RADIUS*(right_speed+left_speed)/2.0;

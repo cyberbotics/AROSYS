@@ -83,9 +83,9 @@ int ComputingTask::on_execute()
 	CommBasicObjects::CommNavigationVelocity navigationVelocity;
 
 	// For test
-	velocity_X = -5.0;
-	velocity_Y = 0.0;
-	turnrate_W = 0.0;
+	//velocity_X = -5.0;
+	//velocity_Y = 0.0;
+	//turnrate_W = 0.0;
 
 	navigationVelocity.set_vX(velocity_X, 1.0); // in m/s
 	navigationVelocity.set_vY(velocity_Y, 1.0); // in m/s
