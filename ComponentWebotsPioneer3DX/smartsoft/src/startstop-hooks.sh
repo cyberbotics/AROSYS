@@ -24,8 +24,6 @@ pre-stop)
 post-stop)
 	echo "Triggering post-stop hooks FROM COMPONENT ComponentWebotsPioneer3DX ..."
 	# Insert commands you want to call after all components were stopped
-	echo " Webots is closing..."
-	killall webots
 ;;
 
 *)

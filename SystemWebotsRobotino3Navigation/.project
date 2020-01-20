@@ -3,9 +3,9 @@
 	<name>SystemWebotsRobotino3Navigation</name>
 	<comment></comment>
 	<projects>
-		<project>ComponentLaserObstacleAvoidTest</project>
 		<project>ComponentWebots</project>
-		<project>ComponentWebotsLidarTest</project>
+		<project>ComponentWebotsLidar</project>
+		<project>ComponentWebotsObstacleAvoidance</project>
 		<project>ComponentWebotsRobotino3</project>
 	</projects>
 	<buildSpec>
