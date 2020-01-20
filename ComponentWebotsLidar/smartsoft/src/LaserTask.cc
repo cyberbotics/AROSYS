@@ -29,6 +29,18 @@ LaserTask::LaserTask(SmartACE::SmartComponent *comp)
 : LaserTaskCore(comp)
 {
   std::cout << "constructor LaserTask\n";
+
+  /*
+  _default_base_position.set_x(COMP->getGlobalState().getBase_manipulator().getX());
+  _default_base_position.set_y(COMP->getGlobalState().getBase_manipulator().getY());
+  _default_base_position.set_z(COMP->getGlobalState().getBase_manipulator().getZ());
+  _default_base_position.set_base_azimuth(COMP->getGlobalState().getBase_manipulator().getBase_a());
+  //_default_base_position.set_steer_alpha(COMP->getGlobalState().getBase_manipulator().getSteer_a());
+  //_default_base_position.set_turret_alpha(COMP->getGlobalState().getBase_manipulator().getTurret_a());
+
+  // set scan id counter to 0
+  scan_id = 0;
+  */
 }
 LaserTask::~LaserTask()
 {
@@ -40,6 +52,7 @@ int LaserTask::on_entry()
 {
   // do initialization procedures here, which are called once, each time the task is started
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
+
 
   // assign this controller to the correct robot in Webots
   char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
@@ -106,9 +119,24 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
+	Smart::StatusCode status;
+	Smart::StatusCode push_status;
+
   // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
   // otherwise the values will not be updated
   if (webotsRobot->step(wbTimeStep) != -1) {
+
+  	// get base state from port
+		status = COMP->baseStateServiceIn->getUpdate(base_state);
+
+		// check if the transmission worked
+		if (status != Smart::SMART_OK)
+			std::cerr << "Error: receiving base state: " << status << std::endl;
+		else
+			std::cout << "LaserScan received" << std::endl;
+
+		scan.set_base_state(base_state);
+
 
     // time settings and update scan count
     timeval _receiveTime;
@@ -132,6 +160,7 @@ int LaserTask::on_execute()
   }
   else
     return -1;
+
 
   // send out laser scan through port
   laserServiceOutPut(scan);
