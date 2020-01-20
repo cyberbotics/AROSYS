@@ -35,9 +35,9 @@ Robotino3Task::~Robotino3Task()
 
 
 double check_velocity(double speed, double max_speed){
-    if(speed >  max_speed)  speed  =  max_speed;
-    if(speed < -max_speed)  speed  = -max_speed;
-    return speed;
+	if(speed >  max_speed)  speed =  max_speed;
+	if(speed < -max_speed)  speed = -max_speed;
+	return speed;
 }
 
 
@@ -64,28 +64,27 @@ int Robotino3Task::on_entry()
 		char environment[256] = "WEBOTS_ROBOT_NAME=";
 		putenv(strcat(environment, name));
 	}
-	
-	// create Robot Instance
-	wb_robot = new webots::Robot();
 
-	// Get timestep from the world
-	wb_time_step = wb_robot->getBasicTimeStep();
+	// create Robot Instance
+	webotsRobot = new webots::Robot();
+
+	// get timestep from the world
+	webotsTimeStep = webotsRobot->getBasicTimeStep();
 
 	// set Motors (name from PROTO definition in Webots)
-	wb_motor_0 = wb_robot->getMotor("wheel0_joint");
-	wb_motor_1 = wb_robot->getMotor("wheel1_joint");
-	wb_motor_2 = wb_robot->getMotor("wheel2_joint");
+	webotsMotor0 = webotsRobot->getMotor("wheel0_joint");
+	webotsMotor1 = webotsRobot->getMotor("wheel1_joint");
+	webotsMotor2 = webotsRobot->getMotor("wheel2_joint");
 
-	wb_motor_0->setPosition(INFINITY);
-	wb_motor_1->setPosition(INFINITY);
-	wb_motor_2->setPosition(INFINITY);
+	webotsMotor0->setPosition(INFINITY);
+	webotsMotor1->setPosition(INFINITY);
+	webotsMotor2->setPosition(INFINITY);
 
+	webotsMotor0->setVelocity(0);
+	webotsMotor1->setVelocity(0);
+	webotsMotor2->setVelocity(0);
 
-	wb_motor_0->setVelocity(0);
-	wb_motor_1->setVelocity(0);
-	wb_motor_2->setVelocity(0);
-
-	motor_max_speed = wb_motor_0->getMaxVelocity(); // in rad/s
+	motorMaxSpeed = webotsMotor0->getMaxVelocity(); // in rad/s
 
 	return 0;
 }
@@ -99,59 +98,60 @@ int Robotino3Task::on_execute()
 
 	//std::cout << "Hello from Robotino3Task " << std::endl;
 
-	double v_x = 0.0;
-	double v_y = 0.0;
-	double v_w = 0.0;
-	double v_motor_0 = 0.0;
-	double v_motor_1 = 0.0;
-	double v_motor_2 = 0.0;
+	double vX = 0.0;
+	double vY = 0.0;
+	double vW = 0.0;
+	double vMotor0 = 0.0;
+	double vMotor1 = 0.0;
+	double vMotor2 = 0.0;
 
-	// Acquisition
+	// acquisition
 	COMP->Robotino3Mutex.acquire();
 
-	// Get values from port
-	v_x = COMP->vel_X; // in m/s
-	v_y = COMP->vel_Y; // in m/s
-	v_w = COMP->vel_W; // in rad/s
+	// get values from port
+	vX = COMP->velX; // in m/s
+	vY = COMP->velY; // in m/s
+	vW = COMP->velW; // in rad/s
 
 	std::cout << " " << std::endl;
 	std::cout << "[Robotino-Task] Get data" << std::endl;
-	std::cout << "v_x : " << v_x << std::endl;
-	std::cout << "v_y : " << v_y << std::endl;
-	std::cout << "v_w : " << v_w << std::endl;
+	std::cout << "vX : " << vX << std::endl;
+	std::cout << "vY : " << vY << std::endl;
+	std::cout << "vW : " << vW << std::endl;
 
-	// Set velocities in rad/s for motors and check limits
-	// Because of the orientation of the robot, v_x and v_y are inverted
-	// Conversion matrix from paper, section 4: http://ftp.itam.mx/pub/alfredo/ROBOCUP/SSLDocs/PapersTDPs/omnidrive.pdf
+	// set velocities in rad/s for motors and check limits
+	// because of the orientation of the robot, vX and vY are inverted
+	// conversion matrix from paper, section 4: http://ftp.itam.mx/pub/alfredo/ROBOCUP/SSLDocs/PapersTDPs/omnidrive.pdf
+
 	// Test 1, se déplace vers la gauche
-	//v_motor_0 = check_velocity(-0.5*v_y+0.866*v_x+WHEEL_GAP*v_w, motor_max_speed);
-	//v_motor_1 = check_velocity(-0.5*v_y-0.866*v_x+WHEEL_GAP*v_w, motor_max_speed);
-	//v_motor_2 = check_velocity(     v_y         +WHEEL_GAP*v_w, motor_max_speed);
+	//vMotor0 = check_velocity(-0.5*vY+0.866*vX+WHEEL_GAP*vW, motorMaxSpeed);
+	//vMotor1 = check_velocity(-0.5*vY-0.866*vX+WHEEL_GAP*vW, motorMaxSpeed);
+	//vMotor2 = check_velocity(     vY         +WHEEL_GAP*vW, motorMaxSpeed);
 
 	// Test 2, se déplace en diagonal vers le haut à droite
-	v_motor_0 = check_velocity(-0.5*v_x+0.866*v_y+WHEEL_GAP*v_w, motor_max_speed);
-	v_motor_1 = check_velocity(-0.5*v_x-0.866*v_y+WHEEL_GAP*v_w, motor_max_speed);
-	v_motor_2 = check_velocity(     v_x          +WHEEL_GAP*v_w, motor_max_speed);
+	vMotor0 = check_velocity(-0.5*vX+0.866*vY+WHEEL_GAP*vW, motorMaxSpeed);
+	vMotor1 = check_velocity(-0.5*vX-0.866*vY+WHEEL_GAP*vW, motorMaxSpeed);
+	vMotor2 = check_velocity(     vX          +WHEEL_GAP*vW, motorMaxSpeed);
 
 	std::cout << " " << std::endl;
 	std::cout << "[Robotino-Task] Set speed" << std::endl;
-	std::cout << "v_motor_0 : " << v_motor_0 << std::endl;
-	std::cout << "v_motor_1 : " << v_motor_1 << std::endl;
-	std::cout << "v_motor_2 : " << v_motor_2 << std::endl;
+	std::cout << "vMotor0 : " << vMotor0 << std::endl;
+	std::cout << "vMotor1 : " << vMotor1 << std::endl;
+	std::cout << "vMotor2 : " << vMotor2 << std::endl;
 
-	//Controller Code that is in "while loop" if run from Simulator should be inside "if statement" below,
-	//otherwise the values will not be updated
-	if (wb_robot->step(wb_time_step) != -1) {
+	// controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
+	// otherwise the values will not be updated
+	if (webotsRobot->step(webotsTimeStep) != -1) {
 
 		// Pass values to motors in Webots side
-		wb_motor_0->setVelocity(v_motor_0);
-		wb_motor_1->setVelocity(v_motor_1);
-		wb_motor_2->setVelocity(v_motor_2);
+		webotsMotor0->setVelocity(vMotor0);
+		webotsMotor1->setVelocity(vMotor1);
+		webotsMotor2->setVelocity(vMotor2);
 	}
 	else
 		return -1;
 
-	// Release
+	// release
 	COMP->Robotino3Mutex.release();
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
@@ -161,8 +161,7 @@ int Robotino3Task::on_execute()
 
 int Robotino3Task::on_exit()
 {
-
-	delete wb_robot;
+	delete webotsRobot;
 
 	// use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
 	return 0;

@@ -27,8 +27,8 @@
 //--------------------------------------------------------------------------
 
 /*
- * simple example library for obstacle avoidance based on laser scan.
- */
+* simple example library for obstacle avoidance based on laser scan.
+*/
 
 #ifndef SIMPLE_AVOID_HH
 #define SIMPLE_AVOID_HH
@@ -69,13 +69,14 @@
 
 class AvoidanceAlgo
 {
-
 private:
 
 public:
-    // Calculates the linear velocity and turnrate according to sensor's data
-    static void run_cycle(CommBasicObjects::CommMobileLaserScan scan,
-    		      double &out_speed_x, double &out_speed_y, double &out_speed_w);
+  // Calculates the linear velocity and turnrate according to sensor's data
+  static void runCycle(CommBasicObjects::CommMobileLaserScan scan,
+                       double &outSpeedX,
+                       double &outSpeedY,
+                       double &outSpeedW);
 };
 
 #endif

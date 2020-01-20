@@ -1,6 +1,6 @@
 /*
- * simple example library for obstacle avoidance based on laser scan.
- */
+* simple example library for obstacle avoidance based on laser scan.
+*/
 
 #include "AvoidanceAlgo.hh"
 
@@ -8,111 +8,99 @@
 #include <CommBasicObjects/CommNavigationVelocity.hh>
 
 
-// Calculates the linear velocity and turnrate according to sensor's data
-void AvoidanceAlgo::run_cycle(CommBasicObjects::CommMobileLaserScan scan,
-							  double &out_speed_x, double &out_speed_y, double &out_speed_w) {
+// calculates the linear velocity and turnrate according to sensor's data
+void AvoidanceAlgo::runCycle(CommBasicObjects::CommMobileLaserScan scan,
+                             double &outSpeedX,
+                             double &outSpeedY,
+                             double &outSpeedW) {
 
-	// Initialize variables
-	double left_speed = 0.0;
-	double right_speed = 0.0;
+  // initialize variables
+  double leftSpeed = 0.0;
+  double rightSpeed = 0.0;
 
-	double left_obstacle = 0.0;
-	double front_left_obstacle = 0.0;
-	double front_obstacle = 0.0;
-	double front_right_obstacle = 0.0;
-	double right_obstacle = 0.0;
-	double max_dist = DIST_THRESHOLD*M_TO_CM; // Points above are not used
+  double leftObstacle = 0.0;
+  double frontLeftObstacle = 0.0;
+  double frontObstacle = 0.0;
+  double frontRightObstacle = 0.0;
+  double rightObstacle = 0.0;
+  double maxDist = DIST_THRESHOLD*M_TO_CM; // Points above are not used
 
-	// Define sector range
-	int count = scan.get_scan_size();
-	int sector_range[N_SECTOR] = {0};
-	int sector_size = (int)((double)count - 2.0 * (double)UNUSED_POINT) / (double)N_SECTOR;
+  // define sector range
+  int count = scan.get_scan_size();
+  int sectorRange[N_SECTOR] = {0};
+  int sectorSize = (int)((double)count - 2.0 * (double)UNUSED_POINT) / (double)N_SECTOR;
 
-	for (int i = 0; i < N_SECTOR; i++)
-		sector_range[i] = UNUSED_POINT + (i + 1) * sector_size;
+  for (int i = 0; i < N_SECTOR; i++)
+    sectorRange[i] = UNUSED_POINT + (i + 1) * sectorSize;
 
-	// Use only valid points to detect obstacle according to the sector range
-	for (int i=UNUSED_POINT; i<count-UNUSED_POINT-1; ++i) {
+  // use only valid points to detect obstacle according to the sector range
+  for (int i=UNUSED_POINT; i<count-UNUSED_POINT-1; ++i) {
 
-		double dist = scan.get_scan_distance(i);
-		if (dist <= max_dist) {
-			if                         (i < sector_range[0])	left_obstacle        += (1.0 - dist / max_dist);
-			if (sector_range[0] <= i && i < sector_range[1])	front_left_obstacle  += (1.0 - dist / max_dist);
-			if (sector_range[1] <= i && i < sector_range[2])	front_obstacle       += (1.0 - dist / max_dist);
-			if (sector_range[2] <= i && i < sector_range[3])	front_right_obstacle += (1.0 - dist / max_dist);
-			if (sector_range[3] <= i && i < sector_range[4]+1)	right_obstacle       += (1.0 - dist / max_dist);
-		}
-	}
+    double dist = scan.get_scan_distance(i);
+    if (dist <= maxDist) {
+      if                        (i < sectorRange[0])    leftObstacle       += (1.0 - dist / maxDist);
+      if (sectorRange[0] <= i && i < sectorRange[1])    frontLeftObstacle  += (1.0 - dist / maxDist);
+      if (sectorRange[1] <= i && i < sectorRange[2])    frontObstacle      += (1.0 - dist / maxDist);
+      if (sectorRange[2] <= i && i < sectorRange[3])    frontRightObstacle += (1.0 - dist / maxDist);
+      if (sectorRange[3] <= i && i < sectorRange[4]+1)  rightObstacle      += (1.0 - dist / maxDist);
+    }
+  }
 
-	std::cout << "       left_obstacle: " << left_obstacle  << std::endl;
-	std::cout << " front_left_obstacle: " << front_left_obstacle  << std::endl;
-	std::cout << "      front_obstacle: " << front_obstacle  << std::endl;
-	std::cout << "front_right_obstacle: " << front_right_obstacle  << std::endl;
-	std::cout << "      right_obstacle: " << right_obstacle  << std::endl;
+  // normalize the obstacle detection
+  leftObstacle       /= sectorSize;
+  frontLeftObstacle  /= sectorSize;
+  frontObstacle      /= sectorSize;
+  frontRightObstacle /= sectorSize;
+  rightObstacle      /= sectorSize;
 
-	// Normalize the obstacle detection
-	left_obstacle        /= sector_size;
-	front_left_obstacle  /= sector_size;
-	front_obstacle       /= sector_size;
-	front_right_obstacle /= sector_size;
-	right_obstacle       /= sector_size;
+  if (leftObstacle > rightObstacle && leftObstacle > NEAR) {
 
-	if (left_obstacle > right_obstacle && left_obstacle > NEAR) {
+    const double speedFactor = (1.0 - FAST_DECREASE_FACTOR * leftObstacle) * MAX_SPEED / leftObstacle;
+    leftSpeed = speedFactor * leftObstacle;
+    rightSpeed = speedFactor * rightObstacle;
 
-		const double speed_factor = (1.0 - FAST_DECREASE_FACTOR * left_obstacle) * MAX_SPEED / left_obstacle;
-		left_speed = speed_factor * left_obstacle;
-		right_speed = speed_factor * right_obstacle;
+  } else if (frontLeftObstacle > frontRightObstacle && frontLeftObstacle > FAR) {
 
-	} else if (front_left_obstacle > front_right_obstacle && front_left_obstacle > FAR) {
+    const double speedFactor = (1.0 - SLOW_DECREASE_FACTOR * frontLeftObstacle) * MAX_SPEED / frontLeftObstacle;
+    leftSpeed = speedFactor * frontLeftObstacle;
+    rightSpeed = speedFactor * frontRightObstacle;
 
-		const double speed_factor = (1.0 - SLOW_DECREASE_FACTOR * front_left_obstacle) * MAX_SPEED / front_left_obstacle;
-		left_speed = speed_factor * front_left_obstacle;
-		right_speed = speed_factor * front_right_obstacle;
+  } else if (frontRightObstacle > frontLeftObstacle && frontRightObstacle > FAR) {
 
-	} else if (front_right_obstacle > front_left_obstacle && front_right_obstacle > FAR) {
+    const double speedFactor = (1.0 - SLOW_DECREASE_FACTOR * frontRightObstacle) * MAX_SPEED / frontRightObstacle;
+    leftSpeed = speedFactor * frontLeftObstacle;
+    rightSpeed = speedFactor * frontRightObstacle;
 
-		const double speed_factor = (1.0 - SLOW_DECREASE_FACTOR * front_right_obstacle) * MAX_SPEED / front_right_obstacle;
-		left_speed = speed_factor * front_left_obstacle;
-		right_speed = speed_factor * front_right_obstacle;
+  } else if (rightObstacle > leftObstacle && rightObstacle > NEAR) {
 
-	} else if (right_obstacle > left_obstacle && right_obstacle > NEAR) {
+    const double speedFactor = (1.0 - FAST_DECREASE_FACTOR * rightObstacle) * MAX_SPEED / rightObstacle;
+    leftSpeed = speedFactor * leftObstacle;
+    rightSpeed = speedFactor * rightObstacle;
 
-		const double speed_factor = (1.0 - FAST_DECREASE_FACTOR * right_obstacle) * MAX_SPEED / right_obstacle;
-		left_speed = speed_factor * left_obstacle;
-		right_speed = speed_factor * right_obstacle;
+  } else if (frontObstacle > NEAR) {
 
-	} else if (front_obstacle > NEAR) {
+    const double speedFactor = (1.0 - FAST_DECREASE_FACTOR * frontObstacle) * MAX_SPEED / frontObstacle;
+    // more obstacles on the right, so make a left u-turn to avoid being stuck
+    if (frontRightObstacle > frontLeftObstacle || rightObstacle > leftObstacle) {
 
-		const double speed_factor = (1.0 - FAST_DECREASE_FACTOR * front_obstacle) * MAX_SPEED / front_obstacle;
-		// more obstacles on the right, so make a left u-turn to avoid being stuck
-		if (front_right_obstacle > front_left_obstacle || right_obstacle > left_obstacle) {
+      leftSpeed = 0.1*speedFactor * frontObstacle;
+      rightSpeed = 5*speedFactor * frontObstacle;
 
-			left_speed = 0.1*speed_factor * front_obstacle;
-			right_speed = 5*speed_factor * front_obstacle;
+    } else {
 
-		} else {
+      leftSpeed = 5*speedFactor * frontObstacle;
+      rightSpeed = 0.1*speedFactor * frontObstacle;
+    }
 
-			left_speed = 5*speed_factor * front_obstacle;
-			right_speed = 0.1*speed_factor * front_obstacle;
-		}
-	} else {
-		left_speed = CRUISING_SPEED;
-		right_speed = CRUISING_SPEED;
-	}
+  } else {
+    leftSpeed = CRUISING_SPEED;
+    rightSpeed = CRUISING_SPEED;
+  }
 
-	std::cout << " " << std::endl;
-	std::cout << "[avoid1] left_speed: " << left_speed  << std::endl;
-	std::cout << "[avoid1]right_speed: " << right_speed << std::endl;
-
-	// Send result
-	out_speed_x = WHEEL_RADIUS*(right_speed+left_speed)/2.0;
-	out_speed_y = 0.0; // Because it is a two wheeled robot
-	out_speed_w = WHEEL_RADIUS*(right_speed-left_speed)/WHEEL_GAP;
-	if (out_speed_w < TOL)
-		out_speed_w = 0.0;
-
-	std::cout << " " << std::endl;
-	std::cout << "[avoid2] out_speed_x: " << out_speed_x << std::endl;
-	std::cout << "[avoid2] out_speed_y: " << out_speed_y << std::endl;
-	std::cout << "[avoid2] out_speed_w: " << out_speed_w << std::endl;
+  // send result
+  outSpeedX = WHEEL_RADIUS*(rightSpeed+leftSpeed)/2.0;
+  outSpeedY = 0.0; // if it is a two wheeled robot
+  outSpeedW = WHEEL_RADIUS*(rightSpeed-leftSpeed)/WHEEL_GAP;
+  if (outSpeedW < TOL)
+    outSpeedW = 0.0;
 }

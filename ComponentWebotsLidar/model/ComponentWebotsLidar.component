@@ -1,8 +1,8 @@
 ComponentDefinition ComponentWebotsLidar logo "/ComponentWebotsLidar/model/logo.png"
 {
-	Activity LaserTask {
-		DefaultTrigger PeriodicTimer 10.0 Hz
-	}
-	OutputPort LaserServiceOut implements CommBasicObjects.LaserService realizedBy LaserTask {
-	}
+    Activity LaserTask {
+        DefaultTrigger PeriodicTimer 10.0 Hz
+    }
+    OutputPort LaserServiceOut implements CommBasicObjects.LaserService realizedBy LaserTask {
+    }
 }

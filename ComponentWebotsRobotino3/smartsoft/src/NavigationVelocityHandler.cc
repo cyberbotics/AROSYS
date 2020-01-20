@@ -41,13 +41,12 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 	std::cout << " => vY = " << input.get_vY(1.0) << std::endl;
 	std::cout << " => vW = " << input.getOmega()  << std::endl;
 
-	// Get from the port and pass to ComponentPioneer3DXCore to be accessible
+	// get from the port and pass to ComponentPioneer3DXCore to be accessible
 	COMP->Robotino3Mutex.acquire();
 
-	COMP->vel_X = input.get_vX(1.0); // in m/s
-	COMP->vel_Y = input.get_vY(1.0); // in m/s
-	COMP->vel_W = input.get_omega(); // in rad/s
+	COMP->velX = input.get_vX(1.0); // in m/s
+	COMP->velY = input.get_vY(1.0); // in m/s
+	COMP->velW = input.get_omega(); // in rad/s
 
 	COMP->Robotino3Mutex.release();
-
 }
