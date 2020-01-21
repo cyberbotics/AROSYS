@@ -54,6 +54,7 @@ private:
   CommBasicObjects::CommBaseState base_state;
 
 
+
 public:
   unsigned long scanCount;
   bool accquireNewScan(CommBasicObjects::CommMobileLaserScan& scan);

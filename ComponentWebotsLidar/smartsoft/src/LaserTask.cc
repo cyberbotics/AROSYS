@@ -126,21 +126,38 @@ int LaserTask::on_execute()
   // otherwise the values will not be updated
   if (webotsRobot->step(webotsTimeStep) != -1) {
 
-  	// TODO: Test if it works
+  	/* Not working
+    CommBasicObjects::CommBaseState currentBaseState;
   	CommBasicObjects::CommBasePose basePose;
   	CommBasicObjects::CommBaseVelocity baseVelocity;
   	COMP->LaserMutex.acquire();
+    currentBaseState = COMP->baseState;
   	basePose = COMP->baseState.get_base_position();
 		baseVelocity = COMP->baseState.get_base_velocity();
-		std::cout << "basePose received: " << basePose<< std::endl;
-		std::cout << "baseVelo received: " << baseVelocity<< std::endl;
+		std::cout << "" << std::endl;
+    std::cout << "[LID] baseState : " << currentBaseState << std::endl;
+		std::cout << "[LID] basePose  : " << basePose<< std::endl;
+		std::cout << "[LID] basePoseX : " << basePose.get_x()<< std::endl;
+		std::cout << "[LID] basePoseY : " << basePose.get_y()<< std::endl;
+		std::cout << "[LID] basePoseZ : " << basePose.get_z()<< std::endl;
+		std::cout << "[LID] baseVelo  : " << baseVelocity<< std::endl;
 		// Do stuff with if necessary
 		COMP->LaserMutex.release();
+		*/
 
+		// TODO: Otherwise this should be tested
 
-		/* TODO: Otherwise this should be tested
+  	double basePosX = 0.0;
+  	double basePosY = 0.0;
+  	double basePosZ = 0.0;
+  	//double basePosAzim = 0.0;
+  	//double basePosElev = 0.0;
+  	//double basePosRoll = 0.0;
+  	//double baseAbsoluteVelocity = 0.0;
+
   	// get base state from port
-  	base_status = COMP->baseStateServiceIn->getUpdate(base_state);
+  	//base_status = COMP->baseStateServiceIn->getUpdate(base_state);
+  	base_status = this->baseStateServiceInGetUpdate(base_state);
 
 		// check if the transmission worked
 		if (base_status != Smart::SMART_OK)
@@ -148,8 +165,20 @@ int LaserTask::on_execute()
 		else
 			std::cout << "LaserScan received" << std::endl;
 
-		scan.set_base_state(base_state);
-		*/
+		//scan.set_base_state(base_state);
+		basePosX = base_state.get_base_position().get_x(1.0);
+		basePosY = base_state.get_base_position().get_y(1.0);
+		basePosZ = base_state.get_base_position().get_z(1.0);
+		//basePosAzim = base_state.get_base_position().get_base_azimuth();
+		//basePosElev = base_state.get_base_position().get_base_elevation();
+		//basePosRoll = base_state.get_base_position().get_base_roll();
+
+  	std::cout << " " << std::endl;
+  	std::cout << "[LID] pos_x : " << basePosX << std::endl;
+  	std::cout << "[LID] pos_y : " << basePosY << std::endl;
+  	std::cout << "[LID] pos_z : " << basePosZ << std::endl;
+
+
 
     // time settings and update scan count
     timeval _receiveTime;

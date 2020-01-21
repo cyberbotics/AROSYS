@@ -1,15 +1,15 @@
 ComponentDefinition ComponentWebotsLidar logo "/ComponentWebotsLidar/model/logo.png"
 {
-    Activity LaserTask {
-		InputPortLink BaseStateServiceIn { 
-			optional oversamplingOk undersamplingOk
-		}
+  Activity LaserTask {
+    InputPortLink BaseStateServiceIn { 
+		  optional oversamplingOk undersamplingOk
+	}
 	DefaultTrigger PeriodicTimer 10.0 Hz
 	}
 	InputPort BaseStateServiceIn implements CommBasicObjects.BaseStateService {
 	}
-    OutputPort LaserServiceOut implements CommBasicObjects.LaserService realizedBy LaserTask {
-    }
+  OutputPort LaserServiceOut implements CommBasicObjects.LaserService realizedBy LaserTask {
+  }
 	AnswerPort LaserQueryServiceAnsw implements CommBasicObjects.LaserQueryService {
 	}
 	RequestHandler LaserQueryServiceAnswHandler triggeredFrom LaserQueryServiceAnsw {
