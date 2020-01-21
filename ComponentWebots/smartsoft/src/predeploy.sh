@@ -26,17 +26,6 @@
 # Execute this command one time in a Terminal to be able to launch Webots software and restart the computer/Virtual Machine
 #echo -e "export WEBOTS_HOME=/home/smartsoft/SOFTWARE/webots" >> ~/.profile
 
-### Webot's controller libraries importation into SmartMDSD
-export WEBOTS_LIBRARY=$(realpath --relative-to=$SMART_ROOT_ACE/lib $WEBOTS_HOME/lib/controller)
-export DEPLOY_LIBRARIES="
-$WEBOTS_LIBRARY/libController.so
-$WEBOTS_LIBRARY/libCppController.so
-"
-
-# It is also possible to copy the library.so directly in SmartMDSD's lib folder using:
-#cp $WEBOTS_HOME/lib/controller/libController.so $SMART_ROOT_ACE/lib/
-#cp $WEBOTS_HOME/lib/controller/libCppController.so $SMART_ROOT_ACE/lib/
-
 
 ### Paths verification:
 echo " --------------------------------------------------------"

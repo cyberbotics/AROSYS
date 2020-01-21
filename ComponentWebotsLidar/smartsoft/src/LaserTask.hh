@@ -34,8 +34,12 @@
 class LaserTask  : public LaserTaskCore
 {
 private:
+<<<<<<< HEAD
   // webots parameters
   int wbTimeStep;
+=======
+  int webotsTimeStep;
+>>>>>>> 96e917b17ec666fd3403d18bf063d14d9c898eed
   int horizontalResolution;
   webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;

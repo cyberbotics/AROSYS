@@ -77,7 +77,7 @@ int LaserTask::on_entry()
   webotsRobot = new webots::Robot();
 
   // get timestep from the world
-  wbTimeStep = webotsRobot->getBasicTimeStep();
+  webotsTimeStep = webotsRobot->getBasicTimeStep();
 
   // connect to the sensor from Webots
   webots::Device *webotsDevice = NULL;
@@ -94,7 +94,7 @@ int LaserTask::on_entry()
   }
 
   webotsLidar = webotsRobot->getLidar(lidarName);
-  webotsLidar->enable(wbTimeStep);
+  webotsLidar->enable(webotsTimeStep);
   webotsLidar->enablePointCloud();
 
   // set Webots sensor's properties to SmartMDSD model
@@ -124,7 +124,7 @@ int LaserTask::on_execute()
 
   // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
   // otherwise the values will not be updated
-  if (webotsRobot->step(wbTimeStep) != -1) {
+  if (webotsRobot->step(webotsTimeStep) != -1) {
 
   	// get base state from port
 		status = COMP->baseStateServiceIn->getUpdate(base_state);
