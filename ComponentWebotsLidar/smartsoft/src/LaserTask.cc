@@ -119,24 +119,37 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-	Smart::StatusCode status;
-	Smart::StatusCode push_status;
+	Smart::StatusCode laser_status;
+	Smart::StatusCode base_status;
 
   // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
   // otherwise the values will not be updated
   if (webotsRobot->step(webotsTimeStep) != -1) {
 
+  	// TODO: Test if it works
+  	CommBasicObjects::CommBasePose basePose;
+  	CommBasicObjects::CommBaseVelocity baseVelocity;
+  	COMP->LaserMutex.acquire();
+  	basePose = COMP->baseState.get_base_position();
+		baseVelocity = COMP->baseState.get_base_velocity();
+		std::cout << "basePose received: " << basePose<< std::endl;
+		std::cout << "baseVelo received: " << baseVelocity<< std::endl;
+		// Do stuff with if necessary
+		COMP->LaserMutex.release();
+
+
+		/* TODO: Otherwise this should be tested
   	// get base state from port
-		status = COMP->baseStateServiceIn->getUpdate(base_state);
+  	base_status = COMP->baseStateServiceIn->getUpdate(base_state);
 
 		// check if the transmission worked
-		if (status != Smart::SMART_OK)
-			std::cerr << "Error: receiving base state: " << status << std::endl;
+		if (base_status != Smart::SMART_OK)
+			std::cerr << "Error: receiving base state: " << base_status << std::endl;
 		else
 			std::cout << "LaserScan received" << std::endl;
 
 		scan.set_base_state(base_state);
-
+		*/
 
     // time settings and update scan count
     timeval _receiveTime;

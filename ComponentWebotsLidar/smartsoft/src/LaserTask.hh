@@ -18,8 +18,10 @@
 #define _LASERTASK_HH
 
 #include "LaserTaskCore.hh"
-#include "CommBasicObjects/CommBasePose.hh"
 #include "CommBasicObjects/CommMobileLaserScan.hh"
+#include "CommBasicObjects/CommBaseState.hh"
+#include "CommBasicObjects/CommBasePose.hh"
+#include "CommBasicObjects/CommBaseVelocity.hh"
 
 #include <webots/Robot.hpp>
 #include <webots/Lidar.hpp>
@@ -34,12 +36,7 @@
 class LaserTask  : public LaserTaskCore
 {
 private:
-<<<<<<< HEAD
-  // webots parameters
-  int wbTimeStep;
-=======
   int webotsTimeStep;
->>>>>>> 96e917b17ec666fd3403d18bf063d14d9c898eed
   int horizontalResolution;
   webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;
@@ -49,10 +46,11 @@ private:
   CommBasicObjects::CommMobileLaserScan scan;
 
   // position of scanner on robot
-  double _scanner_x;
-  double _scanner_y;
-  double _scanner_z;
-  double _scanner_a; // azimuth relative to coordinate system of mounting point
+  //double _scanner_x;
+  //double _scanner_y;
+  //double _scanner_z;
+  //double _scanner_a; // azimuth relative to coordinate system of mounting point
+  //double _scanner_e; // elevation relative to coordinate system of mounting point
   CommBasicObjects::CommBaseState base_state;
 
 

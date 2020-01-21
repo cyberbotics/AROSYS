@@ -20,12 +20,16 @@
 #include "aceSmartSoft.hh"
 #include <iostream>
 
+#include "CommBasicObjects/CommBaseState.hh"
+
 class ComponentWebotsLidarCore
 {
 private:
 
 public:
   ComponentWebotsLidarCore();
+  SmartACE::SmartMutex LaserMutex;
+  CommBasicObjects::CommBaseState baseState;
 };
 
 #endif
