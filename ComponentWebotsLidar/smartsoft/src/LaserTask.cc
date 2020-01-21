@@ -29,18 +29,6 @@ LaserTask::LaserTask(SmartACE::SmartComponent *comp)
 : LaserTaskCore(comp)
 {
   std::cout << "constructor LaserTask\n";
-
-  /*
-  _default_base_position.set_x(COMP->getGlobalState().getBase_manipulator().getX());
-  _default_base_position.set_y(COMP->getGlobalState().getBase_manipulator().getY());
-  _default_base_position.set_z(COMP->getGlobalState().getBase_manipulator().getZ());
-  _default_base_position.set_base_azimuth(COMP->getGlobalState().getBase_manipulator().getBase_a());
-  //_default_base_position.set_steer_alpha(COMP->getGlobalState().getBase_manipulator().getSteer_a());
-  //_default_base_position.set_turret_alpha(COMP->getGlobalState().getBase_manipulator().getTurret_a());
-
-  // set scan id counter to 0
-  scan_id = 0;
-  */
 }
 LaserTask::~LaserTask()
 {
@@ -80,16 +68,16 @@ int LaserTask::on_entry()
   webotsTimeStep = webotsRobot->getBasicTimeStep();
 
   // connect to the sensor from Webots
-  webots::Device *webotsDevice = NULL;
   int lidarIndex = 0;
   std::string lidarName;
+  webots::Device *webotsDevice = NULL;
 
   for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
     webotsDevice = webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() == webots::Node::LIDAR) {
-      std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a Lidar."<<std::endl;
       lidarIndex = i;
       lidarName = webotsDevice->getName();
+      std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a Lidar."<<std::endl;
     }
   }
 
@@ -119,66 +107,35 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-	Smart::StatusCode laser_status;
-	Smart::StatusCode base_status;
+  Smart::StatusCode baseStatus;
 
   // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
   // otherwise the values will not be updated
   if (webotsRobot->step(webotsTimeStep) != -1) {
+    // Some variables are set but not implemented now
+    double basePosX = 0.0;
+    double basePosY = 0.0;
+    double basePosZ = 0.0;
+    //double basePosAzim = 0.0;
+    //double basePosElev = 0.0;
+    //double basePosRoll = 0.0;
+    //double baseAbsoluteVelocity = 0.0;
 
-  	/* Not working
-    CommBasicObjects::CommBaseState currentBaseState;
-  	CommBasicObjects::CommBasePose basePose;
-  	CommBasicObjects::CommBaseVelocity baseVelocity;
-  	COMP->LaserMutex.acquire();
-    currentBaseState = COMP->baseState;
-  	basePose = COMP->baseState.get_base_position();
-		baseVelocity = COMP->baseState.get_base_velocity();
-		std::cout << "" << std::endl;
-    std::cout << "[LID] baseState : " << currentBaseState << std::endl;
-		std::cout << "[LID] basePose  : " << basePose<< std::endl;
-		std::cout << "[LID] basePoseX : " << basePose.get_x()<< std::endl;
-		std::cout << "[LID] basePoseY : " << basePose.get_y()<< std::endl;
-		std::cout << "[LID] basePoseZ : " << basePose.get_z()<< std::endl;
-		std::cout << "[LID] baseVelo  : " << baseVelocity<< std::endl;
-		// Do stuff with if necessary
-		COMP->LaserMutex.release();
-		*/
+    // get base state from port
+    baseStatus = this->baseStateServiceInGetUpdate(baseState);
 
-		// TODO: Otherwise this should be tested
+    // check if the transmission worked
+    if (baseStatus != Smart::SMART_OK)
+      std::cerr << "Error: receiving base state: " << baseStatus << std::endl;
+    else
+      std::cout << "LaserScan received" << std::endl;
 
-  	double basePosX = 0.0;
-  	double basePosY = 0.0;
-  	double basePosZ = 0.0;
-  	//double basePosAzim = 0.0;
-  	//double basePosElev = 0.0;
-  	//double basePosRoll = 0.0;
-  	//double baseAbsoluteVelocity = 0.0;
-
-  	// get base state from port
-  	//base_status = COMP->baseStateServiceIn->getUpdate(base_state);
-  	base_status = this->baseStateServiceInGetUpdate(base_state);
-
-		// check if the transmission worked
-		if (base_status != Smart::SMART_OK)
-			std::cerr << "Error: receiving base state: " << base_status << std::endl;
-		else
-			std::cout << "LaserScan received" << std::endl;
-
-		//scan.set_base_state(base_state);
-		basePosX = base_state.get_base_position().get_x(1.0);
-		basePosY = base_state.get_base_position().get_y(1.0);
-		basePosZ = base_state.get_base_position().get_z(1.0);
-		//basePosAzim = base_state.get_base_position().get_base_azimuth();
-		//basePosElev = base_state.get_base_position().get_base_elevation();
-		//basePosRoll = base_state.get_base_position().get_base_roll();
-
-  	std::cout << " " << std::endl;
-  	std::cout << "[LID] pos_x : " << basePosX << std::endl;
-  	std::cout << "[LID] pos_y : " << basePosY << std::endl;
-  	std::cout << "[LID] pos_z : " << basePosZ << std::endl;
-
-
+    basePosX = baseState.get_base_position().get_x(1.0);
+    basePosY = baseState.get_base_position().get_y(1.0);
+    basePosZ = baseState.get_base_position().get_z(1.0);
+    //basePosAzim = baseState.get_base_position().get_base_azimuth();
+    //basePosElev = baseState.get_base_position().get_base_elevation();
+    //basePosRoll = baseState.get_base_position().get_base_roll();
 
     // time settings and update scan count
     timeval _receiveTime;
@@ -191,8 +148,7 @@ int LaserTask::on_execute()
     rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
 
     // pass sensor's values to SmartMDSD side
-    for(unsigned int i=0; i<numberValidPoints; ++i)
-    {
+    for(unsigned int i=0; i<numberValidPoints; ++i) {
       // it is in cm due to LaserScanPoint structure definition
       unsigned int dist = (unsigned int)(rangeImageVector[i]*M_TO_CM);
       scan.set_scan_index(i, i);
@@ -202,7 +158,6 @@ int LaserTask::on_execute()
   }
   else
     return -1;
-
 
   // send out laser scan through port
   laserServiceOutPut(scan);

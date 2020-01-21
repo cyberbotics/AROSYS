@@ -34,26 +34,4 @@ void LaserQueryServiceAnswHandler::handleQuery(const Smart::QueryIdPtr &id, cons
 	CommBasicObjects::CommMobileLaserScan answer;
 	// implement your query handling logic here and fill in the answer object
 	this->server->answer(id, answer);
-
-  /*
-	std::cout << "Query for basestate \n";
-
-	CommBasicObjects::CommTimeStamp time_stamp;
-	CommBasicObjects::CommBaseState commCurrentBaseState;
-
-	// get pose and velocity update from gazebo interface
-	if (COMP->pose != NULL && COMP->velocity != NULL) {
-		commCurrentBaseState.set_base_position    (COMP->pose->getBasePose());
-		commCurrentBaseState.set_base_raw_position(COMP->pose->getBasePose());
-		commCurrentBaseState.set_base_velocity    (COMP->velocity->getBaseVelocity());
-	}
-	else
-		std::cout << "Webots simulator not yet started !" << std::endl;
-
-	time_stamp.set_now();
-	commCurrentBaseState.set_time_stamp(time_stamp);
-
-  this->server->answer(id, commCurrentBaseState);
-	*/
-
 }

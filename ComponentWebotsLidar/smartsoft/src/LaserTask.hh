@@ -40,20 +40,11 @@ private:
   int horizontalResolution;
   webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;
+  //CommBasicObjects::CommBaseState baseState; //TODO: Test and if working, delete
 
   // laser parameters
   unsigned int numberValidPoints;
   CommBasicObjects::CommMobileLaserScan scan;
-
-  // position of scanner on robot
-  //double _scanner_x;
-  //double _scanner_y;
-  //double _scanner_z;
-  //double _scanner_a; // azimuth relative to coordinate system of mounting point
-  //double _scanner_e; // elevation relative to coordinate system of mounting point
-  CommBasicObjects::CommBaseState base_state;
-
-
 
 public:
   unsigned long scanCount;
