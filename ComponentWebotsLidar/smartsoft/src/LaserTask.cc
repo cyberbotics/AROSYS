@@ -69,14 +69,12 @@ int LaserTask::on_entry()
 
   // connect to the sensor from Webots
   LidarFound = false;
-  int lidarIndex = 0;
   std::string lidarName;
   webots::Device *webotsDevice = NULL;
 
   for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
     webotsDevice = webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() == webots::Node::LIDAR) {
-      lidarIndex = i;
       LidarFound = true;
       lidarName = webotsDevice->getName();
       std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a Lidar."<<std::endl;

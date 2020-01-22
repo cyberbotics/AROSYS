@@ -72,8 +72,6 @@ int Pioneer3DXTask::on_entry()
   // set GPS and IMU
   GPSFound = false;
   IMUFound = false;
-	int GPSIndex = 0;
-	int IMUIndex = 0;
 	std::string GPSName;
 	std::string IMUName;
 	webots::Device *webotsDevice = NULL;
@@ -81,13 +79,11 @@ int Pioneer3DXTask::on_entry()
 	for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
 		webotsDevice = webotsRobot->getDeviceByIndex(i);
 		if (webotsDevice->getNodeType() == webots::Node::GPS) {
-			GPSIndex = i;
 			GPSFound = true;
 			GPSName = webotsDevice->getName();
 			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
 		}
 		if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT) {
-			IMUIndex = i;
 			IMUFound = true;
 			IMUName = webotsDevice->getName();
 			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a IMU."<<std::endl;
