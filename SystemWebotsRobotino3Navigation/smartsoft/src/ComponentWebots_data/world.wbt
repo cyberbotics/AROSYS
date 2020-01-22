@@ -23,6 +23,10 @@ Robotino3 {
   middleSlot [
     Robotino3HokuyoMountingSupport {
       extensionSlot [
+        InertialUnit {
+        }
+        GPS {
+        }
         Robot {
 	  name "Lidar"
 	  controller "<extern>"
