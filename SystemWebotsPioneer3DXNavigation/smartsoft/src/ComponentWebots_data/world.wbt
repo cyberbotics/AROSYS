@@ -20,6 +20,8 @@ Pioneer3dx {
   name "Pioneer3DX"
   controller "<extern>"
   extensionSlot [
+  	InertialUnit {
+  	}
   	GPS {
   	}
     Robot {

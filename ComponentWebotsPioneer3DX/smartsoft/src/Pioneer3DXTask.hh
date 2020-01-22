@@ -24,6 +24,7 @@
 #include <webots/Motor.hpp>
 #include <webots/Robot.hpp>
 #include <webots/Device.hpp>
+#include <webots/InertialUnit.hpp>
 
 #include "CommBasicObjects/CommBaseState.hh"
 
@@ -38,11 +39,13 @@ class Pioneer3DXTask  : public Pioneer3DXTaskCore
 private:
   int webotsTimeStep;
   bool GPSFound;
+  bool IMUFound;
   double motorMaxSpeed; // in rad/s
   webots::GPS *webotsGPS;
   webots::Robot *webotsRobot;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;
+  webots::InertialUnit *webotsIMU;
 
 public:
   Pioneer3DXTask(SmartACE::SmartComponent *comp);
