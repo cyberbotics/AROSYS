@@ -167,9 +167,8 @@ int LaserTask::on_execute()
 			}
 			scan.set_scan_valid(true);
     }
-    else {
+    else
     	scan.set_scan_valid(false);
-    }
   }
   else
     return -1;
