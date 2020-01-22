@@ -10,9 +10,4 @@ ComponentDefinition ComponentWebotsLidar logo "/ComponentWebotsLidar/model/logo.
 	}
   OutputPort LaserServiceOut implements CommBasicObjects.LaserService realizedBy LaserTask {
   }
-	AnswerPort LaserQueryServiceAnsw implements CommBasicObjects.LaserQueryService {
-	}
-	RequestHandler LaserQueryServiceAnswHandler triggeredFrom LaserQueryServiceAnsw {
-		Observe LaserTask
-	}
 }

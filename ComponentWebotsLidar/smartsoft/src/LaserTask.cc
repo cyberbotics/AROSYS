@@ -107,7 +107,6 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-  Smart::StatusCode baseStatus;
 
   // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
   // otherwise the values will not be updated
@@ -122,7 +121,7 @@ int LaserTask::on_execute()
     //double baseAbsoluteVelocity = 0.0;
 
     // get base state from port
-    baseStatus = this->baseStateServiceInGetUpdate(baseState);
+    Smart::StatusCode baseStatus = this->baseStateServiceInGetUpdate(baseState);
 
     // check if the transmission worked
     if (baseStatus != Smart::SMART_OK)
@@ -136,6 +135,11 @@ int LaserTask::on_execute()
     //basePosAzim = baseState.get_base_position().get_base_azimuth();
     //basePosElev = baseState.get_base_position().get_base_elevation();
     //basePosRoll = baseState.get_base_position().get_base_roll();
+
+    std::cout << " " << basePosX << std::endl;
+    std::cout << "basePosX" << basePosX << std::endl;
+    std::cout << "basePosY" << basePosY << std::endl;
+    std::cout << "basePosZ" << basePosZ << std::endl;
 
     // time settings and update scan count
     timeval _receiveTime;
