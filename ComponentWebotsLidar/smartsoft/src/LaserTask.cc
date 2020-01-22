@@ -76,26 +76,33 @@ int LaserTask::on_entry()
     webotsDevice = webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() == webots::Node::LIDAR) {
       lidarIndex = i;
+      LidarFound = true;
       lidarName = webotsDevice->getName();
       std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a Lidar."<<std::endl;
+      break;
     }
   }
 
-  webotsLidar = webotsRobot->getLidar(lidarName);
-  webotsLidar->enable(webotsTimeStep);
-  webotsLidar->enablePointCloud();
+  if(LidarFound){
+  	// enable the lidar
+    webotsLidar = webotsRobot->getLidar(lidarName);
+    webotsLidar->enable(webotsTimeStep);
+    webotsLidar->enablePointCloud();
 
-  // set Webots sensor's properties to SmartMDSD model
-  // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
-  scanCount = 0;
-  horizontalResolution = webotsLidar->getHorizontalResolution();
-  numberValidPoints = webotsLidar->getNumberOfPoints();
-  scan.set_scan_size(numberValidPoints);
-  scan.set_scan_update_count(scanCount);
-  scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
-  scan.set_min_distance(webotsLidar->getMinRange()*M_TO_CM);
-  scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_CM);
-  scan.set_scan_length_unit(MEASURE_UNIT);
+    // set Webots sensor's properties to SmartMDSD model
+    // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
+    scanCount = 0;
+    horizontalResolution = webotsLidar->getHorizontalResolution();
+    numberValidPoints = webotsLidar->getNumberOfPoints();
+    scan.set_scan_size(numberValidPoints);
+    scan.set_scan_update_count(scanCount);
+    scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
+    scan.set_min_distance(webotsLidar->getMinRange()*M_TO_CM);
+    scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_CM);
+    scan.set_scan_length_unit(MEASURE_UNIT);
+  }
+  else
+  		std::cout  << "No lidar found, no data is sent." << std::endl;
 
   return 0;
 }
@@ -136,29 +143,34 @@ int LaserTask::on_execute()
     //basePosElev = baseState.get_base_position().get_base_elevation();
     //basePosRoll = baseState.get_base_position().get_base_roll();
 
-    std::cout << " " << basePosX << std::endl;
-    std::cout << "basePosX" << basePosX << std::endl;
-    std::cout << "basePosY" << basePosY << std::endl;
-    std::cout << "basePosZ" << basePosZ << std::endl;
+    std::cout << " " << std::endl;
+    std::cout << "basePosX " << basePosX << std::endl;
+    std::cout << "basePosY " << basePosY << std::endl;
+    std::cout << "basePosZ " << basePosZ << std::endl;
 
-    // time settings and update scan count
-    timeval _receiveTime;
-    gettimeofday(&_receiveTime, 0);
-    scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
-    scan.set_scan_update_count(scanCount);
+    if(LidarFound){
+			// time settings and update scan count
+			timeval _receiveTime;
+			gettimeofday(&_receiveTime, 0);
+			scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
+			scan.set_scan_update_count(scanCount);
 
-    // get sensor's values from Webots side
-    const float *rangeImageVector;
-    rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
+			// get sensor's values from Webots side
+			const float *rangeImageVector;
+			rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
 
-    // pass sensor's values to SmartMDSD side
-    for(unsigned int i=0; i<numberValidPoints; ++i) {
-      // it is in cm due to LaserScanPoint structure definition
-      unsigned int dist = (unsigned int)(rangeImageVector[i]*M_TO_CM);
-      scan.set_scan_index(i, i);
-      scan.set_scan_integer_distance(i, dist); // in cm
+			// pass sensor's values to SmartMDSD side
+			for(unsigned int i=0; i<numberValidPoints; ++i) {
+				// it is in cm due to LaserScanPoint structure definition
+				unsigned int dist = (unsigned int)(rangeImageVector[i]*M_TO_CM);
+				scan.set_scan_index(i, i);
+				scan.set_scan_integer_distance(i, dist); // in cm
+			}
+			scan.set_scan_valid(true);
     }
-    scan.set_scan_valid(true);
+    else {
+    	scan.set_scan_valid(false);
+    }
   }
   else
     return -1;

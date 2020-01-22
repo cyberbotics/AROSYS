@@ -38,6 +38,7 @@ class LaserTask  : public LaserTaskCore
 private:
   int webotsTimeStep;
   int horizontalResolution;
+  bool LidarFound = false;
   webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;
   CommBasicObjects::CommBaseState baseState;
@@ -48,7 +49,6 @@ private:
 
 public:
   unsigned long scanCount;
-  bool accquireNewScan(CommBasicObjects::CommMobileLaserScan& scan);
 
   LaserTask(SmartACE::SmartComponent *comp);
   virtual ~LaserTask();

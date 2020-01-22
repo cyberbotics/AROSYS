@@ -28,7 +28,6 @@ private:
 
 public:
   ComponentWebotsLidarCore();
-  SmartACE::SmartMutex LaserMutex;
 
 };
 
