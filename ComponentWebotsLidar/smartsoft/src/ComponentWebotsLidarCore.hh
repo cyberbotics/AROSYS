@@ -29,7 +29,7 @@ private:
 public:
   ComponentWebotsLidarCore();
   SmartACE::SmartMutex LaserMutex;
-  CommBasicObjects::CommBaseState baseState;
+
 };
 
 #endif

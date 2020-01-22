@@ -40,7 +40,7 @@ private:
   int horizontalResolution;
   webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;
-  //CommBasicObjects::CommBaseState baseState; //TODO: Test and if working, delete
+  CommBasicObjects::CommBaseState baseState;
 
   // laser parameters
   unsigned int numberValidPoints;
