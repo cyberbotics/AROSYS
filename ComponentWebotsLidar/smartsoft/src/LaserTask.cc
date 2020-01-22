@@ -68,6 +68,7 @@ int LaserTask::on_entry()
   webotsTimeStep = webotsRobot->getBasicTimeStep();
 
   // connect to the sensor from Webots
+  LidarFound = false;
   int lidarIndex = 0;
   std::string lidarName;
   webots::Device *webotsDevice = NULL;
@@ -139,10 +140,8 @@ int LaserTask::on_execute()
     basePosX = baseState.get_base_position().get_x(1.0);
     basePosY = baseState.get_base_position().get_y(1.0);
     basePosZ = baseState.get_base_position().get_z(1.0);
-    //basePosAzim = baseState.get_base_position().get_base_azimuth();
-    //basePosElev = baseState.get_base_position().get_base_elevation();
-    //basePosRoll = baseState.get_base_position().get_base_roll();
 
+    // print data to debug
     std::cout << " " << std::endl;
     std::cout << "basePosX " << basePosX << std::endl;
     std::cout << "basePosY " << basePosY << std::endl;

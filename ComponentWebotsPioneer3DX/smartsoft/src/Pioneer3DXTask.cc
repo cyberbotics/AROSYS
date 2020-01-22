@@ -70,9 +70,10 @@ int Pioneer3DXTask::on_entry()
   webotsTimeStep = webotsRobot->getBasicTimeStep();
 
   // set GPS
-  webots::Device *webotsDevice = NULL;
+  GPSFound = false;
 	int GPSIndex = 0;
 	std::string GPSName;
+	webots::Device *webotsDevice = NULL;
 
 	for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
 		webotsDevice = webotsRobot->getDeviceByIndex(i);
@@ -91,7 +92,7 @@ int Pioneer3DXTask::on_entry()
 		webotsGPS->enable(webotsTimeStep);
 	}
 	else
-		std::cout  << "No GPS found, data sent is (0,0,0)." << std::endl;
+		std::cout  << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
 
   // set Motors (name from PROTO definition in Webots)
@@ -122,7 +123,8 @@ int Pioneer3DXTask::on_execute()
   double omega = 0.0;
   double leftSpeed  = 0.0;
   double rightSpeed = 0.0;
-
+	CommBasicObjects::CommBaseState baseState;
+	CommBasicObjects::CommBasePose basePosition;
 
   // Acquisition
   COMP->PioneerMutex.acquire();
@@ -143,25 +145,17 @@ int Pioneer3DXTask::on_execute()
 		// Set values for port BaseStateServiceOut
   	if(GPSFound){
 
-    	// print data to send
-  		const double* GPS_value = webotsGPS->getValues();
-    	//std::cout << " " << std::endl;
-    	//std::cout << "[PIO] GPS_x : " << GPS_value[0]<< std::endl;
-    	//std::cout << "[PIO] GPS_y : " << GPS_value[1]<< std::endl;
-    	//std::cout << "[PIO] GPS_z : " << GPS_value[2]<< std::endl;
-
+    	const double* GPS_value = webotsGPS->getValues();
   		basePosition.set_x(GPS_value[0], 1.0);
     	basePosition.set_y(GPS_value[1], 1.0);
     	basePosition.set_z(GPS_value[2], 1.0);
   		baseState.set_base_position(basePosition);
-  		//baseState.set_base_position.set_azimuth(  webotsInertialUnit->getRollPitchYaw(2), 1.0);
-  		//baseState.set_base_position.set_elevation(webotsInertialUnit->getRollPitchYaw(1), 1.0);
-  		//baseState.set_base_position.set_roll(     webotsInertialUnit->getRollPitchYaw(0), 1.0);
 
-  		// To set all axis velocity, it's necessary to compute the speed using (pos1X-pos2X)/timestep
-  		//baseState.set_baseVelocity.set_vX(webotsGPS->getSpeed(0), 1.0);
-  		//baseState.set_baseVelocity.set_vY(webotsGPS->getSpeed(1), 1.0);
-  		//baseState.set_baseVelocity.set_vZ(webotsGPS->getSpeed(2), 1.0);
+    	// print data to debug
+    	std::cout << " " << std::endl;
+    	std::cout << "GPS_x : " << GPS_value[0]<< std::endl;
+    	std::cout << "GPS_y : " << GPS_value[1]<< std::endl;
+    	std::cout << "GPS_z : " << GPS_value[2]<< std::endl;
   	}
   	else
   	{

@@ -37,7 +37,7 @@ class Pioneer3DXTask  : public Pioneer3DXTaskCore
 
 private:
   int webotsTimeStep;
-  bool GPSFound = false;
+  bool GPSFound;
   double motorMaxSpeed; // in rad/s
   webots::GPS *webotsGPS;
   webots::Robot *webotsRobot;
@@ -51,9 +51,6 @@ public:
   virtual int on_entry();
   virtual int on_execute();
   virtual int on_exit();
-
-	CommBasicObjects::CommBaseState baseState;
-	CommBasicObjects::CommBasePose basePosition;
 
 };
 
