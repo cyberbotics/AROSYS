@@ -22,6 +22,12 @@
 class BaseStateQueryHandler : public BaseStateQueryHandlerCore
 {
 protected:
+
+private:
+  CommBasicObjects::CommTimeStamp time_stamp;
+  CommBasicObjects::CommBasePose base_position;
+  CommBasicObjects::CommBaseVelocity base_velocity;
+  CommBasicObjects::CommBaseState base_state;
   
 public:
   BaseStateQueryHandler(IQueryServer *server);
