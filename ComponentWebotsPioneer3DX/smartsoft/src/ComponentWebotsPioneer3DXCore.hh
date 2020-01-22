@@ -19,8 +19,6 @@
 
 #include "aceSmartSoft.hh"
 #include <iostream>
-//#include <CommBasicObjects/CommBasePose.hh>
-//#include <CommBasicObjects/CommBaseVelocity.hh>
 
 class ComponentWebotsPioneer3DXCore
 {
@@ -32,13 +30,6 @@ public:
   double vX;
   double vY;
   double vW;
-
-  //double baseX;
-  //double baseY;
-  //double baseW;
-  //CommBasicObjects::CommBasePose commBasePose;
-  //CommBasicObjects::CommBaseVelocity commBaseVelocity;
-
 };
 
 #endif

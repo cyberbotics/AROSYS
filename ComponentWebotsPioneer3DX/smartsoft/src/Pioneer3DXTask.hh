@@ -19,11 +19,11 @@
 
 #include "Pioneer3DXTaskCore.hh"
 
-#include <webots/Motor.hpp>
 #include <webots/GPS.hpp>
+#include <webots/Node.hpp>
+#include <webots/Motor.hpp>
 #include <webots/Robot.hpp>
 #include <webots/Device.hpp>
-#include <webots/Node.hpp>
 
 #include "CommBasicObjects/CommBaseState.hh"
 
@@ -37,9 +37,10 @@ class Pioneer3DXTask  : public Pioneer3DXTaskCore
 
 private:
   int webotsTimeStep;
+  bool GPSFound = false;
   double motorMaxSpeed; // in rad/s
+  webots::GPS *webotsGPS;
   webots::Robot *webotsRobot;
-  webots::GPS   *webotsGPS;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;
 
@@ -51,12 +52,8 @@ public:
   virtual int on_execute();
   virtual int on_exit();
 
-	//user:
-	CommBasicObjects::CommBaseState    base_state;
-	CommBasicObjects::CommBasePose     base_position;
-	//CommBasicObjects::CommBasePose     base_orientation;
-	//CommBasicObjects::CommBasePose     base_position_old;
-	//CommBasicObjects::CommBaseVelocity base_velocity;
+	CommBasicObjects::CommBaseState baseState;
+	CommBasicObjects::CommBasePose basePosition;
 
 };
 

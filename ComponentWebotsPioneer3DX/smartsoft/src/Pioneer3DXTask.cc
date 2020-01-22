@@ -81,12 +81,17 @@ int Pioneer3DXTask::on_entry()
 		if (webotsDevice->getNodeType() == webots::Node::GPS) {
 			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
 			GPSIndex = i;
+			GPSFound = true;
 			GPSName = webotsDevice->getName();
 		}
 	}
 
-	webotsGPS = webotsRobot->getGPS(GPSName);
-	webotsGPS->enable(webotsTimeStep);
+	if (GPSFound){
+		webotsGPS = webotsRobot->getGPS(GPSName);
+		webotsGPS->enable(webotsTimeStep);
+	}
+	else
+		std::cout  << "No GPS found, data sent is (0,0,0)." << std::endl;
 
 
   // set Motors (name from PROTO definition in Webots)
@@ -100,12 +105,6 @@ int Pioneer3DXTask::on_entry()
   webotsRightMotor->setVelocity(0);
 
   motorMaxSpeed = webotsLeftMotor->getMaxVelocity(); // in rad/s
-
-  // Not sure if needed
-	//CommBasicObjects::CommTimeStamp time_stamp;
-	//time_stamp.set_now();
-	//base_state.set_time_stamp(time_stamp);
-
 
   return 0;
 }
@@ -132,11 +131,6 @@ int Pioneer3DXTask::on_execute()
   speed = COMP->vX;
   omega = COMP->vW;
 
-//	CommBasicObjects::CommTimeStamp time_stamp;
-//	time_stamp.set_now();
-//	base_state.set_time_stamp(time_stamp);
-
-
   // set velocities in rad/s for motors and check limits
   rightSpeed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
   leftSpeed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
@@ -147,30 +141,35 @@ int Pioneer3DXTask::on_execute()
   if (webotsRobot->step(webotsTimeStep) != -1) {
 
 		// Set values for port BaseStateServiceOut
-  	const double* GPS_value = webotsGPS->getValues();
-  	std::cout << " " << std::endl;
-  	std::cout << "[PIO] GPS_x : " << GPS_value[0]<< std::endl;
-  	std::cout << "[PIO] GPS_y : " << GPS_value[1]<< std::endl;
-  	std::cout << "[PIO] GPS_z : " << GPS_value[2]<< std::endl;
+  	if(GPSFound){
 
-		base_position.set_x(GPS_value[0], 1.0);
-  	base_position.set_y(GPS_value[1], 1.0);
-  	base_position.set_z(GPS_value[2], 1.0);
-		base_state.set_base_position(base_position);
-		//base_state.set_base_position.set_azimuth(  webotsInertialUnit->getRollPitchYaw(2), 1.0);
-		//base_state.set_base_position.set_elevation(webotsInertialUnit->getRollPitchYaw(1), 1.0);
-		//base_state.set_base_position.set_roll(     webotsInertialUnit->getRollPitchYaw(0), 1.0);
+    	// print data to send
+  		const double* GPS_value = webotsGPS->getValues();
+    	std::cout << " " << std::endl;
+    	std::cout << "[PIO] GPS_x : " << GPS_value[0]<< std::endl;
+    	std::cout << "[PIO] GPS_y : " << GPS_value[1]<< std::endl;
+    	std::cout << "[PIO] GPS_z : " << GPS_value[2]<< std::endl;
 
-		// To set all axis velocity, it's necessary to compute the speed using (pos1X-pos2X)/timestep
-		//base_state.set_base_velocity.set_vX(webotsGPS->getSpeed(0), 1.0);
-		//base_state.set_base_velocity.set_vY(webotsGPS->getSpeed(1), 1.0);
-		//base_state.set_base_velocity.set_vZ(webotsGPS->getSpeed(2), 1.0);
+  		basePosition.set_x(GPS_value[0], 1.0);
+    	basePosition.set_y(GPS_value[1], 1.0);
+    	basePosition.set_z(GPS_value[2], 1.0);
+  		baseState.set_base_position(basePosition);
+  		//baseState.set_base_position.set_azimuth(  webotsInertialUnit->getRollPitchYaw(2), 1.0);
+  		//baseState.set_base_position.set_elevation(webotsInertialUnit->getRollPitchYaw(1), 1.0);
+  		//baseState.set_base_position.set_roll(     webotsInertialUnit->getRollPitchYaw(0), 1.0);
 
-
-		//std::cout << "PioTask: BaseState "<< base_state << std::endl;
-		//std::cout << "PioTask: BasePose " << base_state.basePose<< std::endl;
-		//std::cout << "PioTask: BasePose " << base_state.get_time_stamp() << std::endl;
-		//std::cout << "PioTask: BaseVelo " << base_state.baseVelocity<< std::endl;
+  		// To set all axis velocity, it's necessary to compute the speed using (pos1X-pos2X)/timestep
+  		//baseState.set_baseVelocity.set_vX(webotsGPS->getSpeed(0), 1.0);
+  		//baseState.set_baseVelocity.set_vY(webotsGPS->getSpeed(1), 1.0);
+  		//baseState.set_baseVelocity.set_vZ(webotsGPS->getSpeed(2), 1.0);
+  	}
+  	else
+  	{
+  		basePosition.set_x(0.0, 1.0);
+			basePosition.set_y(0.0, 1.0);
+			basePosition.set_z(0.0, 1.0);
+			baseState.set_base_position(basePosition);
+  	}
 
 		// Pass values to motors in Webots side
     webotsLeftMotor  -> setVelocity(leftSpeed);
@@ -183,8 +182,7 @@ int Pioneer3DXTask::on_execute()
   COMP->PioneerMutex.release();
 
   // send baseState update to the port
-  baseStateServiceOutPut(base_state);
-	//this->baseStateServiceOutPut(base_state);
+  baseStateServiceOutPut(baseState);
 
   // it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
   return 0;
