@@ -70,9 +70,7 @@ int Pioneer3DXTask::on_entry()
   webotsTimeStep = webotsRobot->getBasicTimeStep();
 
   // set GPS
-
-  // TODO: Mettre une vérification et envoyer des (0,0,0) si pas de GPS
-	webots::Device *webotsDevice = NULL;
+  webots::Device *webotsDevice = NULL;
 	int GPSIndex = 0;
 	std::string GPSName;
 
@@ -147,10 +145,10 @@ int Pioneer3DXTask::on_execute()
 
     	// print data to send
   		const double* GPS_value = webotsGPS->getValues();
-    	std::cout << " " << std::endl;
-    	std::cout << "[PIO] GPS_x : " << GPS_value[0]<< std::endl;
-    	std::cout << "[PIO] GPS_y : " << GPS_value[1]<< std::endl;
-    	std::cout << "[PIO] GPS_z : " << GPS_value[2]<< std::endl;
+    	//std::cout << " " << std::endl;
+    	//std::cout << "[PIO] GPS_x : " << GPS_value[0]<< std::endl;
+    	//std::cout << "[PIO] GPS_y : " << GPS_value[1]<< std::endl;
+    	//std::cout << "[PIO] GPS_z : " << GPS_value[2]<< std::endl;
 
   		basePosition.set_x(GPS_value[0], 1.0);
     	basePosition.set_y(GPS_value[1], 1.0);
