@@ -170,7 +170,6 @@ int LaserTask::on_execute()
     }
     else {
     	scan.set_scan_valid(false);
-    }
   }
   else
     return -1;
