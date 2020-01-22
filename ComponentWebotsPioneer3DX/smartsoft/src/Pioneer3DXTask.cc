@@ -69,10 +69,13 @@ int Pioneer3DXTask::on_entry()
   // get timestep from the world
   webotsTimeStep = webotsRobot->getBasicTimeStep();
 
-  // set GPS
+  // set GPS and IMU
   GPSFound = false;
+  IMUFound = false;
 	int GPSIndex = 0;
+	int IMUIndex = 0;
 	std::string GPSName;
+	std::string IMUName;
 	webots::Device *webotsDevice = NULL;
 
 	for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
@@ -82,17 +85,31 @@ int Pioneer3DXTask::on_entry()
 			GPSFound = true;
 			GPSName = webotsDevice->getName();
 			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
-			break;
 		}
+		if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT) {
+			IMUIndex = i;
+			IMUFound = true;
+			IMUName = webotsDevice->getName();
+			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a IMU."<<std::endl;
+		}
+		if(GPSFound && IMUFound)
+			break;
 	}
 
+	// enable GPS and IMU if found
 	if(GPSFound){
-		// enable the GPS
 		webotsGPS = webotsRobot->getGPS(GPSName);
 		webotsGPS->enable(webotsTimeStep);
 	}
 	else
 		std::cout  << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
+
+	if(IMUFound){
+		webotsIMU = webotsRobot->getInertialUnit(IMUName);
+		webotsIMU->enable(webotsTimeStep);
+	}
+	else
+		std::cout  << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
 
   // set Motors (name from PROTO definition in Webots)
@@ -142,7 +159,7 @@ int Pioneer3DXTask::on_execute()
   // otherwise the values will not be updated
   if (webotsRobot->step(webotsTimeStep) != -1) {
 
-		// Set values for port BaseStateServiceOut
+		// Set GPS values for port BaseStateServiceOut
   	if(GPSFound){
 
     	const double* GPS_value = webotsGPS->getValues();
@@ -162,6 +179,33 @@ int Pioneer3DXTask::on_execute()
   		basePosition.set_x(0.0, 1.0);
 			basePosition.set_y(0.0, 1.0);
 			basePosition.set_z(0.0, 1.0);
+			baseState.set_base_position(basePosition);
+  	}
+
+  	// Set IMU values for port BaseStateServiceOut
+  	// Webots use the NED convention, see https://cyberbotics.com/doc/reference/inertialunit
+  	// Smartsoft use ???, see ???
+  	// ROS use ENU convention, https://www.ros.org/reps/rep-0103.html
+  	// Be aware of this in your calculation
+  	if(IMUFound){
+
+    	const double* IMU_value = webotsIMU->getRollPitchYaw();
+    	basePosition.set_base_roll(IMU_value[0]);
+    	basePosition.set_base_azimuth(IMU_value[2]);
+    	basePosition.set_base_elevation(IMU_value[1]);
+  		baseState.set_base_position(basePosition);
+
+    	// print data to debug
+    	std::cout << " " << std::endl;
+    	std::cout << "IMU_roll  : " << IMU_value[0]<< std::endl;
+    	std::cout << "IMU_pitch : " << IMU_value[1]<< std::endl;
+    	std::cout << "IMU_yaw   : " << IMU_value[2]<< std::endl;
+  	}
+  	else
+  	{
+  		basePosition.set_base_roll(0.0);
+			basePosition.set_base_azimuth(0.0);
+			basePosition.set_base_elevation(0.0);
 			baseState.set_base_position(basePosition);
   	}
 

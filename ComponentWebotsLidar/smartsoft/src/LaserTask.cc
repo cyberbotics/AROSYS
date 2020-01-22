@@ -123,10 +123,9 @@ int LaserTask::on_execute()
     double basePosX = 0.0;
     double basePosY = 0.0;
     double basePosZ = 0.0;
-    //double basePosAzim = 0.0;
-    //double basePosElev = 0.0;
-    //double basePosRoll = 0.0;
-    //double baseAbsoluteVelocity = 0.0;
+    double basePosAzim = 0.0;
+    double basePosElev = 0.0;
+    double basePosRoll = 0.0;
 
     // get base state from port
     Smart::StatusCode baseStatus = this->baseStateServiceInGetUpdate(baseState);
@@ -140,12 +139,18 @@ int LaserTask::on_execute()
     basePosX = baseState.get_base_position().get_x(1.0);
     basePosY = baseState.get_base_position().get_y(1.0);
     basePosZ = baseState.get_base_position().get_z(1.0);
+    basePosAzim = baseState.get_base_position().get_base_azimuth();
+    basePosElev = baseState.get_base_position().get_base_elevation();
+    basePosRoll = baseState.get_base_position().get_base_roll();
 
     // print data to debug
     std::cout << " " << std::endl;
     std::cout << "basePosX " << basePosX << std::endl;
     std::cout << "basePosY " << basePosY << std::endl;
     std::cout << "basePosZ " << basePosZ << std::endl;
+    std::cout << "basePosAzim " << basePosAzim << std::endl;
+    std::cout << "basePosElev " << basePosElev << std::endl;
+    std::cout << "basePosRoll " << basePosRoll << std::endl;
 
     if(LidarFound){
 			// time settings and update scan count
