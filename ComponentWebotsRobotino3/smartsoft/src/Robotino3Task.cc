@@ -83,29 +83,27 @@ int Robotino3Task::on_entry()
 				GPSFound = true;
 				GPSName = webotsDevice->getName();
 				std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
-			}
-			if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT) {
+			} else if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT) {
 				IMUFound = true;
 				IMUName = webotsDevice->getName();
 				std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a IMU."<<std::endl;
 			}
-			if(GPSFound && IMUFound)
+
+			if (GPSFound && IMUFound)
 				break;
 		}
 
 		// enable GPS and IMU if found
-		if(GPSFound){
+		if (GPSFound){
 			webotsGPS = webotsRobot->getGPS(GPSName);
 			webotsGPS->enable(webotsTimeStep);
-		}
-		else
+		} else
 			std::cout  << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
-		if(IMUFound){
+		if (IMUFound){
 			webotsIMU = webotsRobot->getInertialUnit(IMUName);
 			webotsIMU->enable(webotsTimeStep);
-		}
-		else
+		} else
 			std::cout  << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
 
@@ -185,8 +183,7 @@ int Robotino3Task::on_execute()
 	if (webotsRobot->step(webotsTimeStep) != -1) {
 
 		// Set GPS values for port BaseStateServiceOut
-		if(GPSFound){
-
+		if (GPSFound) {
 			const double* GPS_value = webotsGPS->getValues();
 			basePosition.set_x(GPS_value[0], 1.0);
 			basePosition.set_y(GPS_value[1], 1.0);
@@ -198,9 +195,7 @@ int Robotino3Task::on_execute()
 			std::cout << "GPS_x : " << GPS_value[0]<< std::endl;
 			std::cout << "GPS_y : " << GPS_value[1]<< std::endl;
 			std::cout << "GPS_z : " << GPS_value[2]<< std::endl;
-		}
-		else
-		{
+		} else {
 			basePosition.set_x(0.0, 1.0);
 			basePosition.set_y(0.0, 1.0);
 			basePosition.set_z(0.0, 1.0);
@@ -212,8 +207,7 @@ int Robotino3Task::on_execute()
 		// Smartsoft use ???, see ???
 		// ROS use ENU convention, https://www.ros.org/reps/rep-0103.html
 		// Be aware of this in your calculation
-		if(IMUFound){
-
+		if (IMUFound) {
 			const double* IMU_value = webotsIMU->getRollPitchYaw();
 			basePosition.set_base_roll(IMU_value[0]);
 			basePosition.set_base_azimuth(IMU_value[2]);
@@ -225,9 +219,7 @@ int Robotino3Task::on_execute()
 			std::cout << "IMU_roll  : " << IMU_value[0]<< std::endl;
 			std::cout << "IMU_pitch : " << IMU_value[1]<< std::endl;
 			std::cout << "IMU_yaw   : " << IMU_value[2]<< std::endl;
-		}
-		else
-		{
+		} else {
 			basePosition.set_base_roll(0.0);
 			basePosition.set_base_azimuth(0.0);
 			basePosition.set_base_elevation(0.0);
