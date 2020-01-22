@@ -19,8 +19,14 @@
 
 #include "Robotino3TaskCore.hh"
 
+#include <webots/GPS.hpp>
+#include <webots/Node.hpp>
 #include <webots/Motor.hpp>
 #include <webots/Robot.hpp>
+#include <webots/Device.hpp>
+#include <webots/InertialUnit.hpp>
+
+#include "CommBasicObjects/CommBaseState.hh"
 
 // Robotino 3 specification
 #define WHEEL_GAP    0.184  // in meter
@@ -32,11 +38,15 @@ class Robotino3Task  : public Robotino3TaskCore
 
 private:
 	int webotsTimeStep;
+	bool GPSFound;
+	bool IMUFound;
 	double motorMaxSpeed; // in rad/s
+	webots::GPS *webotsGPS;
 	webots::Robot *webotsRobot;
 	webots::Motor *webotsMotor0;
 	webots::Motor *webotsMotor1;
 	webots::Motor *webotsMotor2;
+  webots::InertialUnit *webotsIMU;
 
 public:
 	Robotino3Task(SmartACE::SmartComponent *comp);
