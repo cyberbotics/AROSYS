@@ -19,10 +19,13 @@
 
 #include "Pioneer3DXTaskCore.hh"
 
+#include <webots/GPS.hpp>
+#include <webots/Node.hpp>
 #include <webots/Motor.hpp>
 #include <webots/Robot.hpp>
 #include <webots/Device.hpp>
-#include <webots/Node.hpp>
+
+#include "CommBasicObjects/CommBaseState.hh"
 
 // Pioneer 3-DX specification
 #define WHEEL_GAP    0.269  // in meter
@@ -34,7 +37,9 @@ class Pioneer3DXTask  : public Pioneer3DXTaskCore
 
 private:
   int webotsTimeStep;
+  bool GPSFound;
   double motorMaxSpeed; // in rad/s
+  webots::GPS *webotsGPS;
   webots::Robot *webotsRobot;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;
@@ -46,6 +51,7 @@ public:
   virtual int on_entry();
   virtual int on_execute();
   virtual int on_exit();
+
 };
 
 #endif

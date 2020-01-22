@@ -41,6 +41,7 @@ int LaserTask::on_entry()
   // do initialization procedures here, which are called once, each time the task is started
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
+
   // assign this controller to the correct robot in Webots
   char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
   if (!robotName) {
@@ -67,34 +68,42 @@ int LaserTask::on_entry()
   webotsTimeStep = webotsRobot->getBasicTimeStep();
 
   // connect to the sensor from Webots
-  webots::Device *webotsDevice = NULL;
+  LidarFound = false;
   int lidarIndex = 0;
   std::string lidarName;
+  webots::Device *webotsDevice = NULL;
 
   for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
     webotsDevice = webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() == webots::Node::LIDAR) {
-      std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a Lidar."<<std::endl;
       lidarIndex = i;
+      LidarFound = true;
       lidarName = webotsDevice->getName();
+      std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a Lidar."<<std::endl;
+      break;
     }
   }
 
-  webotsLidar = webotsRobot->getLidar(lidarName);
-  webotsLidar->enable(webotsTimeStep);
-  webotsLidar->enablePointCloud();
+  if(LidarFound){
+  	// enable the lidar
+    webotsLidar = webotsRobot->getLidar(lidarName);
+    webotsLidar->enable(webotsTimeStep);
+    webotsLidar->enablePointCloud();
 
-  // set Webots sensor's properties to SmartMDSD model
-  // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
-  scanCount = 0;
-  horizontalResolution = webotsLidar->getHorizontalResolution();
-  numberValidPoints = webotsLidar->getNumberOfPoints();
-  scan.set_scan_size(numberValidPoints);
-  scan.set_scan_update_count(scanCount);
-  scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
-  scan.set_min_distance(webotsLidar->getMinRange()*M_TO_CM);
-  scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_CM);
-  scan.set_scan_length_unit(MEASURE_UNIT);
+    // set Webots sensor's properties to SmartMDSD model
+    // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
+    scanCount = 0;
+    horizontalResolution = webotsLidar->getHorizontalResolution();
+    numberValidPoints = webotsLidar->getNumberOfPoints();
+    scan.set_scan_size(numberValidPoints);
+    scan.set_scan_update_count(scanCount);
+    scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
+    scan.set_min_distance(webotsLidar->getMinRange()*M_TO_CM);
+    scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_CM);
+    scan.set_scan_length_unit(MEASURE_UNIT);
+  }
+  else
+  		std::cout  << "No lidar found, no data is sent." << std::endl;
 
   return 0;
 }
@@ -106,29 +115,60 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
+
   // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
   // otherwise the values will not be updated
   if (webotsRobot->step(webotsTimeStep) != -1) {
+    // Some variables are set but not implemented now
+    double basePosX = 0.0;
+    double basePosY = 0.0;
+    double basePosZ = 0.0;
+    //double basePosAzim = 0.0;
+    //double basePosElev = 0.0;
+    //double basePosRoll = 0.0;
+    //double baseAbsoluteVelocity = 0.0;
 
-    // time settings and update scan count
-    timeval _receiveTime;
-    gettimeofday(&_receiveTime, 0);
-    scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
-    scan.set_scan_update_count(scanCount);
+    // get base state from port
+    Smart::StatusCode baseStatus = this->baseStateServiceInGetUpdate(baseState);
 
-    // get sensor's values from Webots side
-    const float *rangeImageVector;
-    rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
+    // check if the transmission worked
+    if (baseStatus != Smart::SMART_OK)
+      std::cerr << "Error: receiving base state: " << baseStatus << std::endl;
+    else
+      std::cout << "LaserScan received" << std::endl;
 
-    // pass sensor's values to SmartMDSD side
-    for(unsigned int i=0; i<numberValidPoints; ++i)
-    {
-      // it is in cm due to LaserScanPoint structure definition
-      unsigned int dist = (unsigned int)(rangeImageVector[i]*M_TO_CM);
-      scan.set_scan_index(i, i);
-      scan.set_scan_integer_distance(i, dist); // in cm
+    basePosX = baseState.get_base_position().get_x(1.0);
+    basePosY = baseState.get_base_position().get_y(1.0);
+    basePosZ = baseState.get_base_position().get_z(1.0);
+
+    // print data to debug
+    std::cout << " " << std::endl;
+    std::cout << "basePosX " << basePosX << std::endl;
+    std::cout << "basePosY " << basePosY << std::endl;
+    std::cout << "basePosZ " << basePosZ << std::endl;
+
+    if(LidarFound){
+			// time settings and update scan count
+			timeval _receiveTime;
+			gettimeofday(&_receiveTime, 0);
+			scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
+			scan.set_scan_update_count(scanCount);
+
+			// get sensor's values from Webots side
+			const float *rangeImageVector;
+			rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
+
+			// pass sensor's values to SmartMDSD side
+			for(unsigned int i=0; i<numberValidPoints; ++i) {
+				// it is in cm due to LaserScanPoint structure definition
+				unsigned int dist = (unsigned int)(rangeImageVector[i]*M_TO_CM);
+				scan.set_scan_index(i, i);
+				scan.set_scan_integer_distance(i, dist); // in cm
+			}
+			scan.set_scan_valid(true);
     }
-    scan.set_scan_valid(true);
+    else
+    	scan.set_scan_valid(false);
   }
   else
     return -1;

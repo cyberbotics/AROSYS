@@ -26,9 +26,10 @@ BaseStateQueryHandler::BaseStateQueryHandler(IQueryServer *server)
 
 void BaseStateQueryHandler::handleQuery(const Smart::QueryIdPtr &id, const CommBasicObjects::CommVoid& request)
 {
-  CommBasicObjects::CommBaseState answer;
 
-  // implement your query handling logic here and fill in the answer object
+	CommBasicObjects::CommBaseState answer;
 
-  this->server->answer(id, answer);
+	// implement your query handling logic here and fill in the answer object
+
+	this->server->answer(id, answer);
 }

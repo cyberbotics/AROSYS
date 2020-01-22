@@ -20,6 +20,8 @@ Pioneer3dx {
   name "Pioneer3DX"
   controller "<extern>"
   extensionSlot [
+  	GPS {
+  	}
     Robot {
       translation 0 0.22 0
       children [

@@ -18,12 +18,16 @@
 #define _LASERTASK_HH
 
 #include "LaserTaskCore.hh"
+#include "CommBasicObjects/CommMobileLaserScan.hh"
+#include "CommBasicObjects/CommBaseState.hh"
+#include "CommBasicObjects/CommBasePose.hh"
+#include "CommBasicObjects/CommBaseVelocity.hh"
 
 #include <webots/Robot.hpp>
 #include <webots/Lidar.hpp>
 
 
-// Modify these parameters for unit consistency
+// modify these parameters for unit consistency
 #define M_TO_CM      100.0 // Conversion factor
 #define UNIT_FACTOR  100.0 // Value is expressed in 0.01 degree units
 #define MEASURE_UNIT 1.0   // Set the internal length unit of the scan in mm
@@ -34,14 +38,18 @@ class LaserTask  : public LaserTaskCore
 private:
   int webotsTimeStep;
   int horizontalResolution;
+  bool LidarFound;
   webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;
+  CommBasicObjects::CommBaseState baseState;
 
+  // laser parameters
   unsigned int numberValidPoints;
   CommBasicObjects::CommMobileLaserScan scan;
 
 public:
   unsigned long scanCount;
+
   LaserTask(SmartACE::SmartComponent *comp);
   virtual ~LaserTask();
 

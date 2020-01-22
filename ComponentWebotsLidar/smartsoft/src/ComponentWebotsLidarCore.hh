@@ -20,12 +20,15 @@
 #include "aceSmartSoft.hh"
 #include <iostream>
 
+#include "CommBasicObjects/CommBaseState.hh"
+
 class ComponentWebotsLidarCore
 {
 private:
 
 public:
   ComponentWebotsLidarCore();
+
 };
 
 #endif

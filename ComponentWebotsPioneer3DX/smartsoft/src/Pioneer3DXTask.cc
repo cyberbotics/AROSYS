@@ -69,6 +69,32 @@ int Pioneer3DXTask::on_entry()
   // get timestep from the world
   webotsTimeStep = webotsRobot->getBasicTimeStep();
 
+  // set GPS
+  GPSFound = false;
+	int GPSIndex = 0;
+	std::string GPSName;
+	webots::Device *webotsDevice = NULL;
+
+	for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
+		webotsDevice = webotsRobot->getDeviceByIndex(i);
+		if (webotsDevice->getNodeType() == webots::Node::GPS) {
+			GPSIndex = i;
+			GPSFound = true;
+			GPSName = webotsDevice->getName();
+			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
+			break;
+		}
+	}
+
+	if(GPSFound){
+		// enable the GPS
+		webotsGPS = webotsRobot->getGPS(GPSName);
+		webotsGPS->enable(webotsTimeStep);
+	}
+	else
+		std::cout  << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
+
+
   // set Motors (name from PROTO definition in Webots)
   webotsLeftMotor  = webotsRobot->getMotor("left wheel");
   webotsRightMotor = webotsRobot->getMotor("right wheel");
@@ -97,11 +123,13 @@ int Pioneer3DXTask::on_execute()
   double omega = 0.0;
   double leftSpeed  = 0.0;
   double rightSpeed = 0.0;
+	CommBasicObjects::CommBaseState baseState;
+	CommBasicObjects::CommBasePose basePosition;
 
   // Acquisition
   COMP->PioneerMutex.acquire();
 
-  // Get values from port
+  // Get values from port NavigationVelocityServiceIn
   speed = COMP->vX;
   omega = COMP->vW;
 
@@ -114,15 +142,41 @@ int Pioneer3DXTask::on_execute()
   // otherwise the values will not be updated
   if (webotsRobot->step(webotsTimeStep) != -1) {
 
-    // Pass values to motors in Webots side
+		// Set values for port BaseStateServiceOut
+  	if(GPSFound){
+
+    	const double* GPS_value = webotsGPS->getValues();
+  		basePosition.set_x(GPS_value[0], 1.0);
+    	basePosition.set_y(GPS_value[1], 1.0);
+    	basePosition.set_z(GPS_value[2], 1.0);
+  		baseState.set_base_position(basePosition);
+
+    	// print data to debug
+    	std::cout << " " << std::endl;
+    	std::cout << "GPS_x : " << GPS_value[0]<< std::endl;
+    	std::cout << "GPS_y : " << GPS_value[1]<< std::endl;
+    	std::cout << "GPS_z : " << GPS_value[2]<< std::endl;
+  	}
+  	else
+  	{
+  		basePosition.set_x(0.0, 1.0);
+			basePosition.set_y(0.0, 1.0);
+			basePosition.set_z(0.0, 1.0);
+			baseState.set_base_position(basePosition);
+  	}
+
+		// Pass values to motors in Webots side
     webotsLeftMotor  -> setVelocity(leftSpeed);
     webotsRightMotor -> setVelocity(rightSpeed);
   }
   else
     return -1;
 
-  // Release
+  // release
   COMP->PioneerMutex.release();
+
+  // send baseState update to the port
+  baseStateServiceOutPut(baseState);
 
   // it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
   return 0;
