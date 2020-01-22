@@ -13,17 +13,21 @@ ComponentInstance ComponentWebots instantiates ComponentWebots
 		ProvidedService BaseStateAnswerer
 	}
 
-	ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
-	{
-		ProvidedService LaserServiceOut
-	}
 	ComponentInstance ComponentWebotsObstacleAvoidance instantiates ComponentWebotsObstacleAvoidance
 	{
 		RequiredService LaserServiceIn
 		RequiredService NavigationVelocityServiceOut
 	}
 
+	ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
+	{
+		RequiredService BaseStateServiceIn
+		ProvidedService LaserServiceOut
+	}
+
 	Connection  ComponentWebotsObstacleAvoidance.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
 
-	Connection  ComponentWebotsObstacleAvoidance.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+	Connection    ComponentWebotsObstacleAvoidance.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+
+	Connection  ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsPioneer3DX.BaseStateServiceOut
 }

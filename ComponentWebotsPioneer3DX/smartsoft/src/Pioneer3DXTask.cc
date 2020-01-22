@@ -79,14 +79,16 @@ int Pioneer3DXTask::on_entry()
 	for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
 		webotsDevice = webotsRobot->getDeviceByIndex(i);
 		if (webotsDevice->getNodeType() == webots::Node::GPS) {
-			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
 			GPSIndex = i;
 			GPSFound = true;
 			GPSName = webotsDevice->getName();
+			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
+			break;
 		}
 	}
 
-	if (GPSFound){
+	if(GPSFound){
+		// enable the GPS
 		webotsGPS = webotsRobot->getGPS(GPSName);
 		webotsGPS->enable(webotsTimeStep);
 	}
