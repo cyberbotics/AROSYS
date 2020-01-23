@@ -10,10 +10,11 @@ DeploymentModel SystemLaserObstacleAvoidTiagoWebotsSimulator using ComponentArch
 		deploy-to PC1 
 	}
 
-	ComponentArtefact  ComponentLaserObstacleAvoid deploy-to PC1
+	ComponentArtefact  ComponentWebots deploy-to PC1
 
 	ComponentArtefact  
-ComponentWebots deploy-to PC1
-	ComponentArtefact ComponentWebotsLidar deploy-to PC1
+ComponentWebotsLidar deploy-to PC1
 	ComponentArtefact ComponentWebotsPioneer3DX deploy-to PC1
+
+	ComponentArtefact  ComponentLaserObstacleAvoid deploy-to PC1
 }

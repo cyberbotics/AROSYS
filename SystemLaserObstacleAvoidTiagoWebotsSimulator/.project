@@ -6,6 +6,7 @@
 		<project>ComponentLaserObstacleAvoid</project>
 		<project>ComponentWebots</project>
 		<project>ComponentWebotsLidar</project>
+		<project>ComponentWebotsObstacleAvoidance</project>
 		<project>ComponentWebotsPioneer3DX</project>
 		<project>SmartGazeboBaseServer</project>
 	</projects>

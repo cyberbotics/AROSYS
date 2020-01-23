@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="/ComponentLaserObstacleAvoid"/>
 	<classpathentry kind="src" path="/ComponentWebots"/>
 	<classpathentry kind="src" path="/ComponentWebotsLidar"/>
+	<classpathentry kind="src" path="/ComponentWebotsObstacleAvoidance"/>
 	<classpathentry kind="src" path="/ComponentWebotsPioneer3DX"/>
 	<classpathentry kind="src" path="/SmartGazeboBaseServer"/>
 	<classpathentry kind="output" path="bin"/>
