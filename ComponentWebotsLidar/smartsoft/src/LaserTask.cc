@@ -96,8 +96,9 @@ int LaserTask::on_entry()
     scan.set_scan_size(numberValidPoints);
     scan.set_scan_update_count(scanCount);
     scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
-    scan.set_min_distance(webotsLidar->getMinRange()*M_TO_CM);
-    scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_CM);
+    // Pay attention to limits as min/max_distance variables are short type (max value is 65535)
+    scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
+    scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
     scan.set_scan_length_unit(MEASURE_UNIT);
   }
   else
@@ -163,10 +164,15 @@ int LaserTask::on_execute()
 
 			// pass sensor's values to SmartMDSD side
 			for(unsigned int i=0; i<numberValidPoints; ++i) {
-				// it is in cm due to LaserScanPoint structure definition
-				unsigned int dist = (unsigned int)(rangeImageVector[i]*M_TO_CM);
+				// Pay attention to
+				//   o limits as min/max_distance variables are short type (max value is 65535)
+				//   o Webots array for lidar value is inverted with the one in Smartsoft
+				unsigned int dist = (unsigned int)(rangeImageVector[numberValidPoints-1-i]*M_TO_MM);
 				scan.set_scan_index(i, i);
-				scan.set_scan_integer_distance(i, dist); // in cm
+				scan.set_scan_integer_distance(i, dist); // in mm
+				// Print distance to debug
+				if (i%3==0)
+					std::cout << "["<<i<<"] " << dist << std::endl;
 			}
 			scan.set_scan_valid(true);
     }

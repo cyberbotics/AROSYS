@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.9966225347130502 0.07974686570454514 -0.019594915474081875 0.9059384150569391
-  position 4.536623177778535 20.97777051635909 15.57652436165371
+  orientation 1 0 0 4.71238898038469
+  position 3.018108710225054 28.75430477438873 -0.010266589611660049
 }
 TexturedBackground {
   texture "entrance_hall"
@@ -73,18 +73,37 @@ Pioneer3dx {
     }
   ]
 }
+Pedestrian {
+  translation 0.5 1.27 4
+  rotation 0 1 0 3.141592653589793
+}
+Pedestrian {
+  translation 7 1.27 4
+  rotation 0 1 0 -1.5707996938995747
+  name "pedestrian(3)"
+}
+Pedestrian {
+  translation -2.5 1.27 -3
+  name "pedestrian(1)"
+}
+Pedestrian {
+  translation 4 1.27 -3
+  rotation 0 1 0 -1.5708003061004252
+  name "pedestrian(2)"
+}
+Pedestrian {
+  translation 6 1.27 -3
+  rotation 0 1 0 0.5235996938995747
+  name "pedestrian(4)"
+}
 Floor {
   tileSize 2 2
-  appearance MattePaint {
-    baseColor 0.533333 0.541176 0.521569
-  }
 }
 Floor {
   translation 7.5 0 0
   name "floor(1)"
   size 5 10
-  appearance Asphalt {
-  }
+  tileSize 2 2
 }
 Bench {
   translation 1.78 0 -4.7
@@ -214,7 +233,8 @@ Radiator {
   rotation 0 1 0 -1.5707996938995747
 }
 Radiator {
-  translation -4.88 0.33 -3.4
+  translation 3.25 0.33 4.87
+  rotation 0 1 0 1.5707996938995747
   name "radiator(1)"
 }
 Door {
@@ -330,7 +350,7 @@ PottedTree {
   translation 9.5 0 1.5
 }
 PottedTree {
-  translation -4.3 0 4.3
+  translation -4.5 0 1
   name "potted tree(1)"
 }
 PottedTree {
