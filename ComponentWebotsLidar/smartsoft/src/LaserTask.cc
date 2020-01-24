@@ -171,8 +171,8 @@ int LaserTask::on_execute()
 				scan.set_scan_index(i, i);
 				scan.set_scan_integer_distance(i, dist); // in mm
 				// Print distance to debug
-				if (i%3==0)
-					std::cout << "["<<i<<"] " << dist << std::endl;
+				//if (i%3==0)
+					//std::cout << "["<<i<<"] " << dist << std::endl;
 			}
 			scan.set_scan_valid(true);
     }

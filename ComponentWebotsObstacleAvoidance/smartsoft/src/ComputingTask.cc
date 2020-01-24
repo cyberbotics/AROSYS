@@ -75,13 +75,9 @@ int ComputingTask::on_execute()
     std::cout << "LaserScan received" << std::endl;
 
 	// print distance to debug
-	uint count = laserScan.get_scan_size();
-	for(unsigned int i=0; i<count; ++i) {
-		// it is in cm due to LaserScanPoint structure definition
-		//unsigned int dist = (unsigned int)(rangeImageVector[i]*M_TO_CM);
-		if (i%3==0)
-			std::cout << "["<<i<<"] " << laserScan.get_scan_distance(i) << std::endl;
-	}
+	//for(unsigned int i=0; i<laserScan.get_scan_size(); ++i)
+		//if (i%3==0)
+			//std::cout << "["<<i<<"] " << laserScan.get_scan_distance(i) << std::endl;
 
   // using laser scan compute v and w
   double velocityX = 0.0; // in m/s
