@@ -1,0 +1,27 @@
+SystemComponentArchitecture SystemLaserObstacleAvoidP3dxWebotsSimulator
+{
+	ComponentInstance ComponentLaserObstacleAvoid instantiates ComponentLaserObstacleAvoid
+	{
+		RequiredService LaserServiceIn
+		RequiredService NavigationVelocityServiceOut
+	}
+	ComponentInstance ComponentWebots instantiates ComponentWebots
+	{
+	}
+	ComponentInstance ComponentWebotsPioneer3DX instantiates ComponentWebotsPioneer3DX
+	{
+		ProvidedService BaseStateServiceOut
+		ProvidedService BatteryEventServiceOut
+		ProvidedService LocalizationUpdateServiceIn
+		ProvidedService NavigationVelocityServiceIn
+		ProvidedService BaseStateAnswerer
+	}
+	ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
+	{
+		RequiredService BaseStateServiceIn
+		ProvidedService LaserServiceOut
+	}
+	Connection ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+	Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
+	Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsPioneer3DX.BaseStateServiceOut
+}
