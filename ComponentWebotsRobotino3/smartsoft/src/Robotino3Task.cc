@@ -45,30 +45,14 @@ int Robotino3Task::on_entry()
 	// do initialization procedures here, which are called once, each time the task is started
 	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
-	// assign this controller to the correct robot in Webots
-	char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
-	if (!robotName) {
-		std::cout  << "WEBOTS_ROBOT_NAME not defined" << std::endl;
-		FILE *f = fopen("robotName.txt", "rb");
-		if (!f) {
-			std::cout  << "'robotName.txt' file not found." << std::endl;
-			return -1;
-		}
-		char name[256];
-		int ret = fscanf(f, "%[^\n]", name);
-		if (ret == 0) {
-			std::cout  << "First line of the 'robotName.txt' file is empty." << std::endl;
-			return -1;
-		}
-		char environment[256] = "WEBOTS_ROBOT_NAME=";
-		putenv(strcat(environment, name));
-	}
+	// Acquisition
+	COMP->Robotino3Mutex.acquire();
 
-	// create Robot Instance
-	webotsRobot = new webots::Robot();
+	if (!COMP->webotsRobot)
+		  return -1;
 
 	// get timestep from the world
-	webotsTimeStep = webotsRobot->getBasicTimeStep();
+	webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
 
 	// set GPS and IMU
 	  GPSFound = false;
@@ -77,8 +61,8 @@ int Robotino3Task::on_entry()
 		std::string IMUName;
 		webots::Device *webotsDevice = NULL;
 
-		for(int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
-			webotsDevice = webotsRobot->getDeviceByIndex(i);
+		for(int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
+			webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
 			if (webotsDevice->getNodeType() == webots::Node::GPS) {
 				GPSFound = true;
 				GPSName = webotsDevice->getName();
@@ -95,22 +79,22 @@ int Robotino3Task::on_entry()
 
 		// enable GPS and IMU if found
 		if (GPSFound){
-			webotsGPS = webotsRobot->getGPS(GPSName);
+			webotsGPS = COMP->webotsRobot->getGPS(GPSName);
 			webotsGPS->enable(webotsTimeStep);
 		} else
 			std::cout  << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
 		if (IMUFound){
-			webotsIMU = webotsRobot->getInertialUnit(IMUName);
+			webotsIMU = COMP->webotsRobot->getInertialUnit(IMUName);
 			webotsIMU->enable(webotsTimeStep);
 		} else
 			std::cout  << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
 
 	// set Motors (name from PROTO definition in Webots)
-	webotsMotor0 = webotsRobot->getMotor("wheel0_joint");
-	webotsMotor1 = webotsRobot->getMotor("wheel1_joint");
-	webotsMotor2 = webotsRobot->getMotor("wheel2_joint");
+	webotsMotor0 = COMP->webotsRobot->getMotor("wheel0_joint");
+	webotsMotor1 = COMP->webotsRobot->getMotor("wheel1_joint");
+	webotsMotor2 = COMP->webotsRobot->getMotor("wheel2_joint");
 
 	webotsMotor0->setPosition(INFINITY);
 	webotsMotor1->setPosition(INFINITY);
@@ -121,6 +105,9 @@ int Robotino3Task::on_entry()
 	webotsMotor2->setVelocity(0);
 
 	motorMaxSpeed = webotsMotor0->getMaxVelocity(); // in rad/s
+
+	// release
+	COMP->Robotino3Mutex.release();
 
 	return 0;
 }
@@ -180,7 +167,7 @@ int Robotino3Task::on_execute()
 
 	// controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
 	// otherwise the values will not be updated
-	if (webotsRobot->step(webotsTimeStep) != -1) {
+	if (COMP->webotsRobot->step(webotsTimeStep) != -1) {
 
 		// Set GPS values for port BaseStateServiceOut
 		if (GPSFound) {
@@ -247,7 +234,7 @@ int Robotino3Task::on_execute()
 
 int Robotino3Task::on_exit()
 {
-	delete webotsRobot;
+	delete COMP->webotsRobot;
 
 	// use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
 	return 0;

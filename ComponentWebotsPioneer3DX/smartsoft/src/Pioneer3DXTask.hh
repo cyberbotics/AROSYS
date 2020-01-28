@@ -22,7 +22,6 @@
 #include <webots/GPS.hpp>
 #include <webots/Node.hpp>
 #include <webots/Motor.hpp>
-#include <webots/Robot.hpp>
 #include <webots/Device.hpp>
 #include <webots/InertialUnit.hpp>
 

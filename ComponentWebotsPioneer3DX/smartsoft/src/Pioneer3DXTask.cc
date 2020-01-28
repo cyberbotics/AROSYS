@@ -51,7 +51,7 @@ int Pioneer3DXTask::on_entry()
 	  return -1;
 
   // get timestep from the world and match the one in SmartMDSD component
-  webotsTimeStep = webotsRobot->getBasicTimeStep();
+  webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
   int coeff = S_TO_MS/(webotsTimeStep*COMP->connections.pioneer3DXTask.periodicActFreq);
   webotsTimeStep *= coeff;
 
