@@ -2,7 +2,7 @@ ComponentDefinition ComponentWebotsBumper logo "/ComponentWebotsBumper/model/log
 {
 Activity BumperTask
 	{
-		DefaultTrigger PeriodicTimer 1.0 Hz
+		DefaultTrigger PeriodicTimer 10.0 Hz
 	}
 	OutputPort BumperEventServiceOut implements CommBasicObjects.BumperEventService realizedBy BumperTask {
 	}
