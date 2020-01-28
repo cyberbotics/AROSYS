@@ -38,7 +38,6 @@ class LaserTask  : public LaserTaskCore
 private:
   int webotsTimeStep;
   int horizontalResolution;
-  bool LidarFound;
   webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;
   CommBasicObjects::CommBaseState baseState;

@@ -74,7 +74,7 @@ int BumperTask::on_entry()
 	  std::string bumperName = webotsDevice->getName();
 	  webotsTouchSensor = webotsRobot->getTouchSensor(bumperName);
 	  webotsTouchSensor->enable(webotsTimeStep);
-	  std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a bumper."<<std::endl;
+	  std::cout<<"Device #"<<i<<" called "<<bumperName<<" is a bumper."<<std::endl;
 	  break;
 	}
   }
