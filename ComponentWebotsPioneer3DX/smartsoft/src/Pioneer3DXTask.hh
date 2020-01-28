@@ -42,7 +42,6 @@ private:
   bool IMUFound;
   double motorMaxSpeed; // in rad/s
   webots::GPS *webotsGPS;
-  webots::Robot *webotsRobot;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;
   webots::InertialUnit *webotsIMU;
