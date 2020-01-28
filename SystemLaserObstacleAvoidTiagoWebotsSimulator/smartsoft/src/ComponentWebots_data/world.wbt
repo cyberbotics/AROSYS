@@ -2,28 +2,23 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.6965141994602344 -0.5797495542595565 -0.42279832578442667 4.807794588314388
-  position 10.041696309134169 22.380630885427355 5.133315394859644
-  follow "Pioneer3DX"
+  orientation 1 0 0 4.71238898038469
+  position 1.389741943837314 28.922774055415115 0.6853101762009368
 }
 TexturedBackground {
   texture "entrance_hall"
   skybox FALSE
 }
-RectangleArena {
-  floorSize 13 13
-  floorTileSize 1 1
-  wallHeight 2
-}
 Pioneer3dx {
-  translation 2.5 0.0949252 4.5
+  translation 0 0.0949252 0
+  rotation 0 1 0 3.141592653589793
   name "Pioneer3DX"
   controller "<extern>"
   extensionSlot [
-  	InertialUnit {
-  	}
-  	GPS {
-  	}
+    InertialUnit {
+    }
+    GPS {
+    }
     Robot {
       translation 0 0.22 0
       children [
@@ -79,56 +74,157 @@ Pioneer3dx {
   ]
 }
 WoodenBox {
-  translation 1.43078 1 -3.5643
-  rotation 0 1 0 0.523599
-  name "wooden box(6)"
-  size 0.6 2 0.6
-  mass 2
+  translation 0.52 0.9 4
+  rotation 0 1 0 -0.1308996938995747
+  size 0.4 1.8 0.31
 }
 WoodenBox {
-  translation 5.43138 1 -5.13504
-  rotation 0 1 0 0.523599
-  name "wooden box(4)"
-  size 0.6 2 0.6
-  mass 2
-}
-WoodenBox {
-  translation 1.81397 1 -0.808265
-  rotation 0 1 0 -0.523595307179586
-  name "wooden box(8)"
-  size 0.6 2 0.6
-  mass 2
-}
-WoodenBox {
-  translation 0.541234 1 3.33409
-  rotation 0 1 0 -0.261795307179586
-  name "wooden box(7)"
-  size 0.6 2 0.6
-  mass 2
-}
-WoodenBox {
-  translation -3.2904 0.8 3.79365
-  name "wooden box(2)"
-  size 0.6 2 0.6
-  mass 2
-}
-WoodenBox {
-  translation 3.77484 1 1.9396
-  name "wooden box(3)"
-  size 0.6 2 0.6
-  mass 2
-}
-WoodenBox {
-  translation -1.58589 1 1.4136
-  rotation 0 1 0 0.261799
-  name "wooden box(9)"
-  size 0.6 2 0.6
-  mass 2
-}
-WoodenBox {
-  translation -2.24033 1 -2.81935
-  rotation 0 1 0 0.261799
+  translation -2.63 0.9 -2.84
+  rotation 0 1 0 0.1308996938995747
   name "wooden box(1)"
-  size 0.6 2 0.6
-  mass 2
+  size 0.4 1.8 0.31
+}
+WoodenBox {
+  translation 4 0.9 -3
+  rotation 0 1 0 1.5707996938995747
+  name "wooden box(2)"
+  size 0.4 1.8 0.31
+}
+WoodenBox {
+  translation 5.8 0.9 -3.3
+  rotation 0 1 0 0.2617996938995747
+  name "wooden box(3)"
+  size 0.4 1.8 0.31
+}
+WoodenBox {
+  translation 7 0.9 4
+  rotation 0 1 0 1.5707996938995747
+  name "wooden box(4)"
+  size 0.4 1.8 0.31
+}
+Floor {
+  tileSize 2 2
+}
+Floor {
+  translation 7.5 0 0
+  name "floor(1)"
+  size 5 10
+  tileSize 2 2
+}
+Bench {
+  translation 1.78 0 -4.7
+}
+Wall {
+  translation 0 0 -5.1
+  name "wall(8)"
+  size 10 2.4 0.2
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 7 2.4
+    }
+  }
+}
+Wall {
+  translation -5.1 0 0
+  rotation 0 1 0 1.5707996938995747
+  name "wall(3)"
+  size 10.4 2.4 0.2
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 7 2.4
+    }
+  }
+}
+Wall {
+  translation 0 0 5.1
+  name "wall(9)"
+  size 10 2.4 0.2
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 7 2.4
+    }
+  }
+}
+Wall {
+  translation 7.5 0 -5.1
+  name "wall(5)"
+  size 5 2.4 0.2
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 7 2.4
+    }
+  }
+}
+Wall {
+  translation 7.5 0 5.1
+  name "wall(10)"
+  size 5 2.4 0.2
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 7 2.4
+    }
+  }
+}
+Wall {
+  translation 10.1 0 0
+  rotation 0 1 0 1.5707996938995747
+  name "wall(6)"
+  size 10.4 2.4 0.2
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 7 2.4
+    }
+  }
+}
+Wall {
+  translation 5 0 -2
+  rotation 0 1 0 1.5707996938995747
+  name "wall(2)"
+  size 6 2.4 0.2
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 7 2.4
+    }
+  }
+}
+Wall {
+  translation 5 0 3.5
+  rotation 0 1 0 1.5707996938995745
+  name "wall(1)"
+  size 3 2.4 0.2
+  appearance Roughcast {
+    textureTransform TextureTransform {
+      scale 7 2.4
+    }
+  }
+}
+Cabinet {
+  translation 10 0 2.5
+  rotation 0 1 0 -1.5708003061004252
+}
+Table {
+  translation -2.8 0 2.5
+  name "table(1)"
+  size 1 0.74 1
+}
+Chair {
+  translation -4.3 0 2.5
+}
+FloorLight {
+  translation 4 0 4
+}
+FloorLight {
+  translation 9.5 0 -1
+  name "floor light(1)"
+}
+Sofa {
+  translation 9.5 0 0.2
+  rotation 0 1 0 3.141592653589793
+}
+AdvertisingBoard {
+  translation -1.97 1.21 -4.96
+  displayWidth 2
+  displayHeight 2
+  frameThickness 0.1
+  frameColor 0 0 0
 }
