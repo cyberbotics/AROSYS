@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SystemWebotsPioneer3DXNavigation</name>
+	<name>SystemLaserObstacleAvoidTiagoWebotsSimulator</name>
 	<comment></comment>
 	<projects>
 		<project>ComponentLaserObstacleAvoid</project>
 		<project>ComponentWebots</project>
 		<project>ComponentWebotsLidar</project>
+		<project>ComponentWebotsObstacleAvoidance</project>
 		<project>ComponentWebotsPioneer3DX</project>
+		<project>SmartGazeboBaseServer</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

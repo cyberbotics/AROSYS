@@ -50,8 +50,10 @@ int Pioneer3DXTask::on_entry()
   if (!COMP->webotsRobot)
 	  return -1;
 
-  // get timestep from the world
-  webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
+  // get timestep from the world and match the one in SmartMDSD component
+  webotsTimeStep = webotsRobot->getBasicTimeStep();
+  int coeff = S_TO_MS/(webotsTimeStep*COMP->connections.pioneer3DXTask.periodicActFreq);
+  webotsTimeStep *= coeff;
 
   // set GPS and IMU
   GPSFound = false;
