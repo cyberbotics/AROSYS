@@ -105,7 +105,7 @@ int LaserTask::on_entry()
     }
     else
     	scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
-		scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
+   scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
     scan.set_scan_length_unit(MEASURE_UNIT);
   }
   else
