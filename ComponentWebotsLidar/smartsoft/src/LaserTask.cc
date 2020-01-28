@@ -64,8 +64,10 @@ int LaserTask::on_entry()
   // create Robot Instance
   webotsRobot = new webots::Robot();
 
-  // get timestep from the world
+  // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = webotsRobot->getBasicTimeStep();
+  int coeff = S_TO_MS/(webotsTimeStep*COMP->connections.laserTask.periodicActFreq);
+  webotsTimeStep *= coeff;
 
   // connect to the sensor from Webots
   LidarFound = false;
