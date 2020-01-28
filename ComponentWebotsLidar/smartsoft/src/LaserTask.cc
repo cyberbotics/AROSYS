@@ -97,8 +97,13 @@ int LaserTask::on_entry()
     scan.set_scan_update_count(scanCount);
     scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
     // Pay attention to limits as min/max_distance variables are short type (max value is 65535)
-    scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
-    scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
+    if (webotsLidar->getMaxRange()*M_TO_MM > SHORT_LIMIT) {
+    	std::cout  << "The lidar range is bigger than 65.535 meters and will be set to 65 meters." << std::endl;
+    	scan.set_max_distance(65*M_TO_MM);
+    }
+    else
+    	scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
+		scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
     scan.set_scan_length_unit(MEASURE_UNIT);
   }
   else
@@ -143,13 +148,13 @@ int LaserTask::on_execute()
     basePosRoll = baseState.get_base_position().get_base_roll();
 
     // print data to debug
-    std::cout << " " << std::endl;
-    std::cout << "basePosX " << basePosX << std::endl;
-    std::cout << "basePosY " << basePosY << std::endl;
-    std::cout << "basePosZ " << basePosZ << std::endl;
-    std::cout << "basePosAzim " << basePosAzim << std::endl;
-    std::cout << "basePosElev " << basePosElev << std::endl;
-    std::cout << "basePosRoll " << basePosRoll << std::endl;
+    //std::cout << " " << std::endl;
+    //std::cout << "basePosX " << basePosX << std::endl;
+    //std::cout << "basePosY " << basePosY << std::endl;
+    //std::cout << "basePosZ " << basePosZ << std::endl;
+    //std::cout << "basePosAzim " << basePosAzim << std::endl;
+    //std::cout << "basePosElev " << basePosElev << std::endl;
+    //std::cout << "basePosRoll " << basePosRoll << std::endl;
 
     if(LidarFound){
 			// time settings and update scan count
@@ -166,12 +171,13 @@ int LaserTask::on_execute()
 			for(unsigned int i=0; i<numberValidPoints; ++i) {
 				// Pay attention to
 				//   o limits as min/max_distance variables are short type (max value is 65535)
+				//   o same remark for the distance (max value is 65535)
 				//   o Webots array for lidar value is inverted with the one in Smartsoft
 				unsigned int dist = (unsigned int)(rangeImageVector[numberValidPoints-1-i]*M_TO_MM);
 				scan.set_scan_index(i, i);
 				scan.set_scan_integer_distance(i, dist); // in mm
 				// Print distance to debug
-				//if (i%3==0)
+				//if (i%6==0)
 					//std::cout << "["<<i<<"] " << dist << std::endl;
 			}
 			scan.set_scan_valid(true);

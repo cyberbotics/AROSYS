@@ -147,8 +147,8 @@ int Pioneer3DXTask::on_execute()
   omega = COMP->vW;
 
   // set velocities in rad/s for motors and check limits
-  rightSpeed = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
-  leftSpeed  = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
+  rightSpeed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
+  leftSpeed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
   check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
 
   // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,

@@ -4,7 +4,7 @@
 The following components are new components for RobMoSys in order to be able to use them with the [Webots' simulator](https://cyberbotics.com).
 
 #### ComponentLaserObstacleAvoid
-This component will compute the velocity commands using sensor's data to avoid obstacles.
+This component (already implemented in SmartMDSD and not modified) compute the velocity commands using sensor's data to avoid obstacles.
 * `input:` a sensor (such as a lidar)
 * `output:` velocity commands (such as a linear velocity and a turnrate)
 
@@ -35,8 +35,11 @@ This component configures in SmartSoft all versions of TIAGo's  robot from Pal R
 ## System
 The following systems are examples to be able to test new components.
 
+#### SystemLaserObstacleAvoidTiagoWebotsSimulator
+This system is a copy of the `SystemLaserObstacleAvoidTiagoGazeboSimulator` in order to show that the new components developed to use Webots simulator are working since the robot has the same behavior as expected.
+
 #### SystemWebotsPioneer3DXNavigation
-This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) robot (`ComponentWebotsPioneer3DX`) to navigate in a square arena filled with obstacles.
+This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) robot (`ComponentWebotsPioneer3DX`) to navigate in a square arena filled with obstacles. It used a specific
 
 #### SystemWebotsRobotino3Navigation
 This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Robotino 3](https://cyberbotics.com/doc/guide/robotino3) robot (`ComponentWebotsPioneer3DX`) to navigate in a square arena filled with obstacles.
