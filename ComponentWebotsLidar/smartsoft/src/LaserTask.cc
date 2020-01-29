@@ -153,7 +153,6 @@ int LaserTask::on_execute()
     //std::cout << "basePosElev " << basePosElev << std::endl;
     //std::cout << "basePosRoll " << basePosRoll << std::endl;
 
-<<<<<<< HEAD
     if (webotsLidar) {
 		// time settings and update scan count
 		timeval _receiveTime;
@@ -164,7 +163,6 @@ int LaserTask::on_execute()
 		// get sensor's values from Webots side
 		const float *rangeImageVector;
 		rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
-
 
 		// pass sensor's values to SmartMDSD side
 		for(unsigned int i=0; i<numberValidPoints; ++i) {
