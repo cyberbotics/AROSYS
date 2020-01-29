@@ -22,7 +22,6 @@
 #include <webots/GPS.hpp>
 #include <webots/Node.hpp>
 #include <webots/Motor.hpp>
-#include <webots/Robot.hpp>
 #include <webots/Device.hpp>
 #include <webots/InertialUnit.hpp>
 
@@ -44,7 +43,6 @@ private:
   bool IMUFound;
   double motorMaxSpeed; // in rad/s
   webots::GPS *webotsGPS;
-  webots::Robot *webotsRobot;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;
   webots::InertialUnit *webotsIMU;

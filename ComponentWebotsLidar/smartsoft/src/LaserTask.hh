@@ -23,7 +23,6 @@
 #include "CommBasicObjects/CommBasePose.hh"
 #include "CommBasicObjects/CommBaseVelocity.hh"
 
-#include <webots/Robot.hpp>
 #include <webots/Lidar.hpp>
 
 

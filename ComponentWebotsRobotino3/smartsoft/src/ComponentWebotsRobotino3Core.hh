@@ -20,6 +20,8 @@
 #include "aceSmartSoft.hh"
 #include <iostream>
 
+#include <webots/Robot.hpp>
+
 class ComponentWebotsRobotino3Core
 {
 private:
@@ -30,6 +32,7 @@ public:
 	double velX; // in m/s
 	double velY; // in m/s
 	double velW; // in rad/s
+	webots::Robot *webotsRobot;
 };
 
 #endif

@@ -41,38 +41,18 @@ int LaserTask::on_entry()
   // do initialization procedures here, which are called once, each time the task is started
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
-
-  // assign this controller to the correct robot in Webots
-  char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
-  if (!robotName) {
-    std::cout  << "WEBOTS_ROBOT_NAME not defined" << std::endl;
-    FILE *f = fopen("robotName.txt", "rb");
-    if (!f) {
-      std::cout  << "'robotName.txt' file not found." << std::endl;
-      return -1;
-    }
-    char name[256];
-    int ret = fscanf(f, "%[^\n]", name);
-    if (ret == 0) {
-      std::cout  << "First line of the 'robotName.txt' file is empty." << std::endl;
-      return -1;
-    }
-    char environment[256] = "WEBOTS_ROBOT_NAME=";
-    putenv(strcat(environment, name));
-  }
-
-  // create Robot Instance
-  webotsRobot = new webots::Robot();
+  if (!COMP->webotsRobot)
+  	  return -1;
 
   // get timestep from the world and match the one in SmartMDSD component
-  webotsTimeStep = webotsRobot->getBasicTimeStep();
+  webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
   int coeff = S_TO_MS/(webotsTimeStep*COMP->connections.laserTask.periodicActFreq);
   webotsTimeStep *= coeff;
 
   // connect to the sensor from Webots
   webotsLidar = NULL;
-  for (int i=0; i<webotsRobot->getNumberOfDevices(); i++) {
-	webots::Device *webotsDevice = webotsRobot->getDeviceByIndex(i);
+  for (int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
+	webots::Device *webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() == webots::Node::LIDAR) {
       std::string lidarName = webotsDevice->getName();
       webotsLidar = webotsRobot->getLidar(lidarName);
@@ -119,7 +99,7 @@ int LaserTask::on_execute()
 
   // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
   // otherwise the values will not be updated
-  if (webotsRobot->step(webotsTimeStep) != -1) {
+  if (COMP->webotsRobot->step(webotsTimeStep) != -1) {
     // Some variables are set but not implemented now
     double basePosX = 0.0;
     double basePosY = 0.0;
@@ -195,7 +175,7 @@ int LaserTask::on_execute()
 
 int LaserTask::on_exit()
 {
-  delete webotsRobot;
+  delete COMP->webotsRobot;
 
   // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
   return 0;

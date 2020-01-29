@@ -22,12 +22,15 @@
 
 #include "CommBasicObjects/CommBaseState.hh"
 
+#include <webots/Robot.hpp>
+
 class ComponentWebotsLidarCore
 {
 private:
 
 public:
   ComponentWebotsLidarCore();
+  webots::Robot *webotsRobot;
 
 };
 
