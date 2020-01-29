@@ -29,6 +29,7 @@ LaserTask::LaserTask(SmartACE::SmartComponent *comp)
 : LaserTaskCore(comp)
 {
   std::cout << "constructor LaserTask\n";
+  scanCount = 0;
 }
 LaserTask::~LaserTask()
 {
@@ -42,7 +43,7 @@ int LaserTask::on_entry()
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
   if (!COMP->webotsRobot)
-  	  return -1;
+    return -1;
 
   // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
@@ -50,46 +51,39 @@ int LaserTask::on_entry()
   webotsTimeStep *= coeff;
 
   // connect to the sensor from Webots
-  LidarFound = false;
-  std::string lidarName;
-  webots::Device *webotsDevice = NULL;
-
-  for(int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
-    webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
+  webotsLidar = NULL;
+  for (int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
+	webots::Device *webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() == webots::Node::LIDAR) {
-      LidarFound = true;
-      lidarName = webotsDevice->getName();
-      std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a Lidar."<<std::endl;
+      std::string lidarName = webotsDevice->getName();
+      webotsLidar = COMP->webotsRobot->getLidar(lidarName);
+      webotsLidar->enable(webotsTimeStep);
+      webotsLidar->enablePointCloud();
+      std::cout<<"Device #"<<i<<" called "<<lidarName<<" is a Lidar."<<std::endl;
+      // set Webots sensor's properties to SmartMDSD model
+      // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
+      horizontalResolution = webotsLidar->getHorizontalResolution();
+      numberValidPoints = webotsLidar->getNumberOfPoints();
+      scan.set_scan_size(numberValidPoints);
+      scan.set_scan_update_count(scanCount);
+      scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
+      // Pay attention to limits as min/max_distance variables are short type (max value is 65535)
+      if (webotsLidar->getMaxRange()*M_TO_MM > SHORT_LIMIT) {
+        std::cout  << "The lidar range is bigger than 65.535 meters and will be set to 65 meters." << std::endl;
+    	scan.set_max_distance(65*M_TO_MM);
+      }
+      else
+    	scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
+      scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
+      scan.set_scan_length_unit(MEASURE_UNIT);
       break;
     }
   }
 
-  if(LidarFound){
-  	// enable the lidar
-    webotsLidar = COMP->webotsRobot->getLidar(lidarName);
-    webotsLidar->enable(webotsTimeStep);
-    webotsLidar->enablePointCloud();
-
-    // set Webots sensor's properties to SmartMDSD model
-    // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
-    scanCount = 0;
-    horizontalResolution = webotsLidar->getHorizontalResolution();
-    numberValidPoints = webotsLidar->getNumberOfPoints();
-    scan.set_scan_size(numberValidPoints);
-    scan.set_scan_update_count(scanCount);
-    scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
-    // Pay attention to limits as min/max_distance variables are short type (max value is 65535)
-    if (webotsLidar->getMaxRange()*M_TO_MM > SHORT_LIMIT) {
-    	std::cout  << "The lidar range is bigger than 65.535 meters and will be set to 65 meters." << std::endl;
-    	scan.set_max_distance(65*M_TO_MM);
-    }
-    else
-    	scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
-   scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
-    scan.set_scan_length_unit(MEASURE_UNIT);
+  if (!webotsLidar) {
+    std::cout  << "No lidar found, no data is sent." << std::endl;
+    return -1;
   }
-  else
-  		std::cout  << "No lidar found, no data is sent." << std::endl;
 
   return 0;
 }
@@ -138,36 +132,34 @@ int LaserTask::on_execute()
     //std::cout << "basePosElev " << basePosElev << std::endl;
     //std::cout << "basePosRoll " << basePosRoll << std::endl;
 
-    if(LidarFound){
-			// time settings and update scan count
-			timeval _receiveTime;
-			gettimeofday(&_receiveTime, 0);
-			scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
-			scan.set_scan_update_count(scanCount);
+    if (webotsLidar) {
+		// time settings and update scan count
+		timeval _receiveTime;
+		gettimeofday(&_receiveTime, 0);
+		scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
+		scan.set_scan_update_count(scanCount);
 
-			// get sensor's values from Webots side
-			const float *rangeImageVector;
-			rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
+		// get sensor's values from Webots side
+		const float *rangeImageVector;
+		rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
 
-			// pass sensor's values to SmartMDSD side
-			for(unsigned int i=0; i<numberValidPoints; ++i) {
-				// Pay attention to
-				//   o limits as min/max_distance variables are short type (max value is 65535)
-				//   o same remark for the distance (max value is 65535)
-				//   o Webots array for lidar value is inverted with the one in Smartsoft
-				unsigned int dist = (unsigned int)(rangeImageVector[numberValidPoints-1-i]*M_TO_MM);
-				scan.set_scan_index(i, i);
-				scan.set_scan_integer_distance(i, dist); // in mm
-				// Print distance to debug
-				//if (i%6==0)
-					//std::cout << "["<<i<<"] " << dist << std::endl;
-			}
-			scan.set_scan_valid(true);
-    }
-    else
+		// pass sensor's values to SmartMDSD side
+		for(unsigned int i=0; i<numberValidPoints; ++i) {
+			// Pay attention to
+			//   o limits as min/max_distance variables are short type (max value is 65535)
+			//   o same remark for the distance (max value is 65535)
+			//   o Webots array for lidar value is inverted with the one in Smartsoft
+			unsigned int dist = (unsigned int)(rangeImageVector[numberValidPoints-1-i]*M_TO_MM);
+			scan.set_scan_index(i, i);
+			scan.set_scan_integer_distance(i, dist); // in mm
+			// Print distance to debug
+			//if (i%6==0)
+				//std::cout << "["<<i<<"] " << dist << std::endl;
+		}
+		scan.set_scan_valid(true);
+    } else
     	scan.set_scan_valid(false);
-  }
-  else
+  } else
     return -1;
 
   // send out laser scan through port
