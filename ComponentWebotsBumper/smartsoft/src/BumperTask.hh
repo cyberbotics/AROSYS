@@ -21,6 +21,8 @@
 
 #include <webots/TouchSensor.hpp>
 
+#define S_TO_MS 1000.0 // Conversion factor
+
 class BumperTask : public BumperTaskCore {
 private:
   int webotsTimeStep;

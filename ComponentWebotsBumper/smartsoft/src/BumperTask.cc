@@ -39,6 +39,8 @@ int BumperTask::on_entry() {
 
   // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
+  int coeff = S_TO_MS/(webotsTimeStep*COMP->connections.bumperTask.periodicActFreq);
+  webotsTimeStep *= coeff;
 
   // connect to the sensor from Webots
   webotsTouchSensor = NULL;
