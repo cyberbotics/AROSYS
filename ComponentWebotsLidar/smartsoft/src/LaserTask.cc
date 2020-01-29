@@ -56,7 +56,7 @@ int LaserTask::on_entry()
 	webots::Device *webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() == webots::Node::LIDAR) {
       std::string lidarName = webotsDevice->getName();
-      webotsLidar = webotsRobot->getLidar(lidarName);
+      webotsLidar = COMP->webotsRobot->getLidar(lidarName);
       webotsLidar->enable(webotsTimeStep);
       webotsLidar->enablePointCloud();
       std::cout<<"Device #"<<i<<" called "<<lidarName<<" is a Lidar."<<std::endl;

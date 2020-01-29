@@ -42,7 +42,6 @@ class LaserTask  : public LaserTaskCore
 private:
   int webotsTimeStep;
   int horizontalResolution;
-  webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;
   CommBasicObjects::CommBaseState baseState;
 
