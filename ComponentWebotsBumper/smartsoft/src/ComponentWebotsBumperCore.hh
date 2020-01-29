@@ -20,12 +20,15 @@
 #include "aceSmartSoft.hh"
 #include <iostream>
 
+#include <webots/Robot.hpp>
+
 class ComponentWebotsBumperCore
 {
 private:
 
 public:
 	ComponentWebotsBumperCore();
+	webots::Robot *webotsRobot;
 };
 	
 #endif

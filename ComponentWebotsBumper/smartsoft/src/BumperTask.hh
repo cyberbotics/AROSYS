@@ -19,13 +19,11 @@
 
 #include "BumperTaskCore.hh"
 
-#include <webots/Robot.hpp>
 #include <webots/TouchSensor.hpp>
 
 class BumperTask : public BumperTaskCore {
 private:
   int webotsTimeStep;
-  webots::Robot *webotsRobot;
   webots::TouchSensor *webotsTouchSensor;
 
 public:

@@ -34,40 +34,20 @@ int BumperTask::on_entry() {
   // task is started it is possible to return != 0 (e.g. when initialization
   // fails) then the task is not executed further
 
-  // assign this controller to the correct robot in Webots
-  char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
-  if (!robotName) {
-    std::cout << "WEBOTS_ROBOT_NAME not defined" << std::endl;
-    FILE *f = fopen("robotName.txt", "rb");
-    if (!f) {
-      std::cout << "'robotName.txt' file not found." << std::endl;
-      return -1;
-    }
-    char name[256];
-    int ret = fscanf(f, "%[^\n]", name);
-    if (ret == 0) {
-      std::cout << "First line of the 'robotName.txt' file is empty."
-                << std::endl;
-      return -1;
-    }
-    char environment[256] = "WEBOTS_ROBOT_NAME=";
-    putenv(strcat(environment, name));
-  }
-
-  // create Robot Instance
-  webotsRobot = new webots::Robot();
+  if (!COMP->webotsRobot)
+    return -1;
 
   // get timestep from the world
-  webotsTimeStep = webotsRobot->getBasicTimeStep();
+  webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
 
   // connect to the sensor from Webots
   webotsTouchSensor = NULL;
-  for (int i = 0; i < webotsRobot->getNumberOfDevices(); i++) {
-    webots::Device *webotsDevice = webotsRobot->getDeviceByIndex(i);
+  for (int i = 0; i < COMP->webotsRobot->getNumberOfDevices(); i++) {
+    webots::Device *webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() ==
         webots::Node::TOUCH_SENSOR) { // TODO: check bumper type
       std::string bumperName = webotsDevice->getName();
-      webotsTouchSensor = webotsRobot->getTouchSensor(bumperName);
+      webotsTouchSensor = COMP->webotsRobot->getTouchSensor(bumperName);
       webotsTouchSensor->enable(webotsTimeStep);
       std::cout << "Device #" << i << " called " << bumperName
                 << " is a bumper." << std::endl;
@@ -87,12 +67,12 @@ int BumperTask::on_execute() {
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-  if (webotsRobot->step(webotsTimeStep) != -1 && webotsTouchSensor) {
+  if (COMP->webotsRobot->step(webotsTimeStep) != -1 && webotsTouchSensor) {
     CommBasicObjects::CommBumperState
         bumberState; // TODO: CommBumperEventState ?
     bumberState.setBumperState(webotsTouchSensor->getValue() == 1.0);
     // send out bumper state through port
-    bumperEventServiceOutPut(bumberState);
+    //bumperEventServiceOutPut(bumberState);
   } else
     return -1;
 
@@ -103,6 +83,6 @@ int BumperTask::on_execute() {
 int BumperTask::on_exit() {
   // use this method to clean-up resources which are initialized in on_entry()
   // and needs to be freed before the on_execute() can be called again
-  delete webotsRobot;
+  delete COMP->webotsRobot;
   return 0;
 }
