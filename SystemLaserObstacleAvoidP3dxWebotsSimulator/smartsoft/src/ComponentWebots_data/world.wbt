@@ -4,6 +4,7 @@ WorldInfo {
 Viewpoint {
   orientation 1 0 0 4.71238898038469
   position 0.4464476433056783 20.68930224930899 -0.01152831973832761
+  follow "Pioneer3DX"
 }
 TexturedBackground {
   skybox FALSE
@@ -76,7 +77,7 @@ Pioneer3dx {
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
           maxRange 10
-          noise 0.05
+          noise 0.02
         }
       ]
       name "Lidar"
