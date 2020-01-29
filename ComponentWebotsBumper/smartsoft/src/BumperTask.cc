@@ -73,11 +73,11 @@ int BumperTask::on_execute() {
   if (COMP->webotsRobot->step(webotsTimeStep) != -1 && webotsTouchSensor) {
     CommBasicObjects::CommBumperEventState bumperEventState;
     if (webotsTouchSensor->getValue() == 1.0)
-      bumperEventState.setBumperState(CommBasicObjects::BumperStateType::BUMPER_PRESSED);
+      bumperEventState.setNewState(CommBasicObjects::BumperStateType::BUMPER_PRESSED);
     else
-      bumperEventState.setBumperState(CommBasicObjects::BumperStateType::BUMPER_NOT_PRESSED);
+      bumperEventState.setNewState(CommBasicObjects::BumperStateType::BUMPER_NOT_PRESSED);
     // send out bumper state through port
-    //bumperEventServiceOutPut(bumberState);
+    bumperEventServiceOutPut(bumperEventState);
   } else
     return -1;
 
