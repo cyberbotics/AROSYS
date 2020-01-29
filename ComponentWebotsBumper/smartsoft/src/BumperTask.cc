@@ -37,7 +37,7 @@ int BumperTask::on_entry() {
   if (!COMP->webotsRobot)
     return -1;
 
-  // get timestep from the world
+  // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
 
   // connect to the sensor from Webots
