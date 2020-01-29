@@ -45,13 +45,16 @@ int BumperTask::on_entry() {
   for (int i = 0; i < COMP->webotsRobot->getNumberOfDevices(); i++) {
     webots::Device *webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
     if (webotsDevice->getNodeType() ==
-        webots::Node::TOUCH_SENSOR) { // TODO: check bumper type
+        webots::Node::TOUCH_SENSOR) {
       std::string bumperName = webotsDevice->getName();
-      webotsTouchSensor = COMP->webotsRobot->getTouchSensor(bumperName);
-      webotsTouchSensor->enable(webotsTimeStep);
-      std::cout << "Device #" << i << " called " << bumperName
-                << " is a bumper." << std::endl;
-      break;
+      webots::TouchSensor *sensor = COMP->webotsRobot->getTouchSensor(bumperName);
+      if (sensor->getType() == webots::TouchSensor::BUMPER) {
+		  webotsTouchSensor = sensor;
+		  webotsTouchSensor->enable(webotsTimeStep);
+		  std::cout << "Device #" << i << " called " << bumperName
+					<< " is a bumper." << std::endl;
+		  break;
+      }
     }
   }
 
