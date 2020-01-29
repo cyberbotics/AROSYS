@@ -74,6 +74,11 @@ int ComputingTask::on_execute()
   else
     std::cout << "LaserScan received" << std::endl;
 
+	// print distance to debug
+	//for(unsigned int i=0; i<laserScan.get_scan_size(); ++i)
+		//if (i%3==0)
+			//std::cout << "["<<i<<"] " << laserScan.get_scan_distance(i) << std::endl;
+
   // using laser scan compute v and w
   double velocityX = 0.0; // in m/s
   double velocityY = 0.0; // in m/s
