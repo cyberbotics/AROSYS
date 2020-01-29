@@ -71,9 +71,11 @@ int BumperTask::on_execute() {
   // also do not use blocking calls which do not result from smartsoft kernel
 
   if (COMP->webotsRobot->step(webotsTimeStep) != -1 && webotsTouchSensor) {
-    CommBasicObjects::CommBumperState
-        bumberState; // TODO: CommBumperEventState ?
-    bumberState.setBumperState(webotsTouchSensor->getValue() == 1.0);
+    CommBasicObjects::CommBumperEventState bumperEventState;
+    if (webotsTouchSensor->getValue() == 1.0)
+      bumperEventState.setBumperState(CommBasicObjects::BumperStateType::BUMPER_PRESSED);
+    else
+      bumperEventState.setBumperState(CommBasicObjects::BumperStateType::BUMPER_NOT_PRESSED);
     // send out bumper state through port
     //bumperEventServiceOutPut(bumberState);
   } else
