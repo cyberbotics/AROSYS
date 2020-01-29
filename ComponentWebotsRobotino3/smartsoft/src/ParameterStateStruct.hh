@@ -22,7 +22,6 @@
 
 class ParameterStateStruct: public ParameterStateStructCore
 {
-	
 public:
 	ParameterStateStruct() {  }
 	virtual ~ParameterStateStruct() {  }
