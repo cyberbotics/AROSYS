@@ -27,6 +27,8 @@
 
 #include "CommBasicObjects/CommBaseState.hh"
 
+#define S_TO_MS 1000.0 // Conversion factor
+
 // Robotino 3 specification
 #define WHEEL_GAP    0.184  // in meter
 #define WHEEL_RADIUS 0.0625 // in meter

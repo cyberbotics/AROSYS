@@ -19,9 +19,6 @@
 
 #include <iostream>
 
-#include <webots/Device.hpp>
-#include <webots/Node.hpp>
-
 Robotino3Task::Robotino3Task(SmartACE::SmartComponent *comp)
 :	Robotino3TaskCore(comp)
 {
@@ -51,44 +48,47 @@ int Robotino3Task::on_entry()
 	if (!COMP->webotsRobot)
 		  return -1;
 
-	// get timestep from the world
-	webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
+  // get timestep from the world and match the one in SmartMDSD component
+  webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
+  int coeff = S_TO_MS/(webotsTimeStep*COMP->connections.robotino3Task.periodicActFreq);
+  webotsTimeStep *= coeff;
 
 	// set GPS and IMU
-	  GPSFound = false;
-	  IMUFound = false;
-		std::string GPSName;
-		std::string IMUName;
-		webots::Device *webotsDevice = NULL;
+	GPSFound = false;
+	IMUFound = false;
+	std::string GPSName;
+	std::string IMUName;
+	webots::Device *webotsDevice = NULL;
 
-		for(int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
-			webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
-			if (webotsDevice->getNodeType() == webots::Node::GPS) {
-				GPSFound = true;
-				GPSName = webotsDevice->getName();
-				std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
-			} else if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT) {
-				IMUFound = true;
-				IMUName = webotsDevice->getName();
-				std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a IMU."<<std::endl;
-			}
-
-			if (GPSFound && IMUFound)
-				break;
+	for(int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
+		webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
+		if (webotsDevice->getNodeType() == webots::Node::GPS) {
+			GPSFound = true;
+			GPSName = webotsDevice->getName();
+			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
 		}
+		if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT) {
+			IMUFound = true;
+			IMUName = webotsDevice->getName();
+			std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a IMU."<<std::endl;
+		}
+		if (GPSFound && IMUFound)
+			break;
+	}
 
-		// enable GPS and IMU if found
-		if (GPSFound){
-			webotsGPS = COMP->webotsRobot->getGPS(GPSName);
-			webotsGPS->enable(webotsTimeStep);
-		} else
-			std::cout  << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
+	// enable GPS and IMU if found
+	if (GPSFound){
+		webotsGPS = COMP->webotsRobot->getGPS(GPSName);
+		webotsGPS->enable(webotsTimeStep);
+	}
+	else
+		std::cout  << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
-		if (IMUFound){
-			webotsIMU = COMP->webotsRobot->getInertialUnit(IMUName);
-			webotsIMU->enable(webotsTimeStep);
-		} else
-			std::cout  << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
+	if (IMUFound){
+		webotsIMU = COMP->webotsRobot->getInertialUnit(IMUName);
+		webotsIMU->enable(webotsTimeStep);
+	} else
+		std::cout  << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
 
 	// set Motors (name from PROTO definition in Webots)
@@ -130,40 +130,27 @@ int Robotino3Task::on_execute()
 	CommBasicObjects::CommBaseState baseState;
 	CommBasicObjects::CommBasePose basePosition;
 
-
 	// acquisition
 	COMP->Robotino3Mutex.acquire();
 
-	// get values from port
+	// get values from port NavigationVelocityServiceIn
 	vX = COMP->velX; // in m/s
 	vY = COMP->velY; // in m/s
 	vW = COMP->velW; // in rad/s
-
-	std::cout << " " << std::endl;
-	std::cout << "[Robotino-Task] Get data" << std::endl;
-	std::cout << "vX : " << vX << std::endl;
-	std::cout << "vY : " << vY << std::endl;
-	std::cout << "vW : " << vW << std::endl;
 
 	// set velocities in rad/s for motors and check limits
 	// because of the orientation of the robot, vX and vY are inverted
 	// conversion matrix from paper, section 4: http://ftp.itam.mx/pub/alfredo/ROBOCUP/SSLDocs/PapersTDPs/omnidrive.pdf
 
-	// Test 1, se déplace vers la gauche
+	// Test 1, moving forward produce a movement towards the left
 	//vMotor0 = check_velocity(-0.5*vY+0.866*vX+WHEEL_GAP*vW, motorMaxSpeed);
 	//vMotor1 = check_velocity(-0.5*vY-0.866*vX+WHEEL_GAP*vW, motorMaxSpeed);
 	//vMotor2 = check_velocity(     vY         +WHEEL_GAP*vW, motorMaxSpeed);
 
-	// Test 2, se déplace en diagonal vers le haut à droite
+	// Test 2, moving forward produce a movement towards the up-right
 	vMotor0 = check_velocity(-0.5*vX+0.866*vY+WHEEL_GAP*vW, motorMaxSpeed);
 	vMotor1 = check_velocity(-0.5*vX-0.866*vY+WHEEL_GAP*vW, motorMaxSpeed);
 	vMotor2 = check_velocity(     vX         +WHEEL_GAP*vW, motorMaxSpeed);
-
-	std::cout << " " << std::endl;
-	std::cout << "[Robotino-Task] Set speed" << std::endl;
-	std::cout << "vMotor0 : " << vMotor0 << std::endl;
-	std::cout << "vMotor1 : " << vMotor1 << std::endl;
-	std::cout << "vMotor2 : " << vMotor2 << std::endl;
 
 	// controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
 	// otherwise the values will not be updated
@@ -171,6 +158,7 @@ int Robotino3Task::on_execute()
 
 		// Set GPS values for port BaseStateServiceOut
 		if (GPSFound) {
+
 			const double* GPS_value = webotsGPS->getValues();
 			basePosition.set_x(GPS_value[0], 1.0);
 			basePosition.set_y(GPS_value[1], 1.0);
@@ -182,7 +170,9 @@ int Robotino3Task::on_execute()
 			std::cout << "GPS_x : " << GPS_value[0]<< std::endl;
 			std::cout << "GPS_y : " << GPS_value[1]<< std::endl;
 			std::cout << "GPS_z : " << GPS_value[2]<< std::endl;
-		} else {
+		}
+		else {
+
 			basePosition.set_x(0.0, 1.0);
 			basePosition.set_y(0.0, 1.0);
 			basePosition.set_z(0.0, 1.0);
@@ -195,6 +185,7 @@ int Robotino3Task::on_execute()
 		// ROS use ENU convention, https://www.ros.org/reps/rep-0103.html
 		// Be aware of this in your calculation
 		if (IMUFound) {
+
 			const double* IMU_value = webotsIMU->getRollPitchYaw();
 			basePosition.set_base_roll(IMU_value[0]);
 			basePosition.set_base_azimuth(IMU_value[2]);
@@ -206,7 +197,9 @@ int Robotino3Task::on_execute()
 			std::cout << "IMU_roll  : " << IMU_value[0]<< std::endl;
 			std::cout << "IMU_pitch : " << IMU_value[1]<< std::endl;
 			std::cout << "IMU_yaw   : " << IMU_value[2]<< std::endl;
-		} else {
+		}
+		else {
+
 			basePosition.set_base_roll(0.0);
 			basePosition.set_base_azimuth(0.0);
 			basePosition.set_base_elevation(0.0);
