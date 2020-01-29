@@ -76,6 +76,7 @@ Pioneer3dx {
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
           maxRange 10
+          noise 0.05
         }
       ]
       name "Lidar"
