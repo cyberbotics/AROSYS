@@ -29,6 +29,7 @@ LaserTask::LaserTask(SmartACE::SmartComponent *comp)
 : LaserTaskCore(comp)
 {
   std::cout << "constructor LaserTask\n";
+  scanCount = 0;
 }
 LaserTask::~LaserTask()
 {
@@ -42,7 +43,7 @@ int LaserTask::on_entry()
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
   if (!COMP->webotsRobot)
-  	  return -1;
+    return -1;
 
   // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
@@ -59,29 +60,27 @@ int LaserTask::on_entry()
       webotsLidar->enable(webotsTimeStep);
       webotsLidar->enablePointCloud();
       std::cout<<"Device #"<<i<<" called "<<lidarName<<" is a Lidar."<<std::endl;
+      // set Webots sensor's properties to SmartMDSD model
+      // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
+      horizontalResolution = webotsLidar->getHorizontalResolution();
+      numberValidPoints = webotsLidar->getNumberOfPoints();
+      scan.set_scan_size(numberValidPoints);
+      scan.set_scan_update_count(scanCount);
+      scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
+      // Pay attention to limits as min/max_distance variables are short type (max value is 65535)
+      if (webotsLidar->getMaxRange()*M_TO_MM > SHORT_LIMIT) {
+        std::cout  << "The lidar range is bigger than 65.535 meters and will be set to 65 meters." << std::endl;
+    	scan.set_max_distance(65*M_TO_MM);
+      }
+      else
+    	scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
+      scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
+      scan.set_scan_length_unit(MEASURE_UNIT);
       break;
     }
   }
 
-  if (webotsLidar){
-    // set Webots sensor's properties to SmartMDSD model
-    // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
-    scanCount = 0;
-    horizontalResolution = webotsLidar->getHorizontalResolution();
-    numberValidPoints = webotsLidar->getNumberOfPoints();
-    scan.set_scan_size(numberValidPoints);
-    scan.set_scan_update_count(scanCount);
-    scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
-    // Pay attention to limits as min/max_distance variables are short type (max value is 65535)
-    if (webotsLidar->getMaxRange()*M_TO_MM > SHORT_LIMIT) {
-    	std::cout  << "The lidar range is bigger than 65.535 meters and will be set to 65 meters." << std::endl;
-    	scan.set_max_distance(65*M_TO_MM);
-    }
-    else
-    	scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
-   scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
-    scan.set_scan_length_unit(MEASURE_UNIT);
-  } else {
+  if (!webotsLidar) {
     std::cout  << "No lidar found, no data is sent." << std::endl;
     return -1;
   }
