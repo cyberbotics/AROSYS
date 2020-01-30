@@ -24,7 +24,7 @@ SystemComponentArchitecture SystemWebotsRobotino3Navigation
 		RequiredService LaserServiceIn
 		RequiredService NavigationVelocityServiceOut
 	}
-	Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsRobotino3.BaseStateServiceOut
-Connection    ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+
+	Connection    ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
 	Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsRobotino3.NavigationVelocityServiceIn
 }
