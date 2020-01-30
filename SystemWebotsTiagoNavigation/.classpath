@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="model"/>
+	<classpathentry kind="src" path="/BehaviorNavigationScenario"/>
+	<classpathentry kind="src" path="/ComponentKB"/>
+	<classpathentry kind="src" path="/ComponentTCLSequencer"/>
+	<classpathentry kind="src" path="/ComponentWebots"/>
+	<classpathentry kind="src" path="/ComponentWebotsLidar"/>
+	<classpathentry kind="src" path="/ComponentWebotsPioneer3DX"/>
+	<classpathentry kind="src" path="/SmartAmcl"/>
+	<classpathentry kind="src" path="/SmartCdlServer"/>
+	<classpathentry kind="src" path="/SmartJoystickNavigation"/>
+	<classpathentry kind="src" path="/SmartJoystickServer"/>
+	<classpathentry kind="src" path="/SmartMapperGridMap"/>
+	<classpathentry kind="src" path="/SmartPlannerBreadthFirstSearch"/>
+	<classpathentry kind="src" path="/SmartRobotConsole"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
