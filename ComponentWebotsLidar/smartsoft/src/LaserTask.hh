@@ -23,14 +23,18 @@
 #include "CommBasicObjects/CommBasePose.hh"
 #include "CommBasicObjects/CommBaseVelocity.hh"
 
-#include <webots/Robot.hpp>
 #include <webots/Lidar.hpp>
 
 
 // modify these parameters for unit consistency
-#define M_TO_CM      100.0 // Conversion factor
-#define UNIT_FACTOR  100.0 // Value is expressed in 0.01 degree units
-#define MEASURE_UNIT 1.0   // Set the internal length unit of the scan in mm
+#define M_TO_CM     100.0 // Conversion factor
+#define M_TO_MM    1000.0 // Conversion factor
+#define S_TO_MS    1000.0 // Conversion factor
+#define UNIT_FACTOR 100.0 // Value is expressed in 0.01 degree units
+#define SHORT_LIMIT 65535 // max value
+#define MEASURE_UNIT 1.0  // Set the internal length unit of the scan in mm
+#define NEAR_OBSTACLE 400 // in mm
+#define FAR_OBSTACLE 700  // in mm
 
 
 class LaserTask  : public LaserTaskCore
@@ -38,8 +42,6 @@ class LaserTask  : public LaserTaskCore
 private:
   int webotsTimeStep;
   int horizontalResolution;
-  bool LidarFound;
-  webots::Robot *webotsRobot;
   webots::Lidar *webotsLidar;
   CommBasicObjects::CommBaseState baseState;
 

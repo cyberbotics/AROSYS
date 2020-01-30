@@ -22,11 +22,12 @@
 #include <webots/GPS.hpp>
 #include <webots/Node.hpp>
 #include <webots/Motor.hpp>
-#include <webots/Robot.hpp>
 #include <webots/Device.hpp>
 #include <webots/InertialUnit.hpp>
 
 #include "CommBasicObjects/CommBaseState.hh"
+
+#define S_TO_MS 1000.0 // Conversion factor
 
 // Pioneer 3-DX specification
 #define WHEEL_GAP    0.269  // in meter
@@ -42,7 +43,6 @@ private:
   bool IMUFound;
   double motorMaxSpeed; // in rad/s
   webots::GPS *webotsGPS;
-  webots::Robot *webotsRobot;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;
   webots::InertialUnit *webotsIMU;

@@ -19,7 +19,6 @@
 
 #include <iostream>
 
-
 BatteryEventTask::BatteryEventTask(SmartACE::SmartComponent *comp)
 :	BatteryEventTaskCore(comp)
 {

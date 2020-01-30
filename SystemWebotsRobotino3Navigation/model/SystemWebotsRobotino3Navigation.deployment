@@ -12,6 +12,7 @@ TargetPlatformReference PC1 using SystemWebotsRobotino3Navigation.PC1
 	ComponentArtefact ComponentWebots deploy-to PC1
 
 	ComponentArtefact ComponentWebotsRobotino3 deploy-to PC1
-ComponentArtefact  ComponentWebotsLidar deploy-to PC1
-	ComponentArtefact ComponentWebotsObstacleAvoidance deploy-to PC1
+
+	ComponentArtefact ComponentWebotsLidar deploy-to PC1
+ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
 }

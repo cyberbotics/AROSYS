@@ -7,9 +7,10 @@ ComponentDefinition ComponentWebotsRobotino3 logo "/ComponentWebotsRobotino3/mod
 	Activity BatteryEventTask
 	{
 	}
-	Activity Robotino3Task
-	{
-	InputPortLink NavigationVelocityServiceIn { oversamplingOk undersamplingOk }
+	Activity Robotino3Task {
+		InputPortLink NavigationVelocityServiceIn { 
+			oversamplingOk undersamplingOk
+		}
 		DefaultTrigger PeriodicTimer 1.0 Hz
 	}
 	OutputPort BaseStateServiceOut implements CommBasicObjects.BaseStateService realizedBy Robotino3Task {
@@ -18,11 +19,14 @@ ComponentDefinition ComponentWebotsRobotino3 logo "/ComponentWebotsRobotino3/mod
 	}
 	RequestHandler BaseStateQueryHandler triggeredFrom BaseStateAnswerer {
 	}
-	InputHandler LocalizationUpdateHandler triggeredFrom LocalizationUpdateServiceIn { }
-	InputHandler NavigationVelocityHandler triggeredFrom NavigationVelocityServiceIn { }
+	InputHandler LocalizationUpdateHandler triggeredFrom LocalizationUpdateServiceIn {
+	}
+	InputHandler NavigationVelocityHandler triggeredFrom NavigationVelocityServiceIn {
+	}
 	OutputPort BatteryEventServiceOut implements CommNavigationObjects.BatteryEventService realizedBy BatteryEventTask {
 	}
-	ComponentParameters ComponentWebotsRobotino3Params slave CoordinationPort;
+	CoordinationSlavePort CoordinationPort implements CommBasicObjects.DefaultCoordinationService {
+	}
 	
-	CoordinationSlavePort CoordinationPort implements CommBasicObjects.DefaultCoordinationService { }
+	ComponentParameters ComponentWebotsRobotino3Params slave CoordinationPort;
 }

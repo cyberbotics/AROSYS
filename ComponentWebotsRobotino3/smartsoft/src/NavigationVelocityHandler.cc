@@ -29,17 +29,18 @@ NavigationVelocityHandler::~NavigationVelocityHandler()
 	std::cout << "destructor NavigationVelocityHandler\n";
 }
 
+
 void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicObjects::CommNavigationVelocity &input)
 {
 	// implement business logic here
 	// (do not use blocking calls here, otherwise this might block the InputPort NavigationVelocityServiceIn)
 
-	// print output
-	std::cout << " " << std::endl;
-	std::cout << "[Robotino-NavIn]: " << input  << std::endl;
-	std::cout << " => vX = " << input.get_vX(1.0) << std::endl;
-	std::cout << " => vY = " << input.get_vY(1.0) << std::endl;
-	std::cout << " => vW = " << input.getOmega()  << std::endl;
+	// print output to debug
+	//std::cout << " " << std::endl;
+	//std::cout << "Velocity - input = " << input   << std::endl;
+	//std::cout << " => vX = " << input.get_vX(1.0) << std::endl;
+	//std::cout << " => vY = " << input.get_vY(1.0) << std::endl;
+	//std::cout << " => vW = " << input.getOmega()  << std::endl;
 
 	// get from the port and pass to ComponentPioneer3DXCore to be accessible
 	COMP->Robotino3Mutex.acquire();
