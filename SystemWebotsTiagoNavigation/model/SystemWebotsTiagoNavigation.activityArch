@@ -1,0 +1,80 @@
+ActivityArchitectureModel SystemWebotsTiagoNavigation {
+	CPUCore CPU1 {
+		coreNumber 1
+	}
+	
+	ActivityNode BaseOdom {
+		activationSource PeriodicTimer {
+			periodicActFreq 10.0 Hz
+		}
+		cpuAffinity CPU1
+		executionTime {
+			maxTime 150 us
+			minTime 100 us
+		}
+		scheduler {
+			priority 1
+			type DEFAULT
+		}
+	}
+	
+	InputHandlerNode NavVel {
+		input TriggerInputNode nv
+		prescale 1
+	}
+	
+	ActivityNode Laser {
+		inputs {
+			RegisterInputNode Odom 
+		}
+		activationSource Sporadic {
+			minActFreq 37.5 Hz
+		}
+	}
+	
+	ActivityNode CDL {
+		inputs {
+			TriggerInputNode Laser
+		}
+		activationSource DataTriggered Laser {
+			prescale 1
+		}
+	}
+	
+	ActivityNode Mapper {
+		inputs {
+			TriggerInputNode Laser
+		}
+		activationSource DataTriggered Laser {
+			prescale 10
+		}
+	}
+	
+	ActivityNode PathPlanner {
+		inputs {
+			TriggerInputNode Map
+			TriggerInputNode Odom
+		}
+		activationSource DataTriggered Map { prescale 1}
+	}
+	
+	DataFlow {
+		source BaseOdom destination Laser.Odom
+	}
+	DataFlow {
+		source Laser destination CDL.Laser
+	}
+	DataFlow {
+		source CDL destination NavVel.nv
+	}
+	
+	DataFlow {
+		source Laser destination Mapper.Laser
+	}
+	DataFlow {
+		source Mapper destination PathPlanner.Map
+	}
+	DataFlow {
+		source BaseOdom destination PathPlanner.Odom
+	}
+}
