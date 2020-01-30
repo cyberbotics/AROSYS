@@ -640,10 +640,10 @@
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DT3S0kMzEeqtT4-Ux52tuA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_DT2EsUMzEeqtT4-Ux52tuA" fontName="Ubuntu" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DT2EskMzEeqtT4-Ux52tuA" x="40" y="60" width="30" height="30"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DT2EskMzEeqtT4-Ux52tuA" x="40" y="82" width="30" height="30"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_DTYxtEMzEeqtT4-Ux52tuA" fontName="Ubuntu" fontHeight="10" bold="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DTYxtUMzEeqtT4-Ux52tuA" x="704" y="379"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DTYxtUMzEeqtT4-Ux52tuA" x="704" y="379" width="139" height="92"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_DTZYxEMzEeqtT4-Ux52tuA" type="2002" element="_DS0xAEMzEeqtT4-Ux52tuA">
           <children xmi:type="notation:Node" xmi:id="_DTZYx0MzEeqtT4-Ux52tuA" type="5006"/>

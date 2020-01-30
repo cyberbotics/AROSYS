@@ -101,11 +101,11 @@ SystemComponentArchitecture SystemWebotsTiagoNavigation usingActivityArchitectur
 		}
 	}
 	
-	CoordinationModuleMapping {
-		moduleInstance NavTasks.base realizedby baseInst {
-			interfaceInstance base realizedby ComponentWebotsPioneer3DX
-		}
-	}
+//	CoordinationModuleMapping {
+//		moduleInstance NavTasks.base realizedby baseInst {
+//			interfaceInstance base realizedby ComponentWebotsPioneer3DX
+//		}
+//	}
 	
 		
 }
