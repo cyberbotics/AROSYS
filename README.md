@@ -61,3 +61,7 @@ This system shows a complete example of communication between a [lidar sensor](h
 **[Status]** _Broken_ - need to be updated with new modifications
 
 This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Robotino 3](https://cyberbotics.com/doc/guide/robotino3) robot (`ComponentWebotsPioneer3DX`) to navigate in a square arena filled with obstacles. It works with the new components developped to use Webots.
+
+#### SystemWebotsTiagoNavigation
+
+This system is a copy of the `SystemTiagoNavigation` in order to show that the new components developed to use Webots simulator are working since the robot has the same behavior as expected.

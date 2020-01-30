@@ -1,0 +1,7 @@
+%YAML:1.0
+image: "navigation-map.pgm"
+resolution: 5.0000000000000003e-02
+negate: 0
+occupied_thresh: 6.5000000000000002e-01
+free_thresh: 1.9600000000000001e-01
+origin: [-39.975,-39.975,0]
