@@ -113,10 +113,8 @@ int LaserTask::on_execute()
     // check if the transmission worked
     if (baseStatus != Smart::SMART_OK)
       std::cerr << "Error: receiving base state: " << baseStatus << std::endl;
-    else {
+    else
       std::cout << "LaserScan received" << std::endl;
-      scan.set_base_state(baseState);
-    }
 
     basePosX = baseState.get_base_position().get_x(1.0);
     basePosY = baseState.get_base_position().get_y(1.0);
@@ -133,7 +131,9 @@ int LaserTask::on_execute()
     //std::cout << "basePosAzim " << basePosAzim << std::endl;
     //std::cout << "basePosElev " << basePosElev << std::endl;
     //std::cout << "basePosRoll " << basePosRoll << std::endl;
-
+    
+    scan.set_base_state(baseState);
+	  
     if (webotsLidar) {
 		// time settings and update scan count
 		timeval _receiveTime;
