@@ -20,6 +20,8 @@
 #include "aceSmartSoft.hh"
 #include <iostream>
 
+#include <webots/Robot.hpp>
+
 class ComponentWebotsTIAGoCore
 {
 private:
@@ -30,6 +32,7 @@ public:
   double vX;
   double vY;
   double vW;
+  webots::Robot *webotsRobot;
 };
 	
 #endif
