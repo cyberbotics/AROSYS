@@ -26,6 +26,10 @@ private:
 
 public:
 	ComponentWebotsTIAGoCore();
+  SmartACE::SmartMutex TIAGoMutex;
+  double vX;
+  double vY;
+  double vW;
 };
 	
 #endif

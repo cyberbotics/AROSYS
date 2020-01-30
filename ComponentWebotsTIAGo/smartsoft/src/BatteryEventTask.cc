@@ -30,13 +30,14 @@ BatteryEventTask::~BatteryEventTask()
 }
 
 
-
 int BatteryEventTask::on_entry()
 {
 	// do initialization procedures here, which are called once, each time the task is started
 	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 	return 0;
 }
+
+
 int BatteryEventTask::on_execute()
 {
 	// this method is called from an outside loop,
@@ -46,11 +47,13 @@ int BatteryEventTask::on_execute()
 	// to get the incoming data, use this methods:
 	Smart::StatusCode status;
 
-	std::cout << "Hello from BatteryEventTask " << std::endl;
+	//std::cout << "Hello from BatteryEventTask " << std::endl;
 
 	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
 	return 0;
 }
+
+
 int BatteryEventTask::on_exit()
 {
 	// use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again

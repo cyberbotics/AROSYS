@@ -19,10 +19,34 @@
 
 #include "TIAGoTaskCore.hh"
 
+#include <webots/GPS.hpp>
+#include <webots/Node.hpp>
+#include <webots/Motor.hpp>
+#include <webots/Robot.hpp>
+#include <webots/Device.hpp>
+#include <webots/InertialUnit.hpp>
+
+#include "CommBasicObjects/CommBaseState.hh"
+
+// Pioneer 3-DX specification
+#define WHEEL_GAP    0.404  // in meter
+#define WHEEL_RADIUS 0.1955 // in meter
+
+
 class TIAGoTask  : public TIAGoTaskCore
 {
+
 private:
-	virtual void on_NavigationVelocityServiceIn(const CommBasicObjects::CommNavigationVelocity &input);
+  int webotsTimeStep;
+  bool GPSFound;
+  bool IMUFound;
+  double motorMaxSpeed; // in rad/s
+  webots::GPS *webotsGPS;
+  webots::Robot *webotsRobot;
+  webots::Motor *webotsRightMotor;
+  webots::Motor *webotsLeftMotor;
+  webots::InertialUnit *webotsIMU;
+
 public:
 	TIAGoTask(SmartACE::SmartComponent *comp);
 	virtual ~TIAGoTask();

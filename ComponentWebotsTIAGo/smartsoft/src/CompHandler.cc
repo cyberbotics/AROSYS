@@ -20,6 +20,13 @@
 #include <iostream>
 
 // include communication objects
+#include <CommBasicObjects/CommBasePositionUpdate.hh>
+#include <CommBasicObjects/CommBaseState.hh>
+#include <CommBasicObjects/CommBatteryEvent.hh>
+#include <CommBasicObjects/CommBatteryParameter.hh>
+#include <CommBasicObjects/CommBatteryState.hh>
+#include <CommBasicObjects/CommNavigationVelocity.hh>
+#include <CommBasicObjects/CommVoid.hh>
 
 
 void CompHandler::onStartup() 
@@ -45,6 +52,7 @@ void CompHandler::onStartup()
 	// You may move this function to any other place.
 	COMP->setStartupFinished(); 
 }
+
 
 void CompHandler::onShutdown() 
 {
