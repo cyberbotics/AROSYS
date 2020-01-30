@@ -9,7 +9,14 @@ SystemComponentArchitecture SystemLaserObstacleAvoidTiagoWebotsSimulator
 		RequiredService BaseStateServiceIn
 		ProvidedService LaserServiceOut
 	}
-	ComponentInstance ComponentWebotsPioneer3DX instantiates ComponentWebotsPioneer3DX
+
+	ComponentInstance ComponentLaserObstacleAvoid instantiates ComponentLaserObstacleAvoid
+	{
+		RequiredService LaserServiceIn
+		RequiredService NavigationVelocityServiceOut
+	}
+
+	ComponentInstance ComponentWebotsTIAGo instantiates ComponentWebotsTIAGo
 	{
 		ProvidedService BaseStateServiceOut
 		ProvidedService BatteryEventServiceOut
@@ -18,13 +25,6 @@ SystemComponentArchitecture SystemLaserObstacleAvoidTiagoWebotsSimulator
 		ProvidedService BaseStateAnswerer
 	}
 
-	ComponentInstance ComponentLaserObstacleAvoid instantiates ComponentLaserObstacleAvoid
-	{
-		RequiredService LaserServiceIn
-		RequiredService NavigationVelocityServiceOut
-	}
-
-	Connection   ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
-
 	Connection   ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsTIAGo.NavigationVelocityServiceIn
 }
