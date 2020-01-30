@@ -131,7 +131,9 @@ int LaserTask::on_execute()
     //std::cout << "basePosAzim " << basePosAzim << std::endl;
     //std::cout << "basePosElev " << basePosElev << std::endl;
     //std::cout << "basePosRoll " << basePosRoll << std::endl;
-
+    
+    scan.set_base_state(baseState);
+	  
     if (webotsLidar) {
 		// time settings and update scan count
 		timeval _receiveTime;

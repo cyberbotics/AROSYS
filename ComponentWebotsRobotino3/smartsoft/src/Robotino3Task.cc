@@ -160,16 +160,16 @@ int Robotino3Task::on_execute()
 		if (GPSFound) {
 
 			const double* GPS_value = webotsGPS->getValues();
-			basePosition.set_x(GPS_value[0], 1.0);
-			basePosition.set_y(GPS_value[1], 1.0);
-			basePosition.set_z(GPS_value[2], 1.0);
+			basePosition.set_x(GPS_value[2], 1.0);
+			basePosition.set_y(GPS_value[0], 1.0);
+			basePosition.set_z(GPS_value[1], 1.0);
 			baseState.set_base_position(basePosition);
 
 			// print data to debug
 			std::cout << " " << std::endl;
-			std::cout << "GPS_x : " << GPS_value[0]<< std::endl;
-			std::cout << "GPS_y : " << GPS_value[1]<< std::endl;
-			std::cout << "GPS_z : " << GPS_value[2]<< std::endl;
+			std::cout << "GPS_x : " << GPS_value[2]<< std::endl;
+			std::cout << "GPS_y : " << GPS_value[0]<< std::endl;
+			std::cout << "GPS_z : " << GPS_value[1]<< std::endl;
 		}
 		else {
 
