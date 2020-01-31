@@ -20,7 +20,7 @@
 #include <iostream>
 
 NavigationVelocityHandler::NavigationVelocityHandler(Smart::InputSubject<CommBasicObjects::CommNavigationVelocity> *subject, const int &prescaleFactor)
-:	NavigationVelocityHandlerCore(subject, prescaleFactor)
+: NavigationVelocityHandlerCore(subject, prescaleFactor)
 {
   std::cout << "constructor NavigationVelocityHandler\n";
 }

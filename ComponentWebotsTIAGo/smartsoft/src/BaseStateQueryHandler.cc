@@ -18,7 +18,7 @@
 #include "ComponentWebotsTIAGo.hh"
 
 BaseStateQueryHandler::BaseStateQueryHandler(IQueryServer *server)
-:	BaseStateQueryHandlerCore(server)
+: BaseStateQueryHandlerCore(server)
 {
 
 }

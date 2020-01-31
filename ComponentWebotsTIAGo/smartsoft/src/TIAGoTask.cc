@@ -34,11 +34,11 @@ TIAGoTask::~TIAGoTask()
 
 void check_velocity(double& leftSpeed, double& rightSpeed, double max_speed)
 {
-  if(leftSpeed >  max_speed)  leftSpeed  =  max_speed;
-  if(leftSpeed < -max_speed)  leftSpeed  = -max_speed;
+  if (leftSpeed >  max_speed)  leftSpeed  =  max_speed;
+  if (leftSpeed < -max_speed)  leftSpeed  = -max_speed;
 
-  if(rightSpeed >  max_speed) rightSpeed =  max_speed;
-  if(rightSpeed < -max_speed) rightSpeed = -max_speed;
+  if (rightSpeed >  max_speed) rightSpeed =  max_speed;
+  if (rightSpeed < -max_speed) rightSpeed = -max_speed;
 }
 
 int TIAGoTask::on_entry()
@@ -64,7 +64,7 @@ int TIAGoTask::on_entry()
   std::string IMUName;
   webots::Device *webotsDevice = NULL;
 
-  for(int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
+  for (int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
     webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
 
     if (webotsDevice->getNodeType() == webots::Node::GPS) {
@@ -77,7 +77,7 @@ int TIAGoTask::on_entry()
       IMUName = webotsDevice->getName();
       std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a IMU."<<std::endl;
     }
-    if(GPSFound && IMUFound)
+    if (GPSFound && IMUFound)
       break;
   }
 
@@ -216,7 +216,8 @@ int TIAGoTask::on_exit()
   return 0;
 }
 
-void TIAGoTask::runStep(webots::Robot *robot) {
+void TIAGoTask::runStep(webots::Robot *robot)
+{
   mWebotsShouldQuit = robot->step(webotsTimeStep) == -1.0;
   mThreadRunning = false;
 }

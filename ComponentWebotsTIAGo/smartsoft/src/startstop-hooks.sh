@@ -8,22 +8,22 @@ case "$1" in
 
 pre-start)
   echo "Triggering pre-start hooks FROM COMPONENT ComponentWebotsTIAGo ..."
-# Insert commands you want to call prior to starting the components
+  # Insert commands you want to call prior to starting the components
 ;;
 
 post-start)
   echo "Triggering post-start hooks FROM COMPONENT ComponentWebotsTIAGo ..."
-# Insert commands you want to call after all components were started
+  # Insert commands you want to call after all components were started
 ;;
 
 pre-stop)
   echo "Triggering pre-stop hooks FROM COMPONENT ComponentWebotsTIAGo ..."
-# Insert commands you want to call before stopping all components
+  # Insert commands you want to call before stopping all components
 ;;
 
 post-stop)
   echo "Triggering post-stop hooks FROM COMPONENT ComponentWebotsTIAGo ..."
-# Insert commands you want to call after all components were stopped
+  # Insert commands you want to call after all components were stopped
 ;;
 
 *)

@@ -23,12 +23,12 @@ class BatteryEventTask  : public BatteryEventTaskCore
 {
 private:
 public:
-	BatteryEventTask(SmartACE::SmartComponent *comp);
-	virtual ~BatteryEventTask();
+  BatteryEventTask(SmartACE::SmartComponent *comp);
+  virtual ~BatteryEventTask();
 
-	virtual int on_entry();
-	virtual int on_execute();
-	virtual int on_exit();
+  virtual int on_entry();
+  virtual int on_execute();
+  virtual int on_exit();
 };
 
 #endif
