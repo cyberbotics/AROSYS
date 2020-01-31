@@ -20,7 +20,7 @@
 BaseStateQueryHandler::BaseStateQueryHandler(IQueryServer *server)
 :	BaseStateQueryHandlerCore(server)
 {
-  
+
 }
 
 

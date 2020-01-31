@@ -28,7 +28,6 @@
 #include <CommBasicObjects/CommNavigationVelocity.hh>
 #include <CommBasicObjects/CommVoid.hh>
 
-
 void CompHandler::onStartup()
 {
   std::cout << "startup - put your startupCode in CompHandler::onStartup()!!!\n";
@@ -52,7 +51,6 @@ void CompHandler::onStartup()
   // You may move this function to any other place.
   COMP->setStartupFinished();
 }
-
 
 void CompHandler::onShutdown()
 {
