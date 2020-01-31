@@ -16,18 +16,11 @@
 # $SMART_ROOT_ACE/myFILE2
 # "
 
-###############################################
-##  Please do not modify anything else than  ##
-##  the path in the Pre-requirement section  ##
-##  which serves to set WEBOTS_HOME          ##
-###############################################
-
 ### Pre-requirement
-# Execute this command one time in a Terminal to be able to launch Webots software and restart the computer/Virtual Machine
-#echo -e "export WEBOTS_HOME=/home/smartsoft/SOFTWARE/webots" >> ~/.profile
+# Execute this command one time in a Terminal and restart the computer/Virtual Machine to be able to launch Webots software through SmartMDSD.
+# echo -e "export WEBOTS_HOME=/home/smartsoft/SOFTWARE/webots" >> ~/.profile
 
-
-### Paths verification:
+### Paths verification
 echo " --------------------------------------------------------"
 if [ -z "$WEBOTS_HOME" ]
 then
@@ -35,6 +28,5 @@ echo " |> Error: \$WEBOTS_HOME is not defined, please define it in ~/.profile."
 else
 echo " |> WEBOTS_HOME: $WEBOTS_HOME"
 fi
-
 echo " |> Webots' configuration is done and libraries are set."
 echo " --------------------------------------------------------"

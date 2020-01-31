@@ -46,7 +46,6 @@ void CompHandler::onStartup()
   COMP->setStartupFinished();
 }
 
-
 void CompHandler::onShutdown()
 {
   std::cout << "shutdown - put your cleanup code in CompHandler::onShutdown()!!!\n";
