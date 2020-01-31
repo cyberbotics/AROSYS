@@ -15,6 +15,10 @@
     <semanticResources>platform:/resource/CommNavigationObjects/model/CommNavigationObjects.types</semanticResources>
     <semanticResources>platform:/resource/CommNavigationObjects/model/CommNavigationObjects.modes</semanticResources>
     <semanticResources>platform:/resource/CommNavigationObjects/model/CommNavigationObjects.parameters</semanticResources>
+    <semanticResources>platform:/resource/ComponentWebots/model/ComponentWebots.component</semanticResources>
+    <semanticResources>platform:/resource/ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DX.component</semanticResources>
+    <semanticResources>platform:/resource/ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DX.componentParameters</semanticResources>
+    <semanticResources>platform:/resource/ComponentWebotsLidar/model/ComponentWebotsLidar.component</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_UH59cEHjEeqjdOGB4tutsg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_UIZssEHjEeqjdOGB4tutsg" name="SystemLaserObstacleAvoidP3dxWebotsSimulatorDeployment" repPath="#_UIUNIEHjEeqjdOGB4tutsg">
@@ -510,6 +514,22 @@
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RbwDw0HkEeqjdOGB4tutsg" points="[15, -1, -173, 3]$[186, -4, -2, 0]"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RbwDy0HkEeqjdOGB4tutsg" id="(0.06666666666666667,0.43333333333333335)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_hylEsEQHEeqD7_0KlybpEw" type="4001" element="_hyIYxEQHEeqD7_0KlybpEw" source="_-rMu0EHjEeqjdOGB4tutsg" target="_0c7kA0HjEeqjdOGB4tutsg">
+          <children xmi:type="notation:Node" xmi:id="_hysZcEQHEeqD7_0KlybpEw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hysZcUQHEeqD7_0KlybpEw" x="-45" y="-12"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_hytAgEQHEeqD7_0KlybpEw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hytAgUQHEeqD7_0KlybpEw" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_hytnkEQHEeqD7_0KlybpEw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hytnkUQHEeqD7_0KlybpEw" x="-8" y="5"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_hylrwEQHEeqD7_0KlybpEw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_hylrwUQHEeqD7_0KlybpEw" fontName="Ubuntu" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hylrwkQHEeqD7_0KlybpEw" points="[-3, 0, -210, 60]$[169, 0, -38, 60]$[169, -60, -38, 0]$[207, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hywD0EQHEeqD7_0KlybpEw" id="(1.0,0.43333333333333335)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hywD0UQHEeqD7_0KlybpEw" id="(0.0,0.4)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_0blgMEHjEeqjdOGB4tutsg" name="ComponentLaserObstacleAvoid: ComponentLaserObstacleAvoid" tooltipText="ComponentInstance">
@@ -561,7 +581,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_0bvRMUHjEeqjdOGB4tutsg" name="ComponentWebotsPioneer3DX: ComponentWebotsPioneer3DX" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.2"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.2"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_0bv4QkHjEeqjdOGB4tutsg" name="BaseStateServiceOut" tooltipText="OutputProvider" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_0bv4QkHjEeqjdOGB4tutsg" name="BaseStateServiceOut" tooltipText="OutputProvider" incomingEdges="_hyIYxEQHEeqD7_0KlybpEw" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.2/@ports.0"/>
         <semanticElements xmi:type="ComponentArchitecture:ProvidedService" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.2/@ports.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -628,7 +648,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_-qxRAEHjEeqjdOGB4tutsg" name="ComponentWebotsLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.3"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.3"/>
-      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_-qx4EkHjEeqjdOGB4tutsg" name="BaseStateServiceIn" tooltipText="InputRequestor" width="3" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_-qx4EkHjEeqjdOGB4tutsg" name="BaseStateServiceIn" tooltipText="InputRequestor" outgoingEdges="_hyIYxEQHEeqD7_0KlybpEw" width="3" height="3" resizeKind="NSEW">
         <target xmi:type="ComponentArchitecture:RequiredService" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.3/@ports.0"/>
         <semanticElements xmi:type="ComponentArchitecture:RequiredService" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.3/@ports.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -674,6 +694,15 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RbTX0EHkEeqjdOGB4tutsg" targetArrow="NoDecoration" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@edgeMappings[name='ConnectionEdge']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_RbTX0UHkEeqjdOGB4tutsg" iconPath="/org.sirius.tools/icons/commObj_16x16.gif"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@edgeMappings[name='ConnectionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hyIYxEQHEeqD7_0KlybpEw" name="CommBaseState" sourceNode="_-qx4EkHjEeqjdOGB4tutsg" targetNode="_0bv4QkHjEeqjdOGB4tutsg">
+      <target xmi:type="ComponentArchitecture:Connection" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@connections.2"/>
+      <semanticElements xmi:type="ComponentArchitecture:Connection" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@connections.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hyJm4EQHEeqD7_0KlybpEw" targetArrow="NoDecoration" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@edgeMappings[name='ConnectionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_hyJm4UQHEeqD7_0KlybpEw" iconPath="/org.sirius.tools/icons/commObj_16x16.gif"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@edgeMappings[name='ConnectionEdge']"/>
     </ownedDiagramElements>

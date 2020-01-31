@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SystemLaserObstacleAvoidTiagoWebotsSimulator</name>
+	<name>ComponentWebotsTIAGo</name>
 	<comment></comment>
 	<projects>
-		<project>ComponentLaserObstacleAvoid</project>
-		<project>ComponentWebots</project>
-		<project>ComponentWebotsLidar</project>
-		<project>ComponentWebotsTIAGo</project>
+		<project>CommBasicObjects</project>
+		<project>CommNavigationObjects</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -36,9 +34,9 @@
 		<nature>org.eclipse.sirius.nature.modelingproject</nature>
 		<nature>org.eclipse.cdt.core.cnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+		<nature>org.smartmdsd.utils.natures.ComponentNature</nature>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
-		<nature>org.smartmdsd.utils.natures.SystemNature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 	</natures>
