@@ -42,6 +42,6 @@ ComponentWebotsRobotino3Core::ComponentWebotsRobotino3Core()
 		putenv(strcat(environment, name));
 	}
 
-	// create Robot Instance
+	// create Robot instance
 	webotsRobot = new webots::Robot();
 }

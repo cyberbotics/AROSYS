@@ -39,7 +39,6 @@ public:
 	// (they provide parameter values from the global state only, which are available after the last commit)
 };
 
-
 inline std::ostream &operator<<(std::ostream &os, const ParameterStateStruct &pss)
 {
 	pss.to_ostream(os);

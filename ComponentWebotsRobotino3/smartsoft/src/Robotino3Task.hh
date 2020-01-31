@@ -30,16 +30,14 @@
 
 #include <thread>
 
-#define S_TO_MS 1000.0 // Conversion factor
+#define S_TO_MS 1000.0 // conversion factor
 
 // Robotino 3 specification
 #define WHEEL_GAP    0.184  // in meter
 #define WHEEL_RADIUS 0.0625 // in meter
 
-
 class Robotino3Task  : public Robotino3TaskCore
 {
-
 private:
 	int webotsTimeStep;
 	bool GPSFound;
