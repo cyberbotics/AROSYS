@@ -41,7 +41,7 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
   COMP->vW = input.get_omega(); // in rad/s
   COMP->PioneerMutex.release();
 
-  // print output
+  // print data to debug
   //std::cout << "Velocity - input = " << input      << std::endl;
   //std::cout << " => vX = "    << input.get_vX(1.0) << std::endl;
   //std::cout << " => vY = "    << input.get_vY(1.0) << std::endl;
