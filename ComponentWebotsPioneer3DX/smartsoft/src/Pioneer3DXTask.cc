@@ -45,11 +45,11 @@ int Pioneer3DXTask::on_entry()
   // do initialization procedures here, which are called once, each time the task is started
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
-  // acquisition
-  COMP->PioneerMutex.acquire();
-
   if (!COMP->webotsRobot)
     return -1;
+
+  // acquisition
+  COMP->PioneerMutex.acquire();
 
   // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
@@ -126,14 +126,14 @@ int Pioneer3DXTask::on_execute()
   CommBasicObjects::CommBaseState baseState;
   CommBasicObjects::CommBasePose basePosition;
 
-  // acquisition
-  COMP->PioneerMutex.acquire();
-
   if (mWebotsShouldQuit)
     return -1;
 
   if (mThreadRunning || !COMP->webotsRobot)
     return 0.0;
+
+  // acquisition
+  COMP->PioneerMutex.acquire();
 
   // get values from port NavigationVelocityServiceIn
   speed = COMP->vX;
