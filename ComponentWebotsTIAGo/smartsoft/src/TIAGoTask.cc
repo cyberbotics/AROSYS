@@ -120,7 +120,7 @@ int TIAGoTask::on_execute()
 	// hence, NEVER use an infinite loop (like "while(1)") here inside!!!
 	// also do not use blocking calls which do not result from smartsoft kernel
 	
-	//std::cout << "Hello from PioneerTask " << std::endl;
+	//std::cout << "Hello from TIAGoTask " << std::endl;
 
 	double speed = 0.0;
 	double omega = 0.0;
