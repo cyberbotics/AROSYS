@@ -85,6 +85,7 @@ int LaserTask::on_entry()
       break;
     }
   }
+  
   // release
   COMP->mutex.release();
 
