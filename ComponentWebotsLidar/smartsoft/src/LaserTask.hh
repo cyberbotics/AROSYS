@@ -28,28 +28,26 @@
 
 #include <thread>
 
-
 // modify these parameters for unit consistency
-#define M_TO_CM     100.0 // Conversion factor
-#define M_TO_MM    1000.0 // Conversion factor
-#define S_TO_MS    1000.0 // Conversion factor
-#define UNIT_FACTOR 100.0 // Value is expressed in 0.01 degree units
+#define M_TO_CM  100.0 // conversion factor
+#define M_TO_MM 1000.0 // conversion factor
+#define S_TO_MS 1000.0 // conversion factor
+#define UNIT_FACTOR 100.0 // value is expressed in 0.01 degree units
 #define SHORT_LIMIT 65535 // max value
-#define MEASURE_UNIT 1.0  // Set the internal length unit of the scan in mm
-#define NEAR_OBSTACLE 400 // in mm
-#define FAR_OBSTACLE 700  // in mm
-
+#define MEASURE_UNIT  1.0 // set the internal length unit of the scan in mm
+#define NEAR_OBSTACLE 400 // in mm (from ComponentLaserObstacleAvoid of SmartMDSD)
+#define FAR_OBSTACLE  700 // in mm (from ComponentLaserObstacleAvoid of SmartMDSD)
 
 class LaserTask  : public LaserTaskCore
 {
 private:
   int webotsTimeStep;
   int horizontalResolution;
-  webots::Lidar *webotsLidar;
-  CommBasicObjects::CommBaseState baseState;
-
-  // laser parameters
   unsigned int numberValidPoints;
+  webots::Lidar *webotsLidar;
+
+  // communication objects
+  CommBasicObjects::CommBaseState baseState;
   CommBasicObjects::CommMobileLaserScan scan;
 
   // threading stuff

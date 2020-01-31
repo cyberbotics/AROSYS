@@ -32,7 +32,6 @@ public:
   ComponentWebotsLidarCore();
   SmartACE::SmartMutex mutex;
   webots::Robot *webotsRobot;
-
 };
 
 #endif

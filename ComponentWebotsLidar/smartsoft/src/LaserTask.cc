@@ -24,7 +24,6 @@
 #include <webots/Device.hpp>
 #include <webots/Node.hpp>
 
-
 LaserTask::LaserTask(SmartACE::SmartComponent *comp)
 : LaserTaskCore(comp),
   mThread(),
@@ -45,7 +44,7 @@ int LaserTask::on_entry()
   // do initialization procedures here, which are called once, each time the task is started
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
-  // Acquisition
+  // acquisition
   COMP->mutex.acquire();
 
   if (!COMP->webotsRobot)
@@ -59,13 +58,14 @@ int LaserTask::on_entry()
   // connect to the sensor from Webots
   webotsLidar = NULL;
   for (int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
-	webots::Device *webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
+    webots::Device *webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
+
     if (webotsDevice->getNodeType() == webots::Node::LIDAR) {
       std::string lidarName = webotsDevice->getName();
       webotsLidar = COMP->webotsRobot->getLidar(lidarName);
       webotsLidar->enable(webotsTimeStep);
       webotsLidar->enablePointCloud();
-      std::cout<<"Device #"<<i<<" called "<<lidarName<<" is a Lidar."<<std::endl;
+      std::cout<<"Device #"<<i<<" called "<<lidarName<<" is a lidar."<<std::endl;
       // set Webots sensor's properties to SmartMDSD model
       // useful doc: http://servicerobotik-ulm.de/drupal/doxygen/components_commrep/classCommBasicObjects_1_1CommMobileLaserScan.html
       horizontalResolution = webotsLidar->getHorizontalResolution();
@@ -73,19 +73,18 @@ int LaserTask::on_entry()
       scan.set_scan_size(numberValidPoints);
       scan.set_scan_update_count(scanCount);
       scan.set_scan_integer_field_of_view(-horizontalResolution*UNIT_FACTOR/2.0, horizontalResolution*UNIT_FACTOR);
-      // Pay attention to limits as min/max_distance variables are short type (max value is 65535)
+      // pay attention to limits as min/max_distance variables are short type (max value is 65535)
       if (webotsLidar->getMaxRange()*M_TO_MM > SHORT_LIMIT) {
         std::cout  << "The lidar range is bigger than 65.535 meters and will be set to 65 meters." << std::endl;
-    	scan.set_max_distance(65*M_TO_MM);
+        scan.set_max_distance(65*M_TO_MM);
       }
       else
-    	scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
+        scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
       scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
       scan.set_scan_length_unit(MEASURE_UNIT);
       break;
     }
   }
-
   // release
   COMP->mutex.release();
 
@@ -96,7 +95,6 @@ int LaserTask::on_entry()
 
   return 0;
 }
-
 
 int LaserTask::on_execute()
 {
@@ -110,71 +108,70 @@ int LaserTask::on_execute()
   if (mThreadRunning || !COMP->webotsRobot)
     return 0.0;
 
-  // Acquisition
+  double basePosX = 0.0;
+  double basePosY = 0.0;
+  double basePosZ = 0.0;
+  double basePosAzim = 0.0;
+  double basePosElev = 0.0;
+  double basePosRoll = 0.0;
+
+  // acquisition
   COMP->mutex.acquire();
 
-    // Some variables are set but not implemented now
-    double basePosX = 0.0;
-    double basePosY = 0.0;
-    double basePosZ = 0.0;
-    double basePosAzim = 0.0;
-    double basePosElev = 0.0;
-    double basePosRoll = 0.0;
+  // get base state from port
+  Smart::StatusCode baseStatus = this->baseStateServiceInGetUpdate(baseState);
 
-    // get base state from port
-    Smart::StatusCode baseStatus = this->baseStateServiceInGetUpdate(baseState);
+  // check if the transmission worked
+  if (baseStatus != Smart::SMART_OK)
+    std::cerr << "Error: receiving base state: " << baseStatus << std::endl;
+  else
+    std::cout << "BaseState received" << std::endl;
 
-    // check if the transmission worked
-    if (baseStatus != Smart::SMART_OK)
-      std::cerr << "Error: receiving base state: " << baseStatus << std::endl;
-    else
-      std::cout << "LaserScan received" << std::endl;
+  basePosX = baseState.get_base_position().get_x(1.0);
+  basePosY = baseState.get_base_position().get_y(1.0);
+  basePosZ = baseState.get_base_position().get_z(1.0);
+  basePosAzim = baseState.get_base_position().get_base_azimuth();
+  basePosElev = baseState.get_base_position().get_base_elevation();
+  basePosRoll = baseState.get_base_position().get_base_roll();
+  scan.set_base_state(baseState);
 
-    basePosX = baseState.get_base_position().get_x(1.0);
-    basePosY = baseState.get_base_position().get_y(1.0);
-    basePosZ = baseState.get_base_position().get_z(1.0);
-    basePosAzim = baseState.get_base_position().get_base_azimuth();
-    basePosElev = baseState.get_base_position().get_base_elevation();
-    basePosRoll = baseState.get_base_position().get_base_roll();
+  // print data to debug
+  // std::cout << " " << std::endl;
+  // std::cout << "basePosX " << basePosX << std::endl;
+  // std::cout << "basePosY " << basePosY << std::endl;
+  // std::cout << "basePosZ " << basePosZ << std::endl;
+  // std::cout << "basePosAzim " << basePosAzim << std::endl;
+  // std::cout << "basePosElev " << basePosElev << std::endl;
+  // std::cout << "basePosRoll " << basePosRoll << std::endl;
 
-    // print data to debug
-//    std::cout << " " << std::endl;
-//    std::cout << "basePosX " << basePosX << std::endl;
-//    std::cout << "basePosY " << basePosY << std::endl;
-//    std::cout << "basePosZ " << basePosZ << std::endl;
-//    std::cout << "basePosAzim " << basePosAzim << std::endl;
-//    std::cout << "basePosElev " << basePosElev << std::endl;
-//    std::cout << "basePosRoll " << basePosRoll << std::endl;
+  if (webotsLidar && webotsLidar->getRangeImage()) {
+    // time settings and update scan count
+    timeval _receiveTime;
+    gettimeofday(&_receiveTime, 0);
+    scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
+    scan.set_scan_update_count(scanCount);
 
-    scan.set_base_state(baseState);
+    // get sensor's values from Webots side
+    const float *rangeImageVector;
+    rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
 
-    if (webotsLidar && webotsLidar->getRangeImage()) {
-		// time settings and update scan count
-		timeval _receiveTime;
-		gettimeofday(&_receiveTime, 0);
-		scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
-		scan.set_scan_update_count(scanCount);
+    // pass sensor's values to SmartMDSD side
+    for(unsigned int i=0; i<numberValidPoints; ++i) {
+      // Pay attention to :
+      //   o limits as min/max_distance variables are short type (max value is 65535)
+      //   o same remark for the distance (max value is 65535)
+      //   o Webots array for lidar value is inverted with the one in Smartsoft
+      unsigned int dist = (unsigned int)(rangeImageVector[numberValidPoints-1-i]*M_TO_MM);
+      scan.set_scan_index(i, i);
+      scan.set_scan_integer_distance(i, dist); // in mm
 
-		// get sensor's values from Webots side
-		const float *rangeImageVector;
-		rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
-
-		// pass sensor's values to SmartMDSD side
-		for(unsigned int i=0; i<numberValidPoints; ++i) {
-			// Pay attention to
-			//   o limits as min/max_distance variables are short type (max value is 65535)
-			//   o same remark for the distance (max value is 65535)
-			//   o Webots array for lidar value is inverted with the one in Smartsoft
-			unsigned int dist = (unsigned int)(rangeImageVector[numberValidPoints-1-i]*M_TO_MM);
-			scan.set_scan_index(i, i);
-			scan.set_scan_integer_distance(i, dist); // in mm
-			// Print distance to debug
-			//if (i%6==0)
-				//std::cout << "["<<i<<"] " << dist << std::endl;
-		}
-		scan.set_scan_valid(true);
-    } else
-    	scan.set_scan_valid(false);
+      // Print to debug
+      //if (i%6==0) // to not display all
+      //  std::cout << "["<<i<<"] " << dist << std::endl;
+    }
+    scan.set_scan_valid(true);
+  } else
+    scan.set_scan_valid(false);
 
   // send out laser scan through port
   laserServiceOutPut(scan);
@@ -194,12 +191,10 @@ int LaserTask::on_execute()
   return 0;
 }
 
-
 int LaserTask::on_exit()
 {
-  delete COMP->webotsRobot;
-
   // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
+  delete COMP->webotsRobot;
   return 0;
 }
 
@@ -207,4 +202,3 @@ void LaserTask::runStep(webots::Robot *robot) {
   mWebotsShouldQuit = robot->step(webotsTimeStep) == -1.0;
   mThreadRunning = false;
 }
-
