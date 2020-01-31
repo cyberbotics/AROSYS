@@ -19,20 +19,13 @@
 
 #include <iostream>
 
-// threading stuff
-static bool threadRunning = false;
-static bool webotsShouldQuit = false;
-void runStep(webots::Robot *robot, int timeStep) {
-  webotsShouldQuit = robot->step(timeStep) == -1.0;
-  threadRunning = false;
-}
-
 Pioneer3DXTask::Pioneer3DXTask(SmartACE::SmartComponent *comp)
 :	Pioneer3DXTaskCore(comp),
-	mThread()
+	mThread(),
+	mThreadRunning(false),
+	mWebotsShouldQuit(false)
 {
   std::cout << "constructor Pioneer3DXTask\n";
-  webotsShouldQuit = false;
 }
 Pioneer3DXTask::~Pioneer3DXTask()
 {
@@ -130,10 +123,10 @@ int Pioneer3DXTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-  if (webotsShouldQuit)
+  if (mWebotsShouldQuit)
     return -1;
 
-  if (threadRunning || !COMP->webotsRobot)
+  if (mThreadRunning || !COMP->webotsRobot)
     return 0.0;
 
   // Acquisition
@@ -215,10 +208,10 @@ int Pioneer3DXTask::on_execute()
 
   // send baseState update to the port
   baseStateServiceOutPut(baseState);
-  threadRunning = true;
+  mThreadRunning = true;
   if (mThread.joinable())
     mThread.join();
-  mThread = std::thread(runStep, COMP->webotsRobot, webotsTimeStep);
+  mThread = std::thread(&Pioneer3DXTask::runStep, this, COMP->webotsRobot);
   // release
   COMP->PioneerMutex.release();
 
@@ -234,3 +227,9 @@ int Pioneer3DXTask::on_exit()
   // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
   return 0;
 }
+
+void Pioneer3DXTask::runStep(webots::Robot *robot) {
+  mWebotsShouldQuit = robot->step(webotsTimeStep) == -1.0;
+  mThreadRunning = false;
+}
+
