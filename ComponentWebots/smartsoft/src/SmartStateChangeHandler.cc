@@ -30,5 +30,5 @@ void SmartStateChangeHandler::handleEnterState(const std::string & substate) thr
 void SmartStateChangeHandler::handleQuitState(const std::string & substate) throw()
 {
   // change this code to your needs !!!
-  
+
 }
