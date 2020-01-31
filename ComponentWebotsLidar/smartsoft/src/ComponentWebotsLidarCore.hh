@@ -27,7 +27,6 @@
 class ComponentWebotsLidarCore
 {
 private:
-
 public:
   ComponentWebotsLidarCore();
   SmartACE::SmartMutex mutex;

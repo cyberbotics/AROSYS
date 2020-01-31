@@ -38,7 +38,6 @@ LaserTask::~LaserTask()
   std::cout << "destructor LaserTask\n";
 }
 
-
 int LaserTask::on_entry()
 {
   // do initialization procedures here, which are called once, each time the task is started
@@ -77,15 +76,14 @@ int LaserTask::on_entry()
       if (webotsLidar->getMaxRange()*M_TO_MM > SHORT_LIMIT) {
         std::cout  << "The lidar range is bigger than 65.535 meters and will be set to 65 meters." << std::endl;
         scan.set_max_distance(65*M_TO_MM);
-      }
-      else
+      } else
         scan.set_max_distance(webotsLidar->getMaxRange()*M_TO_MM);
       scan.set_min_distance(webotsLidar->getMinRange()*M_TO_MM);
       scan.set_scan_length_unit(MEASURE_UNIT);
       break;
     }
   }
-  
+
   // release
   COMP->mutex.release();
 
@@ -124,7 +122,7 @@ int LaserTask::on_execute()
 
   // check if the transmission worked
   if (baseStatus != Smart::SMART_OK)
-    std::cerr << "Error: receiving base state: " << baseStatus << std::endl;
+    std::cerr << "Error: receiving BaseState: " << baseStatus << std::endl;
   else
     std::cout << "BaseState received" << std::endl;
 
@@ -157,18 +155,18 @@ int LaserTask::on_execute()
     rangeImageVector = (const float *)(void *)webotsLidar->getRangeImage(); // in m
 
     // pass sensor's values to SmartMDSD side
-    for(unsigned int i=0; i<numberValidPoints; ++i) {
-      // Pay attention to :
-      //   o limits as min/max_distance variables are short type (max value is 65535)
-      //   o same remark for the distance (max value is 65535)
-      //   o Webots array for lidar value is inverted with the one in Smartsoft
-      unsigned int dist = (unsigned int)(rangeImageVector[numberValidPoints-1-i]*M_TO_MM);
-      scan.set_scan_index(i, i);
-      scan.set_scan_integer_distance(i, dist); // in mm
+    for (unsigned int i=0; i<numberValidPoints; ++i) {
+    // Pay attention to :
+    //   o limits as min/max_distance variables are short type (max value is 65535)
+    //   o same remark for the distance (max value is 65535)
+    //   o Webots array for lidar value is inverted with the one in Smartsoft
+    unsigned int dist = (unsigned int)(rangeImageVector[numberValidPoints-1-i]*M_TO_MM);
+    scan.set_scan_index(i, i);
+    scan.set_scan_integer_distance(i, dist); // in mm
 
-      // Print to debug
-      //if (i%6==0) // to not display all
-      //  std::cout << "["<<i<<"] " << dist << std::endl;
+    // Print to debug
+    //if (i%6==0) // to not display all
+    //  std::cout << "["<<i<<"] " << dist << std::endl;
     }
     scan.set_scan_valid(true);
   } else
@@ -199,7 +197,8 @@ int LaserTask::on_exit()
   return 0;
 }
 
-void LaserTask::runStep(webots::Robot *robot) {
+void LaserTask::runStep(webots::Robot *robot)
+{
   mWebotsShouldQuit = robot->step(webotsTimeStep) == -1.0;
   mThreadRunning = false;
 }
