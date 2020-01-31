@@ -27,4 +27,5 @@ SystemComponentArchitecture SystemLaserObstacleAvoidTiagoWebotsSimulator
 
 	Connection   ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
 Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsTIAGo.NavigationVelocityServiceIn
+Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsTIAGo.BaseStateServiceOut
 }
