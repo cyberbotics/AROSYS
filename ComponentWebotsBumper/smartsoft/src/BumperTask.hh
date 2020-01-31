@@ -20,6 +20,9 @@
 #include "BumperTaskCore.hh"
 
 #include <webots/TouchSensor.hpp>
+#include <webots/Robot.hpp>
+
+#include <thread>
 
 #define S_TO_MS 1000.0 // Conversion factor
 
@@ -27,6 +30,12 @@ class BumperTask : public BumperTaskCore {
 private:
   int webotsTimeStep;
   webots::TouchSensor *webotsTouchSensor;
+
+  // threading stuff
+  std::thread mThread;
+  bool mThreadRunning;
+  bool mWebotsShouldQuit;
+  void runStep(webots::Robot *robot);
 
 public:
   BumperTask(SmartACE::SmartComponent *comp);

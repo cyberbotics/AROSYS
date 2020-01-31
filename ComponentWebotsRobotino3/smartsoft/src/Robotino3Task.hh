@@ -21,11 +21,14 @@
 
 #include <webots/GPS.hpp>
 #include <webots/Node.hpp>
+#include <webots/Robot.hpp>
 #include <webots/Motor.hpp>
 #include <webots/Device.hpp>
 #include <webots/InertialUnit.hpp>
 
 #include "CommBasicObjects/CommBaseState.hh"
+
+#include <thread>
 
 #define S_TO_MS 1000.0 // Conversion factor
 
@@ -47,6 +50,12 @@ private:
 	webots::Motor *webotsMotor1;
 	webots::Motor *webotsMotor2;
   webots::InertialUnit *webotsIMU;
+
+  // threading stuff
+  std::thread mThread;
+  bool mThreadRunning;
+  bool mWebotsShouldQuit;
+  void runStep(webots::Robot *robot);
 
 public:
 	Robotino3Task(SmartACE::SmartComponent *comp);
