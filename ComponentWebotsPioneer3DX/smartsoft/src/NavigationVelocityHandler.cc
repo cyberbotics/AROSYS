@@ -36,8 +36,8 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 
   // get from the port and pass to ComponentPioneer3DXCore to be accessible
   COMP->PioneerMutex.acquire();
-  COMP->vX = input.get_vX(1.0); // in m
-  COMP->vY = input.get_vY(1.0); // in m
+  COMP->vX = input.get_vX(1.0); // in m/s
+  COMP->vY = input.get_vY(1.0); // in m/s
   COMP->vW = input.get_omega(); // in rad/s
   COMP->PioneerMutex.release();
 
