@@ -31,9 +31,9 @@ BatteryEventTask::~BatteryEventTask()
 
 int BatteryEventTask::on_entry()
 {
-    // do initialization procedures here, which are called once, each time the task is started
-    // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
-    return 0;
+  // do initialization procedures here, which are called once, each time the task is started
+  // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
+  return 0;
 }
 
 int BatteryEventTask::on_execute()
