@@ -17,7 +17,8 @@ TiagoIron {
   lidarSlot [
     GPS {
     }
-    Robot{
+    Robot {
+      translation 0 0 -0.01
       children [
         Lidar {
           children [
@@ -77,7 +78,7 @@ TiagoIron {
                     ]
                   }
                 }
-              ] 
+              ]
             }
           ]
           name "Hokuyo URG-04LX-UG01"
