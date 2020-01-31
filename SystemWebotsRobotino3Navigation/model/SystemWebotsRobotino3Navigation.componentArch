@@ -27,4 +27,5 @@ SystemComponentArchitecture SystemWebotsRobotino3Navigation
 
 	Connection    ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
 	Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsRobotino3.NavigationVelocityServiceIn
+Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsRobotino3.BaseStateServiceOut
 }
