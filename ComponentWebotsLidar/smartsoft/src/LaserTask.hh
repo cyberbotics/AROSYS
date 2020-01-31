@@ -25,6 +25,8 @@
 
 #include <webots/Lidar.hpp>
 
+#include <thread>
+
 
 // modify these parameters for unit consistency
 #define M_TO_CM     100.0 // Conversion factor
@@ -48,6 +50,8 @@ private:
   // laser parameters
   unsigned int numberValidPoints;
   CommBasicObjects::CommMobileLaserScan scan;
+
+  std::thread mThread;
 
 public:
   unsigned long scanCount;

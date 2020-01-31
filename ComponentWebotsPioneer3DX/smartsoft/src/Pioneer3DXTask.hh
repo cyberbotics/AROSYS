@@ -27,6 +27,8 @@
 
 #include "CommBasicObjects/CommBaseState.hh"
 
+#include <thread>
+
 #define S_TO_MS 1000.0 // Conversion factor
 
 // Pioneer 3-DX specification
@@ -46,6 +48,8 @@ private:
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;
   webots::InertialUnit *webotsIMU;
+
+  std::thread mThread;
 
 public:
   Pioneer3DXTask(SmartACE::SmartComponent *comp);

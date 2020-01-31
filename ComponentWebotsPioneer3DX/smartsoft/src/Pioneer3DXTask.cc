@@ -19,10 +19,20 @@
 
 #include <iostream>
 
+// threading stuff
+static bool threadRunning = false;
+static bool webotsShouldQuit = false;
+void runStep(webots::Robot *robot, int timeStep) {
+  webotsShouldQuit = robot->step(timeStep) == -1.0;
+  threadRunning = false;
+}
+
 Pioneer3DXTask::Pioneer3DXTask(SmartACE::SmartComponent *comp)
-:	Pioneer3DXTaskCore(comp)
+:	Pioneer3DXTaskCore(comp),
+	mThread()
 {
   std::cout << "constructor Pioneer3DXTask\n";
+  webotsShouldQuit = false;
 }
 Pioneer3DXTask::~Pioneer3DXTask()
 {
@@ -120,7 +130,16 @@ int Pioneer3DXTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-  //std::cout << "Hello from PioneerTask " << std::endl;
+  if (webotsShouldQuit)
+    return -1;
+
+  if (threadRunning || !COMP->webotsRobot)
+    return 0.0;
+
+  // Acquisition
+  COMP->PioneerMutex.acquire();
+
+  std::cout << "Hello from PioneerTask " << std::endl;
 
   double speed = 0.0;
   double omega = 0.0;
@@ -128,9 +147,6 @@ int Pioneer3DXTask::on_execute()
   double rightSpeed = 0.0;
 	CommBasicObjects::CommBaseState baseState;
 	CommBasicObjects::CommBasePose basePosition;
-
-  // Acquisition
-  COMP->PioneerMutex.acquire();
 
   // Get values from port NavigationVelocityServiceIn
   speed = COMP->vX;
@@ -140,73 +156,71 @@ int Pioneer3DXTask::on_execute()
   rightSpeed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
   leftSpeed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
   check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
+  std::cout << "Speeds: " << speed << " " << omega << std::endl;
 
-  // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
-  // otherwise the values will not be updated
-  if (COMP->webotsRobot->step(webotsTimeStep) != -1) {
 
 		// Set GPS values for port BaseStateServiceOut
-  	if(GPSFound){
+	if(GPSFound){
 
-    	const double* GPS_value = webotsGPS->getValues();
-  	basePosition.set_x(GPS_value[2], 1.0);
-    	basePosition.set_y(GPS_value[0], 1.0);
-    	basePosition.set_z(GPS_value[1], 1.0);
-  	baseState.set_base_position(basePosition);
+	const double* GPS_value = webotsGPS->getValues();
+		basePosition.set_x(GPS_value[2], 1.0);
+	basePosition.set_y(GPS_value[0], 1.0);
+	basePosition.set_z(GPS_value[1], 1.0);
+		baseState.set_base_position(basePosition);
 
-    	// print data to debug
-    	std::cout << " " << std::endl;
-    	std::cout << "GPS_x : " << GPS_value[2]<< std::endl;
-    	std::cout << "GPS_y : " << GPS_value[0]<< std::endl;
-    	std::cout << "GPS_z : " << GPS_value[1]<< std::endl;
-  	}
-  	else
-  	{
-  		basePosition.set_x(0.0, 1.0);
+	// print data to debug
+	std::cout << " " << std::endl;
+	std::cout << "GPS_x : " << GPS_value[2]<< std::endl;
+	std::cout << "GPS_y : " << GPS_value[0]<< std::endl;
+	std::cout << "GPS_z : " << GPS_value[1]<< std::endl;
+	}
+	else
+	{
+		basePosition.set_x(0.0, 1.0);
 			basePosition.set_y(0.0, 1.0);
 			basePosition.set_z(0.0, 1.0);
 			baseState.set_base_position(basePosition);
-  	}
+	}
 
-  	// Set IMU values for port BaseStateServiceOut
-  	// Webots use the NED convention, see https://cyberbotics.com/doc/reference/inertialunit
-  	// Smartsoft use ???, see ???
-  	// ROS use ENU convention, https://www.ros.org/reps/rep-0103.html
-  	// Be aware of this in your calculation
-  	if(IMUFound){
+	// Set IMU values for port BaseStateServiceOut
+	// Webots use the NED convention, see https://cyberbotics.com/doc/reference/inertialunit
+	// Smartsoft use ???, see ???
+	// ROS use ENU convention, https://www.ros.org/reps/rep-0103.html
+	// Be aware of this in your calculation
+	if(IMUFound){
 
-    	const double* IMU_value = webotsIMU->getRollPitchYaw();
-    	basePosition.set_base_roll(IMU_value[0]);
-    	basePosition.set_base_azimuth(IMU_value[2]);
-    	basePosition.set_base_elevation(IMU_value[1]);
-  		baseState.set_base_position(basePosition);
+	const double* IMU_value = webotsIMU->getRollPitchYaw();
+	basePosition.set_base_roll(0.0);
+	basePosition.set_base_azimuth(IMU_value[2]);
+	basePosition.set_base_elevation(0.0);
+		baseState.set_base_position(basePosition);
 
-    	// print data to debug
-    	std::cout << " " << std::endl;
-    	std::cout << "IMU_roll  : " << IMU_value[0]<< std::endl;
-    	std::cout << "IMU_pitch : " << IMU_value[1]<< std::endl;
-    	std::cout << "IMU_yaw   : " << IMU_value[2]<< std::endl;
-  	}
-  	else
-  	{
-  		basePosition.set_base_roll(0.0);
+	// print data to debug
+	std::cout << " " << std::endl;
+	std::cout << "IMU_roll  : " << IMU_value[0]<< std::endl;
+	std::cout << "IMU_pitch : " << IMU_value[1]<< std::endl;
+	std::cout << "IMU_yaw   : " << IMU_value[2] << std::endl;
+	}
+	else
+	{
+		basePosition.set_base_roll(0.0);
 			basePosition.set_base_azimuth(0.0);
 			basePosition.set_base_elevation(0.0);
 			baseState.set_base_position(basePosition);
-  	}
+	}
 
 		// Pass values to motors in Webots side
-    webotsLeftMotor  -> setVelocity(leftSpeed);
-    webotsRightMotor -> setVelocity(rightSpeed);
-  }
-  else
-    return -1;
-
-  // release
-  COMP->PioneerMutex.release();
+	webotsLeftMotor  -> setVelocity(leftSpeed);
+	webotsRightMotor -> setVelocity(rightSpeed);
 
   // send baseState update to the port
   baseStateServiceOutPut(baseState);
+  threadRunning = true;
+  if (mThread.joinable())
+    mThread.join();
+  mThread = std::thread(runStep, COMP->webotsRobot, webotsTimeStep);
+  // release
+  COMP->PioneerMutex.release();
 
   // it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
   return 0;
