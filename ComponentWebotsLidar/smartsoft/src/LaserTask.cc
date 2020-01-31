@@ -181,6 +181,7 @@ int LaserTask::on_execute()
   ++scanCount;
   scan.set_scan_valid(false);
 
+  // start robot step thread
   mThreadRunning = true;
   if (mThread.joinable())
     mThread.join();
