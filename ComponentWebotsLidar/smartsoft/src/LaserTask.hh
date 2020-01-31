@@ -24,6 +24,9 @@
 #include "CommBasicObjects/CommBaseVelocity.hh"
 
 #include <webots/Lidar.hpp>
+#include <webots/Robot.hpp>
+
+#include <thread>
 
 
 // modify these parameters for unit consistency
@@ -48,6 +51,12 @@ private:
   // laser parameters
   unsigned int numberValidPoints;
   CommBasicObjects::CommMobileLaserScan scan;
+
+  // threading stuff
+  std::thread mThread;
+  bool mThreadRunning;
+  bool mWebotsShouldQuit;
+  void runStep(webots::Robot *robot);
 
 public:
   unsigned long scanCount;

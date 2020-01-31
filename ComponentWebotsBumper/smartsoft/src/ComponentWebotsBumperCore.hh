@@ -28,6 +28,7 @@ private:
 
 public:
 	ComponentWebotsBumperCore();
+	SmartACE::SmartMutex mutex;
 	webots::Robot *webotsRobot;
 };
 	

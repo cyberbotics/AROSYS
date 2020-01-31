@@ -42,12 +42,10 @@ SMART_COMPONENT_AUTOBUILD_DEPENDENCIES()
 
 # you can add additional external libraries using regular CMake commands, e.g.:
 #FIND_PACKAGE(<SomePackageName>)
-link_directories($ENV{WEBOTS_HOME}/lib)
 #set(SOURCES ${CPP_SOURCES})
 
+link_directories($ENV{WEBOTS_HOME}/lib)
 set(WEBOTS ${CMAKE_SHARED_LIBRARY_PREFIX}Controller${CMAKE_SHARED_LIBRARY_SUFFIX} ${CMAKE_SHARED_LIBRARY_PREFIX}CppController${CMAKE_SHARED_LIBRARY_SUFFIX})
-
-
 
 INCLUDE(${CMAKE_CURRENT_LIST_DIR}/src-gen/MixedPortIncludes.cmake)
 # these are the regular includes (add your own includes, if needed)
@@ -72,7 +70,6 @@ FILE(GLOB CPP_SOURCES *.cc)
 set(SOURCES ${CPP_SOURCES})
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRC} ${SRC_GEN} ${SRC_GEN_PARAMS} ${FURTHER_SRCS}) # add ${USER_SRC} (if needed)
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${WEBOTS})
-
 
 # link your external libraries here (if there are any)
 #TARGET_LINK_LIBRARIES(${PROJECT_NAME} <your-libs>)

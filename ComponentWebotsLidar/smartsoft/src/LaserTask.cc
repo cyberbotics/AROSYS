@@ -26,7 +26,10 @@
 
 
 LaserTask::LaserTask(SmartACE::SmartComponent *comp)
-: LaserTaskCore(comp)
+: LaserTaskCore(comp),
+  mThread(),
+  mThreadRunning(false),
+  mWebotsShouldQuit(false)
 {
   std::cout << "constructor LaserTask\n";
   scanCount = 0;
@@ -41,6 +44,9 @@ int LaserTask::on_entry()
 {
   // do initialization procedures here, which are called once, each time the task is started
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
+
+  // Acquisition
+  COMP->mutex.acquire();
 
   if (!COMP->webotsRobot)
     return -1;
@@ -80,6 +86,9 @@ int LaserTask::on_entry()
     }
   }
 
+  // release
+  COMP->mutex.release();
+
   if (!webotsLidar) {
     std::cout  << "No lidar found, no data is sent." << std::endl;
     return -1;
@@ -95,10 +104,15 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
+  if (mWebotsShouldQuit)
+    return -1;
 
-  // controller code that is in "while loop" if run from Simulator should be inside "if statement" below,
-  // otherwise the values will not be updated
-  if (COMP->webotsRobot->step(webotsTimeStep) != -1) {
+  if (mThreadRunning || !COMP->webotsRobot)
+    return 0.0;
+
+  // Acquisition
+  COMP->mutex.acquire();
+
     // Some variables are set but not implemented now
     double basePosX = 0.0;
     double basePosY = 0.0;
@@ -124,17 +138,17 @@ int LaserTask::on_execute()
     basePosRoll = baseState.get_base_position().get_base_roll();
 
     // print data to debug
-    //std::cout << " " << std::endl;
-    //std::cout << "basePosX " << basePosX << std::endl;
-    //std::cout << "basePosY " << basePosY << std::endl;
-    //std::cout << "basePosZ " << basePosZ << std::endl;
-    //std::cout << "basePosAzim " << basePosAzim << std::endl;
-    //std::cout << "basePosElev " << basePosElev << std::endl;
-    //std::cout << "basePosRoll " << basePosRoll << std::endl;
-    
+//    std::cout << " " << std::endl;
+//    std::cout << "basePosX " << basePosX << std::endl;
+//    std::cout << "basePosY " << basePosY << std::endl;
+//    std::cout << "basePosZ " << basePosZ << std::endl;
+//    std::cout << "basePosAzim " << basePosAzim << std::endl;
+//    std::cout << "basePosElev " << basePosElev << std::endl;
+//    std::cout << "basePosRoll " << basePosRoll << std::endl;
+
     scan.set_base_state(baseState);
-	  
-    if (webotsLidar) {
+
+    if (webotsLidar && webotsLidar->getRangeImage()) {
 		// time settings and update scan count
 		timeval _receiveTime;
 		gettimeofday(&_receiveTime, 0);
@@ -161,13 +175,20 @@ int LaserTask::on_execute()
 		scan.set_scan_valid(true);
     } else
     	scan.set_scan_valid(false);
-  } else
-    return -1;
 
   // send out laser scan through port
   laserServiceOutPut(scan);
   ++scanCount;
   scan.set_scan_valid(false);
+
+  // start robot step thread
+  mThreadRunning = true;
+  if (mThread.joinable())
+    mThread.join();
+  mThread = std::thread(&LaserTask::runStep, this, COMP->webotsRobot);
+
+  // release
+  COMP->mutex.release();
 
   // it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
   return 0;
@@ -181,3 +202,9 @@ int LaserTask::on_exit()
   // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
   return 0;
 }
+
+void LaserTask::runStep(webots::Robot *robot) {
+  mWebotsShouldQuit = robot->step(webotsTimeStep) == -1.0;
+  mThreadRunning = false;
+}
+
