@@ -24,20 +24,14 @@
 #include <webots/Device.hpp>
 #include <webots/Node.hpp>
 
-// threading stuff
-static bool threadRunning = false;
-static bool webotsShouldQuit = false;
-void runStep(webots::Robot *robot, int timeStep) {
-  webotsShouldQuit = robot->step(timeStep) == -1.0;
-  threadRunning = false;
-}
 
 LaserTask::LaserTask(SmartACE::SmartComponent *comp)
 : LaserTaskCore(comp),
-  mThread()
+  mThread(),
+  mThreadRunning(false),
+  mWebotsShouldQuit(false)
 {
   std::cout << "constructor LaserTask\n";
-  webotsShouldQuit = false;
   scanCount = 0;
 }
 LaserTask::~LaserTask()
@@ -110,12 +104,11 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-  if (webotsShouldQuit)
+  if (mWebotsShouldQuit)
     return -1;
 
-  if (threadRunning || !COMP->webotsRobot)
+  if (mThreadRunning || !COMP->webotsRobot)
     return 0.0;
-
 
   // Acquisition
   COMP->mutex.acquire();
@@ -188,10 +181,10 @@ int LaserTask::on_execute()
   ++scanCount;
   scan.set_scan_valid(false);
 
-  threadRunning = true;
+  mThreadRunning = true;
   if (mThread.joinable())
     mThread.join();
-  mThread = std::thread(runStep, COMP->webotsRobot, webotsTimeStep);
+  mThread = std::thread(&LaserTask::runStep, this, COMP->webotsRobot);
 
   // release
   COMP->mutex.release();
@@ -208,3 +201,9 @@ int LaserTask::on_exit()
   // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
   return 0;
 }
+
+void LaserTask::runStep(webots::Robot *robot) {
+  mWebotsShouldQuit = robot->step(webotsTimeStep) == -1.0;
+  mThreadRunning = false;
+}
+
