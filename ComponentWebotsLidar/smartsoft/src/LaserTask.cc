@@ -44,11 +44,11 @@ int LaserTask::on_entry()
   // do initialization procedures here, which are called once, each time the task is started
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
-  // acquisition
-  COMP->mutex.acquire();
-
   if (!COMP->webotsRobot)
     return -1;
+
+  // acquisition
+  COMP->mutex.acquire();
 
   // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
@@ -102,18 +102,18 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-  if (mWebotsShouldQuit)
-    return -1;
-
-  if (mThreadRunning || !COMP->webotsRobot)
-    return 0.0;
-
   double basePosX = 0.0;
   double basePosY = 0.0;
   double basePosZ = 0.0;
   double basePosAzim = 0.0;
   double basePosElev = 0.0;
   double basePosRoll = 0.0;
+
+  if (mWebotsShouldQuit)
+    return -1;
+
+  if (mThreadRunning || !COMP->webotsRobot)
+    return 0.0;
 
   // acquisition
   COMP->mutex.acquire();
