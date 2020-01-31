@@ -132,7 +132,7 @@ int Pioneer3DXTask::on_execute()
   // Acquisition
   COMP->PioneerMutex.acquire();
 
-  std::cout << "Hello from PioneerTask " << std::endl;
+  //std::cout << "Hello from PioneerTask " << std::endl;
 
   double speed = 0.0;
   double omega = 0.0;
@@ -149,7 +149,6 @@ int Pioneer3DXTask::on_execute()
   rightSpeed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
   leftSpeed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
   check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
-  std::cout << "Speeds: " << speed << " " << omega << std::endl;
 
 
 		// Set GPS values for port BaseStateServiceOut
@@ -183,9 +182,9 @@ int Pioneer3DXTask::on_execute()
 	if(IMUFound){
 
 	const double* IMU_value = webotsIMU->getRollPitchYaw();
-	basePosition.set_base_roll(0.0);
+	basePosition.set_base_roll(IMU_value[0]);
 	basePosition.set_base_azimuth(IMU_value[2]);
-	basePosition.set_base_elevation(0.0);
+	basePosition.set_base_elevation(IMU_value[1]);
 		baseState.set_base_position(basePosition);
 
 	// print data to debug
@@ -208,10 +207,13 @@ int Pioneer3DXTask::on_execute()
 
   // send baseState update to the port
   baseStateServiceOutPut(baseState);
+
+  // start robot step thread
   mThreadRunning = true;
   if (mThread.joinable())
     mThread.join();
   mThread = std::thread(&Pioneer3DXTask::runStep, this, COMP->webotsRobot);
+
   // release
   COMP->PioneerMutex.release();
 
