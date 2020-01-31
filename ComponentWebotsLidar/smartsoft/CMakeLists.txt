@@ -65,7 +65,6 @@ FILE(GLOB CPP_SOURCES *.cc)
 
 # collect your own (local) source-files here (if needed)
 #FILE(GLOB_RECURSE USER_SRC ${CMAKE_CURRENT_LIST_DIR}/src/<your-sources>)
-FILE(GLOB CPP_SOURCES *.cc)
 
 # create the executable using collected source-files
 set(SOURCES ${CPP_SOURCES})
