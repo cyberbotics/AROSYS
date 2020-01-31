@@ -29,18 +29,18 @@ Robotino3Task::Robotino3Task(SmartACE::SmartComponent *comp)
 }
 Robotino3Task::~Robotino3Task()
 {
-	std::cout << "destructor Robotino3Task\n";
+  std::cout << "destructor Robotino3Task\n";
 }
 
-
-double check_velocity(double speed, double max_speed){
-  if(speed >  max_speed)  speed =  max_speed;
-  if(speed < -max_speed)  speed = -max_speed;
+double check_velocity(double speed, double max_speed)
+{
+  if (speed >  max_speed)  speed =  max_speed;
+  if (speed < -max_speed)  speed = -max_speed;
   return speed;
 }
 
-
-int Robotino3Task::on_entry() {
+int Robotino3Task::on_entry()
+{
   // do initialization procedures here, which are called once, each time the task is started
   // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
@@ -62,7 +62,7 @@ int Robotino3Task::on_entry() {
   std::string IMUName;
   webots::Device *webotsDevice = NULL;
 
-  for(int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
+  for (int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
     webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
 
     if (webotsDevice->getNodeType() == webots::Node::GPS) {
@@ -113,7 +113,8 @@ int Robotino3Task::on_entry() {
   return 0;
 }
 
-int Robotino3Task::on_execute() {
+int Robotino3Task::on_execute()
+{
   // this method is called from an outside loop,
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
@@ -159,23 +160,23 @@ int Robotino3Task::on_execute() {
 
   // set GPS values for port BaseStateServiceOut
   if (GPSFound) {
-  	const double* GPS_value = webotsGPS->getValues();
-  	basePosition.set_x(GPS_value[2], 1.0);
-  	basePosition.set_y(GPS_value[0], 1.0);
-  	basePosition.set_z(GPS_value[1], 1.0);
-  	baseState.set_base_position(basePosition);
-
-  	// print data to debug
-  	//std::cout << " " << std::endl;
-  	//std::cout << "GPS_x : " << GPS_value[2]<< std::endl;
-  	//std::cout << "GPS_y : " << GPS_value[0]<< std::endl;
-  	//std::cout << "GPS_z : " << GPS_value[1]<< std::endl;
+    const double* GPS_value = webotsGPS->getValues();
+    basePosition.set_x(GPS_value[2], 1.0);
+    basePosition.set_y(GPS_value[0], 1.0);
+    basePosition.set_z(GPS_value[1], 1.0);
+    baseState.set_base_position(basePosition);
   } else {
-  	basePosition.set_x(0.0, 1.0);
-  	basePosition.set_y(0.0, 1.0);
-  	basePosition.set_z(0.0, 1.0);
-  	baseState.set_base_position(basePosition);
+    basePosition.set_x(0.0, 1.0);
+    basePosition.set_y(0.0, 1.0);
+    basePosition.set_z(0.0, 1.0);
+    baseState.set_base_position(basePosition);
   }
+
+  // print data to debug
+  //std::cout << " " << std::endl;
+  //std::cout << "GPS_x : " << GPS_value[2]<< std::endl;
+  //std::cout << "GPS_y : " << GPS_value[0]<< std::endl;
+  //std::cout << "GPS_z : " << GPS_value[1]<< std::endl;
 
   // set IMU values for port BaseStateServiceOut
   // Webots use the NED convention, see https://cyberbotics.com/doc/reference/inertialunit
@@ -183,23 +184,23 @@ int Robotino3Task::on_execute() {
   // ROS use ENU convention, https://www.ros.org/reps/rep-0103.html
   // be aware of this in your calculation
   if (IMUFound) {
-  	const double* IMU_value = webotsIMU->getRollPitchYaw();
-  	basePosition.set_base_roll(IMU_value[0]);
-  	basePosition.set_base_azimuth(IMU_value[2]);
-  	basePosition.set_base_elevation(IMU_value[1]);
-  	baseState.set_base_position(basePosition);
-
-  	// print data to debug
-  	//std::cout << " " << std::endl;
-  	//std::cout << "IMU_roll  : " << IMU_value[0]<< std::endl;
-  	//std::cout << "IMU_pitch : " << IMU_value[1]<< std::endl;
-  	//std::cout << "IMU_yaw   : " << IMU_value[2]<< std::endl;
+    const double* IMU_value = webotsIMU->getRollPitchYaw();
+    basePosition.set_base_roll(IMU_value[0]);
+    basePosition.set_base_azimuth(IMU_value[2]);
+    basePosition.set_base_elevation(IMU_value[1]);
+    baseState.set_base_position(basePosition);
   } else {
-  	basePosition.set_base_roll(0.0);
-  	basePosition.set_base_azimuth(0.0);
-  	basePosition.set_base_elevation(0.0);
-  	baseState.set_base_position(basePosition);
+    basePosition.set_base_roll(0.0);
+    basePosition.set_base_azimuth(0.0);
+    basePosition.set_base_elevation(0.0);
+    baseState.set_base_position(basePosition);
   }
+
+  // print data to debug
+  //std::cout << " " << std::endl;
+  //std::cout << "IMU_roll  : " << IMU_value[0]<< std::endl;
+  //std::cout << "IMU_pitch : " << IMU_value[1]<< std::endl;
+  //std::cout << "IMU_yaw   : " << IMU_value[2]<< std::endl;
 
   // pass values to motors in Webots side
   webotsMotor0->setVelocity(vMotor0);
@@ -222,13 +223,15 @@ int Robotino3Task::on_execute() {
   return 0;
 }
 
-int Robotino3Task::on_exit() {
+int Robotino3Task::on_exit()
+{
   // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
   delete COMP->webotsRobot;
   return 0;
 }
 
-void Robotino3Task::runStep(webots::Robot *robot) {
+void Robotino3Task::runStep(webots::Robot *robot)
+{
   mWebotsShouldQuit = robot->step(webotsTimeStep) == -1.0;
   mThreadRunning = false;
 }

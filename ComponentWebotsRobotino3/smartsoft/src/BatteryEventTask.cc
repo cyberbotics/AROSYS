@@ -20,39 +20,39 @@
 #include <iostream>
 
 BatteryEventTask::BatteryEventTask(SmartACE::SmartComponent *comp)
-:	BatteryEventTaskCore(comp)
+: BatteryEventTaskCore(comp)
 {
-	std::cout << "constructor BatteryEventTask\n";
+  std::cout << "constructor BatteryEventTask\n";
 }
 BatteryEventTask::~BatteryEventTask()
 {
-	std::cout << "destructor BatteryEventTask\n";
+  std::cout << "destructor BatteryEventTask\n";
 }
 
 int BatteryEventTask::on_entry()
 {
-	// do initialization procedures here, which are called once, each time the task is started
-	// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
-	return 0;
+    // do initialization procedures here, which are called once, each time the task is started
+    // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
+    return 0;
 }
 
 int BatteryEventTask::on_execute()
 {
-	// this method is called from an outside loop,
-	// hence, NEVER use an infinite loop (like "while(1)") here inside!!!
-	// also do not use blocking calls which do not result from smartsoft kernel
+  // this method is called from an outside loop,
+  // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
+  // also do not use blocking calls which do not result from smartsoft kernel
 
-	// to get the incoming data, use this methods:
-	Smart::StatusCode status;
+  // to get the incoming data, use this methods:
+  Smart::StatusCode status;
 
-	//std::cout << "Hello from BatteryEventTask " << std::endl;
+  //std::cout << "Hello from BatteryEventTask " << std::endl;
 
-	// it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
-	return 0;
+  // it is possible to return != 0 (e.g. when the task detects errors), then the outer loop breaks and the task stops
+  return 0;
 }
 
 int BatteryEventTask::on_exit()
 {
-	// use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
-	return 0;
+  // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
+  return 0;
 }

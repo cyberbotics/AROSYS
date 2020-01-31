@@ -19,29 +19,29 @@
 // constructor
 ComponentWebotsRobotino3Core::ComponentWebotsRobotino3Core()
 {
-	std::cout << "constructor ComponentWebotsRobotino3Core\n";
+  std::cout << "constructor ComponentWebotsRobotino3Core\n";
 
-	webotsRobot = NULL;
+  webotsRobot = NULL;
 
-	// assign this controller to the correct robot in Webots
-	char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
-	if (!robotName) {
-		std::cout  << "WEBOTS_ROBOT_NAME not defined" << std::endl;
-		FILE *f = fopen("robotName.txt", "rb");
-		if (!f) {
-			std::cout  << "'robotName.txt' file not found." << std::endl;
-			return;
-		}
-		char name[256];
-		int ret = fscanf(f, "%[^\n]", name);
-		if (ret == 0) {
-			std::cout  << "First line of the 'robotName.txt' file is empty." << std::endl;
-			return;
-		}
-		char environment[256] = "WEBOTS_ROBOT_NAME=";
-		putenv(strcat(environment, name));
-	}
+  // assign this controller to the correct robot in Webots
+  char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
+  if (!robotName) {
+    std::cout  << "WEBOTS_ROBOT_NAME not defined" << std::endl;
+    FILE *f = fopen("robotName.txt", "rb");
+    if (!f) {
+      std::cout  << "'robotName.txt' file not found." << std::endl;
+      return;
+    }
+    char name[256];
+    int ret = fscanf(f, "%[^\n]", name);
+    if (ret == 0) {
+      std::cout  << "First line of the 'robotName.txt' file is empty." << std::endl;
+      return;
+    }
+    char environment[256] = "WEBOTS_ROBOT_NAME=";
+    putenv(strcat(environment, name));
+  }
 
-	// create Robot instance
-	webotsRobot = new webots::Robot();
+  // create Robot instance
+  webotsRobot = new webots::Robot();
 }

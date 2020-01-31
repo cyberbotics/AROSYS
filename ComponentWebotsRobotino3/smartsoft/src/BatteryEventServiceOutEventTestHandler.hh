@@ -22,10 +22,11 @@
 class BatteryEventServiceOutEventTestHandler : public BatteryEventServiceOutEventTestHandlerCore
 {
 public:
-	virtual bool testEvent(
-		CommBasicObjects::CommBatteryParameter &p,
-		CommBasicObjects::CommBatteryEvent &r,
-		const CommBasicObjects::CommBatteryState &s
-	) throw();
+  virtual bool testEvent(
+    CommBasicObjects::CommBatteryParameter &p,
+    CommBasicObjects::CommBatteryEvent &r,
+    const CommBasicObjects::CommBatteryState &s
+  ) throw();
 };
+
 #endif

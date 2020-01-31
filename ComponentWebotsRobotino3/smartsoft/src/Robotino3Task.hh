@@ -39,14 +39,14 @@
 class Robotino3Task  : public Robotino3TaskCore
 {
 private:
-	int webotsTimeStep;
-	bool GPSFound;
-	bool IMUFound;
-	double motorMaxSpeed; // in rad/s
-	webots::GPS *webotsGPS;
-	webots::Motor *webotsMotor0;
-	webots::Motor *webotsMotor1;
-	webots::Motor *webotsMotor2;
+  int webotsTimeStep;
+  bool GPSFound;
+  bool IMUFound;
+  double motorMaxSpeed; // in rad/s
+  webots::GPS *webotsGPS;
+  webots::Motor *webotsMotor0;
+  webots::Motor *webotsMotor1;
+  webots::Motor *webotsMotor2;
   webots::InertialUnit *webotsIMU;
 
   // threading stuff
@@ -56,12 +56,12 @@ private:
   void runStep(webots::Robot *robot);
 
 public:
-	Robotino3Task(SmartACE::SmartComponent *comp);
-	virtual ~Robotino3Task();
+  Robotino3Task(SmartACE::SmartComponent *comp);
+  virtual ~Robotino3Task();
 
-	virtual int on_entry();
-	virtual int on_execute();
-	virtual int on_exit();
+  virtual int on_entry();
+  virtual int on_execute();
+  virtual int on_exit();
 };
 
 #endif
