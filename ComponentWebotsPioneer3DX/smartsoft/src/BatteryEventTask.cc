@@ -20,7 +20,7 @@
 #include <iostream>
 
 BatteryEventTask::BatteryEventTask(SmartACE::SmartComponent *comp)
-:	BatteryEventTaskCore(comp)
+: BatteryEventTaskCore(comp)
 {
   std::cout << "constructor BatteryEventTask\n";
 }

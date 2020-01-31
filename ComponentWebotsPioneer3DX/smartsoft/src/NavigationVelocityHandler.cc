@@ -20,7 +20,7 @@
 #include <iostream>
 
 NavigationVelocityHandler::NavigationVelocityHandler(Smart::InputSubject<CommBasicObjects::CommNavigationVelocity> *subject, const int &prescaleFactor)
-:	NavigationVelocityHandlerCore(subject, prescaleFactor)
+: NavigationVelocityHandlerCore(subject, prescaleFactor)
 {
   std::cout << "constructor NavigationVelocityHandler\n";
 }
@@ -42,8 +42,8 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
   COMP->PioneerMutex.release();
 
   // print output
-  //std::cout << "Velocity - input = " << input     << std::endl;
-  //std::cout << " => vX = "    << input.get_vX(1.0)   << std::endl;
-  //std::cout << " => vY = "    << input.get_vY(1.0)   << std::endl;
-  //std::cout << " => omega = " << input.getOmega() << std::endl;
+  //std::cout << "Velocity - input = " << input      << std::endl;
+  //std::cout << " => vX = "    << input.get_vX(1.0) << std::endl;
+  //std::cout << " => vY = "    << input.get_vY(1.0) << std::endl;
+  //std::cout << " => omega = " << input.getOmega()  << std::endl;
 }

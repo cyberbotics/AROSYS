@@ -32,12 +32,13 @@ Pioneer3DXTask::~Pioneer3DXTask()
   std::cout << "destructor Pioneer3DXTask\n";
 }
 
-void check_velocity(double& leftSpeed, double& rightSpeed, double max_speed){
-  if(leftSpeed >  max_speed)  leftSpeed  =  max_speed;
-  if(leftSpeed < -max_speed)  leftSpeed  = -max_speed;
+void check_velocity(double& leftSpeed, double& rightSpeed, double max_speed)
+{
+  if (leftSpeed >  max_speed)  leftSpeed  =  max_speed;
+  if (leftSpeed < -max_speed)  leftSpeed  = -max_speed;
 
-  if(rightSpeed >  max_speed) rightSpeed =  max_speed;
-  if(rightSpeed < -max_speed) rightSpeed = -max_speed;
+  if (rightSpeed >  max_speed) rightSpeed =  max_speed;
+  if (rightSpeed < -max_speed) rightSpeed = -max_speed;
 }
 
 int Pioneer3DXTask::on_entry()
@@ -63,7 +64,7 @@ int Pioneer3DXTask::on_entry()
   std::string IMUName;
   webots::Device *webotsDevice = NULL;
 
-  for(int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
+  for (int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
     webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
 
     if (webotsDevice->getNodeType() == webots::Node::GPS) {
@@ -208,13 +209,15 @@ int Pioneer3DXTask::on_execute()
   return 0;
 }
 
-int Pioneer3DXTask::on_exit() {
+int Pioneer3DXTask::on_exit()
+{
   // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
   delete COMP->webotsRobot;
   return 0;
 }
 
-void Pioneer3DXTask::runStep(webots::Robot *robot) {
+void Pioneer3DXTask::runStep(webots::Robot *robot)
+{
   mWebotsShouldQuit = robot->step(webotsTimeStep) == -1.0;
   mThreadRunning = false;
 }
