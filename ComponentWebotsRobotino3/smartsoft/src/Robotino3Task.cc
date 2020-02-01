@@ -134,7 +134,7 @@ int Robotino3Task::on_execute()
     return -1;
 
   if (mThreadRunning || !COMP->webotsRobot)
-    return 0.0;
+    return 0;
 
   // acquisition
   COMP->Robotino3Mutex.acquire();
