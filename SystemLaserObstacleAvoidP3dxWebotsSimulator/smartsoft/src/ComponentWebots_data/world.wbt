@@ -11,16 +11,6 @@ TexturedBackground {
 }
 TexturedBackgroundLight {
 }
-Floor {
-  translation -1 0 -0.04
-  size 47 19.1
-  tileSize 2 2
-  appearance ChequeredParquetry {
-    textureTransform TextureTransform {
-      translation -0.03 0.25
-    }
-  }
-}
 Pioneer3dx {
   rotation 0 1 0 -1.5708003061004252
   name "Pioneer3DX"
@@ -73,9 +63,10 @@ Pioneer3dx {
           name "Sick LMS 291"
           model "Sick LMS291"
           horizontalResolution 640
-          fieldOfView 3.83972
+          fieldOfView 3.49066
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
+          minRange 0.1
           maxRange 10
           noise 0.02
         }
@@ -84,6 +75,16 @@ Pioneer3dx {
       controller "<extern>"
     }
   ]
+}
+Floor {
+  translation -1 0 -0.04
+  size 47 19.1
+  tileSize 2 2
+  appearance ChequeredParquetry {
+    textureTransform TextureTransform {
+      translation -0.03 0.25
+    }
+  }
 }
 DEF WALLS Solid {
   translation -1.54 0 -0.05

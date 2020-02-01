@@ -10,10 +10,7 @@ TexturedBackground {
   texture "entrance_hall"
   skybox FALSE
 }
-RectangleArena {
-  floorSize 13 13
-  floorTileSize 1 1
-  wallHeight 2
+TexturedBackgroundLight {
 }
 Pioneer3dx {
   translation 2.5 0.0949252 4.5
@@ -67,16 +64,23 @@ Pioneer3dx {
           name "Sick LMS 291"
           model "Sick LMS291"
           horizontalResolution 640
-          fieldOfView 3.83972
+          fieldOfView 3.49066
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
+          minRange 0.1
           maxRange 10
+          noise 0.02
         }
       ]
       name "Lidar"
       controller "<extern>"
     }
   ]
+}
+RectangleArena {
+  floorSize 13 13
+  floorTileSize 1 1
+  wallHeight 2
 }
 WoodenBox {
   translation 1.43078 1 -3.5643

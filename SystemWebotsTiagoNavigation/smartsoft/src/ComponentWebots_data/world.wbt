@@ -4,10 +4,13 @@ WorldInfo {
 Viewpoint {
   orientation 1 0 0 4.71238898038469
   position 1.389741943837314 28.922774055415115 0.6853101762009368
+  follow "Pioneer3DX"
 }
 TexturedBackground {
   texture "entrance_hall"
   skybox FALSE
+}
+TexturedBackgroundLight {
 }
 Pioneer3dx {
   translation 0 0.0949252 0
@@ -63,10 +66,12 @@ Pioneer3dx {
           name "Sick LMS 291"
           model "Sick LMS291"
           horizontalResolution 640
-          fieldOfView 3.83972
+          fieldOfView 3.49066
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
+          minRange 0.1
           maxRange 10
+          noise 0.02
         }
       ]
       name "Lidar"
