@@ -131,7 +131,7 @@ int Pioneer3DXTask::on_execute()
     return -1;
 
   if (mThreadRunning || !COMP->webotsRobot)
-    return 0.0;
+    return 0;
 
   // acquisition
   COMP->PioneerMutex.acquire();
