@@ -1,31 +1,28 @@
 SystemComponentArchitecture SystemWebotsRobotino3Navigation
 {
-	ComponentInstance ComponentWebots instantiates ComponentWebots
-	{
-	}
+  ComponentInstance ComponentWebots instantiates ComponentWebots
+  {
+  }
+  ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
+  {
+    RequiredService BaseStateServiceIn
+    ProvidedService LaserServiceOut
+  }
+  ComponentInstance ComponentWebotsRobotino3 instantiates ComponentWebotsRobotino3
+  {
+    ProvidedService BaseStateAnswerer
+    ProvidedService BaseStateServiceOut
+    ProvidedService BatteryEventServiceOut
+    ProvidedService LocalizationUpdateServiceIn
+    ProvidedService NavigationVelocityServiceIn
+  }
+  ComponentInstance ComponentLaserObstacleAvoid instantiates ComponentLaserObstacleAvoid
+  {
+    RequiredService LaserServiceIn
+    RequiredService NavigationVelocityServiceOut
+  }
 
-	ComponentInstance ComponentWebotsRobotino3 instantiates ComponentWebotsRobotino3
-	{
-		ProvidedService BaseStateServiceOut
-		ProvidedService BatteryEventServiceOut
-		ProvidedService LocalizationUpdateServiceIn
-		ProvidedService NavigationVelocityServiceIn
-		ProvidedService BaseStateAnswerer
-	}
-
-	ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
-	{
-		RequiredService BaseStateServiceIn
-		ProvidedService LaserServiceOut
-	}
-
-	ComponentInstance ComponentLaserObstacleAvoid instantiates ComponentLaserObstacleAvoid
-	{
-		RequiredService LaserServiceIn
-		RequiredService NavigationVelocityServiceOut
-	}
-
-	Connection    ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
-	Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsRobotino3.NavigationVelocityServiceIn
-Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsRobotino3.BaseStateServiceOut
+  Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsRobotino3.BaseStateServiceOut
+  Connection ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+  Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsRobotino3.NavigationVelocityServiceIn
 }
