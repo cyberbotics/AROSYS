@@ -1,96 +1,102 @@
 SystemComponentArchitecture SystemWebotsTiagoNavigation usingActivityArchitecture SystemWebotsTiagoNavigation
 {
-  ComponentInstance ComponentWebots instantiates ComponentWebots
-  {
-  }
-  ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
-  {
-    RequiredService BaseStateServiceIn
-    ProvidedService LaserServiceOut
-  }
-  ComponentInstance ComponentWebotsPioneer3DX instantiates ComponentWebotsPioneer3DX
-  {
-    ProvidedService BaseStateServiceOut
-    ProvidedService BatteryEventServiceOut
-    ProvidedService LocalizationUpdateServiceIn
-    ProvidedService NavigationVelocityServiceIn
-  }
-  ComponentInstance SmartCdlServer instantiates SmartCdlServer
-  {
-    Activity CdlTask configuration CDL;
+	ComponentInstance SmartCdlServer instantiates SmartCdlServer
+	{
+		RequiredService LaserClient
+		RequiredService PlannerClient
+		RequiredService BaseStateClient
+		RequiredService NavVelSendClient
+		ParameterStructInstance SystemWebotsTiagoNavigation.SmartCdlServer
+		Activity CdlTask configuration CDL;
 
-    RequiredService LaserClient
-    RequiredService PlannerClient
-    RequiredService BaseStateClient
-    RequiredService NavVelSendClient
+	}
 
-    ParameterStructInstance SystemWebotsTiagoNavigation.SmartCdlServer
-  }
-  ComponentInstance SmartMapperGridMap instantiates SmartMapperGridMap
-  {
-    RequiredService LaserServiceIn // { connectTo ComponentWebotsLidar.LaserServiceOut }
-    ProvidedService CurrMapOut
-    ParameterStructInstance SystemWebotsTiagoNavigation.SmartMapperGridMap
-  }
-  ComponentInstance SmartPlannerBreadthFirstSearch instantiates SmartPlannerBreadthFirstSearch
-  {
-    RequiredService BaseStateClient // { connectTo ComponentWebotsPioneer3DX.BaseStateServiceOut }
-    RequiredService CurMapClient // { connectTo MapperGridMap.CurrMapOut }
-    ProvidedService PlannerGoalServer
-  }
-  ComponentInstance SmartAmcl instantiates SmartAmcl
-  {
-    RequiredService LaserServiceIn
-    RequiredService LocalizationUpdateServiceOut
-    ProvidedService LocalizationEventServiceOut
-  }
-  ComponentInstance ComponentKB instantiates ComponentKB
-  {
-  }
-  ComponentInstance ComponentTCLSequencer instantiates ComponentTCLSequencer
-  {
-  }
+	ComponentInstance SmartMapperGridMap instantiates SmartMapperGridMap
+	{
+		RequiredService LaserServiceIn // { connectTo ComponentWebotsLidar.LaserServiceOut }
+		ProvidedService CurrMapOut
+		ParameterStructInstance SystemWebotsTiagoNavigation.SmartMapperGridMap
+	}
 
-  Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsPioneer3DX.BaseStateServiceOut
-  Connection SmartAmcl.LocalizationUpdateServiceOut -> ComponentWebotsPioneer3DX.LocalizationUpdateServiceIn
-  Connection SmartAmcl.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
-  Connection SmartCdlServer.NavVelSendClient -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
-  Connection SmartCdlServer.PlannerClient -> SmartPlannerBreadthFirstSearch.PlannerGoalServer;
-  Connection SmartCdlServer.LaserClient -> ComponentWebotsLidar.LaserServiceOut
-  Connection SmartCdlServer.BaseStateClient -> ComponentWebotsPioneer3DX.BaseStateServiceOut
-  Connection SmartMapperGridMap.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
-  Connection SmartPlannerBreadthFirstSearch.BaseStateClient -> ComponentWebotsPioneer3DX.BaseStateServiceOut
-  Connection SmartPlannerBreadthFirstSearch.CurMapClient -> SmartMapperGridMap.CurrMapOut;
+	ComponentInstance SmartPlannerBreadthFirstSearch instantiates SmartPlannerBreadthFirstSearch
+	{
+		RequiredService BaseStateClient // { connectTo ComponentWebotsPioneer3DX.BaseStateServiceOut }
+		RequiredService CurMapClient // { connectTo MapperGridMap.CurrMapOut }
+		ProvidedService PlannerGoalServer
+	}
 
-  BehaviorTaskRef NavTasks
+	ComponentInstance SmartAmcl instantiates SmartAmcl
+	{
+		RequiredService LaserServiceIn
+		RequiredService LocalizationUpdateServiceOut
+		ProvidedService LocalizationEventServiceOut
+	}
 
-  CoordinationModuleMapping
-  {
-    moduleInstance NavTasks.kbModInst realizedby kbModule
-    {
-      interfaceInstance kb realizedby ComponentKB
-    }
-  }
-  CoordinationModuleMapping
-  {
-    moduleInstance NavTasks.nav1 realizedby MovementMod2
-    {
-      interfaceInstance cdl realizedby SmartCdlServer
-      interfaceInstance mapper realizedby SmartMapperGridMap
-      interfaceInstance planner realizedby SmartPlannerBreadthFirstSearch
-    }
-  }
-  CoordinationModuleMapping
-  {
-    moduleInstance NavTasks.localizationModInst realizedby locModRealization
-    {
-      interfaceInstance amcl1 realizedby SmartAmcl
-    }
-  }
-  //CoordinationModuleMapping {
-  //  moduleInstance NavTasks.base realizedby baseInst
-  //  {
-  //    interfaceInstance base realizedby ComponentWebotsPioneer3DX
-  //  }
-  //}
+	ComponentInstance ComponentKB instantiates ComponentKB
+	{
+	}
+
+	ComponentInstance ComponentTCLSequencer instantiates ComponentTCLSequencer
+	{
+	}
+
+	ComponentInstance ComponentWebots instantiates ComponentWebots
+	{
+	}
+
+	ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
+	{
+		RequiredService BaseStateServiceIn
+		ProvidedService LaserServiceOut
+	}
+
+	ComponentInstance ComponentWebotsPioneer3DX instantiates ComponentWebotsPioneer3DX
+	{
+		ProvidedService BaseStateServiceOut
+		ProvidedService BatteryEventServiceOut
+		ProvidedService LocalizationUpdateServiceIn
+		ProvidedService NavigationVelocityServiceIn
+	}
+
+	Connection SmartPlannerBreadthFirstSearch.CurMapClient -> SmartMapperGridMap.CurrMapOut;
+	Connection SmartCdlServer.PlannerClient -> SmartPlannerBreadthFirstSearch.PlannerGoalServer;
+	Connection  ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsPioneer3DX.BaseStateServiceOut
+	Connection  SmartCdlServer.LaserClient -> ComponentWebotsLidar.LaserServiceOut
+	Connection  SmartCdlServer.BaseStateClient -> ComponentWebotsPioneer3DX.BaseStateServiceOut
+	Connection  SmartPlannerBreadthFirstSearch.BaseStateClient -> ComponentWebotsPioneer3DX.BaseStateServiceOut
+	Connection SmartMapperGridMap.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+	Connection  SmartCdlServer.NavVelSendClient -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
+	Connection  SmartAmcl.LocalizationUpdateServiceOut -> ComponentWebotsPioneer3DX.LocalizationUpdateServiceIn
+	Connection SmartAmcl.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+
+	BehaviorTaskRef NavTasks
+
+	CoordinationModuleMapping {
+		moduleInstance NavTasks.kbModInst realizedby kbModule
+		{
+			interfaceInstance kb realizedby ComponentKB
+		}
+	}
+
+	CoordinationModuleMapping {
+		moduleInstance NavTasks.nav1 realizedby MovementMod2
+		{
+			interfaceInstance cdl realizedby SmartCdlServer
+			interfaceInstance mapper realizedby SmartMapperGridMap
+			interfaceInstance planner realizedby SmartPlannerBreadthFirstSearch
+		}
+	}
+
+	CoordinationModuleMapping {
+		moduleInstance NavTasks.localizationModInst realizedby locModRealization {
+			interfaceInstance amcl1 realizedby SmartAmcl
+		}
+	}
+
+//	CoordinationModuleMapping {
+//		moduleInstance NavTasks.base realizedby baseInst {
+//			interfaceInstance base realizedby ComponentWebotsPioneer3DX
+//		}
+//	}
+	
 }
