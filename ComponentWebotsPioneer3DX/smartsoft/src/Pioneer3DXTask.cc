@@ -120,18 +120,18 @@ int Pioneer3DXTask::on_execute()
 
   //std::cout << "Hello from PioneerTask " << std::endl;
 
+  if (mWebotsShouldQuit)
+    return -1;
+
+  if (mThreadRunning || !COMP->webotsRobot)
+    return 0;
+
   double speed = 0.0;
   double omega = 0.0;
   double leftSpeed  = 0.0;
   double rightSpeed = 0.0;
   CommBasicObjects::CommBaseState baseState;
   CommBasicObjects::CommBasePose basePosition;
-
-  if (mWebotsShouldQuit)
-    return -1;
-
-  if (mThreadRunning || !COMP->webotsRobot)
-    return 0;
 
   // acquisition
   COMP->PioneerMutex.acquire();
