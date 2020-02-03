@@ -42,6 +42,6 @@ ComponentWebotsPioneer3DXCore::ComponentWebotsPioneer3DXCore()
     putenv(strcat(environment, name));
   }
 
-  // create Robot Instance
+  // create Robot instance
   webotsRobot = new webots::Robot();
 }

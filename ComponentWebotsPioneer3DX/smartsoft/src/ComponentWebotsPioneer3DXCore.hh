@@ -25,7 +25,6 @@
 class ComponentWebotsPioneer3DXCore
 {
 private:
-
 public:
   ComponentWebotsPioneer3DXCore();
   SmartACE::SmartMutex PioneerMutex;
