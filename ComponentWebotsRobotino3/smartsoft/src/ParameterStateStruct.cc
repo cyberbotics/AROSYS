@@ -20,13 +20,13 @@
 #include "ComponentWebotsRobotino3.hh"
 
 SmartACE::ParamResponseType ParameterStateStruct::handleCOMMIT(const ParameterStateStruct &commitState) {
-	// implement any consistency checks here which ensure that the incoming parameter meets components
-	// internal constraints. If the current parameter violates any consistency checks, return
-	// SmartACE::ParamResponseType::INVALID, which will result in this commitState to be rejected (not
-	// copied into the globalState) and the corresponding response type is communicated back to the
-	// ParameterMaster. Be aware, that you should avoid blocking calls here. If you need blocking
-	// calls, use an active trigger in combination with commit.
-	return SmartACE::ParamResponseType::OK;
+  // implement any consistency checks here which ensure that the incoming parameter meets components
+  // internal constraints. If the current parameter violates any consistency checks, return
+  // SmartACE::ParamResponseType::INVALID, which will result in this commitState to be rejected (not
+  // copied into the globalState) and the corresponding response type is communicated back to the
+  // ParameterMaster. Be aware, that you should avoid blocking calls here. If you need blocking
+  // calls, use an active trigger in combination with commit.
+  return SmartACE::ParamResponseType::OK;
 }
 
 // implement your custom getter methods here

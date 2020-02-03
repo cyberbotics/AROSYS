@@ -20,8 +20,8 @@
 class CompHandler
 {
 public:
-	void onStartup();
-	void onShutdown();
+  void onStartup();
+  void onShutdown();
 };
 
 #endif

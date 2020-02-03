@@ -22,10 +22,10 @@
 class NavigationVelocityHandler  : public NavigationVelocityHandlerCore
 {
 public:
-	NavigationVelocityHandler(Smart::InputSubject<CommBasicObjects::CommNavigationVelocity> *subject, const int &prescaleFactor=1);
-	virtual ~NavigationVelocityHandler();
+  NavigationVelocityHandler(Smart::InputSubject<CommBasicObjects::CommNavigationVelocity> *subject, const int &prescaleFactor=1);
+  virtual ~NavigationVelocityHandler();
 
-	virtual void on_NavigationVelocityServiceIn(const CommBasicObjects::CommNavigationVelocity &input);
+  virtual void on_NavigationVelocityServiceIn(const CommBasicObjects::CommNavigationVelocity &input);
 };
 
 #endif

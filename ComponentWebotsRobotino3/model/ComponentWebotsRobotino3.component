@@ -1,32 +1,31 @@
 ComponentDefinition ComponentWebotsRobotino3 logo "/ComponentWebotsRobotino3/model/logo.png"
 {
-	InputPort LocalizationUpdateServiceIn implements CommNavigationObjects.LocalizationUpdateService {
-	}
-	InputPort NavigationVelocityServiceIn implements CommNavigationObjects.NavigationVelocityService {
-	}
-	Activity BatteryEventTask
-	{
+	Activity BatteryEventTask {
 	}
 	Activity Robotino3Task {
-		InputPortLink NavigationVelocityServiceIn { 
+		InputPortLink NavigationVelocityServiceIn {
 			oversamplingOk undersamplingOk
 		}
 		DefaultTrigger PeriodicTimer 1.0 Hz
 	}
-	OutputPort BaseStateServiceOut implements CommBasicObjects.BaseStateService realizedBy Robotino3Task {
+	InputPort LocalizationUpdateServiceIn implements CommNavigationObjects.LocalizationUpdateService {
 	}
-	AnswerPort BaseStateAnswerer implements CommBasicObjects.BaseStateQueryService {
-	}
-	RequestHandler BaseStateQueryHandler triggeredFrom BaseStateAnswerer {
+	InputPort NavigationVelocityServiceIn implements CommNavigationObjects.NavigationVelocityService {
 	}
 	InputHandler LocalizationUpdateHandler triggeredFrom LocalizationUpdateServiceIn {
 	}
 	InputHandler NavigationVelocityHandler triggeredFrom NavigationVelocityServiceIn {
 	}
+	OutputPort BaseStateServiceOut implements CommBasicObjects.BaseStateService realizedBy Robotino3Task {
+	}
 	OutputPort BatteryEventServiceOut implements CommNavigationObjects.BatteryEventService realizedBy BatteryEventTask {
+	}
+	AnswerPort BaseStateAnswerer implements CommBasicObjects.BaseStateQueryService {
+	}
+	RequestHandler BaseStateQueryHandler triggeredFrom BaseStateAnswerer {
 	}
 	CoordinationSlavePort CoordinationPort implements CommBasicObjects.DefaultCoordinationService {
 	}
-	
+
 	ComponentParameters ComponentWebotsRobotino3Params slave CoordinationPort;
 }

@@ -23,8 +23,8 @@
 
 class SmartStateChangeHandler : public SmartStateChangeHandlerCore
 {
-	void handleEnterState(const std::string & substate) throw();
-	void handleQuitState(const std::string & substate) throw();
+  void handleEnterState(const std::string & substate) throw();
+  void handleQuitState(const std::string & substate) throw();
 };
 
 #endif
