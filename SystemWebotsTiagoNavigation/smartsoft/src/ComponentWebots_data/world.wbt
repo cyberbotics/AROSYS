@@ -20,7 +20,7 @@ TiagoIron {
   controller "<extern>"
   lidarSlot [
     InertialUnit {
-      rotation 0 1 0 3.141592653589793
+      rotation 0 -0.7071057811860166 0.7071077811853976 3.14159
       name "inertial unit 2"
     }
     GPS {
