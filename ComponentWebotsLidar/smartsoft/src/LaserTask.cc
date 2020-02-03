@@ -101,18 +101,18 @@ int LaserTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
+  if (mWebotsShouldQuit)
+    return -1;
+
+  if (mThreadRunning || !COMP->webotsRobot)
+    return 0;
+
   double basePosX = 0.0;
   double basePosY = 0.0;
   double basePosZ = 0.0;
   double basePosAzim = 0.0;
   double basePosElev = 0.0;
   double basePosRoll = 0.0;
-
-  if (mWebotsShouldQuit)
-    return -1;
-
-  if (mThreadRunning || !COMP->webotsRobot)
-    return 0;
 
   // acquisition
   COMP->mutex.acquire();
