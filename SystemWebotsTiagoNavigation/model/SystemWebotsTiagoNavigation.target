@@ -1,7 +1,10 @@
-TargetPlatformModel SystemWebotsTiagoNavigation {
-
-	TargetPlatformDefinition PC1
-	{
-		NetworkInterface eth1 { HostAddress "localhost" }
-	}
+TargetPlatformModel SystemWebotsTiagoNavigation
+{
+  TargetPlatformDefinition PC1
+  {
+    NetworkInterface eth1
+    {
+      HostAddress "localhost"
+    }
+  }
 }

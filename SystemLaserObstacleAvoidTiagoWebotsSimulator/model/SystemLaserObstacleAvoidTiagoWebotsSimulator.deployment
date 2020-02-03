@@ -1,20 +1,17 @@
 DeploymentModel SystemLaserObstacleAvoidTiagoWebotsSimulator using ComponentArchitecture SystemLaserObstacleAvoidTiagoWebotsSimulator
 {
-	TargetPlatformReference PC1 using SystemLaserObstacleAvoidTiagoWebotsSimulator.PC1
-	{
-		UploadDirectory "/tmp"
-		NetworkInterface eth2
-	}
-	NamingService
-	{
-		deploy-to PC1 
-	}
+  TargetPlatformReference PC1 using SystemLaserObstacleAvoidTiagoWebotsSimulator.PC1
+  {
+    UploadDirectory "/tmp"
+    NetworkInterface eth2
+  }
+  NamingService
+  {
+    deploy-to PC1
+  }
 
-	ComponentArtefact  ComponentWebots deploy-to PC1
-
-	ComponentArtefact  
-ComponentWebotsLidar deploy-to PC1
-
-	ComponentArtefact  ComponentLaserObstacleAvoid deploy-to PC1
-ComponentArtefact ComponentWebotsTIAGo deploy-to PC1
+  ComponentArtefact ComponentWebots deploy-to PC1
+  ComponentArtefact ComponentWebotsLidar deploy-to PC1
+  ComponentArtefact ComponentWebotsTIAGo deploy-to PC1
+  ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
 }

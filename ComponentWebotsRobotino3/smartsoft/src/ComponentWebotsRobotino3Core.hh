@@ -25,14 +25,13 @@
 class ComponentWebotsRobotino3Core
 {
 private:
-
 public:
-	ComponentWebotsRobotino3Core();
-	SmartACE::SmartMutex Robotino3Mutex;
-	double velX; // in m/s
-	double velY; // in m/s
-	double velW; // in rad/s
-	webots::Robot *webotsRobot;
+  ComponentWebotsRobotino3Core();
+  SmartACE::SmartMutex Robotino3Mutex;
+  double vX;
+  double vY;
+  double vW;
+  webots::Robot *webotsRobot;
 };
 
 #endif

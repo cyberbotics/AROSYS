@@ -17,13 +17,13 @@
 #include "BatteryEventServiceOutEventTestHandler.hh"
 
 bool BatteryEventServiceOutEventTestHandler::testEvent(
-		CommBasicObjects::CommBatteryParameter &p,
-		CommBasicObjects::CommBatteryEvent &r,
-		const CommBasicObjects::CommBatteryState &s
-	) throw() {
-	// fire all events (without filtering) in the default implementation
-	// implement your own (specific) event-filtering code using the event-parameter as input
-	// true means that the current event will be fired to the according client
-	// false means that the current event is ignored (it will not be communicated to the according client)
-	return true;
+    CommBasicObjects::CommBatteryParameter &p,
+    CommBasicObjects::CommBatteryEvent &r,
+    const CommBasicObjects::CommBatteryState &s
+  ) throw() {
+  // fire all events (without filtering) in the default implementation
+  // implement your own (specific) event-filtering code using the event-parameter as input
+  // true means that the current event will be fired to the according client
+  // false means that the current event is ignored (it will not be communicated to the according client)
+  return true;
 }

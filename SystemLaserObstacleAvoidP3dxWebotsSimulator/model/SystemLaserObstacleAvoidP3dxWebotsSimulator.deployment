@@ -1,16 +1,17 @@
 DeploymentModel SystemLaserObstacleAvoidP3dxWebotsSimulator using ComponentArchitecture SystemLaserObstacleAvoidP3dxWebotsSimulator
 {
-	TargetPlatformReference PC1 using SystemLaserObstacleAvoidP3dxWebotsSimulator.PC1
-	{
-		UploadDirectory "/tmp"
-		NetworkInterface eth1
-	}
-	NamingService
-	{
-		deploy-to PC1 
-	}
-	ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
-	ComponentArtefact ComponentWebots deploy-to PC1
-	ComponentArtefact ComponentWebotsLidar deploy-to PC1
-	ComponentArtefact ComponentWebotsPioneer3DX deploy-to PC1
+  TargetPlatformReference PC1 using SystemLaserObstacleAvoidP3dxWebotsSimulator.PC1
+  {
+    UploadDirectory "/tmp"
+    NetworkInterface eth1
+  }
+  NamingService
+  {
+    deploy-to PC1
+  }
+
+  ComponentArtefact ComponentWebots deploy-to PC1
+  ComponentArtefact ComponentWebotsLidar deploy-to PC1
+  ComponentArtefact ComponentWebotsPioneer3DX deploy-to PC1
+  ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
 }

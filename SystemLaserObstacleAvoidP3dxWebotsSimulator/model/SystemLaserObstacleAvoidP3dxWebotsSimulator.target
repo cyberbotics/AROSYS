@@ -1,7 +1,10 @@
 TargetPlatformModel SystemLaserObstacleAvoidP3dxWebotsSimulator
 {
-	TargetPlatformDefinition PC1
-	{
-		NetworkInterface eth1 { HostAddress "localhost" }
-	}
+  TargetPlatformDefinition PC1
+  {
+    NetworkInterface eth1
+    {
+      HostAddress "localhost"
+    }
+  }
 }

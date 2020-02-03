@@ -42,6 +42,6 @@ ComponentWebotsLidarCore::ComponentWebotsLidarCore()
     putenv(strcat(environment, name));
   }
 
-  // create Robot Instance
+  // create Robot instance
   webotsRobot = new webots::Robot();
 }
