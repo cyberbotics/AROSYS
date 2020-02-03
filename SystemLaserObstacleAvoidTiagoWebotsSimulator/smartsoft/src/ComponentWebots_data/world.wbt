@@ -4,11 +4,16 @@ WorldInfo {
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
-  position 1.389741943837314 28.922774055415115 0.6853101762009368
+  position 0.4464476433056783 20.68930224930899 -0.0115283976832761
+  follow "TIAGoIron"
 }
 TexturedBackground {
   texture "entrance_hall"
+  luminosity 0.3
   skybox FALSE
+}
+TexturedBackgroundLight {
+  texture "entrance_hall"
 }
 TiagoIron {
   rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
