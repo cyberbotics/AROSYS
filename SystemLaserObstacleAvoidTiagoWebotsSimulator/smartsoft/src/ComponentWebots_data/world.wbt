@@ -1,14 +1,9 @@
 #VRML_SIM R2020a utf8
 WorldInfo {
-  basicTimeStep 16
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
-<<<<<<< HEAD
-  position 0.4464476433056783 20.68930224930899 -0.0115283976832761
-=======
   position 1.389741943837314 28.922774055415115 0.6853101762009368
->>>>>>> master
   follow "TIAGoIron"
 }
 TexturedBackground {

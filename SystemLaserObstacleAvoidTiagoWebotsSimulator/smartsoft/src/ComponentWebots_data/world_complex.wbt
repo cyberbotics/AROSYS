@@ -1,16 +1,10 @@
 #VRML_SIM R2020a utf8
 WorldInfo {
-  basicTimeStep 16
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
-<<<<<<< HEAD
   position 1.389741943837314 28.922774055415115 0.6853101762009368
   follow "TIAGoIron"
-=======
-  position 2.01890702695201 28.561529381535436 0.026112804711158254
-  follow "Pioneer3DX"
->>>>>>> master
 }
 TexturedBackground {
   texture "entrance_hall"
@@ -20,16 +14,9 @@ TexturedBackground {
 TexturedBackgroundLight {
   texture "entrance_hall"
 }
-<<<<<<< HEAD
 TiagoIron {
   rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
   name "TIAGoIron"
-=======
-Pioneer3dx {
-  translation 0 0.0949252 0
-  rotation 0 1 0 3.141592653589793
-  name "Pioneer3DX"
->>>>>>> master
   controller "<extern>"
   lidarSlot [
     GPS {
@@ -102,11 +89,7 @@ Pioneer3dx {
           model "Hokuyo URG-04LX-UG01"
           horizontalResolution 640
           fieldOfView 3.49066
-<<<<<<< HEAD
-          verticalFieldOfView 0.0062800449775112
-=======
           verticalFieldOfView 0.017453277777778
->>>>>>> master
           numberOfLayers 1
           minRange 0.1
           maxRange 10
