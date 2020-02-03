@@ -148,9 +148,9 @@ int TIAGoTask::on_execute()
   // set GPS values for port BaseStateServiceOut
   if (GPSFound) {
     const double* GPS_value = webotsGPS->getValues();
-    basePosition.set_x(GPS_value[0], 1.0); // in m
-    basePosition.set_y(GPS_value[1], 1.0); // in m
-    basePosition.set_z(GPS_value[2], 1.0); // in m
+    basePosition.set_x(GPS_value[2], 1.0); // in m
+    basePosition.set_y(GPS_value[0], 1.0); // in m
+    basePosition.set_z(GPS_value[1], 1.0); // in m
     baseState.set_base_position(basePosition);
   } else {
     basePosition.set_x(0.0, 1.0); // in m
@@ -161,9 +161,9 @@ int TIAGoTask::on_execute()
 
   // print data to debug
   //std::cout << " " << std::endl;
-  //std::cout << "GPS_x : " << GPS_value[0]<< std::endl;
-  //std::cout << "GPS_y : " << GPS_value[1]<< std::endl;
-  //std::cout << "GPS_z : " << GPS_value[2]<< std::endl;
+  //std::cout << "GPS_x : " << GPS_value[2]<< std::endl;
+  //std::cout << "GPS_y : " << GPS_value[0]<< std::endl;
+  //std::cout << "GPS_z : " << GPS_value[1]<< std::endl;
 
   // set IMU values for port BaseStateServiceOut
   // Webots use the NED convention, see https://cyberbotics.com/doc/reference/inertialunit
