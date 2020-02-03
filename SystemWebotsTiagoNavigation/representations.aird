@@ -49,8 +49,6 @@
     <semanticResources>platform:/resource/CommNavigationObjects/model/CommNavigationObjects.tasks</semanticResources>
     <semanticResources>platform:/resource/ComponentWebots/model/ComponentWebots.component</semanticResources>
     <semanticResources>platform:/resource/ComponentWebotsLidar/model/ComponentWebotsLidar.component</semanticResources>
-    <semanticResources>platform:/resource/ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DX.component</semanticResources>
-    <semanticResources>platform:/resource/ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DX.componentParameters</semanticResources>
     <semanticResources>platform:/resource/ComponentWebotsTIAGo/model/ComponentWebotsTIAGo.component</semanticResources>
     <semanticResources>platform:/resource/ComponentWebotsTIAGo/model/ComponentWebotsTIAGo.componentParameters</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_xz_YEEMxEeqtT4-Ux52tuA">
