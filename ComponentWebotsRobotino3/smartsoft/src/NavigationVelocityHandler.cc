@@ -36,9 +36,9 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 
   // get from the port and pass to ComponentPioneer3DXCore to be accessible
   COMP->Robotino3Mutex.acquire();
-  COMP->velX = input.get_vX(1.0); // in m/s
-  COMP->velY = input.get_vY(1.0); // in m/s
-  COMP->velW = input.get_omega(); // in rad/s
+  COMP->vX = input.get_vX(1.0); // in m/s
+  COMP->vY = input.get_vY(1.0); // in m/s
+  COMP->vW = input.get_omega(); // in rad/s
   COMP->Robotino3Mutex.release();
 
   // print output to debug

@@ -121,6 +121,12 @@ int Robotino3Task::on_execute()
 
   //std::cout << "Hello from Robotino3Task " << std::endl;
 
+  if (mWebotsShouldQuit)
+    return -1;
+
+  if (mThreadRunning || !COMP->webotsRobot)
+    return 0;
+
   double vX = 0.0;
   double vY = 0.0;
   double vW = 0.0;
@@ -130,19 +136,13 @@ int Robotino3Task::on_execute()
   CommBasicObjects::CommBaseState baseState;
   CommBasicObjects::CommBasePose basePosition;
 
-  if (mWebotsShouldQuit)
-    return -1;
-
-  if (mThreadRunning || !COMP->webotsRobot)
-    return 0;
-
   // acquisition
   COMP->Robotino3Mutex.acquire();
 
   // get values from port NavigationVelocityServiceIn
-  vX = COMP->velX; // in m/s
-  vY = COMP->velY; // in m/s
-  vW = COMP->velW; // in rad/s
+  vX = COMP->vX; // in m/s
+  vY = COMP->vY; // in m/s
+  vW = COMP->vW; // in rad/s
 
   // set velocities in rad/s for motors and check limits
   // because of the orientation of the robot, vX and vY are inverted
