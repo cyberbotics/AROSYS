@@ -8,14 +8,11 @@ Viewpoint {
 }
 TexturedBackground {
   texture "entrance_hall"
+  luminosity 0.3
   skybox FALSE
 }
 TexturedBackgroundLight {
-}
-RectangleArena {
-  floorSize 13 13
-  floorTileSize 1 1
-  wallHeight 2
+  texture "entrance_hall"
 }
 Robotino3 {
   translation 2.5 0.0949252 4.5
@@ -97,10 +94,12 @@ Robotino3 {
               name "Hokuyo URG-04LX-UG01"
               model "Hokuyo URG-04LX-UG01"
               horizontalResolution 640
-              fieldOfView 3.83972
+              fieldOfView 3.49066
               verticalFieldOfView 0.017453277777778
               numberOfLayers 1
+              minRange 0.1
               maxRange 10
+              noise 0.02
             }
           ]
           name "Lidar"
@@ -109,6 +108,11 @@ Robotino3 {
       ]
     }
   ]
+}
+RectangleArena {
+  floorSize 13 13
+  floorTileSize 1 1
+  wallHeight 2
 }
 WoodenBox {
   translation 1.43078 1 -3.5643

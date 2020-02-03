@@ -22,10 +22,10 @@
 class LocalizationUpdateHandler  : public LocalizationUpdateHandlerCore
 {
 public:
-	LocalizationUpdateHandler(Smart::InputSubject<CommBasicObjects::CommBasePositionUpdate> *subject, const int &prescaleFactor=1);
-	virtual ~LocalizationUpdateHandler();
+  LocalizationUpdateHandler(Smart::InputSubject<CommBasicObjects::CommBasePositionUpdate> *subject, const int &prescaleFactor=1);
+  virtual ~LocalizationUpdateHandler();
 
-	virtual void on_LocalizationUpdateServiceIn(const CommBasicObjects::CommBasePositionUpdate &input);
+  virtual void on_LocalizationUpdateServiceIn(const CommBasicObjects::CommBasePositionUpdate &input);
 };
 
 #endif

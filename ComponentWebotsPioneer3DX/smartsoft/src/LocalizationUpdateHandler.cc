@@ -19,7 +19,7 @@
 #include <iostream>
 
 LocalizationUpdateHandler::LocalizationUpdateHandler(Smart::InputSubject<CommBasicObjects::CommBasePositionUpdate> *subject, const int &prescaleFactor)
-:	LocalizationUpdateHandlerCore(subject, prescaleFactor)
+: LocalizationUpdateHandlerCore(subject, prescaleFactor)
 {
   std::cout << "constructor LocalizationUpdateHandler\n";
 }

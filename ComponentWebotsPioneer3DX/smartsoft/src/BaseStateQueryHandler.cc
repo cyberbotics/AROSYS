@@ -18,18 +18,17 @@
 #include "ComponentWebotsPioneer3DX.hh"
 
 BaseStateQueryHandler::BaseStateQueryHandler(IQueryServer *server)
-:	BaseStateQueryHandlerCore(server)
+: BaseStateQueryHandlerCore(server)
 {
-  
-}
 
+}
 
 void BaseStateQueryHandler::handleQuery(const Smart::QueryIdPtr &id, const CommBasicObjects::CommVoid& request)
 {
 
-	CommBasicObjects::CommBaseState answer;
+  CommBasicObjects::CommBaseState answer;
 
-	// implement your query handling logic here and fill in the answer object
+  // implement your query handling logic here and fill in the answer object
 
-	this->server->answer(id, answer);
+  this->server->answer(id, answer);
 }

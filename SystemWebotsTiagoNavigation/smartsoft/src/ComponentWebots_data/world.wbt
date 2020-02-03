@@ -4,10 +4,15 @@ WorldInfo {
 Viewpoint {
   orientation 1 0 0 4.71238898038469
   position 1.389741943837314 28.922774055415115 0.6853101762009368
+  follow "Pioneer3DX"
 }
 TexturedBackground {
   texture "entrance_hall"
+  luminosity 0.3
   skybox FALSE
+}
+TexturedBackgroundLight {
+  texture "entrance_hall"
 }
 Pioneer3dx {
   translation 0 0.0949252 0
@@ -29,12 +34,12 @@ Pioneer3dx {
               appearance PBRAppearance {
                 baseColorMap ImageTexture {
                   url [
-                    "/home/smartsoft/SOFTWARE/webots/projects/devices/sick/protos/textures/sick_lms291.png"
+                    "textures/sick_lms291.png"
                   ]
                 }
                 roughnessMap ImageTexture {
                   url [
-                    "/home/smartsoft/SOFTWARE/webots/projects/devices/sick/protos/textures/sick_lms291_roughness.jpg"
+                    "textures/sick_lms291_roughness.jpg"
                   ]
                 }
                 metalness 0
@@ -63,10 +68,12 @@ Pioneer3dx {
           name "Sick LMS 291"
           model "Sick LMS291"
           horizontalResolution 640
-          fieldOfView 3.83972
+          fieldOfView 3.49066
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
+          minRange 0.1
           maxRange 10
+          noise 0.02
         }
       ]
       name "Lidar"

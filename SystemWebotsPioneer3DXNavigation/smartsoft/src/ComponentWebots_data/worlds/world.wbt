@@ -2,23 +2,27 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 1 0 0 4.71238898038469
-  position 2.01890702695201 28.561529381535436 0.026112804711158254
+  orientation 0.6965141994602344 -0.5797495542595565 -0.42279832578442667 4.807794588314388
+  position 10.041696309134169 22.380630885427355 5.133315394859644
+  follow "Pioneer3DX"
 }
 TexturedBackground {
   texture "entrance_hall"
+  luminosity 0.3
   skybox FALSE
 }
+TexturedBackgroundLight {
+  texture "entrance_hall"
+}
 Pioneer3dx {
-  translation 0 0.0949252 0
-  rotation 0 1 0 3.141592653589793
+  translation 2.5 0.0949252 4.5
   name "Pioneer3DX"
   controller "<extern>"
   extensionSlot [
-    InertialUnit {
-    }
-    GPS {
-    }
+  	InertialUnit {
+  	}
+  	GPS {
+  	}
     Robot {
       translation 0 0.22 0
       children [
@@ -28,12 +32,12 @@ Pioneer3dx {
               appearance PBRAppearance {
                 baseColorMap ImageTexture {
                   url [
-                    "/home/smartsoft/SOFTWARE/webots/projects/devices/sick/protos/textures/sick_lms291.png"
+                    "textures/sick_lms291.png"
                   ]
                 }
                 roughnessMap ImageTexture {
                   url [
-                    "/home/smartsoft/SOFTWARE/webots/projects/devices/sick/protos/textures/sick_lms291_roughness.jpg"
+                    "textures/sick_lms291_roughness.jpg"
                   ]
                 }
                 metalness 0
@@ -62,10 +66,12 @@ Pioneer3dx {
           name "Sick LMS 291"
           model "Sick LMS291"
           horizontalResolution 640
-          fieldOfView 3.83972
+          fieldOfView 3.49066
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
+          minRange 0.1
           maxRange 10
+          noise 0.02
         }
       ]
       name "Lidar"
@@ -73,332 +79,62 @@ Pioneer3dx {
     }
   ]
 }
-WoodenBox {
-  translation 0.52 0.9 4
-  rotation 0 1 0 -0.1308996938995747
-  size 0.4 1.8 0.31
+RectangleArena {
+  floorSize 13 13
+  floorTileSize 1 1
+  wallHeight 2
 }
 WoodenBox {
-  translation -2.63 0.9 -2.84
-  rotation 0 1 0 0.1308996938995747
-  name "wooden box(1)"
-  size 0.4 1.8 0.31
+  translation 1.43078 1 -3.5643
+  rotation 0 1 0 0.523599
+  name "wooden box(6)"
+  size 0.6 2 0.6
+  mass 2
 }
 WoodenBox {
-  translation 4 0.9 -3
-  rotation 0 1 0 1.5707996938995747
-  name "wooden box(2)"
-  size 0.4 1.8 0.31
-}
-WoodenBox {
-  translation 5.8 0.9 -3.3
-  rotation 0 1 0 0.2617996938995747
-  name "wooden box(3)"
-  size 0.4 1.8 0.31
-}
-WoodenBox {
-  translation 7 0.9 4
-  rotation 0 1 0 1.5707996938995747
+  translation 5.43138 1 -5.13504
+  rotation 0 1 0 0.523599
   name "wooden box(4)"
-  size 0.4 1.8 0.31
+  size 0.6 2 0.6
+  mass 2
 }
-Floor {
-  tileSize 2 2
+WoodenBox {
+  translation 1.81397 1 -0.808265
+  rotation 0 1 0 -0.523595307179586
+  name "wooden box(8)"
+  size 0.6 2 0.6
+  mass 2
 }
-Floor {
-  translation 7.5 0 0
-  name "floor(1)"
-  size 5 10
-  tileSize 2 2
+WoodenBox {
+  translation 0.541234 1 3.33409
+  rotation 0 1 0 -0.261795307179586
+  name "wooden box(7)"
+  size 0.6 2 0.6
+  mass 2
 }
-Bench {
-  translation 1.78 0 -4.7
+WoodenBox {
+  translation -3.2904 0.8 3.79365
+  name "wooden box(2)"
+  size 0.6 2 0.6
+  mass 2
 }
-Window {
-  translation 3.5 0 -5.1
-  size 1 2.4 0.2
+WoodenBox {
+  translation 3.77484 1 1.9396
+  name "wooden box(3)"
+  size 0.6 2 0.6
+  mass 2
 }
-Window {
-  translation 6.5 0 5.1
-  name "window(1)"
-  size 1 2.4 0.2
+WoodenBox {
+  translation -1.58589 1 1.4136
+  rotation 0 1 0 0.261799
+  name "wooden box(9)"
+  size 0.6 2 0.6
+  mass 2
 }
-Wall {
-  translation 4.5 0 -5.1
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation -1 0 -5.1
-  name "wall(8)"
-  size 8 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation -5.1 0 0
-  rotation 0 1 0 1.5707996938995747
-  name "wall(3)"
-  size 10.4 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation 3.5 0 5.1
-  name "wall(4)"
-  size 3 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation -2 0 5.1
-  name "wall(9)"
-  size 6 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation 7.5 0 -5.1
-  name "wall(5)"
-  size 5 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation 5.5 0 5.1
-  name "wall(7)"
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation 8.5 0 5.1
-  name "wall(10)"
-  size 3 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation 10.1 0 0
-  rotation 0 1 0 1.5707996938995747
-  name "wall(6)"
-  size 10.4 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation 5 0 -2
-  rotation 0 1 0 1.5707996938995747
-  name "wall(2)"
-  size 6 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Wall {
-  translation 5 0 3.5
-  rotation 0 1 0 1.5707996938995745
-  name "wall(1)"
-  size 3 2.4 0.2
-  appearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-}
-Radiator {
-  translation 7.5 0.33 -4.87
-  rotation 0 1 0 -1.5707996938995747
-}
-Radiator {
-  translation 3.25 0.33 4.87
-  rotation 0 1 0 1.5707996938995747
-  name "radiator(1)"
-}
-Door {
-  translation 5 0 1.5
-  rotation 0 1 0 -1.5707953071795862
-  wallAppearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-  frameAppearance Roughcast {
-    textureTransform TextureTransform {
-      scale 1 2.4
-    }
-  }
-}
-Door {
-  translation 1.5 0 5.1
-  rotation 0 1 0 3.141592653589793
-  name "door(1)"
-  wallAppearance Roughcast {
-    textureTransform TextureTransform {
-      scale 7 2.4
-    }
-  }
-  frameAppearance Roughcast {
-    textureTransform TextureTransform {
-      scale 1 2.4
-    }
-  }
-}
-Cabinet {
-  translation 10 0 2.5
-  rotation 0 1 0 -1.5708003061004252
-}
-Table {
-  translation -3.7 0 2.5
-  name "table(1)"
-  size 1 0.74 1
-}
-Chair {
-  translation -4.5 0 2.5
-}
-Chair {
-  translation -3.7 0 1.7
-  rotation 0 1 0 -1.5708003061004252
-  name "chair(1)"
-}
-Can {
-  translation -3.73 0.802 2.75
-}
-WaterBottle {
-  translation -4 0.738 2.22
-}
-BiscuitBox {
-  translation -3.44 0.741 2.2
-  rotation 0 1 0 2.3562003061004253
-}
-CardboardBox {
-  translation 9.7 0.3 -4.7
-}
-CardboardBox {
-  translation 9 0.3 -4.6
-  rotation 0 1 0 -0.1308996938995747
-  name "cardboard box(1)"
-}
-CardboardBox {
-  translation 9.6 0.3 -4
-  rotation 0 1 0 0.1308996938995747
-  name "cardboard box(2)"
-}
-CardboardBox {
-  translation 9.4 0.9 -4.5
-  rotation 0 1 0 0.6544996938995746
-  name "cardboard box(3)"
-}
-Fridge {
-  translation 5.7 0 -4.64
-  rotation 0 -1 0 1.5708
-}
-FloorLight {
-  translation 4 0 4
-}
-FloorLight {
-  translation 9.5 0 -1
-  name "floor light(1)"
-}
-FloorLight {
-  translation -4.5 0 -4.5
-  name "floor light(2)"
-}
-FloorLight {
-  translation 4.5 0 -4.5
-  name "floor light(3)"
-  pointLightCastShadows TRUE
-}
-CeilingLight {
-  translation -3.7 2.4 2.5
-}
-Sofa {
-  translation 9.5 0 0.2
-  rotation 0 1 0 3.141592653589793
-}
-Armchair {
-  translation 8.3 0 -1.4
-  rotation 0 1 0 -1.5707996938995747
-}
-LandscapePainting {
-  translation 8.5 1.2 4.98
-  rotation 0 1 0 3.141592653589793
-}
-PottedTree {
-  translation 9.5 0 1.5
-}
-PottedTree {
-  translation -4.5 0 1
-  name "potted tree(1)"
-}
-PottedTree {
-  translation 4.4 0 -1.9
-  name "potted tree(2)"
-}
-PottedTree {
-  translation 5.6 0 4.5
-  name "potted tree(3)"
-}
-Blackboard {
-  translation -4.98 1.3 -1
-  rotation 0 1 0 1.5707996938995747
-}
-Table {
-  translation 8.3 0 0.13
-  rotation 0 1 0 1.5707996938995747
-  size 1.3 0.5 0.8
-}
-Television {
-  translation 5.15 1.3 0.2
-  rotation 0 1 0 1.5708
-}
-AdvertisingBoard {
-  translation -1.97 1.21 -4.96
-  displayWidth 2
-  displayHeight 2
-  frameThickness 0.1
-  frameColor 0 0 0
-}
-RectangularPanel {
-  translation 4.88 1.5 2.45
-  rotation 0 1 0 1.5707903061004251
-}
-DirectionPanel {
-  translation 8 1.5 -5
-  rotation 0 1 0 -6.283185307179586
-  textSize 0.175
-  text "Fresh beer :)"
-  right FALSE
-  left TRUE
-}
-BunchOfSunFlowers {
-  translation 8.3 0.5 0.15
+WoodenBox {
+  translation -2.24033 1 -2.81935
+  rotation 0 1 0 0.261799
+  name "wooden box(1)"
+  size 0.6 2 0.6
+  mass 2
 }

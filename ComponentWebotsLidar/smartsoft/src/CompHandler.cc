@@ -22,7 +22,6 @@
 // include communication objects
 #include <CommBasicObjects/CommMobileLaserScan.hh>
 
-
 void CompHandler::onStartup()
 {
   std::cout << "startup - put your startupCode in CompHandler::onStartup()!!!\n";

@@ -15,7 +15,7 @@ post-start)
   echo "Triggering post-start hooks FROM COMPONENT ComponentWebots ..."
   ### Launch Webots with the defined world and startup options
   echo " Starting Webots..."
-  xterm -title "Webots Simulator" -hold -e bash $WEBOTS_HOME/webots --batch --mode=realtime $PWD/ComponentWebots_data/world.wbt &
+  xterm -title "Webots Simulator" -hold -e bash $WEBOTS_HOME/webots --batch --mode=realtime $PWD/ComponentWebots_data/worlds/world.wbt &
   # Insert commands you want to call after all components were started
 ;;
 

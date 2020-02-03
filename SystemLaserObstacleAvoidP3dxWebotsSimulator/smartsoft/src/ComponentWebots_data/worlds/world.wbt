@@ -7,19 +7,12 @@ Viewpoint {
   follow "Pioneer3DX"
 }
 TexturedBackground {
+  texture "entrance_hall"
+  luminosity 0.3
   skybox FALSE
 }
 TexturedBackgroundLight {
-}
-Floor {
-  translation -1 0 -0.04
-  size 47 19.1
-  tileSize 2 2
-  appearance ChequeredParquetry {
-    textureTransform TextureTransform {
-      translation -0.03 0.25
-    }
-  }
+  texture "entrance_hall"
 }
 Pioneer3dx {
   rotation 0 1 0 -1.5708003061004252
@@ -39,12 +32,12 @@ Pioneer3dx {
               appearance PBRAppearance {
                 baseColorMap ImageTexture {
                   url [
-                    "/home/smartsoft/SOFTWARE/webots/projects/devices/sick/protos/textures/sick_lms291.png"
+                    "textures/sick_lms291.png"
                   ]
                 }
                 roughnessMap ImageTexture {
                   url [
-                    "/home/smartsoft/SOFTWARE/webots/projects/devices/sick/protos/textures/sick_lms291_roughness.jpg"
+                    "textures/sick_lms291_roughness.jpg"
                   ]
                 }
                 metalness 0
@@ -73,9 +66,10 @@ Pioneer3dx {
           name "Sick LMS 291"
           model "Sick LMS291"
           horizontalResolution 640
-          fieldOfView 3.83972
+          fieldOfView 3.49066
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
+          minRange 0.1
           maxRange 10
           noise 0.02
         }
@@ -84,6 +78,16 @@ Pioneer3dx {
       controller "<extern>"
     }
   ]
+}
+Floor {
+  translation -1 0 -0.04
+  size 47 19.1
+  tileSize 2 2
+  appearance ChequeredParquetry {
+    textureTransform TextureTransform {
+      translation -0.03 0.25
+    }
+  }
 }
 DEF WALLS Solid {
   translation -1.54 0 -0.05

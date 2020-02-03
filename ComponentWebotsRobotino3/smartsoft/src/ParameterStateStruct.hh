@@ -23,27 +23,26 @@
 class ParameterStateStruct: public ParameterStateStructCore
 {
 public:
-	ParameterStateStruct() {  }
-	virtual ~ParameterStateStruct() {  }
+  ParameterStateStruct() {  }
+  virtual ~ParameterStateStruct() {  }
 
-	// implement this method to check whether the incoming parameters
-	// provided by the commit state are consistent, in case the ParameterResponseType
-	// is not OK, the commit parameter is NOT copied into the global state.
-	// HINT: avoid using blocking calls from within this handler, use Triggers for that instead.
-	virtual SmartACE::ParamResponseType handleCOMMIT(const ParameterStateStruct &commitState);
+  // implement this method to check whether the incoming parameters
+  // provided by the commit state are consistent, in case the ParameterResponseType
+  // is not OK, the commit parameter is NOT copied into the global state.
+  // HINT: avoid using blocking calls from within this handler, use Triggers for that instead.
+  virtual SmartACE::ParamResponseType handleCOMMIT(const ParameterStateStruct &commitState);
 
-	// define your own getter methods here
-	// (to provide conversion functions and/or more convenient getter methods)
-	// these own getter methods will be accessible through "COMP->getParameters().yourOwnMethod()"
-	// inside of your methods use the getter methods from the parent class ParameterStateStructCore
-	// (they provide parameter values from the global state only, which are available after the last commit)
+  // define your own getter methods here
+  // (to provide conversion functions and/or more convenient getter methods)
+  // these own getter methods will be accessible through "COMP->getParameters().yourOwnMethod()"
+  // inside of your methods use the getter methods from the parent class ParameterStateStructCore
+  // (they provide parameter values from the global state only, which are available after the last commit)
 };
-
 
 inline std::ostream &operator<<(std::ostream &os, const ParameterStateStruct &pss)
 {
-	pss.to_ostream(os);
-	return os;
+  pss.to_ostream(os);
+  return os;
 }
 
 #endif

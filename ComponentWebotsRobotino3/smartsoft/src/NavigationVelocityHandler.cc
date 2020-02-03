@@ -20,34 +20,31 @@
 #include <iostream>
 
 NavigationVelocityHandler::NavigationVelocityHandler(Smart::InputSubject<CommBasicObjects::CommNavigationVelocity> *subject, const int &prescaleFactor)
-:	NavigationVelocityHandlerCore(subject, prescaleFactor)
+: NavigationVelocityHandlerCore(subject, prescaleFactor)
 {
-	std::cout << "constructor NavigationVelocityHandler\n";
+  std::cout << "constructor NavigationVelocityHandler\n";
 }
 NavigationVelocityHandler::~NavigationVelocityHandler()
 {
-	std::cout << "destructor NavigationVelocityHandler\n";
+  std::cout << "destructor NavigationVelocityHandler\n";
 }
-
 
 void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicObjects::CommNavigationVelocity &input)
 {
-	// implement business logic here
-	// (do not use blocking calls here, otherwise this might block the InputPort NavigationVelocityServiceIn)
+  // implement business logic here
+  // (do not use blocking calls here, otherwise this might block the InputPort NavigationVelocityServiceIn)
 
-	// print output to debug
-	//std::cout << " " << std::endl;
-	//std::cout << "Velocity - input = " << input   << std::endl;
-	//std::cout << " => vX = " << input.get_vX(1.0) << std::endl;
-	//std::cout << " => vY = " << input.get_vY(1.0) << std::endl;
-	//std::cout << " => vW = " << input.getOmega()  << std::endl;
+  // get from the port and pass to ComponentPioneer3DXCore to be accessible
+  COMP->Robotino3Mutex.acquire();
+  COMP->vX = input.get_vX(1.0); // in m/s
+  COMP->vY = input.get_vY(1.0); // in m/s
+  COMP->vW = input.get_omega(); // in rad/s
+  COMP->Robotino3Mutex.release();
 
-	// get from the port and pass to ComponentPioneer3DXCore to be accessible
-	COMP->Robotino3Mutex.acquire();
-
-	COMP->velX = input.get_vX(1.0); // in m/s
-	COMP->velY = input.get_vY(1.0); // in m/s
-	COMP->velW = input.get_omega(); // in rad/s
-
-	COMP->Robotino3Mutex.release();
+  // print output to debug
+  //std::cout << " " << std::endl;
+  //std::cout << "Velocity - input = " << input   << std::endl;
+  //std::cout << " => vX = " << input.get_vX(1.0) << std::endl;
+  //std::cout << " => vY = " << input.get_vY(1.0) << std::endl;
+  //std::cout << " => vW = " << input.getOmega()  << std::endl;
 }
