@@ -1,6 +1,5 @@
 #VRML_SIM R2020a utf8
 WorldInfo {
-  basicTimeStep
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
@@ -20,6 +19,10 @@ TiagoIron {
   name "TIAGoIron"
   controller "<extern>"
   lidarSlot [
+    InertialUnit {
+      rotation 0 1 0 3.141592653589793
+      name "inertial unit 2"
+    }
     GPS {
     }
     Robot {
