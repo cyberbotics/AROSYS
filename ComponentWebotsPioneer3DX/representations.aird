@@ -172,7 +172,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X2LSgkZjEeq6YaP2q8grpg" x="-22" y="84" width="30" height="30"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_MHUlATYYEeq1Q9u9eVoneg" fontName="Ubuntu" fontHeight="10" bold="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MHUlAjYYEeq1Q9u9eVoneg" x="156" y="60" width="531" height="207"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MHUlAjYYEeq1Q9u9eVoneg" x="48" y="36" width="531" height="207"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_MHSv0jYYEeq1Q9u9eVoneg"/>
         <edges xmi:type="notation:Edge" xmi:id="_3BvtoDkxEeqPZZEpgTjjYg" type="4001" element="_3BlVkDkxEeqPZZEpgTjjYg" source="_3BpnADkxEeqPZZEpgTjjYg" target="_3BufgDkxEeqPZZEpgTjjYg">

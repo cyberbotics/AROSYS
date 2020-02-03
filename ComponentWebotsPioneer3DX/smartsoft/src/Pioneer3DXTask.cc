@@ -22,7 +22,7 @@
 Pioneer3DXTask::Pioneer3DXTask(SmartACE::SmartComponent *comp)
 : Pioneer3DXTaskCore(comp),
   mThread(),
-  ThreadRunning(false),
+  mThreadRunning(false),
   mWebotsShouldQuit(false)
 {
   std::cout << "constructor Pioneer3DXTask\n";
