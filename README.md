@@ -22,7 +22,7 @@ This component configures lidar's sensors in SmartSoft according to Webots proto
 #### ComponentWebotsPioneer3DX
 This component configures in SmartSoft the Pioneer 3-DX robot from Adept according to Webots prototype robot.
 
-![ComponentWebotsPioneer3DX](ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DXDefinition.jpg)
+![ComponentWebotsPioneer3DX](ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DXComponentDefinition.jpg)
 
 | Inputs  | outputs |
 | ------- | ------- |
