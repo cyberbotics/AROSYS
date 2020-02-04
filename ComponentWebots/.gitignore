@@ -5,7 +5,7 @@
 
 # untracked files
 ComponentWebotsCore.*
-CMakeList.txt
+CMakeLists.txt
 
 # tracked files
 !startstop-hooks*
