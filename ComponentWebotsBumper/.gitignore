@@ -1,0 +1,9 @@
+##################
+# Specific rules #
+##################
+
+
+# untracked files
+BumperEventServiceOutEventTestHandler.*
+
+
