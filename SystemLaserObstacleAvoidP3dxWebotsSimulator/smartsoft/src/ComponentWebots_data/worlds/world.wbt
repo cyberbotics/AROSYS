@@ -4,7 +4,7 @@ WorldInfo {
 Viewpoint {
   orientation 1 0 0 4.71238898038469
   position 0.4464476433056783 20.68930224930899 -0.01152831973832761
-  follow "Pioneer3DX"
+  follow "Pioneer 3-DX"
 }
 TexturedBackground {
   texture "entrance_hall"

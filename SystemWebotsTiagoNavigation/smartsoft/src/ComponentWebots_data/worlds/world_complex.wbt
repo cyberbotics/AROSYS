@@ -4,7 +4,7 @@ WorldInfo {
 Viewpoint {
   orientation 1 0 0 4.71238898038469
   position 2.01890702695201 28.561529381535436 0.026112804711158254
-  follow "Pioneer3DX"
+  follow "TIAGo Iron"
 }
 TexturedBackground {
   texture "entrance_hall"
