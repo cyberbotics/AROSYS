@@ -35,12 +35,12 @@ Pioneer3dx {
               appearance PBRAppearance {
                 baseColorMap ImageTexture {
                   url [
-                    "/home/smartsoft/SOFTWARE/webots/projects/devices/sick/protos/textures/sick_lms291.png"
+                    "textures/sick_lms291.png"
                   ]
                 }
                 roughnessMap ImageTexture {
                   url [
-                    "/home/smartsoft/SOFTWARE/webots/projects/devices/sick/protos/textures/sick_lms291_roughness.jpg"
+                    "textures/sick_lms291_roughness.jpg"
                   ]
                 }
                 metalness 0
