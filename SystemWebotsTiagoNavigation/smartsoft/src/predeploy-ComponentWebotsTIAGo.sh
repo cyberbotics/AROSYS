@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This script is run prior to deployment of component ComponentWebotsPioneer3DX
+# This script is run prior to deployment of component ComponentWebotsTIAGo
 # The working directory of this script is the deployment project folder.
 #
 
@@ -22,7 +22,7 @@
 #--------------------------------------------------------------------------
 
 # uncomment to enable predeploy script delivered by component
-source $REFERENCED_PROJECT_ComponentWebotsPioneer3DX/smartsoft/src/predeploy.sh
+source $REFERENCED_PROJECT_ComponentWebotsTIAGo/smartsoft/src/predeploy.sh
 
 # Add SmartSoft libraries that shall be deployed to the target device where this
 # component is to be deployed.

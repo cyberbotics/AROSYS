@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Start-Stop-Hooks for component ComponentWebotsPioneer3DX
+# Start-Stop-Hooks for component ComponentWebotsTIAGo
 #
 # This script provides methods to call custom commands pre/post of
 # starting/stoping the component during launch on the device.
@@ -29,7 +29,7 @@ case "$1" in
 
 pre-start)
 	# first, trigger hooks as delivered from component ...
-	bash startstop-hooks-component-ComponentWebotsPioneer3DX.sh pre-start
+	bash startstop-hooks-component-ComponentWebotsTIAGo.sh pre-start
 	
 	# ...then call user/deployment specific hook:
 	echo "Triggering pre-start hooks ..."
@@ -37,7 +37,7 @@ pre-start)
 
 post-start)
 	# first, trigger hooks as delivered from component ...
-	bash startstop-hooks-component-ComponentWebotsPioneer3DX.sh post-start
+	bash startstop-hooks-component-ComponentWebotsTIAGo.sh post-start
 	
 	# ...then call user/deployment specific hook:
 	echo "Triggering post-start hooks ..."
@@ -45,7 +45,7 @@ post-start)
 
 pre-stop)
 	# first, trigger hooks as delivered from component ...
-	bash startstop-hooks-component-ComponentWebotsPioneer3DX.sh pre-stop
+	bash startstop-hooks-component-ComponentWebotsTIAGo.sh pre-stop
 	
 	# ...then call user/deployment specific hook:
 	echo "Triggering pre-stop hooks ..."
@@ -53,7 +53,7 @@ pre-stop)
 
 post-stop)
 	# first, trigger hooks as delivered from component ...
-	bash startstop-hooks-component-ComponentWebotsPioneer3DX.sh post-stop
+	bash startstop-hooks-component-ComponentWebotsTIAGo.sh post-stop
 	
 	# ...then call user/deployment specific hook:
 	echo "Triggering post-stop hooks ..."
