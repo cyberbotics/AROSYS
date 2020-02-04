@@ -6,5 +6,4 @@
 # untracked files
 BumperEventServiceOutEventTestHandler.*
 
-# tracked files
-!predeploy*
+

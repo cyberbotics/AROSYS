@@ -13,7 +13,8 @@ src-gen/
 
 # untracked files
 CompHandler.*
+BaseStateQueryHandler.*
 SmartStateChangeHandler.*
-predeploy*
+System*/smartsoft/src/predeploy*
 startstop-hooks*
 

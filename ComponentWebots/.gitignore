@@ -7,6 +7,5 @@
 ComponentWebotsCore.*
 
 # tracked files
-!predeploy*
 !startstop-hooks*
 
