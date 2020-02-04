@@ -4,9 +4,9 @@
 
 
 # untracked files
-/ComponentWebotsCore.*
+ComponentWebotsCore.*
 
 # tracked files
-!/predeploy*
-!/startstop-hooks*
+!predeploy*
+!startstop-hooks*
 

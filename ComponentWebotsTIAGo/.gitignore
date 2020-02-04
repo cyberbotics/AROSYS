@@ -4,13 +4,13 @@
 
 
 # untracked files
-/BaseStateQueryHandler.cc
-/BatteryEventServiceOutEventTestHandler.*
-/BatteryEventTask.*
-/LocalizationUpdateHandler.*
-/NavigationVelocityHandler.hh
-/ParameterStateStruct.*
+BaseStateQueryHandler.cc
+BatteryEventServiceOutEventTestHandler.*
+BatteryEventTask.*
+LocalizationUpdateHandler.*
+NavigationVelocityHandler.hh
+ParameterStateStruct.*
 
 # tracked files
-!/predeploy*
+!predeploy*
 

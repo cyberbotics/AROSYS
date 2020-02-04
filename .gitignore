@@ -12,8 +12,8 @@ datasheet-gen/
 src-gen/
 
 # untracked files
-/CompHandler.*
-/SmartStateChangeHandler.*
-/predeploy*
-/startstop-hooks*
+CompHandler.*
+SmartStateChangeHandler.*
+predeploy*
+startstop-hooks*
 
