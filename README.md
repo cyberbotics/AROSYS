@@ -21,12 +21,13 @@ This component configures lidar's sensors in SmartSoft according to Webots proto
 
 #### ComponentWebotsPioneer3DX
 This component configures in SmartSoft the Pioneer 3-DX robot from Adept according to Webots prototype robot.
-* `inputs:`
-  - `LocalizationUpdateServiceIn` : not implemented yet
-  - `NavigationVelocityServiceIn` : velocity commands (linear velocity and turnrate)
-* `outputs:`
-  - `BatteryEventServiceOut` : not implemented yet
-  - `BaseStateServiceOut` : the state of the robot base (position and orientation)
+
+![ComponentWebotsPioneer3DX](ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DXDefinition.jpg)
+
+| Inputs  | outputs |
+| ------- | ------- |
+| **LocalizationUpdateServiceIn**: not implemented yet | **BatteryEventServiceOut**: not implemented yet |
+| **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**:the state of the robot base (position and orientation) |
 
 #### ComponentWebotsRobotino3
 This component configures in SmartSoft the Robotino 3 robot from Festo according to Webots prototype robot.
