@@ -15,6 +15,8 @@ src-gen/
 CompHandler.*
 BaseStateQueryHandler.*
 SmartStateChangeHandler.*
-System*/smartsoft/src/predeploy*
 startstop-hooks*
+System*/smartsoft/src/predeploy*
+System*/smartsoft/CMakeList.txt
+
 
