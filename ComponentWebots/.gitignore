@@ -1,0 +1,12 @@
+##################
+# Specific rules #
+##################
+
+
+# untracked files
+/ComponentWebotsCore.*
+
+# tracked files
+!/predeploy*
+!/startstop-hooks*
+

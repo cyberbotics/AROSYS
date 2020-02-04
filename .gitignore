@@ -4,9 +4,16 @@
 
 
 # untracked directories
-.settings
-bin
-build
-opcua-backend
-datasheet-gen
-src-gen
+.settings/
+bin/
+build/
+opcua-backend/
+datasheet-gen/
+src-gen/
+
+# untracked files
+/CompHandler.*
+/SmartStateChangeHandler.*
+/predeploy*
+/startstop-hooks*
+

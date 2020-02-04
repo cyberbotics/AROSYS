@@ -1,0 +1,10 @@
+##################
+# Specific rules #
+##################
+
+
+# untracked files
+/BumperEventServiceOutEventTestHandler.*
+
+# tracked files
+!/predeploy*
