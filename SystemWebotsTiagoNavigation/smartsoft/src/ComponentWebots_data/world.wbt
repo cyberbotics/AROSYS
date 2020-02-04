@@ -17,7 +17,7 @@ TexturedBackgroundLight {
 Pioneer3dx {
   translation 0 0.0949252 0
   rotation 0 1 0 3.141592653589793
-  name "Pioneer3DX"
+  name "Pioneer 3-DX"
   controller "<extern>"
   extensionSlot [
     InertialUnit {

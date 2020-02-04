@@ -26,7 +26,6 @@ ComponentWebotsTIAGoCore::ComponentWebotsTIAGoCore()
   // assign this controller to the correct robot in Webots
   char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
   if (!robotName) {
-    std::cout  << "WEBOTS_ROBOT_NAME not defined" << std::endl;
     FILE *f = fopen("robotName.txt", "rb");
     if (!f) {
       std::cout  << "'robotName.txt' file not found." << std::endl;
