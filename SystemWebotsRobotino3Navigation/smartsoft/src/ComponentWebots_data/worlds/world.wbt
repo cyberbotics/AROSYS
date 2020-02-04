@@ -4,7 +4,7 @@ WorldInfo {
 Viewpoint {
   orientation 0.6965141994602344 -0.5797495542595565 -0.42279832578442667 4.807794588314388
   position 10.0417 22.3806 5.13332
-  follow "Robotino3"
+  follow "Robotino 3"
 }
 TexturedBackground {
   texture "entrance_hall"
@@ -17,7 +17,7 @@ TexturedBackgroundLight {
 Robotino3 {
   translation 2.5 0.0949252 4.5
   rotation 0 0.707108281185553 0.70710528118436 3.14159
-  name "Robotino3"
+  name "Robotino 3"
   controller "<extern>"
   middleSlot [
     Robotino3HokuyoMountingSupport {

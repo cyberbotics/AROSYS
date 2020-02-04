@@ -4,7 +4,7 @@ WorldInfo {
 Viewpoint {
   orientation 0.6965141994602344 -0.5797495542595565 -0.42279832578442667 4.807794588314388
   position 10.041696309134169 22.380630885427355 5.133315394859644
-  follow "Pioneer3DX"
+  follow "Pioneer 3-DX"
 }
 TexturedBackground {
   texture "entrance_hall"
@@ -16,7 +16,7 @@ TexturedBackgroundLight {
 }
 Pioneer3dx {
   translation 2.5 0.0949252 4.5
-  name "Pioneer3DX"
+  name "Pioneer 3-DX"
   controller "<extern>"
   extensionSlot [
   	InertialUnit {

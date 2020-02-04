@@ -4,7 +4,7 @@ WorldInfo {
 Viewpoint {
   orientation 1 0 0 4.71238898038469
   position 2.01890702695201 28.561529381535436 0.026112804711158254
-  follow "Pioneer3DX"
+  follow "TIAGo Iron"
 }
 TexturedBackground {
   texture "entrance_hall"
@@ -14,12 +14,11 @@ TexturedBackground {
 TexturedBackgroundLight {
   texture "entrance_hall"
 }
-Pioneer3dx {
-  translation 0 0.0949252 0
-  rotation 0 1 0 3.141592653589793
-  name "Pioneer3DX"
+TiagoIron {
+  rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
+  name "TIAGo Iron"
   controller "<extern>"
-  extensionSlot [
+  lidarSlot [
     InertialUnit {
       rotation 0 -0.7071057811860166 0.7071077811853976 3.14159
       name "inertial unit 2"
@@ -27,7 +26,7 @@ Pioneer3dx {
     GPS {
     }
     Robot {
-      translation 0 0.22 0
+      translation 0 0 -0.01
       children [
         Lidar {
           children [
