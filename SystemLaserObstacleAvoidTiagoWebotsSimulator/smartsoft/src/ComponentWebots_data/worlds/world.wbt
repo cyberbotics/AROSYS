@@ -266,8 +266,8 @@ Radiator {
   name "radiator(1)"
 }
 Door {
-  hidden translation_6 -0.29277307620383697 0 0.613270275588438
-  hidden rotation_6 0 -1 0 1.5
+  hidden translation_5 -0.29277307620383697 0 0.613270275588438
+  hidden rotation_5 0 -1 0 1.5
   translation 5 0 1.5
   rotation 0 1 0 -1.5707953071795862
   position -1.5
