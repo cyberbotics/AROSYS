@@ -50,7 +50,7 @@ This component configures in SmartSoft the [Robotino 3](https://cyberbotics.com/
 | Inputs  | outputs |
 | ------- | ------- |
 | **LocalizationUpdateServiceIn**: not implemented yet | **BatteryEventServiceOut**: not implemented yet |
-| **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**: the state of the robot base (position and orientation) |
+| **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**: state of the robot base (position and orientation) |
 
 ### ComponentWebotsTIAGo
 This component configures in SmartSoft all versions of TIAGo's  robot from Pal Robotics according to Webots prototype robot.
