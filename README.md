@@ -52,7 +52,7 @@ This component configures in SmartSoft the Robotino 3 robot from Festo according
 | **LocalizationUpdateServiceIn**: not implemented yet | **BatteryEventServiceOut**: not implemented yet |
 | **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**: the state of the robot base (position and orientation) |
 
-### ComponentWebotsTiago
+### ComponentWebotsTIAGo
 This component configures in SmartSoft all versions of TIAGo's  robot from Pal Robotics according to Webots prototype robot.
 
 ![ComponentWebotsTIAGo](ComponentWebotsTIAGo/model/ComponentWebotsTIAGoComponentDefinition.jpg)
