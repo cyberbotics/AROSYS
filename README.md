@@ -31,21 +31,24 @@ This component configures in SmartSoft the Pioneer 3-DX robot from Adept accordi
 
 ### ComponentWebotsRobotino3
 This component configures in SmartSoft the Robotino 3 robot from Festo according to Webots prototype robot.
-* `inputs:`
-  - `LocalizationUpdateServiceIn` : not implemented yet
-  - `NavigationVelocityServiceIn` : velocity commands (linear velocity and turnrate)
-* `outputs:`
-  - `BatteryEventServiceOut` : not implemented yet
-  - `BaseStateServiceOut` : the state of the robot base (position and orientation)
+
+![ComponentWebotsRobotino3](ComponentWebotsRobotino3/model/ComponentWebotsRobotino3ComponentDefinition.jpg)
+
+| Inputs  | outputs |
+| ------- | ------- |
+| **LocalizationUpdateServiceIn**: not implemented yet | **BatteryEventServiceOut**: not implemented yet |
+| **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**:the state of the robot base (position and orientation) |
 
 ### ComponentWebotsTiago
 This component configures in SmartSoft all versions of TIAGo's  robot from Pal Robotics according to Webots prototype robot.
-* `inputs:`
-  - `LocalizationUpdateServiceIn` : not implemented yet
-  - `NavigationVelocityServiceIn` : velocity commands (linear velocity and turnrate)
-* `outputs:`
-  - `BatteryEventServiceOut` : not implemented yet
-  - `BaseStateServiceOut` : the state of the robot base (position and orientation)
+
+![ComponentWebotsTIAGo](ComponentWebotsTIAGo/model/ComponentWebotsTIAGoComponentDefinition.jpg)
+
+| Inputs  | outputs |
+| ------- | ------- |
+| **LocalizationUpdateServiceIn**: not implemented yet | **BatteryEventServiceOut**: not implemented yet |
+| **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**:the state of the robot base (position and orientation) |
+
 
 
 ## System
