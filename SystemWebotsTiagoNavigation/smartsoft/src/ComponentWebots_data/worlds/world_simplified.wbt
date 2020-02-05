@@ -12,7 +12,6 @@ TexturedBackground {
 }
 TiagoIron {
   rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
-  name "TIAGo Iron"
   controller "<extern>"
   lidarSlot [
     GPS {
