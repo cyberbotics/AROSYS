@@ -1,7 +1,7 @@
 # RobMoSys
 
 ## Components
-The following components are new components for RobMoSys in order to be able to use them with the [Webots' simulator](https://cyberbotics.com).
+The following components are new components for RobMoSys in order to be able to use them with the [Webots simulator](https://cyberbotics.com).
 
 ### ComponentWebots
 This component allows the user to use Webots simulator instead of Gazebo, PlayerStage, etc. There exists a pre-requirement to use Webots. You have to execute this command once in a Terminal and restart the computer/Virtual Machine. Don't forget to adapt the path if necessary.
