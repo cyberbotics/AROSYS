@@ -40,7 +40,7 @@ This component configures in SmartSoft the [Pioneer 3-DX](https://cyberbotics.co
 | Inputs  | outputs |
 | ------- | ------- |
 | **LocalizationUpdateServiceIn**: not implemented yet | **BatteryEventServiceOut**: not implemented yet |
-| **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**: the state of the robot base (position and orientation) |
+| **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**: state of the robot base (position and orientation) |
 
 ### ComponentWebotsRobotino3
 This component configures in SmartSoft the [Robotino 3](https://cyberbotics.com/doc/guide/robotino3) robot from Festo according to Webots prototype robot.
