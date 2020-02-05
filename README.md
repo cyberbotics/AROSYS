@@ -63,9 +63,9 @@ This component configures in SmartSoft all versions of TIAGo's  robot from Pal R
 | **LocalizationUpdateServiceIn**: not implemented yet | **BatteryEventServiceOut**: not implemented yet |
 | **NavigationVelocityServiceIn**: velocity commands (linear velocities and turnrate) | **BaseStateServiceOut**: the state of the robot base (position and orientation) |
 
+---
 
-
-## System
+## Systems
 The following systems are examples to be able to test new components.
 
 ### SystemLaserObstacleAvoidTiagoWebotsSimulator
