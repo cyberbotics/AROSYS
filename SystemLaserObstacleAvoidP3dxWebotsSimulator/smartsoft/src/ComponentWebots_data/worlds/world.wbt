@@ -8,7 +8,6 @@ Viewpoint {
 }
 TexturedBackground {
   texture "entrance_hall"
-  luminosity 0.3
   skybox FALSE
 }
 TexturedBackgroundLight {
@@ -16,7 +15,6 @@ TexturedBackgroundLight {
 }
 Pioneer3dx {
   rotation 0 1 0 -1.5708003061004252
-  name "Pioneer 3-DX"
   controller "<extern>"
   extensionSlot [
     InertialUnit {
@@ -66,7 +64,7 @@ Pioneer3dx {
           name "Sick LMS 291"
           model "Sick LMS291"
           horizontalResolution 640
-          fieldOfView 3.49066
+          fieldOfView 3.14159
           verticalFieldOfView 0.017453277777778
           numberOfLayers 1
           minRange 0.1
