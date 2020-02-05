@@ -11,7 +11,7 @@ This component allows the user to use Webots simulator instead of Gazebo, Player
 
 ### ComponentWebotsBumper
 
-This component configures lidar's sensors in SmartSoft according to Webots prototype sensors and provides the sensor's data.
+This component configures bumper's sensors in SmartSoft according to Webots prototype sensors and provides the bumper value.
 
 ![ComponentWebotsBumper](ComponentWebotsBumper/model/ComponentWebotsBumperComponentDefinition.jpg)
 
