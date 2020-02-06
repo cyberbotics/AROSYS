@@ -19,31 +19,30 @@
 
 #include "TIAGoTaskCore.hh"
 
+#include <webots/Device.hpp>
 #include <webots/GPS.hpp>
+#include <webots/InertialUnit.hpp>
+#include <webots/Motor.hpp>
 #include <webots/Node.hpp>
 #include <webots/Robot.hpp>
-#include <webots/Motor.hpp>
-#include <webots/Robot.hpp>
-#include <webots/Device.hpp>
-#include <webots/InertialUnit.hpp>
 
 #include "CommBasicObjects/CommBaseState.hh"
 
 #include <thread>
 
-#define S_TO_MS 1000.0 // Conversion factor
+#define S_TO_MS 1000.0  // Conversion factor
 
 // TIAGo specification
-#define WHEEL_GAP    0.404  // in meter
-#define WHEEL_RADIUS 0.1955 // in meter
+#define WHEEL_GAP 0.404      // in meter
+#define WHEEL_RADIUS 0.1955  // in meter
 
-class TIAGoTask  : public TIAGoTaskCore
+class TIAGoTask : public TIAGoTaskCore
 {
 private:
   int webotsTimeStep;
   bool GPSFound;
   bool IMUFound;
-  double motorMaxSpeed; // in rad/s
+  double motorMaxSpeed;  // in rad/s
   webots::GPS *webotsGPS;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;

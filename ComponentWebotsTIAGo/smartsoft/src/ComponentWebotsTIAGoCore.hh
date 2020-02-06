@@ -18,6 +18,7 @@
 #define _COMPONENTWEBOTSTIAGOCORE_HH
 
 #include "aceSmartSoft.hh"
+
 #include <iostream>
 
 #include <webots/Robot.hpp>

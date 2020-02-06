@@ -14,7 +14,9 @@
 // If you want the toolchain to re-generate this file, please
 // delete it before running the code generator.
 //--------------------------------------------------------------------------
+
 #include "BumperTask.hh"
+
 #include "ComponentWebotsBumper.hh"
 
 #include "CommBasicObjects/CommBumperState.hh"
@@ -24,8 +26,8 @@
 #include <webots/Device.hpp>
 #include <webots/Node.hpp>
 
-BumperTask::BumperTask(SmartACE::SmartComponent *comp)
-: BumperTaskCore(comp),
+BumperTask::BumperTask(SmartACE::SmartComponent *comp) :
+  BumperTaskCore(comp),
   mThread(),
   mThreadRunning(false),
   mWebotsShouldQuit(false)
@@ -39,8 +41,8 @@ BumperTask::~BumperTask()
 
 int BumperTask::on_entry()
 {
-// do initialization procedures here, which are called once, each time the task is started
-// it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
+  // do initialization procedures here, which are called once, each time the task is started
+  // it is possible to return != 0 (e.g. when initialization fails) then the task is not executed further
 
   if (!COMP->webotsRobot)
     return -1;
@@ -50,18 +52,21 @@ int BumperTask::on_entry()
 
   // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
-  int coeff = S_TO_MS/(webotsTimeStep*COMP->connections.bumperTask.periodicActFreq);
+  int coeff = S_TO_MS / (webotsTimeStep * COMP->connections.bumperTask.periodicActFreq);
   webotsTimeStep *= coeff;
 
   // connect to the sensor from Webots
   webotsTouchSensor = NULL;
-  for (int i = 0; i < COMP->webotsRobot->getNumberOfDevices(); i++) {
+  for (int i = 0; i < COMP->webotsRobot->getNumberOfDevices(); i++)
+  {
     webots::Device *webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
 
-    if (webotsDevice->getNodeType() == webots::Node::TOUCH_SENSOR) {
+    if (webotsDevice->getNodeType() == webots::Node::TOUCH_SENSOR)
+    {
       std::string bumperName = webotsDevice->getName();
       webots::TouchSensor *sensor = COMP->webotsRobot->getTouchSensor(bumperName);
-      if (sensor->getType() == webots::TouchSensor::BUMPER) {
+      if (sensor->getType() == webots::TouchSensor::BUMPER)
+      {
         webotsTouchSensor = sensor;
         webotsTouchSensor->enable(webotsTimeStep);
         std::cout << "Device #" << i << " called " << bumperName << " is a bumper." << std::endl;
@@ -73,7 +78,8 @@ int BumperTask::on_entry()
   // release
   COMP->mutex.release();
 
-  if (!webotsTouchSensor) {
+  if (!webotsTouchSensor)
+  {
     std::cout << "No bumper found, no data sent." << std::endl;
     return -1;
   }
@@ -120,7 +126,8 @@ int BumperTask::on_execute()
 
 int BumperTask::on_exit()
 {
-  // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
+  // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can
+  // be called again
   delete COMP->webotsRobot;
   return 0;
 }

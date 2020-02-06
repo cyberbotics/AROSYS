@@ -18,6 +18,7 @@
 #define _COMPONENTWEBOTSLIDARCORE_HH
 
 #include "aceSmartSoft.hh"
+
 #include <iostream>
 
 #include "CommBasicObjects/CommBaseState.hh"

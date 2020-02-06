@@ -15,12 +15,13 @@
 // delete it before running the code generator.
 //--------------------------------------------------------------------------
 #include "Pioneer3DXTask.hh"
+
 #include "ComponentWebotsPioneer3DX.hh"
 
 #include <iostream>
 
-Pioneer3DXTask::Pioneer3DXTask(SmartACE::SmartComponent *comp)
-: Pioneer3DXTaskCore(comp),
+Pioneer3DXTask::Pioneer3DXTask(SmartACE::SmartComponent *comp) :
+  Pioneer3DXTaskCore(comp),
   mThread(),
   mThreadRunning(false),
   mWebotsShouldQuit(false)
@@ -32,13 +33,17 @@ Pioneer3DXTask::~Pioneer3DXTask()
   std::cout << "destructor Pioneer3DXTask\n";
 }
 
-void check_velocity(double& leftSpeed, double& rightSpeed, double max_speed)
+void check_velocity(double &leftSpeed, double &rightSpeed, double max_speed)
 {
-  if (leftSpeed >  max_speed)  leftSpeed  =  max_speed;
-  if (leftSpeed < -max_speed)  leftSpeed  = -max_speed;
+  if (leftSpeed > max_speed)
+    leftSpeed = max_speed;
+  if (leftSpeed < -max_speed)
+    leftSpeed = -max_speed;
 
-  if (rightSpeed >  max_speed) rightSpeed =  max_speed;
-  if (rightSpeed < -max_speed) rightSpeed = -max_speed;
+  if (rightSpeed > max_speed)
+    rightSpeed = max_speed;
+  if (rightSpeed < -max_speed)
+    rightSpeed = -max_speed;
 }
 
 int Pioneer3DXTask::on_entry()
@@ -54,7 +59,7 @@ int Pioneer3DXTask::on_entry()
 
   // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
-  int coeff = S_TO_MS/(webotsTimeStep*COMP->connections.pioneer3DXTask.periodicActFreq);
+  int coeff = S_TO_MS / (webotsTimeStep * COMP->connections.pioneer3DXTask.periodicActFreq);
   webotsTimeStep *= coeff;
 
   // set GPS and IMU
@@ -64,47 +69,54 @@ int Pioneer3DXTask::on_entry()
   std::string IMUName;
   webots::Device *webotsDevice = NULL;
 
-  for (int i=0; i<COMP->webotsRobot->getNumberOfDevices(); i++) {
+  for (int i = 0; i < COMP->webotsRobot->getNumberOfDevices(); i++)
+  {
     webotsDevice = COMP->webotsRobot->getDeviceByIndex(i);
 
-    if (webotsDevice->getNodeType() == webots::Node::GPS) {
+    if (webotsDevice->getNodeType() == webots::Node::GPS)
+    {
       GPSFound = true;
       GPSName = webotsDevice->getName();
-      std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a GPS."<<std::endl;
+      std::cout << "Device #" << i << " called " << webotsDevice->getName() << " is a GPS." << std::endl;
     }
-    if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT) {
+    if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT)
+    {
       IMUFound = true;
       IMUName = webotsDevice->getName();
-      std::cout<<"Device #"<<i<<" called "<<webotsDevice->getName()<<" is a IMU."<<std::endl;
+      std::cout << "Device #" << i << " called " << webotsDevice->getName() << " is a IMU." << std::endl;
     }
     if (GPSFound && IMUFound)
       break;
   }
 
   // enable GPS and IMU if found
-  if (GPSFound) {
+  if (GPSFound)
+  {
     webotsGPS = COMP->webotsRobot->getGPS(GPSName);
     webotsGPS->enable(webotsTimeStep);
-  } else
-    std::cout  << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
+  }
+  else
+    std::cout << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
-  if (IMUFound) {
+  if (IMUFound)
+  {
     webotsIMU = COMP->webotsRobot->getInertialUnit(IMUName);
     webotsIMU->enable(webotsTimeStep);
-  } else
-    std::cout  << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
+  }
+  else
+    std::cout << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
   // set Motors (name from PROTO definition in Webots)
-  webotsLeftMotor  = COMP->webotsRobot->getMotor("left wheel");
+  webotsLeftMotor = COMP->webotsRobot->getMotor("left wheel");
   webotsRightMotor = COMP->webotsRobot->getMotor("right wheel");
 
-  webotsLeftMotor ->setPosition(INFINITY);
+  webotsLeftMotor->setPosition(INFINITY);
   webotsRightMotor->setPosition(INFINITY);
 
-  webotsLeftMotor ->setVelocity(0);
+  webotsLeftMotor->setVelocity(0);
   webotsRightMotor->setVelocity(0);
 
-  motorMaxSpeed = webotsLeftMotor->getMaxVelocity(); // in rad/s
+  motorMaxSpeed = webotsLeftMotor->getMaxVelocity();  // in rad/s
 
   // release
   COMP->PioneerMutex.release();
@@ -118,7 +130,7 @@ int Pioneer3DXTask::on_execute()
   // hence, NEVER use an infinite loop (like "while(1)") here inside!!!
   // also do not use blocking calls which do not result from smartsoft kernel
 
-  //std::cout << "Hello from PioneerTask " << std::endl;
+  // std::cout << "Hello from PioneerTask " << std::endl;
 
   if (mWebotsShouldQuit)
     return -1;
@@ -128,7 +140,7 @@ int Pioneer3DXTask::on_execute()
 
   double speed = 0.0;
   double omega = 0.0;
-  double leftSpeed  = 0.0;
+  double leftSpeed = 0.0;
   double rightSpeed = 0.0;
   CommBasicObjects::CommBaseState baseState;
   CommBasicObjects::CommBasePose basePosition;
@@ -141,13 +153,14 @@ int Pioneer3DXTask::on_execute()
   omega = COMP->vW;
 
   // set velocities in rad/s for motors and check limits
-  rightSpeed = (2.0*speed + omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
-  leftSpeed  = (2.0*speed - omega*WHEEL_GAP)/(2.0*WHEEL_RADIUS);
+  rightSpeed = (2.0 * speed + omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
+  leftSpeed = (2.0 * speed - omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
   check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
 
   // set GPS values for port BaseStateServiceOut
-  if (GPSFound) {
-    const double* GPS_value = webotsGPS->getValues();
+  if (GPSFound)
+  {
+    const double *GPS_value = webotsGPS->getValues();
     basePosition.set_x(GPS_value[2], 1.0);
     basePosition.set_y(GPS_value[0], 1.0);
     basePosition.set_z(GPS_value[1], 1.0);
@@ -158,7 +171,9 @@ int Pioneer3DXTask::on_execute()
     // std::cout << "GPS_x : " << GPS_value[2]<< std::endl;
     // std::cout << "GPS_y : " << GPS_value[0]<< std::endl;
     // std::cout << "GPS_z : " << GPS_value[1]<< std::endl;
-  } else {
+  }
+  else
+  {
     basePosition.set_x(0.0, 1.0);
     basePosition.set_y(0.0, 1.0);
     basePosition.set_z(0.0, 1.0);
@@ -170,8 +185,9 @@ int Pioneer3DXTask::on_execute()
   // Smartsoft use ???, see ???
   // ROS use ENU convention, https://www.ros.org/reps/rep-0103.html
   // Be aware of this in your calculation
-  if (IMUFound) {
-    const double* IMU_value = webotsIMU->getRollPitchYaw();
+  if (IMUFound)
+  {
+    const double *IMU_value = webotsIMU->getRollPitchYaw();
     basePosition.set_base_roll(IMU_value[0]);
     basePosition.set_base_azimuth(IMU_value[2]);
     basePosition.set_base_elevation(IMU_value[1]);
@@ -182,7 +198,9 @@ int Pioneer3DXTask::on_execute()
     // std::cout << "IMU_roll  : " << IMU_value[0]<< std::endl;
     // std::cout << "IMU_pitch : " << IMU_value[1]<< std::endl;
     // std::cout << "IMU_yaw   : " << IMU_value[2] << std::endl;
-  } else {
+  }
+  else
+  {
     basePosition.set_base_roll(0.0);
     basePosition.set_base_azimuth(0.0);
     basePosition.set_base_elevation(0.0);
@@ -190,8 +208,8 @@ int Pioneer3DXTask::on_execute()
   }
 
   // Pass values to motors in Webots side
-  webotsLeftMotor  -> setVelocity(leftSpeed);
-  webotsRightMotor -> setVelocity(rightSpeed);
+  webotsLeftMotor->setVelocity(leftSpeed);
+  webotsRightMotor->setVelocity(rightSpeed);
 
   // send baseState update to the port
   baseStateServiceOutPut(baseState);
@@ -211,7 +229,8 @@ int Pioneer3DXTask::on_execute()
 
 int Pioneer3DXTask::on_exit()
 {
-  // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can be called again
+  // use this method to clean-up resources which are initialized in on_entry() and needs to be freed before the on_execute() can
+  // be called again
   delete COMP->webotsRobot;
   return 0;
 }

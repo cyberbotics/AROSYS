@@ -18,6 +18,7 @@
 #define _COMPONENTWEBOTSROBOTINO3CORE_HH
 
 #include "aceSmartSoft.hh"
+
 #include <iostream>
 
 #include <webots/Robot.hpp>

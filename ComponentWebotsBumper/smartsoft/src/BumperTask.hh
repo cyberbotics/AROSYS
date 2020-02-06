@@ -19,12 +19,12 @@
 
 #include "BumperTaskCore.hh"
 
-#include <webots/TouchSensor.hpp>
 #include <webots/Robot.hpp>
+#include <webots/TouchSensor.hpp>
 
 #include <thread>
 
-#define S_TO_MS 1000.0 // Conversion factor
+#define S_TO_MS 1000.0  // Conversion factor
 
 class BumperTask : public BumperTaskCore
 {

@@ -25,16 +25,19 @@ ComponentWebotsTIAGoCore::ComponentWebotsTIAGoCore()
 
   // assign this controller to the correct robot in Webots
   char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
-  if (!robotName) {
+  if (!robotName)
+  {
     FILE *f = fopen("robotName.txt", "rb");
-    if (!f) {
-      std::cout  << "'robotName.txt' file not found." << std::endl;
+    if (!f)
+    {
+      std::cout << "'robotName.txt' file not found." << std::endl;
       return;
     }
     char name[256];
     int ret = fscanf(f, "%[^\n]", name);
-    if (ret == 0) {
-      std::cout  << "First line of the 'robotName.txt' file is empty." << std::endl;
+    if (ret == 0)
+    {
+      std::cout << "First line of the 'robotName.txt' file is empty." << std::endl;
       return;
     }
     char environment[256] = "WEBOTS_ROBOT_NAME=";

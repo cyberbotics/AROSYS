@@ -14,13 +14,16 @@
 // If you want the toolchain to re-generate this file, please
 // delete it before running the code generator.
 //--------------------------------------------------------------------------
+
 #include "NavigationVelocityHandler.hh"
+
 #include "ComponentWebotsPioneer3DX.hh"
 
 #include <iostream>
 
-NavigationVelocityHandler::NavigationVelocityHandler(Smart::InputSubject<CommBasicObjects::CommNavigationVelocity> *subject, const int &prescaleFactor)
-: NavigationVelocityHandlerCore(subject, prescaleFactor)
+NavigationVelocityHandler::NavigationVelocityHandler(Smart::InputSubject<CommBasicObjects::CommNavigationVelocity> *subject,
+                                                     const int &prescaleFactor) :
+  NavigationVelocityHandlerCore(subject, prescaleFactor)
 {
   std::cout << "constructor NavigationVelocityHandler\n";
 }
@@ -36,14 +39,14 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 
   // get from the port and pass to ComponentPioneer3DXCore to be accessible
   COMP->PioneerMutex.acquire();
-  COMP->vX = input.get_vX(1.0); // in m/s
-  COMP->vY = input.get_vY(1.0); // in m/s
-  COMP->vW = input.get_omega(); // in rad/s
+  COMP->vX = input.get_vX(1.0);  // in m/s
+  COMP->vY = input.get_vY(1.0);  // in m/s
+  COMP->vW = input.get_omega();  // in rad/s
   COMP->PioneerMutex.release();
 
   // print data to debug
-  //std::cout << "Velocity - input = " << input      << std::endl;
-  //std::cout << " => vX = "    << input.get_vX(1.0) << std::endl;
-  //std::cout << " => vY = "    << input.get_vY(1.0) << std::endl;
-  //std::cout << " => omega = " << input.getOmega()  << std::endl;
+  // std::cout << "Velocity - input = " << input      << std::endl;
+  // std::cout << " => vX = "    << input.get_vX(1.0) << std::endl;
+  // std::cout << " => vY = "    << input.get_vY(1.0) << std::endl;
+  // std::cout << " => omega = " << input.getOmega()  << std::endl;
 }

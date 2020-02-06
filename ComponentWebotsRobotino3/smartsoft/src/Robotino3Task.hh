@@ -19,30 +19,30 @@
 
 #include "Robotino3TaskCore.hh"
 
+#include <webots/Device.hpp>
 #include <webots/GPS.hpp>
+#include <webots/InertialUnit.hpp>
+#include <webots/Motor.hpp>
 #include <webots/Node.hpp>
 #include <webots/Robot.hpp>
-#include <webots/Motor.hpp>
-#include <webots/Device.hpp>
-#include <webots/InertialUnit.hpp>
 
 #include "CommBasicObjects/CommBaseState.hh"
 
 #include <thread>
 
-#define S_TO_MS 1000.0 // conversion factor
+#define S_TO_MS 1000.0  // conversion factor
 
 // Robotino 3 specification
-#define WHEEL_GAP    0.184  // in meter
-#define WHEEL_RADIUS 0.0625 // in meter
+#define WHEEL_GAP 0.184      // in meter
+#define WHEEL_RADIUS 0.0625  // in meter
 
-class Robotino3Task  : public Robotino3TaskCore
+class Robotino3Task : public Robotino3TaskCore
 {
 private:
   int webotsTimeStep;
   bool GPSFound;
   bool IMUFound;
-  double motorMaxSpeed; // in rad/s
+  double motorMaxSpeed;  // in rad/s
   webots::GPS *webotsGPS;
   webots::Motor *webotsMotor0;
   webots::Motor *webotsMotor1;

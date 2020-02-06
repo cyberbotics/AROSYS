@@ -19,30 +19,30 @@
 
 #include "Pioneer3DXTaskCore.hh"
 
+#include <webots/Device.hpp>
 #include <webots/GPS.hpp>
+#include <webots/InertialUnit.hpp>
+#include <webots/Motor.hpp>
 #include <webots/Node.hpp>
 #include <webots/Robot.hpp>
-#include <webots/Motor.hpp>
-#include <webots/Device.hpp>
-#include <webots/InertialUnit.hpp>
 
 #include "CommBasicObjects/CommBaseState.hh"
 
 #include <thread>
 
-#define S_TO_MS 1000.0 // conversion factor
+#define S_TO_MS 1000.0  // conversion factor
 
 // Pioneer 3-DX specification
-#define WHEEL_GAP    0.269  // in meter
-#define WHEEL_RADIUS 0.0975 // in meter
+#define WHEEL_GAP 0.269      // in meter
+#define WHEEL_RADIUS 0.0975  // in meter
 
-class Pioneer3DXTask  : public Pioneer3DXTaskCore
+class Pioneer3DXTask : public Pioneer3DXTaskCore
 {
 private:
   int webotsTimeStep;
   bool GPSFound;
   bool IMUFound;
-  double motorMaxSpeed; // in rad/s
+  double motorMaxSpeed;  // in rad/s
   webots::GPS *webotsGPS;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;

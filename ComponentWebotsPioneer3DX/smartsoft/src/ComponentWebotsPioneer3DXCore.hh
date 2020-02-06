@@ -18,6 +18,7 @@
 #define _COMPONENTWEBOTSPIONEER3DXCORE_HH
 
 #include "aceSmartSoft.hh"
+
 #include <iostream>
 
 #include <webots/Robot.hpp>
