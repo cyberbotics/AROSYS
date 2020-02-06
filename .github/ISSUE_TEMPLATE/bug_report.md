@@ -20,6 +20,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **System**
+ - Virtual Image: [e.g., 20XXXXXX-SmartMDSD_Toolchain_3.XX_VM_Ubuntu_16.04.ova] 
  - Operating System: [e.g., Windows 10, Linux Ubuntu 18.04, macOS Mojave]
  - Graphics Card: [e.g., NVIDIA GeForce RTX 2080 11 GB, AMD Radeon RX 580 8GB, etc.]
 
