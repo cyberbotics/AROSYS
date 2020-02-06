@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/DavidMansolino/AROSYS.svg?branch=master)](https://travis-ci.com/DavidMansolino/AROSYS) [![Safety](https://img.shields.io/badge/safety-secure-brightgreen.svg)](https://app.gitguardian.com) [![Software License](https://img.shields.io/badge/license-Apache--2.0-brightgreen.svg)](LICENSE) 
+[![Build Status](https://travis-ci.com/DavidMansolino/AROSYS.svg?token=F34e6fzg7bnX1UAbdRpa&branch=master)](https://travis-ci.com/DavidMansolino/AROSYS) [![Safety](https://img.shields.io/badge/safety-secure-brightgreen.svg)](https://app.gitguardian.com) [![Software License](https://img.shields.io/badge/license-Apache--2.0-brightgreen.svg)](LICENSE) 
 # RobMoSys
 
 ## Components
