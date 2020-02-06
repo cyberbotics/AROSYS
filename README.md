@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/cyberbotics/webots.svg?branch=master)](https://travis-ci.com/cyberbotics/webots) [![Safety](https://img.shields.io/badge/safety-secure-brightgreen.svg)](https://app.gitguardian.com) [![Software License](https://img.shields.io/badge/license-Apache--2.0-brightgreen.svg)](LICENSE) 
 # RobMoSys
 
 ## Components
