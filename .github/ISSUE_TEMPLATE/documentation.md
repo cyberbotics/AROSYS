@@ -1,6 +1,6 @@
 ---
 name: Documentation
-about: Fix or improve the Webots documentation
+about: Fix or improve the documentation
 
 ---
 
