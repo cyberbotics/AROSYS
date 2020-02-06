@@ -55,10 +55,8 @@ class TestClangFormat(unittest.TestCase):
     def test_sources_are_clang_format_compliant(self):
         """Test that sources are ClangFormat compliant."""
         skippedPaths = [
-            # 'projects/default/controllers/ros/include'
         ]
         skippedFiles = [
-            # 'projects/robots/robotis/darwin-op/plugins/remote_controls/robotis-op2_tcpip/stb_image.h'
         ]
         skippedDirectories = [
             'build',

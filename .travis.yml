@@ -1,0 +1,13 @@
+os: linux
+dist: bionic
+language: python
+python: '3.8'
+git:
+  depth: 3
+  submodules: false
+addons:
+  apt:
+    packages:
+      - clang-format-6.0
+script:
+  - python -m unittest discover -s tests
