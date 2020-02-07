@@ -156,15 +156,9 @@ int Robotino3Task::on_execute()
   // because of the orientation of the robot, vX and vY are inverted
   // conversion matrix from paper, section 4: http://ftp.itam.mx/pub/alfredo/ROBOCUP/SSLDocs/PapersTDPs/omnidrive.pdf
 
-  // Test 1, moving forward produce a movement towards the left
-  // vMotor0 = check_velocity(-0.5*vY+0.866*vX+WHEEL_GAP*vW, motorMaxSpeed);
-  // vMotor1 = check_velocity(-0.5*vY-0.866*vX+WHEEL_GAP*vW, motorMaxSpeed);
-  // vMotor2 = check_velocity(     vY         +WHEEL_GAP*vW, motorMaxSpeed);
-
-  // Test 2, moving forward produce a movement towards the up-right
-  vMotor0 = check_velocity(-0.5 * vX + 0.866 * vY + WHEEL_GAP * vW, motorMaxSpeed);
-  vMotor1 = check_velocity(-0.5 * vX - 0.866 * vY + WHEEL_GAP * vW, motorMaxSpeed);
-  vMotor2 = check_velocity(vX + WHEEL_GAP * vW, motorMaxSpeed);
+   vMotor0 = check_velocity(-0.5 * vY + 0.866 * vX - WHEEL_GAP * vW, motorMaxSpeed);
+   vMotor1 = check_velocity(-0.5 * vY - 0.866 * vX - WHEEL_GAP * vW, motorMaxSpeed);
+   vMotor2 = check_velocity(vY - WHEEL_GAP * vW, motorMaxSpeed);
 
   // set GPS values for port BaseStateServiceOut
   if (GPSFound)
