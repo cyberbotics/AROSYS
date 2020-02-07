@@ -87,8 +87,6 @@ A [TIAGo Iron](https://cyberbotics.com/doc/guide/tiago-iron) is used with a lida
 This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) robot (`ComponentWebotsPioneer3DX`) to navigate in a square arena filled with obstacles. It works with the new components developped to use Webots.
 
 ### SystemWebotsRobotino3Navigation
-**[Status]** _Need improvement_ : Fix the movement by adjusting the matrix to calculate velocity
-
 This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Robotino 3](https://cyberbotics.com/doc/guide/robotino3) robot (`ComponentWebotsRobotino3`) to navigate in a square arena filled with obstacles. It works with the new components developped to use Webots.
 
 ### SystemWebotsTiagoNavigation
