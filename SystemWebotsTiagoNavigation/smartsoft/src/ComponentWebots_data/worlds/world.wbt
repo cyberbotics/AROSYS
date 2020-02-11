@@ -14,6 +14,10 @@ TiagoIron {
   rotation 0.5773509358554485 0.5773509358554485 0.5773489358556708 -2.094395307179586
   controller "<extern>"
   lidarSlot [
+    InertialUnit {
+      rotation 0 -0.7071057811860166 0.7071077811853976 3.14159
+      name "inertial unit 2"
+    }
     GPS {
     }
     Robot {
