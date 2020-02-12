@@ -4,7 +4,6 @@ WorldInfo {
 Viewpoint {
   orientation 1 0 0 4.71238898038469
   position 4.828035984799759 17.8627039481402 -0.07769760893190869
-  followType "None"
 }
 TexturedBackground {
   texture "entrance_hall"
