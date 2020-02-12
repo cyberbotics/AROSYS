@@ -3,11 +3,12 @@ WorldInfo {
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
-  position 0.4464476433056783 20.68930224930899 -0.01152831973832761
-  follow "Pioneer 3-DX"
+  position 4.828035984799759 17.8627039481402 -0.07769760893190869
+  followType "None"
 }
 TexturedBackground {
   texture "entrance_hall"
+  luminosity 0.8
   skybox FALSE
 }
 TexturedBackgroundLight {
@@ -117,4 +118,19 @@ DEF WALLS Solid {
       }
     }
   ]
+}
+CardboardBox {
+  translation 5 0.3 -1.28
+  size 1 0.6 0.6
+}
+PottedTree {
+  translation 2 0 -1
+}
+PottedTree {
+  translation 4 0 -1
+  name "potted tree(1)"
+}
+Sofa {
+  translation 0.55 0 -1.55
+  rotation 0 1 0 -1.5707953071795862
 }
