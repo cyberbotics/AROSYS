@@ -1,0 +1,49 @@
+SystemComponentArchitecture SystemLaserObstacleAvoidP3dxWebotsSimulator
+{
+  ComponentInstance ComponentWebots instantiates ComponentWebots
+  {
+  }
+  ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
+  {
+    RequiredService BaseStateServiceIn
+    ProvidedService LaserServiceOut
+  }
+  ComponentInstance ComponentWebotsPioneer3DX instantiates ComponentWebotsPioneer3DX
+  {
+    ProvidedService BaseStateAnswerer
+    ProvidedService BaseStateServiceOut
+    ProvidedService BatteryEventServiceOut
+    ProvidedService LocalizationUpdateServiceIn
+    ProvidedService NavigationVelocityServiceIn
+  }
+  ComponentInstance ComponentLaserObstacleAvoid instantiates ComponentLaserObstacleAvoid
+  {
+    RequiredService LaserServiceIn
+    RequiredService NavigationVelocityServiceOut
+  }
+	ComponentInstance ComponentWebotsPioneer3DX2 instantiates ComponentWebotsPioneer3DX
+	{
+		ProvidedService BaseStateServiceOut
+		ProvidedService BatteryEventServiceOut
+		ProvidedService LocalizationUpdateServiceIn
+		ProvidedService NavigationVelocityServiceIn
+		ProvidedService BaseStateAnswerer
+	}
+	ComponentInstance ComponentWebotsLidar2 instantiates ComponentWebotsLidar
+	{
+		RequiredService BaseStateServiceIn
+		ProvidedService LaserServiceOut
+	}
+	ComponentInstance ComponentLaserObstacleAvoid2 instantiates ComponentLaserObstacleAvoid
+	{
+		RequiredService LaserServiceIn
+		RequiredService NavigationVelocityServiceOut
+	}
+
+  Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsPioneer3DX.BaseStateServiceOut
+  Connection ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+  Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
+Connection ComponentWebotsLidar2.BaseStateServiceIn -> ComponentWebotsPioneer3DX2.BaseStateServiceOut
+	Connection ComponentLaserObstacleAvoid2.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX2.NavigationVelocityServiceIn
+	Connection ComponentLaserObstacleAvoid2.LaserServiceIn -> ComponentWebotsLidar2.LaserServiceOut
+}
