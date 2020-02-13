@@ -1,4 +1,4 @@
-SystemComponentArchitecture SystemLaserObstacleAvoidP3dxWebotsSimulator
+SystemComponentArchitecture SystemWebotsMultiRobots
 {
   ComponentInstance ComponentWebots instantiates ComponentWebots
   {

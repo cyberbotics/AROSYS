@@ -1,4 +1,4 @@
-TargetPlatformModel SystemLaserObstacleAvoidP3dxWebotsSimulator
+TargetPlatformModel SystemWebotsMultiRobots
 {
   TargetPlatformDefinition PC1
   {

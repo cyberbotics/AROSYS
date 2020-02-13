@@ -1,6 +1,6 @@
-DeploymentModel SystemLaserObstacleAvoidP3dxWebotsSimulator using ComponentArchitecture SystemLaserObstacleAvoidP3dxWebotsSimulator
+DeploymentModel SystemWebotsMultiRobots using ComponentArchitecture SystemWebotsMultiRobots
 {
-  TargetPlatformReference PC1 using SystemLaserObstacleAvoidP3dxWebotsSimulator.PC1
+  TargetPlatformReference PC1 using SystemWebotsMultiRobots.PC1
   {
     UploadDirectory "/tmp"
     NetworkInterface eth1
