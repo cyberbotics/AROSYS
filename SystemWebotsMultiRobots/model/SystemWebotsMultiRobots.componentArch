@@ -21,29 +21,29 @@ SystemComponentArchitecture SystemWebotsMultiRobots
     RequiredService LaserServiceIn
     RequiredService NavigationVelocityServiceOut
   }
-	ComponentInstance TIAGo instantiates ComponentWebotsTIAGo
-	{
-		ProvidedService BaseStateServiceOut
-		ProvidedService BatteryEventServiceOut
-		ProvidedService LocalizationUpdateServiceIn
-		ProvidedService NavigationVelocityServiceIn
-		ProvidedService BaseStateAnswerer
-	}
-	ComponentInstance TiagoLidar instantiates ComponentWebotsLidar
-	{
-		RequiredService BaseStateServiceIn
-		ProvidedService LaserServiceOut
-	}
-	ComponentInstance TIAGoObstacleAvoid instantiates ComponentLaserObstacleAvoid
-	{
-		RequiredService LaserServiceIn
-		RequiredService NavigationVelocityServiceOut
-	}
+  ComponentInstance TIAGo instantiates ComponentWebotsTIAGo
+  {
+    ProvidedService BaseStateServiceOut
+    ProvidedService BatteryEventServiceOut
+    ProvidedService LocalizationUpdateServiceIn
+    ProvidedService NavigationVelocityServiceIn
+    ProvidedService BaseStateAnswerer
+  }
+  ComponentInstance TiagoLidar instantiates ComponentWebotsLidar
+  {
+    RequiredService BaseStateServiceIn
+    ProvidedService LaserServiceOut
+  }
+  ComponentInstance TIAGoObstacleAvoid instantiates ComponentLaserObstacleAvoid
+  {
+    RequiredService LaserServiceIn
+    RequiredService NavigationVelocityServiceOut
+  }
 
   Connection Pionneer3DXLidar.BaseStateServiceIn -> Pionneer3DX.BaseStateServiceOut
   Connection Pionneer3DXObstacleAvoid.LaserServiceIn -> Pionneer3DXLidar.LaserServiceOut
   Connection Pionneer3DXObstacleAvoid.NavigationVelocityServiceOut -> Pionneer3DX.NavigationVelocityServiceIn
   Connection TiagoLidar.BaseStateServiceIn -> TIAGo.BaseStateServiceOut
-	Connection TIAGoObstacleAvoid.NavigationVelocityServiceOut -> TIAGo.NavigationVelocityServiceIn
-	Connection TIAGoObstacleAvoid.LaserServiceIn -> TiagoLidar.LaserServiceOut
+  Connection TIAGoObstacleAvoid.NavigationVelocityServiceOut -> TIAGo.NavigationVelocityServiceIn
+  Connection TIAGoObstacleAvoid.LaserServiceIn -> TiagoLidar.LaserServiceOut
 }
