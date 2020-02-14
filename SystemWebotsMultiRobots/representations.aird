@@ -433,7 +433,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_IBIfsE2mEeqztvCAeoUoZQ" name="ComponentWebotsPioneer3DX2" tooltipText="ComponentArtefact" outgoingEdges="_PZ_jqE2mEeqztvCAeoUoZQ">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_IBIfsE2mEeqztvCAeoUoZQ" name="ComponentWebotsTIAGo" tooltipText="ComponentArtefact" outgoingEdges="_PZ_jqE2mEeqztvCAeoUoZQ">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsMultiRobots.deployment#//@elements.8"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsMultiRobots.deployment#//@elements.8"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1015,7 +1015,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@edgeMappings[name='ConnectionEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_e2LaQE2lEeqztvCAeoUoZQ" name="ComponentWebotsPioneer3DX2: ComponentWebotsPioneer3DX" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_e2LaQE2lEeqztvCAeoUoZQ" name="ComponentWebotsTIAGo: ComponentWebotsTIAGo" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsMultiRobots.componentArch#//@components.4"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsMultiRobots.componentArch#//@components.4"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_e2aq0E2lEeqztvCAeoUoZQ" name="BaseStateServiceOut" tooltipText="OutputProvider" incomingEdges="_x1_TPE2lEeqztvCAeoUoZQ" width="3" height="3" resizeKind="NSEW">

@@ -21,7 +21,7 @@ SystemComponentArchitecture SystemWebotsMultiRobots
     RequiredService LaserServiceIn
     RequiredService NavigationVelocityServiceOut
   }
-	ComponentInstance ComponentWebotsPioneer3DX2 instantiates ComponentWebotsPioneer3DX
+	ComponentInstance ComponentWebotsTIAGo instantiates ComponentWebotsTIAGo
 	{
 		ProvidedService BaseStateServiceOut
 		ProvidedService BatteryEventServiceOut
@@ -43,7 +43,7 @@ SystemComponentArchitecture SystemWebotsMultiRobots
   Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsPioneer3DX.BaseStateServiceOut
   Connection ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
   Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
-Connection ComponentWebotsLidar2.BaseStateServiceIn -> ComponentWebotsPioneer3DX2.BaseStateServiceOut
-	Connection ComponentLaserObstacleAvoid2.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX2.NavigationVelocityServiceIn
+  Connection ComponentWebotsLidar2.BaseStateServiceIn -> ComponentWebotsTIAGo.BaseStateServiceOut
+	Connection ComponentLaserObstacleAvoid2.NavigationVelocityServiceOut -> ComponentWebotsTIAGo.NavigationVelocityServiceIn
 	Connection ComponentLaserObstacleAvoid2.LaserServiceIn -> ComponentWebotsLidar2.LaserServiceOut
 }
