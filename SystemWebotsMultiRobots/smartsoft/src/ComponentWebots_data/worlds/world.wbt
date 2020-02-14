@@ -98,7 +98,7 @@ TiagoIron {
           noise 0.02
         }
       ]
-      name "Lidar2"
+      name "TIAGo Lidar"
       controller "<extern>"
     }
   ]
@@ -162,7 +162,7 @@ Pioneer3dx {
           noise 0.02
         }
       ]
-      name "Lidar"
+      name "Pioneer 3-DX Lidar"
       controller "<extern>"
     }
   ]

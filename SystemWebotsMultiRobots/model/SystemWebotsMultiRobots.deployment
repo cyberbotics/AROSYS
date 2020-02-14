@@ -11,10 +11,10 @@ DeploymentModel SystemWebotsMultiRobots using ComponentArchitecture SystemWebots
   }
 
   ComponentArtefact ComponentWebots deploy-to PC1
-  ComponentArtefact ComponentWebotsLidar deploy-to PC1
-  ComponentArtefact ComponentWebotsPioneer3DX deploy-to PC1
-  ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
-  ComponentArtefact ComponentLaserObstacleAvoid2 deploy-to PC1
-	ComponentArtefact ComponentWebotsLidar2 deploy-to PC1
-	ComponentArtefact ComponentWebotsTIAGo deploy-to PC1
+  ComponentArtefact Pionneer3DXLidar deploy-to PC1
+  ComponentArtefact Pionneer3DX deploy-to PC1
+  ComponentArtefact Pionneer3DXObstacleAvoid deploy-to PC1
+  ComponentArtefact TIAGoObstacleAvoid deploy-to PC1
+	ComponentArtefact TiagoLidar deploy-to PC1
+	ComponentArtefact TIAGo deploy-to PC1
 }

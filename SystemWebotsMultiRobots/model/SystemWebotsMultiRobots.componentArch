@@ -3,12 +3,12 @@ SystemComponentArchitecture SystemWebotsMultiRobots
   ComponentInstance ComponentWebots instantiates ComponentWebots
   {
   }
-  ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
+  ComponentInstance Pionneer3DXLidar instantiates ComponentWebotsLidar
   {
     RequiredService BaseStateServiceIn
     ProvidedService LaserServiceOut
   }
-  ComponentInstance ComponentWebotsPioneer3DX instantiates ComponentWebotsPioneer3DX
+  ComponentInstance Pionneer3DX instantiates ComponentWebotsPioneer3DX
   {
     ProvidedService BaseStateAnswerer
     ProvidedService BaseStateServiceOut
@@ -16,12 +16,12 @@ SystemComponentArchitecture SystemWebotsMultiRobots
     ProvidedService LocalizationUpdateServiceIn
     ProvidedService NavigationVelocityServiceIn
   }
-  ComponentInstance ComponentLaserObstacleAvoid instantiates ComponentLaserObstacleAvoid
+  ComponentInstance Pionneer3DXObstacleAvoid instantiates ComponentLaserObstacleAvoid
   {
     RequiredService LaserServiceIn
     RequiredService NavigationVelocityServiceOut
   }
-	ComponentInstance ComponentWebotsTIAGo instantiates ComponentWebotsTIAGo
+	ComponentInstance TIAGo instantiates ComponentWebotsTIAGo
 	{
 		ProvidedService BaseStateServiceOut
 		ProvidedService BatteryEventServiceOut
@@ -29,21 +29,21 @@ SystemComponentArchitecture SystemWebotsMultiRobots
 		ProvidedService NavigationVelocityServiceIn
 		ProvidedService BaseStateAnswerer
 	}
-	ComponentInstance ComponentWebotsLidar2 instantiates ComponentWebotsLidar
+	ComponentInstance TiagoLidar instantiates ComponentWebotsLidar
 	{
 		RequiredService BaseStateServiceIn
 		ProvidedService LaserServiceOut
 	}
-	ComponentInstance ComponentLaserObstacleAvoid2 instantiates ComponentLaserObstacleAvoid
+	ComponentInstance TIAGoObstacleAvoid instantiates ComponentLaserObstacleAvoid
 	{
 		RequiredService LaserServiceIn
 		RequiredService NavigationVelocityServiceOut
 	}
 
-  Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsPioneer3DX.BaseStateServiceOut
-  Connection ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
-  Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
-  Connection ComponentWebotsLidar2.BaseStateServiceIn -> ComponentWebotsTIAGo.BaseStateServiceOut
-	Connection ComponentLaserObstacleAvoid2.NavigationVelocityServiceOut -> ComponentWebotsTIAGo.NavigationVelocityServiceIn
-	Connection ComponentLaserObstacleAvoid2.LaserServiceIn -> ComponentWebotsLidar2.LaserServiceOut
+  Connection Pionneer3DXLidar.BaseStateServiceIn -> Pionneer3DX.BaseStateServiceOut
+  Connection Pionneer3DXObstacleAvoid.LaserServiceIn -> Pionneer3DXLidar.LaserServiceOut
+  Connection Pionneer3DXObstacleAvoid.NavigationVelocityServiceOut -> Pionneer3DX.NavigationVelocityServiceIn
+  Connection TiagoLidar.BaseStateServiceIn -> TIAGo.BaseStateServiceOut
+	Connection TIAGoObstacleAvoid.NavigationVelocityServiceOut -> TIAGo.NavigationVelocityServiceIn
+	Connection TIAGoObstacleAvoid.LaserServiceIn -> TiagoLidar.LaserServiceOut
 }
