@@ -18,7 +18,7 @@ This component configures bumper's sensors in SmartSoft according to Webots prot
 
 | Input  | Output |
 | ------ | ------ |
-|   | **BumperEventServiceOut**: bumber value |
+|   | **BumperEventServiceOut**: bumper value |
 
 
 ### ComponentWebotsLidar
