@@ -57,7 +57,7 @@ int RobotTask::on_entry()
 
   // get timestep from the world and match the one in SmartMDSD component
   webotsTimeStep = COMP->webotsRobot->getBasicTimeStep();
-  int coeff = S_TO_MS / (webotsTimeStep * COMP->connections.RobotTask.periodicActFreq);
+  int coeff = S_TO_MS / (webotsTimeStep * COMP->connections.robotTask.periodicActFreq);
   webotsTimeStep *= coeff;
 
   // set GPS and IMU
