@@ -13,7 +13,7 @@
 // limitations under the License.
 
 #include "ComponentWebotsRobotCore.hh"
-#include <jsoncpp/json/json.h>
+
 #include <fstream>
 
 // constructor
@@ -26,16 +26,15 @@ ComponentWebotsRobotCore::ComponentWebotsRobotCore()
   std::cout << "BEGIN" << std::endl;
   std::ifstream file_input("example.json");
   Json::Reader reader;
-  Json::Value root;
-  reader.parse(file_input, root);
-  std::cout << root << std::endl;
+  reader.parse(file_input, configuration);
+  std::cout << configuration << std::endl;
 
   // assign this controller to the correct robot in Webots
   char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
   if (!robotName)
   {
     char environment[256] = "WEBOTS_ROBOT_NAME=";
-    putenv(strcat(environment, root["name"].asCString()));  //TODO: check existence: root.isMember("name")
+    putenv(strcat(environment, configuration["name"].asCString()));  //TODO: check existence: root.isMember("name")
   }
 
   std::cout << "END" << std::endl;

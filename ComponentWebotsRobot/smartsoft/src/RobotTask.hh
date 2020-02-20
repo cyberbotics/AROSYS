@@ -40,11 +40,14 @@ private:
   int webotsTimeStep;
   bool GPSFound;
   bool IMUFound;
-  double motorMaxSpeed;  // in rad/s
+ // double motorMaxSpeed;  // in rad/s
   webots::GPS *webotsGPS;
   webots::Motor *webotsRightMotor;
   webots::Motor *webotsLeftMotor;
   webots::InertialUnit *webotsIMU;
+  std::map<std::string, webots::Motor *> navigationMotors;
+
+
 
   // threading stuff
   std::thread mThread;

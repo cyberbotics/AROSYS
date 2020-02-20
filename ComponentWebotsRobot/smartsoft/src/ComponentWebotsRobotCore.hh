@@ -19,6 +19,8 @@
 
 #include <iostream>
 
+#include <jsoncpp/json/json.h>
+
 #include <webots/Robot.hpp>
 
 class ComponentWebotsRobotCore
@@ -30,6 +32,7 @@ public:
   double vX;
   double vY;
   double vW;
+  Json::Value configuration;
   webots::Robot *webotsRobot;
 };
 

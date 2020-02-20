@@ -105,16 +105,27 @@ int RobotTask::on_entry()
     std::cout << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
   // set Motors (name from PROTO definition in Webots)
-  webotsLeftMotor = COMP->webotsRobot->getMotor("left wheel");
-  webotsRightMotor = COMP->webotsRobot->getMotor("right wheel");
+  Json::Value velocityConfiguration = COMP->configuration["navigationVelocity"]; //TODO: check existence
+  Json::Value::Members motorNames = velocityConfiguration.getMemberNames();
+  for (int i=0; i < motorNames.size(); ++i) {
+    webots::Motor *motor = COMP->webotsRobot->getMotor(motorNames[i]);
+    if (motor) {
+      motor->setPosition(INFINITY);
+      motor->setVelocity(0);
+      navigationMotors[motorNames[i]] = motor;
+    }
+  }
 
-  webotsLeftMotor->setPosition(INFINITY);
-  webotsRightMotor->setPosition(INFINITY);
-
-  webotsLeftMotor->setVelocity(0);
-  webotsRightMotor->setVelocity(0);
-
-  motorMaxSpeed = webotsLeftMotor->getMaxVelocity();  // in rad/s
+//  webotsLeftMotor = COMP->webotsRobot->getMotor("left wheel");
+//  webotsRightMotor = COMP->webotsRobot->getMotor("right wheel");
+//
+//  webotsLeftMotor->setPosition(INFINITY);
+//  webotsRightMotor->setPosition(INFINITY);
+//
+//  webotsLeftMotor->setVelocity(0);
+//  webotsRightMotor->setVelocity(0);
+//
+//  motorMaxSpeed = webotsLeftMotor->getMaxVelocity();  // in rad/s
 
   // release
   COMP->RobotMutex.release();
@@ -146,14 +157,14 @@ int RobotTask::on_execute()
   // acquisition
   COMP->RobotMutex.acquire();
 
-  // get values from port NavigationVelocityServiceIn
-  speed = COMP->vX;
-  omega = COMP->vW;
-
-  // set velocities in rad/s for motors and check limits
-  rightSpeed = (2.0 * speed + omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
-  leftSpeed = (2.0 * speed - omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
-  check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
+//  // get values from port NavigationVelocityServiceIn
+//  speed = COMP->vX;
+//  omega = COMP->vW;
+//
+//  // set velocities in rad/s for motors and check limits
+//  rightSpeed = (2.0 * speed + omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
+//  leftSpeed = (2.0 * speed - omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
+  //check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
 
   // set GPS values for port BaseStateServiceOut
   if (GPSFound)
@@ -206,8 +217,11 @@ int RobotTask::on_execute()
   }
 
   // Pass values to motors in Webots side
-  webotsLeftMotor->setVelocity(leftSpeed);
-  webotsRightMotor->setVelocity(rightSpeed);
+  for (std::map<std::string, webots::Motor *>::iterator it=navigationMotors.begin(); it!=navigationMotors.end(); ++it) {
+    const std::string name = it->first;
+    webots::Motor *motor = it->second;
+    motor->setVelocity(COMP->vX);
+  }
 
   // send baseState update to the port
   baseStateServiceOutPut(baseState);
