@@ -95,19 +95,23 @@ int RobotTask::on_entry()
     std::cerr << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
   // get the required motor for the navigation according to the configuration file
-  if (COMP->configuration.isMember("navigationVelocity") && COMP->configuration["navigationVelocity"].isObject()) {
-	  const Json::Value velocityConfiguration = COMP->configuration["navigationVelocity"];
-	  const Json::Value::Members motorNames = velocityConfiguration.getMemberNames();
-	  for (int i=0; i < motorNames.size(); ++i) {
-		webots::Motor *motor = COMP->webotsRobot->getMotor(motorNames[i]);
-		if (motor) {
-		  motor->setPosition(INFINITY);
-		  motor->setVelocity(0);
-		  navigationMotors[motorNames[i]] = motor;
-		}
-	  }
-  } else
-	  std::cerr << "Missing or invalid 'navigationVelocity' key in 'configuration.json' file." << std::endl;
+  if (COMP->configuration.isMember("navigationVelocity") && COMP->configuration["navigationVelocity"].isObject())
+  {
+    const Json::Value velocityConfiguration = COMP->configuration["navigationVelocity"];
+    const Json::Value::Members motorNames = velocityConfiguration.getMemberNames();
+    for (int i = 0; i < motorNames.size(); ++i)
+    {
+      webots::Motor *motor = COMP->webotsRobot->getMotor(motorNames[i]);
+      if (motor)
+      {
+        motor->setPosition(INFINITY);
+        motor->setVelocity(0);
+        navigationMotors[motorNames[i]] = motor;
+      }
+    }
+  }
+  else
+    std::cerr << "Missing or invalid 'navigationVelocity' key in 'configuration.json' file." << std::endl;
 
   // release
   COMP->RobotMutex.release();
@@ -139,14 +143,14 @@ int RobotTask::on_execute()
   // acquisition
   COMP->RobotMutex.acquire();
 
-//  // get values from port NavigationVelocityServiceIn
-//  speed = COMP->vX;
-//  omega = COMP->vW;
-//
-//  // set velocities in rad/s for motors and check limits
-//  rightSpeed = (2.0 * speed + omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
-//  leftSpeed = (2.0 * speed - omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
-  //check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
+  //  // get values from port NavigationVelocityServiceIn
+  //  speed = COMP->vX;
+  //  omega = COMP->vW;
+  //
+  //  // set velocities in rad/s for motors and check limits
+  //  rightSpeed = (2.0 * speed + omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
+  //  leftSpeed = (2.0 * speed - omega * WHEEL_GAP) / (2.0 * WHEEL_RADIUS);
+  // check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
 
   // set GPS values for port BaseStateServiceOut
   if (webotsGPS)
@@ -199,15 +203,20 @@ int RobotTask::on_execute()
   }
 
   // Pass values to motors in Webots side
-  for (std::map<std::string, webots::Motor *>::iterator it=navigationMotors.begin(); it!=navigationMotors.end(); ++it) {
+  for (std::map<std::string, webots::Motor *>::iterator it = navigationMotors.begin(); it != navigationMotors.end(); ++it)
+  {
     const std::string name = it->first;
     const Json::Value coefficients = COMP->configuration["navigationVelocity"][name];
-    if (!coefficients.isArray() || coefficients.size() != 3 || !coefficients[0].isDouble() || !coefficients[1].isDouble() || !coefficients[2].isDouble()) {
-    	std::cerr << "Wrong value for the 'navigationVelocity."<< name << "' key, the value should be a array of 3 doubles." << std::endl;
-    	break;
+    if (!coefficients.isArray() || coefficients.size() != 3 || !coefficients[0].isDouble() || !coefficients[1].isDouble() ||
+        !coefficients[2].isDouble())
+    {
+      std::cerr << "Wrong value for the 'navigationVelocity." << name << "' key, the value should be a array of 3 doubles."
+                << std::endl;
+      break;
     }
     webots::Motor *motor = it->second;
-    motor->setVelocity(COMP->vX * coefficients[0].asDouble()  + COMP->vY * coefficients[1].asDouble() + COMP->vW * coefficients[2].asDouble());
+    motor->setVelocity(COMP->vX * coefficients[0].asDouble() + COMP->vY * coefficients[1].asDouble() +
+                       COMP->vW * coefficients[2].asDouble());
   }
 
   // send baseState update to the port
