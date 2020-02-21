@@ -95,7 +95,7 @@ int RobotTask::on_entry()
     std::cerr << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
   // get the required motor for the navigation according to the configuration file
-  if (COMP->configuration.isMember("navigationVelocity") && COMP->configuration["navigationVelocity"].isArray ()) {
+  if (COMP->configuration.isMember("navigationVelocity") && COMP->configuration["navigationVelocity"].isObject()) {
 	  const Json::Value velocityConfiguration = COMP->configuration["navigationVelocity"];
 	  const Json::Value::Members motorNames = velocityConfiguration.getMemberNames();
 	  for (int i=0; i < motorNames.size(); ++i) {
@@ -201,10 +201,13 @@ int RobotTask::on_execute()
   // Pass values to motors in Webots side
   for (std::map<std::string, webots::Motor *>::iterator it=navigationMotors.begin(); it!=navigationMotors.end(); ++it) {
     const std::string name = it->first;
-    const Json::Value coefficients = COMP->configuration["navigationVelocity"][name];  // TODO: check array
-    std::cout << "Speed: " << coefficients << std::endl;
+    const Json::Value coefficients = COMP->configuration["navigationVelocity"][name];
+    if (!coefficients.isArray() || coefficients.size() != 3 || !coefficients[0].isDouble() || !coefficients[1].isDouble() || !coefficients[2].isDouble()) {
+    	std::cerr << "Wrong value for the 'navigationVelocity."<< name << "' key, the value should be a array of 3 doubles." << std::endl;
+    	break;
+    }
     webots::Motor *motor = it->second;
-    motor->setVelocity(COMP->vX * coefficients[0].asDouble()  + COMP->vY * coefficients[1].asDouble() + COMP->vW * coefficients[2].asDouble());  // TODO: check double
+    motor->setVelocity(COMP->vX * coefficients[0].asDouble()  + COMP->vY * coefficients[1].asDouble() + COMP->vW * coefficients[2].asDouble());
   }
 
   // send baseState update to the port
