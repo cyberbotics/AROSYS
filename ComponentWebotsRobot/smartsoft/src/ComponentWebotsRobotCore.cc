@@ -19,7 +19,7 @@
 // constructor
 ComponentWebotsRobotCore::ComponentWebotsRobotCore()
 {
-  webotsRobot = NULL;
+  mWebotsRobot = NULL;
 
   std::ifstream file_input("configuration.json");
   if (!file_input.is_open())
@@ -29,7 +29,7 @@ ComponentWebotsRobotCore::ComponentWebotsRobotCore()
   }
 
   Json::Reader reader;
-  if (!reader.parse(file_input, configuration))
+  if (!reader.parse(file_input, mConfiguration))
   {
     std::cerr << "Invalid 'configuration.json' file." << std::endl;
     return;
@@ -39,15 +39,15 @@ ComponentWebotsRobotCore::ComponentWebotsRobotCore()
   char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
   if (!robotName)
   {
-    if (!configuration.isMember("name") || !configuration["name"].isString())
+    if (!mConfiguration.isMember("name") || !mConfiguration["name"].isString())
     {
       std::cerr << "Missing or invalid 'name' key in 'configuration.json' file." << std::endl;
       return;
     }
     char environment[256] = "WEBOTS_ROBOT_NAME=";
-    putenv(strcat(environment, configuration["name"].asCString()));
+    putenv(strcat(environment, mConfiguration["name"].asCString()));
   }
 
   // create Robot instance
-  webotsRobot = new webots::Robot();
+  mWebotsRobot = new webots::Robot();
 }

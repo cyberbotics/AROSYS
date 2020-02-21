@@ -28,12 +28,12 @@ class ComponentWebotsRobotCore
 private:
 public:
   ComponentWebotsRobotCore();
-  SmartACE::SmartMutex RobotMutex;
-  double vX;
-  double vY;
-  double vW;
-  Json::Value configuration;
-  webots::Robot *webotsRobot;
+  SmartACE::SmartMutex mRobotMutex;
+  double mVX;
+  double mVY;
+  double mOmega;
+  Json::Value mConfiguration;
+  webots::Robot *mWebotsRobot;
 };
 
 #endif

@@ -28,21 +28,15 @@
 
 #include <thread>
 
-#define S_TO_MS 1000.0  // conversion factor
-
-// Robot specification
-#define WHEEL_GAP 0.269      // in meter
-#define WHEEL_RADIUS 0.0975  // in meter
-
 class RobotTask : public RobotTaskCore
 {
 private:
   int webotsTimeStep;
 
   // webots devices
-  webots::GPS *webotsGPS;
-  webots::InertialUnit *webotsIMU;
-  std::map<std::string, webots::Motor *> navigationMotors;
+  webots::GPS *mWebotsGPS;
+  webots::InertialUnit *mWebotsInertialUnit;
+  std::map<std::string, webots::Motor *> mWebotsNavigationMotors;
 
   // threading stuff
   std::thread mThread;

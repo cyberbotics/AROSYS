@@ -31,19 +31,16 @@ NavigationVelocityHandler::~NavigationVelocityHandler()
 
 void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicObjects::CommNavigationVelocity &input)
 {
-  // implement business logic here
-  // (do not use blocking calls here, otherwise this might block the InputPort NavigationVelocityServiceIn)
-
   // get from the port and pass to ComponentRobotCore to be accessible
-  COMP->RobotMutex.acquire();
-  COMP->vX = input.get_vX(1.0);  // in m/s
-  COMP->vY = input.get_vY(1.0);  // in m/s
-  COMP->vW = input.get_omega();  // in rad/s
-  COMP->RobotMutex.release();
+  COMP->mRobotMutex.acquire();
+  COMP->mVX = input.get_mVX(1.0);    // in m/s
+  COMP->mVY = input.get_mVY(1.0);    // in m/s
+  COMP->mOmega = input.get_omega();  // in rad/s
+  COMP->mRobotMutex.release();
 
   // print data to debug
   // std::cout << "Velocity - input = " << input      << std::endl;
-  // std::cout << " => vX = "    << input.get_vX(1.0) << std::endl;
-  // std::cout << " => vY = "    << input.get_vY(1.0) << std::endl;
+  // std::cout << " => mVX = "    << input.get_mVX(1.0) << std::endl;
+  // std::cout << " => mVY = "    << input.get_mVY(1.0) << std::endl;
   // std::cout << " => omega = " << input.getOmega()  << std::endl;
 }
