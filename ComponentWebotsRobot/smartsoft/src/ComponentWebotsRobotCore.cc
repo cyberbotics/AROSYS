@@ -19,25 +19,31 @@
 // constructor
 ComponentWebotsRobotCore::ComponentWebotsRobotCore()
 {
-  std::cout << "constructor ComponentWebotsRobotCore\n";
-
   webotsRobot = NULL;
 
-  std::cout << "BEGIN" << std::endl;
-  std::ifstream file_input("example.json");
+  std::ifstream file_input("configuration2.json");
+  if (!file_input.is_open()) {
+	std::cerr << "Can't open 'configuration.json' file." << std::endl;
+	return;
+  }
+
   Json::Reader reader;
-  reader.parse(file_input, configuration);
-  std::cout << configuration << std::endl;
+  if (!reader.parse(file_input, configuration)) {
+	std::cerr << "Invalid 'configuration.json' file." << std::endl;
+	return;
+  }
 
   // assign this controller to the correct robot in Webots
   char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
   if (!robotName)
   {
+	if (!configuration.isMember("name") || !configuration["name"].isString()) {
+		std::cerr << "Missing or invalid 'name' key in 'configuration.json' file." << std::endl;
+		return;
+	}
     char environment[256] = "WEBOTS_ROBOT_NAME=";
-    putenv(strcat(environment, configuration["name"].asCString()));  //TODO: check existence: root.isMember("name")
+    putenv(strcat(environment, configuration["name"].asCString()));
   }
-
-  std::cout << "END" << std::endl;
 
   // create Robot instance
   webotsRobot = new webots::Robot();
