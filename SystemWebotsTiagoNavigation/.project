@@ -8,7 +8,7 @@
 		<project>ComponentTCLSequencer</project>
 		<project>ComponentWebots</project>
 		<project>ComponentWebotsLidar</project>
-		<project>ComponentWebotsTIAGo</project>
+		<project>ComponentWebotsRobot</project>
 		<project>SmartAmcl</project>
 		<project>SmartCdlServer</project>
 		<project>SmartJoystickNavigation</project>

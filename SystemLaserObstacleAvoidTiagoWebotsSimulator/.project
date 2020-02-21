@@ -6,7 +6,7 @@
 		<project>ComponentLaserObstacleAvoid</project>
 		<project>ComponentWebots</project>
 		<project>ComponentWebotsLidar</project>
-		<project>ComponentWebotsTIAGo</project>
+		<project>ComponentWebotsRobot</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

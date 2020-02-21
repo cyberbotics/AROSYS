@@ -8,7 +8,7 @@ SystemComponentArchitecture SystemWebotsPioneer3DXNavigation
     RequiredService BaseStateServiceIn
     ProvidedService LaserServiceOut
   }
-  ComponentInstance ComponentWebotsPioneer3DX instantiates ComponentWebotsPioneer3DX
+  ComponentInstance ComponentWebotsRobot instantiates ComponentWebotsRobot
   {
     ProvidedService BaseStateAnswerer
     ProvidedService BaseStateServiceOut
@@ -22,7 +22,7 @@ SystemComponentArchitecture SystemWebotsPioneer3DXNavigation
     RequiredService NavigationVelocityServiceOut
   }
 
-  Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsPioneer3DX.BaseStateServiceOut
+  Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsRobot.BaseStateServiceOut
   Connection ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
-  Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsPioneer3DX.NavigationVelocityServiceIn
+  Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsRobot.NavigationVelocityServiceIn
 }

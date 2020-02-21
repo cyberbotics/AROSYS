@@ -7,7 +7,7 @@
 	<classpathentry kind="src" path="/ComponentTCLSequencer"/>
 	<classpathentry kind="src" path="/ComponentWebots"/>
 	<classpathentry kind="src" path="/ComponentWebotsLidar"/>
-	<classpathentry kind="src" path="/ComponentWebotsTIAGo"/>
+	<classpathentry kind="src" path="/ComponentWebotsRobot"/>
 	<classpathentry kind="src" path="/SmartAmcl"/>
 	<classpathentry kind="src" path="/SmartCdlServer"/>
 	<classpathentry kind="src" path="/SmartJoystickNavigation"/>

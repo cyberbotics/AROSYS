@@ -12,6 +12,6 @@ DeploymentModel SystemWebotsPioneer3DXNavigation using ComponentArchitecture Sys
 
   ComponentArtefact ComponentWebots deploy-to PC1
   ComponentArtefact ComponentWebotsLidar deploy-to PC1
-  ComponentArtefact ComponentWebotsPioneer3DX deploy-to PC1
+  ComponentArtefact ComponentWebotsRobot deploy-to PC1
   ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
 }
