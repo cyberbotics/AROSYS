@@ -258,7 +258,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@edgeMappings[name='DeployEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLX2MED7EeqqZMKWbhoYdw" name="ComponentLaserObstacleAvoid" tooltipText="ComponentArtefact" outgoingEdges="_rUva4kD7EeqqZMKWbhoYdw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLX2MED7EeqqZMKWbhoYdw" name="ComponentWebots" tooltipText="ComponentArtefact" outgoingEdges="_rUva4kD7EeqqZMKWbhoYdw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.2"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.2"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -269,7 +269,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdQUD7EeqqZMKWbhoYdw" name="ComponentWebots" tooltipText="ComponentArtefact" outgoingEdges="_wgpfFED7EeqqZMKWbhoYdw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdQUD7EeqqZMKWbhoYdw" name="Pioneer3DXLidar" tooltipText="ComponentArtefact" outgoingEdges="_wgpfFED7EeqqZMKWbhoYdw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.3"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.3"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -280,7 +280,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdRED7EeqqZMKWbhoYdw" name="ComponentWebotsLidar" tooltipText="ComponentArtefact" outgoingEdges="_um02tkD7EeqqZMKWbhoYdw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdRED7EeqqZMKWbhoYdw" name="Pioneer3DX" tooltipText="ComponentArtefact" outgoingEdges="_um02tkD7EeqqZMKWbhoYdw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.4"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.4"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -291,7 +291,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdR0D7EeqqZMKWbhoYdw" name="ComponentWebotsRobot" tooltipText="ComponentArtefact" outgoingEdges="_sovZaED7EeqqZMKWbhoYdw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdR0D7EeqqZMKWbhoYdw" name="ComponentLaserObstacleAvoid" tooltipText="ComponentArtefact" outgoingEdges="_sovZaED7EeqqZMKWbhoYdw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.5"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.5"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>

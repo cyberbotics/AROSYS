@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "ComponentWebotsRobotCore.hh"
+#include "ComponentWebotsLidarCore.hh"
 
 #include <fstream>
 
 // constructor
-ComponentWebotsRobotCore::ComponentWebotsRobotCore()
+ComponentWebotsLidarCore::ComponentWebotsLidarCore()
 {
   webotsRobot = NULL;
 

@@ -19,6 +19,8 @@
 
 #include <iostream>
 
+#include <jsoncpp/json/json.h>
+
 #include <webots/Robot.hpp>
 
 class ComponentWebotsBumperCore
@@ -27,6 +29,7 @@ private:
 public:
   ComponentWebotsBumperCore();
   SmartACE::SmartMutex mutex;
+  Json::Value mConfiguration;
   webots::Robot *webotsRobot;
 };
 
