@@ -219,8 +219,10 @@ int RobotTask::on_execute()
   // Pass values to motors in Webots side
   for (std::map<std::string, webots::Motor *>::iterator it=navigationMotors.begin(); it!=navigationMotors.end(); ++it) {
     const std::string name = it->first;
+    const Json::Value coefficients = COMP->configuration["navigationVelocity"][name];  // TODO: check array
+    std::cout << "Speed: " << coefficients << std::endl;
     webots::Motor *motor = it->second;
-    motor->setVelocity(COMP->vX);
+    motor->setVelocity(COMP->vX * coefficients[0].asDouble()  + COMP->vY * coefficients[1].asDouble() + COMP->vW * coefficients[2].asDouble());  // TODO: check double
   }
 
   // send baseState update to the port
