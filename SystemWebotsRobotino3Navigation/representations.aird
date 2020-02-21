@@ -259,7 +259,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_HFMUhDewEeqB2pihkNJcrQ" name="ComponentWebotsRobot" tooltipText="ComponentArtefact" outgoingEdges="_WUB2MDewEeqB2pihkNJcrQ">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_HFMUhDewEeqB2pihkNJcrQ" name="Robotino3Lidar" tooltipText="ComponentArtefact" outgoingEdges="_WUB2MDewEeqB2pihkNJcrQ">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsRobotino3Navigation.deployment#//@elements.3"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsRobotino3Navigation.deployment#//@elements.3"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -297,7 +297,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@edgeMappings[name='DeployEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_wPGcYD0nEeqn3dldd-94Mw" name="ComponentWebotsLidar" tooltipText="ComponentArtefact" outgoingEdges="_zRGNwD0nEeqn3dldd-94Mw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_wPGcYD0nEeqn3dldd-94Mw" name="Robotino3" tooltipText="ComponentArtefact" outgoingEdges="_zRGNwD0nEeqn3dldd-94Mw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsRobotino3Navigation.deployment#//@elements.4"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsRobotino3Navigation.deployment#//@elements.4"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -546,7 +546,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_pgb2IDevEeqB2pihkNJcrQ" name="ComponentWebotsLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_pgb2IDevEeqB2pihkNJcrQ" name="Robotino3Lidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsRobotino3Navigation.componentArch#//@components.1"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsRobotino3Navigation.componentArch#//@components.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_pgcdMzevEeqB2pihkNJcrQ" name="LaserServiceOut" tooltipText="OutputProvider" incomingEdges="_PpVQREaMEeqrb8xMqtSdFQ" width="3" height="3" resizeKind="NSEW">
@@ -580,7 +580,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_csqXgD0nEeqn3dldd-94Mw" name="ComponentWebotsRobot: ComponentWebotsRobot" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_csqXgD0nEeqn3dldd-94Mw" name="Robotino3: ComponentWebotsRobot" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsRobotino3Navigation.componentArch#//@components.2"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsRobotino3Navigation.componentArch#//@components.2"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_cs3y4D0nEeqn3dldd-94Mw" name="BaseStateServiceOut" tooltipText="OutputProvider" incomingEdges="_PpUpMEaMEeqrb8xMqtSdFQ" width="3" height="3" resizeKind="NSEW">

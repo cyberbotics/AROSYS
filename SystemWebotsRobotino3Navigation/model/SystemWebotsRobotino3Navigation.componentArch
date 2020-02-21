@@ -3,12 +3,12 @@ SystemComponentArchitecture SystemWebotsRobotino3Navigation
   ComponentInstance ComponentWebots instantiates ComponentWebots
   {
   }
-  ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
+  ComponentInstance Robotino3Lidar instantiates ComponentWebotsLidar
   {
     RequiredService BaseStateServiceIn
     ProvidedService LaserServiceOut
   }
-  ComponentInstance ComponentWebotsRobot instantiates ComponentWebotsRobot
+  ComponentInstance Robotino3 instantiates ComponentWebotsRobot
   {
     ProvidedService BaseStateAnswerer
     ProvidedService BaseStateServiceOut
@@ -22,7 +22,7 @@ SystemComponentArchitecture SystemWebotsRobotino3Navigation
     RequiredService NavigationVelocityServiceOut
   }
 
-  Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsRobot.BaseStateServiceOut
-  Connection ComponentLaserObstacleAvoid.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
-  Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> ComponentWebotsRobot.NavigationVelocityServiceIn
+  Connection Robotino3Lidar.BaseStateServiceIn -> Robotino3.BaseStateServiceOut
+  Connection ComponentLaserObstacleAvoid.LaserServiceIn -> Robotino3Lidar.LaserServiceOut
+  Connection ComponentLaserObstacleAvoid.NavigationVelocityServiceOut -> Robotino3.NavigationVelocityServiceIn
 }

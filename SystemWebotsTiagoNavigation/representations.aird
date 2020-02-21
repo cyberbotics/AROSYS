@@ -1173,7 +1173,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_8mfxAEM0EeqtT4-Ux52tuA" name="ComponentWebotsLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_8mfxAEM0EeqtT4-Ux52tuA" name="TiagoLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsTiagoNavigation.componentArch#//@components.7"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsTiagoNavigation.componentArch#//@components.7"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_8miNQEM0EeqtT4-Ux52tuA" name="BaseStateServiceIn" tooltipText="InputRequestor" outgoingEdges="_Ny0THEM1EeqtT4-Ux52tuA" width="3" height="3" resizeKind="NSEW">
@@ -1207,7 +1207,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_BBTIYEM1EeqtT4-Ux52tuA" name="ComponentWebotsRobot: ComponentWebotsRobot" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_BBTIYEM1EeqtT4-Ux52tuA" name="Tiago: ComponentWebotsRobot" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsTiagoNavigation.componentArch#//@components.8"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsTiagoNavigation.componentArch#//@components.8"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_BBTvckM1EeqtT4-Ux52tuA" name="BaseStateServiceOut" tooltipText="OutputProvider" incomingEdges="_Ny0THEM1EeqtT4-Ux52tuA _arAGcEM1EeqtT4-Ux52tuA _eLpisEM1EeqtT4-Ux52tuA" width="3" height="3" resizeKind="NSEW">

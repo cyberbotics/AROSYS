@@ -1,0 +1,7 @@
+{
+  "name": "TIAGo Iron",
+  "navigationVelocity": {
+    "wheel_right_joint": [5.115, 0.0, 1.033],
+    "wheel_left_joint": [5.115, 0.0, -1.033]
+  }
+}
