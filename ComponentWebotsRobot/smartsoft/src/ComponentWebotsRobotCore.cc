@@ -21,7 +21,7 @@ ComponentWebotsRobotCore::ComponentWebotsRobotCore()
 {
   webotsRobot = NULL;
 
-  std::ifstream file_input("configuration2.json");
+  std::ifstream file_input("configuration.json");
   if (!file_input.is_open()) {
 	std::cerr << "Can't open 'configuration.json' file." << std::endl;
 	return;

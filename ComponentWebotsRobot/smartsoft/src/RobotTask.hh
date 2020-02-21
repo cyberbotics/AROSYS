@@ -38,16 +38,11 @@ class RobotTask : public RobotTaskCore
 {
 private:
   int webotsTimeStep;
-  bool GPSFound;
-  bool IMUFound;
- // double motorMaxSpeed;  // in rad/s
+
+  // webots devices
   webots::GPS *webotsGPS;
-  webots::Motor *webotsRightMotor;
-  webots::Motor *webotsLeftMotor;
   webots::InertialUnit *webotsIMU;
   std::map<std::string, webots::Motor *> navigationMotors;
-
-
 
   // threading stuff
   std::thread mThread;

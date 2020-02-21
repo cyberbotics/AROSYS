@@ -61,10 +61,8 @@ int RobotTask::on_entry()
   webotsTimeStep *= coeff;
 
   // set GPS and IMU
-  GPSFound = false;
-  IMUFound = false;
-  std::string GPSName;
-  std::string IMUName;
+  webotsGPS = NULL;
+  webotsIMU = NULL;
   webots::Device *webotsDevice = NULL;
 
   for (int i = 0; i < COMP->webotsRobot->getNumberOfDevices(); i++)
@@ -73,59 +71,43 @@ int RobotTask::on_entry()
 
     if (webotsDevice->getNodeType() == webots::Node::GPS)
     {
-      GPSFound = true;
-      GPSName = webotsDevice->getName();
+      webotsGPS = COMP->webotsRobot->getGPS(webotsDevice->getName());
       std::cout << "Device #" << i << " called " << webotsDevice->getName() << " is a GPS." << std::endl;
     }
     if (webotsDevice->getNodeType() == webots::Node::INERTIAL_UNIT)
     {
-      IMUFound = true;
-      IMUName = webotsDevice->getName();
+      webotsIMU = COMP->webotsRobot->getInertialUnit(webotsDevice->getName());
       std::cout << "Device #" << i << " called " << webotsDevice->getName() << " is a IMU." << std::endl;
     }
-    if (GPSFound && IMUFound)
+    if (webotsGPS && webotsIMU)
       break;
   }
 
   // enable GPS and IMU if found
-  if (GPSFound)
-  {
-    webotsGPS = COMP->webotsRobot->getGPS(GPSName);
+  if (webotsGPS)
     webotsGPS->enable(webotsTimeStep);
-  }
   else
-    std::cout << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
+    std::cerr << "No GPS found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
-  if (IMUFound)
-  {
-    webotsIMU = COMP->webotsRobot->getInertialUnit(IMUName);
+  if (webotsIMU)
     webotsIMU->enable(webotsTimeStep);
-  }
   else
-    std::cout << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
+    std::cerr << "No IMU found, data sent to `baseStateServiceOut` will be (0,0,0)." << std::endl;
 
-  // set Motors (name from PROTO definition in Webots)
-  Json::Value velocityConfiguration = COMP->configuration["navigationVelocity"]; //TODO: check existence
-  Json::Value::Members motorNames = velocityConfiguration.getMemberNames();
-  for (int i=0; i < motorNames.size(); ++i) {
-    webots::Motor *motor = COMP->webotsRobot->getMotor(motorNames[i]);
-    if (motor) {
-      motor->setPosition(INFINITY);
-      motor->setVelocity(0);
-      navigationMotors[motorNames[i]] = motor;
-    }
-  }
-
-//  webotsLeftMotor = COMP->webotsRobot->getMotor("left wheel");
-//  webotsRightMotor = COMP->webotsRobot->getMotor("right wheel");
-//
-//  webotsLeftMotor->setPosition(INFINITY);
-//  webotsRightMotor->setPosition(INFINITY);
-//
-//  webotsLeftMotor->setVelocity(0);
-//  webotsRightMotor->setVelocity(0);
-//
-//  motorMaxSpeed = webotsLeftMotor->getMaxVelocity();  // in rad/s
+  // get the required motor for the navigation according to the configuration file
+  if (COMP->configuration.isMember("navigationVelocity") && COMP->configuration["navigationVelocity"].isArray ()) {
+	  const Json::Value velocityConfiguration = COMP->configuration["navigationVelocity"];
+	  const Json::Value::Members motorNames = velocityConfiguration.getMemberNames();
+	  for (int i=0; i < motorNames.size(); ++i) {
+		webots::Motor *motor = COMP->webotsRobot->getMotor(motorNames[i]);
+		if (motor) {
+		  motor->setPosition(INFINITY);
+		  motor->setVelocity(0);
+		  navigationMotors[motorNames[i]] = motor;
+		}
+	  }
+  } else
+	  std::cerr << "Missing or invalid 'navigationVelocity' key in 'configuration.json' file." << std::endl;
 
   // release
   COMP->RobotMutex.release();
@@ -167,7 +149,7 @@ int RobotTask::on_execute()
   //check_velocity(leftSpeed, rightSpeed, motorMaxSpeed);
 
   // set GPS values for port BaseStateServiceOut
-  if (GPSFound)
+  if (webotsGPS)
   {
     const double *GPS_value = webotsGPS->getValues();
     basePosition.set_x(GPS_value[2], 1.0);
@@ -194,7 +176,7 @@ int RobotTask::on_execute()
   // Smartsoft use ???, see ???
   // ROS use ENU convention, https://www.ros.org/reps/rep-0103.html
   // Be aware of this in your calculation
-  if (IMUFound)
+  if (webotsIMU)
   {
     const double *IMU_value = webotsIMU->getRollPitchYaw();
     basePosition.set_base_roll(IMU_value[0]);
