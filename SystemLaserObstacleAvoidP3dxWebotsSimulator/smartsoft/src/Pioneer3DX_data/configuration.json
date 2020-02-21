@@ -1,0 +1,7 @@
+{
+  "name": "Pioneer 3-DX",
+  "navigationVelocity": {
+    "right wheel": [10.2564, 0.0, 1.3795],
+    "left wheel": [10.2564, 0.0, -1.3795]
+  }
+}

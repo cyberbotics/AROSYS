@@ -256,7 +256,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@edgeMappings[name='DeployEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_akV_8EHkEeqjdOGB4tutsg" name="ComponentLaserObstacleAvoid" tooltipText="ComponentArtefact" outgoingEdges="_f6XCYEHkEeqjdOGB4tutsg">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_akV_8EHkEeqjdOGB4tutsg" name="ComponentWebots" tooltipText="ComponentArtefact" outgoingEdges="_f6XCYEHkEeqjdOGB4tutsg">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.deployment#//@elements.2"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.deployment#//@elements.2"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -267,7 +267,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_akXOEEHkEeqjdOGB4tutsg" name="ComponentWebots" tooltipText="ComponentArtefact" outgoingEdges="_oS9FAEHkEeqjdOGB4tutsg">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_akXOEEHkEeqjdOGB4tutsg" name="Pioneer3DXLidar" tooltipText="ComponentArtefact" outgoingEdges="_oS9FAEHkEeqjdOGB4tutsg">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.deployment#//@elements.3"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.deployment#//@elements.3"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -278,7 +278,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_akXOE0HkEeqjdOGB4tutsg" name="ComponentWebotsLidar" tooltipText="ComponentArtefact" outgoingEdges="_kYurIEHkEeqjdOGB4tutsg">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_akXOE0HkEeqjdOGB4tutsg" name="Pioneer3DX" tooltipText="ComponentArtefact" outgoingEdges="_kYurIEHkEeqjdOGB4tutsg">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.deployment#//@elements.4"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.deployment#//@elements.4"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -289,7 +289,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_akX1IEHkEeqjdOGB4tutsg" name="ComponentWebotsRobot" tooltipText="ComponentArtefact" outgoingEdges="_hjgxgEHkEeqjdOGB4tutsg">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_akX1IEHkEeqjdOGB4tutsg" name="ComponentLaserObstacleAvoid" tooltipText="ComponentArtefact" outgoingEdges="_hjgxgEHkEeqjdOGB4tutsg">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.deployment#//@elements.5"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.deployment#//@elements.5"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -545,7 +545,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_0buDEEHjEeqjdOGB4tutsg" name="ComponentWebotsLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_0buDEEHjEeqjdOGB4tutsg" name="Pioneer3DXLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.1"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_lu7LMEaIEeqrb8xMqtSdFQ" name="BaseStateServiceIn" tooltipText="InputRequestor" outgoingEdges="_lvBR0EaIEeqrb8xMqtSdFQ" width="3" height="3" resizeKind="NSEW">
@@ -579,7 +579,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_0bvRMUHjEeqjdOGB4tutsg" name="ComponentWebotsRobot: ComponentWebotsRobot" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_0bvRMUHjEeqjdOGB4tutsg" name="Pioneer3DX: ComponentWebotsRobot" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.2"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidP3dxWebotsSimulator.componentArch#//@components.2"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_0bv4QkHjEeqjdOGB4tutsg" name="BaseStateAnswerer" tooltipText="2WayAnswer" width="3" height="3" resizeKind="NSEW">
