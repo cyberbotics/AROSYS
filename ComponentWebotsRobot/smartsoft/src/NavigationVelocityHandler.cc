@@ -33,8 +33,8 @@ void NavigationVelocityHandler::on_NavigationVelocityServiceIn(const CommBasicOb
 {
   // get from the port and pass to ComponentRobotCore to be accessible
   COMP->mRobotMutex.acquire();
-  COMP->mVX = input.get_vX(1.0);    // in m/s
-  COMP->mVY = input.get_vY(1.0);    // in m/s
+  COMP->mVX = input.get_vX(1.0);     // in m/s
+  COMP->mVY = input.get_vY(1.0);     // in m/s
   COMP->mOmega = input.get_omega();  // in rad/s
   COMP->mRobotMutex.release();
 
