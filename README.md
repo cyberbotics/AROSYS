@@ -1,5 +1,8 @@
-[![Build Status](https://travis-ci.com/cyberbotics/AROSYS.svg?token=F34e6fzg7bnX1UAbdRpa&branch=master)](https://travis-ci.com/cyberbotics/AROSYS) [![Safety](https://img.shields.io/badge/safety-secure-brightgreen.svg)](https://app.gitguardian.com) [![Software License](https://img.shields.io/badge/license-Apache--2.0-brightgreen.svg)](LICENSE)
 # AROSYS
+
+[![Build Status](https://travis-ci.com/cyberbotics/AROSYS.svg?token=F34e6fzg7bnX1UAbdRpa&branch=master)](https://travis-ci.com/cyberbotics/AROSYS)
+[![Safety](https://img.shields.io/badge/safety-secure-brightgreen.svg)](https://app.gitguardian.com)
+[![Software License](https://img.shields.io/badge/license-Apache--2.0-brightgreen.svg)](LICENSE)
 
 ## Components
 The following components are new components for RobMoSys in order to be able to use them with the [Webots simulator](https://cyberbotics.com).
@@ -18,7 +21,7 @@ This component configures bumper's sensors in SmartSoft according to Webots prot
 
 | Input  | Output |
 | ------ | ------ |
-|   | **BumperEventServiceOut**: bumber value |
+|   | **BumperEventServiceOut**: bumper value |
 
 
 ### ComponentWebotsLidar
