@@ -69,7 +69,7 @@ Each robot has his specification such as the wheel radius (R), wheel separation 
 * **TIAGo**
 
   For the TIAGo robots series from Pal Robotics, when using `ComponentWebotsRobot` in SmartMDSD Toolchain, you have to configure the `configuration.json` file with this code (adapt the name):
-```
+  ```
   {
     "name": "TIAGo Base/Iron/Steel/Titanium",
     "navigationVelocity": {
