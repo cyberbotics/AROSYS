@@ -53,42 +53,45 @@ When used in a system, the name of the robot and its navigation properties shoul
 #### JSON configuration
 Each robot has his specification such as the wheel radius (R), wheel separation (L) and the velocity coefficients. For two wheeled robot, these latter are calculated using simple formulas such as `V_right = w(R+L/2)` and `V_left = w(R-L/2)` which gives `coeff_0 (for Vx) = 1/R`, `coeff_1 (for Vy) = 0` and `coeff_2 (for Vz) = L/(2R)`.  For omniwheeled robot such as the Robotino 3, a matrix conversion can be found in [this paper](http://ftp.itam.mx/pub/alfredo/ROBOCUP/SSLDocs/PapersTDPs/omnidrive.pdf) at section 4. 
 
-**Pioneer 3-DX**
-For the [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) from Adept, when using `ComponentWebotsRobot` in SmartMDSD Toolchain, you have to configure the `configuration.json` file with this code:
-```
-{
-  "name": "Pioneer 3-DX",
-  "navigationVelocity": {
-    "right wheel": [10.2564, 0.0, 1.3795],
-    "left wheel": [10.2564, 0.0, -1.3795]
-  }
-}
-```
+* **Pioneer 3-DX**
 
-**TIAGo**
-For the TIAGo robots series from Pal Robotics, when using `ComponentWebotsRobot` in SmartMDSD Toolchain, you have to configure the `configuration.json` file with this code (adapt the name):
-```
-{
-  "name": "TIAGo Base/Iron/Steel/Titanium",
-  "navigationVelocity": {
-    "wheel_right_joint": [5.115, 0.0, 1.033],
-    "wheel_left_joint": [5.115, 0.0, -1.033]
+  For the [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) from Adept, when using `ComponentWebotsRobot` in   SmartMDSD Toolchain, you have to configure the `configuration.json` file with this code:
+  ```
+  {
+    "name": "Pioneer 3-DX",
+    "navigationVelocity": {
+      "right wheel": [10.2564, 0.0, 1.3795],
+      "left wheel": [10.2564, 0.0, -1.3795]
+    }
   }
-}
-```
+  ```
 
-**Robotino 3**
-For the [Robotino 3](https://cyberbotics.com/doc/guide/robotino3) from Festo, when using `ComponentWebotsRobot` in SmartMDSD Toolchain, you have to configure the `configuration.json` file with this code:
+* **TIAGo**
+
+  For the TIAGo robots series from Pal Robotics, when using `ComponentWebotsRobot` in SmartMDSD Toolchain, you have to configure the `configuration.json` file with this code (adapt the name):
 ```
-{
-  "name": "Robotino 3",
-  "navigationVelocity": {
-    "wheel0_joint": [13.856, -8, -2.944],
-    "wheel1_joint": [-13.856, -8, -2.944],
-    "wheel2_joint": [0.0, 16.0, -2.944]
+  {
+    "name": "TIAGo Base/Iron/Steel/Titanium",
+    "navigationVelocity": {
+      "wheel_right_joint": [5.115, 0.0, 1.033],
+      "wheel_left_joint": [5.115, 0.0, -1.033]
+    }
   }
-}
-```
+  ```
+
+* **Robotino 3**
+
+  For the [Robotino 3](https://cyberbotics.com/doc/guide/robotino3) from Festo, when using `ComponentWebotsRobot` in SmartMDSD Toolchain, you have to configure the `configuration.json` file with this code:
+  ```
+  {
+    "name": "Robotino 3",
+    "navigationVelocity": {
+      "wheel0_joint": [13.856, -8, -2.944],
+      "wheel1_joint": [-13.856, -8, -2.944],
+      "wheel2_joint": [0.0, 16.0, -2.944]
+    }
+  }
+  ```
 
 
 ---
