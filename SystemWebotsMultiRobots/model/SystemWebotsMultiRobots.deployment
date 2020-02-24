@@ -1,0 +1,20 @@
+DeploymentModel SystemWebotsMultiRobots using ComponentArchitecture SystemWebotsMultiRobots
+{
+  TargetPlatformReference PC1 using SystemWebotsMultiRobots.PC1
+  {
+    UploadDirectory "/tmp"
+    NetworkInterface eth1
+  }
+  NamingService
+  {
+    deploy-to PC1
+  }
+
+  ComponentArtefact ComponentWebots deploy-to PC1
+  ComponentArtefact Pionneer3DXLidar deploy-to PC1
+  ComponentArtefact Pionneer3DX deploy-to PC1
+  ComponentArtefact Pionneer3DXObstacleAvoid deploy-to PC1
+  ComponentArtefact TIAGoObstacleAvoid deploy-to PC1
+  ComponentArtefact TiagoLidar deploy-to PC1
+  ComponentArtefact TIAGo deploy-to PC1
+}
