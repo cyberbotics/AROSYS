@@ -11,7 +11,7 @@ DeploymentModel SystemLaserObstacleAvoidP3dxWebotsSimulator using ComponentArchi
   }
 
   ComponentArtefact ComponentWebots deploy-to PC1
-  ComponentArtefact ComponentWebotsLidar deploy-to PC1
-  ComponentArtefact ComponentWebotsPioneer3DX deploy-to PC1
+  ComponentArtefact Pioneer3DXLidar deploy-to PC1
+  ComponentArtefact Pioneer3DX deploy-to PC1
   ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
 }

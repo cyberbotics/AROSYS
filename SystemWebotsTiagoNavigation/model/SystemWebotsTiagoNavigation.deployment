@@ -11,8 +11,8 @@ DeploymentModel SystemWebotsTiagoNavigation using ComponentArchitecture SystemWe
   }
 
   ComponentArtefact ComponentWebots deploy-to PC1
-  ComponentArtefact ComponentWebotsLidar deploy-to PC1
-  ComponentArtefact ComponentWebotsTIAGo deploy-to PC1
+  ComponentArtefact TiagoLidar deploy-to PC1
+  ComponentArtefact Tiago deploy-to PC1
   ComponentArtefact ComponentKB deploy-to PC1
   ComponentArtefact ComponentTCLSequencer deploy-to PC1
   ComponentArtefact SmartAmcl deploy-to PC1

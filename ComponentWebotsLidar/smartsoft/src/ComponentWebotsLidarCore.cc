@@ -14,32 +14,38 @@
 
 #include "ComponentWebotsLidarCore.hh"
 
+#include <fstream>
+
 // constructor
 ComponentWebotsLidarCore::ComponentWebotsLidarCore()
 {
-  std::cout << "constructor ComponentWebotsLidarCore\n";
-
   webotsRobot = NULL;
+
+  std::ifstream file_input("configuration.json");
+  if (!file_input.is_open())
+  {
+    std::cerr << "Can't open 'configuration.json' file." << std::endl;
+    return;
+  }
+
+  Json::Reader reader;
+  if (!reader.parse(file_input, mConfiguration))
+  {
+    std::cerr << "Invalid 'configuration.json' file." << std::endl;
+    return;
+  }
 
   // assign this controller to the correct robot in Webots
   char *robotName = std::getenv("WEBOTS_ROBOT_NAME");
   if (!robotName)
   {
-    FILE *f = fopen("robotName.txt", "rb");
-    if (!f)
+    if (!mConfiguration.isMember("name") || !mConfiguration["name"].isString())
     {
-      std::cout << "'robotName.txt' file not found." << std::endl;
-      return;
-    }
-    char name[256];
-    int ret = fscanf(f, "%[^\n]", name);
-    if (ret == 0)
-    {
-      std::cout << "First line of the 'robotName.txt' file is empty." << std::endl;
+      std::cerr << "Missing or invalid 'name' key in 'configuration.json' file." << std::endl;
       return;
     }
     char environment[256] = "WEBOTS_ROBOT_NAME=";
-    putenv(strcat(environment, name));
+    putenv(strcat(environment, mConfiguration["name"].asCString()));
   }
 
   // create Robot instance

@@ -12,9 +12,9 @@
     <semanticResources>platform:/resource/CommBasicObjects/model/CommBasicObjects.modes</semanticResources>
     <semanticResources>platform:/plugin/org.xtext.service.parameterDefinition/defaultParameterLib/defaultParameterLib.parameters</semanticResources>
     <semanticResources>platform:/resource/CommBasicObjects/model/CommBasicObjects.parameters</semanticResources>
-    <semanticResources>platform:/resource/ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DX.component</semanticResources>
+    <semanticResources>platform:/resource/ComponentWebotsRobot/model/ComponentWebotsRobot.component</semanticResources>
     <semanticResources>platform:/resource/CommNavigationObjects/model/CommNavigationObjects.services</semanticResources>
-    <semanticResources>platform:/resource/ComponentWebotsPioneer3DX/model/ComponentWebotsPioneer3DX.componentParameters</semanticResources>
+    <semanticResources>platform:/resource/ComponentWebotsRobot/model/ComponentWebotsRobot.componentParameters</semanticResources>
     <semanticResources>platform:/resource/CommNavigationObjects/model/CommNavigationObjects.types</semanticResources>
     <semanticResources>platform:/resource/CommNavigationObjects/model/CommNavigationObjects.modes</semanticResources>
     <semanticResources>platform:/resource/CommNavigationObjects/model/CommNavigationObjects.parameters</semanticResources>
@@ -258,7 +258,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@edgeMappings[name='DeployEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLX2MED7EeqqZMKWbhoYdw" name="ComponentLaserObstacleAvoid" tooltipText="ComponentArtefact" outgoingEdges="_rUva4kD7EeqqZMKWbhoYdw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLX2MED7EeqqZMKWbhoYdw" name="ComponentWebots" tooltipText="ComponentArtefact" outgoingEdges="_rUva4kD7EeqqZMKWbhoYdw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.2"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.2"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -269,7 +269,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdQUD7EeqqZMKWbhoYdw" name="ComponentWebots" tooltipText="ComponentArtefact" outgoingEdges="_wgpfFED7EeqqZMKWbhoYdw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdQUD7EeqqZMKWbhoYdw" name="Pioneer3DXLidar" tooltipText="ComponentArtefact" outgoingEdges="_wgpfFED7EeqqZMKWbhoYdw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.3"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.3"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -280,7 +280,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdRED7EeqqZMKWbhoYdw" name="ComponentWebotsLidar" tooltipText="ComponentArtefact" outgoingEdges="_um02tkD7EeqqZMKWbhoYdw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdRED7EeqqZMKWbhoYdw" name="Pioneer3DX" tooltipText="ComponentArtefact" outgoingEdges="_um02tkD7EeqqZMKWbhoYdw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.4"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.4"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -291,7 +291,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdR0D7EeqqZMKWbhoYdw" name="ComponentWebotsPioneer3DX" tooltipText="ComponentArtefact" outgoingEdges="_sovZaED7EeqqZMKWbhoYdw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_oLYdR0D7EeqqZMKWbhoYdw" name="ComponentLaserObstacleAvoid" tooltipText="ComponentArtefact" outgoingEdges="_sovZaED7EeqqZMKWbhoYdw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.5"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemWebotsPioneer3DXNavigation.deployment#//@elements.5"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -547,7 +547,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_TT2NskD7EeqqZMKWbhoYdw" name="ComponentWebotsLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_TT2NskD7EeqqZMKWbhoYdw" name="Pioneer3DXLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsPioneer3DXNavigation.componentArch#//@components.1"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsPioneer3DXNavigation.componentArch#//@components.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_VOCEYEaLEeqrb8xMqtSdFQ" name="BaseStateServiceIn" tooltipText="InputRequestor" outgoingEdges="_VOG84EaLEeqrb8xMqtSdFQ" width="3" height="3" resizeKind="NSEW">
@@ -581,7 +581,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_TT20wkD7EeqqZMKWbhoYdw" name="ComponentWebotsPioneer3DX: ComponentWebotsPioneer3DX" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_TT20wkD7EeqqZMKWbhoYdw" name="Pioneer3DX: ComponentWebotsRobot" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsPioneer3DXNavigation.componentArch#//@components.2"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemWebotsPioneer3DXNavigation.componentArch#//@components.2"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_TT3b00D7EeqqZMKWbhoYdw" name="BaseStateServiceOut" tooltipText="OutputProvider" incomingEdges="_VOG84EaLEeqrb8xMqtSdFQ" width="3" height="3" resizeKind="NSEW">

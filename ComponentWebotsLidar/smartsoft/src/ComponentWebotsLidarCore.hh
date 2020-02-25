@@ -19,7 +19,7 @@
 
 #include <iostream>
 
-#include "CommBasicObjects/CommBaseState.hh"
+#include <jsoncpp/json/json.h>
 
 #include <webots/Robot.hpp>
 
@@ -29,6 +29,7 @@ private:
 public:
   ComponentWebotsLidarCore();
   SmartACE::SmartMutex mutex;
+  Json::Value mConfiguration;
   webots::Robot *webotsRobot;
 };
 

@@ -8,7 +8,7 @@ SystemComponentArchitecture SystemWebotsMultiRobots
     RequiredService BaseStateServiceIn
     ProvidedService LaserServiceOut
   }
-  ComponentInstance Pionneer3DX instantiates ComponentWebotsPioneer3DX
+  ComponentInstance Pionneer3DX instantiates ComponentWebotsRobot
   {
     ProvidedService BaseStateAnswerer
     ProvidedService BaseStateServiceOut
@@ -21,7 +21,7 @@ SystemComponentArchitecture SystemWebotsMultiRobots
     RequiredService LaserServiceIn
     RequiredService NavigationVelocityServiceOut
   }
-  ComponentInstance TIAGo instantiates ComponentWebotsTIAGo
+  ComponentInstance TIAGo instantiates ComponentWebotsRobot
   {
     ProvidedService BaseStateServiceOut
     ProvidedService BatteryEventServiceOut

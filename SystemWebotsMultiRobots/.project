@@ -6,8 +6,6 @@
 		<project>ComponentLaserObstacleAvoid</project>
 		<project>ComponentWebots</project>
 		<project>ComponentWebotsLidar</project>
-		<project>ComponentWebotsPioneer3DX</project>
-		<project>ComponentWebotsTIAGo</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

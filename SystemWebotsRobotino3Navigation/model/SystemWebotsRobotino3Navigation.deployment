@@ -11,7 +11,7 @@ DeploymentModel SystemWebotsRobotino3Navigation using ComponentArchitecture Syst
   }
 
   ComponentArtefact ComponentWebots deploy-to PC1
-  ComponentArtefact ComponentWebotsLidar deploy-to PC1
-  ComponentArtefact ComponentWebotsRobotino3 deploy-to PC1
+  ComponentArtefact Robotino3Lidar deploy-to PC1
+  ComponentArtefact Robotino3 deploy-to PC1
   ComponentArtefact ComponentLaserObstacleAvoid deploy-to PC1
 }

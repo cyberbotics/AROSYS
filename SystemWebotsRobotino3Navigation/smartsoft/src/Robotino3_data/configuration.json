@@ -1,0 +1,8 @@
+{
+  "name": "Robotino 3",
+  "navigationVelocity": {
+    "wheel0_joint": [13.856, -8, -2.944],
+    "wheel1_joint": [-13.856, -8, -2.944],
+    "wheel2_joint": [0.0, 16.0, -2.944]
+  }
+}

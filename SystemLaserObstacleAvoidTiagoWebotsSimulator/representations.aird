@@ -20,8 +20,8 @@
     <semanticResources>platform:/resource/ComponentLaserObstacleAvoid/model/ComponentLaserObstacleAvoid.component</semanticResources>
     <semanticResources>model/SystemLaserObstacleAvoidTiagoWebotsSimulator.deployment</semanticResources>
     <semanticResources>model/SystemLaserObstacleAvoidTiagoWebotsSimulator.target</semanticResources>
-    <semanticResources>platform:/resource/ComponentWebotsTIAGo/model/ComponentWebotsTIAGo.component</semanticResources>
-    <semanticResources>platform:/resource/ComponentWebotsTIAGo/model/ComponentWebotsTIAGo.componentParameters</semanticResources>
+    <semanticResources>platform:/resource/ComponentWebotsRobot/model/ComponentWebotsRobot.component</semanticResources>
+    <semanticResources>platform:/resource/ComponentWebotsRobot/model/ComponentWebotsRobot.componentParameters</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_u9neAD01Eeqn3dldd-94Mw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_u94jwT01Eeqn3dldd-94Mw" name="SystemLaserObstacleAvoidTiagoWebotsSimulatorDeployment" repPath="#_u93VoD01Eeqn3dldd-94Mw">
@@ -270,7 +270,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@containerMappings[name='ComponentArtefactContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_pk1JRj3WEeqn3dldd-94Mw" name="ComponentWebotsLidar" tooltipText="ComponentArtefact" outgoingEdges="_70hz5D3WEeqn3dldd-94Mw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_pk1JRj3WEeqn3dldd-94Mw" name="TiagoLidar" tooltipText="ComponentArtefact" outgoingEdges="_70hz5D3WEeqn3dldd-94Mw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.deployment#//@elements.3"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.deployment#//@elements.3"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -299,7 +299,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@edgeMappings[name='DeployEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_3UKqcD3_EeqSEdNyQt3GnA" name="ComponentLaserObstacleAvoid" tooltipText="ComponentArtefact" outgoingEdges="_4hRWxD3_EeqSEdNyQt3GnA">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_3UKqcD3_EeqSEdNyQt3GnA" name="Tiago" tooltipText="ComponentArtefact" outgoingEdges="_4hRWxD3_EeqSEdNyQt3GnA">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.deployment#//@elements.4"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.deployment#//@elements.4"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -319,7 +319,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.sirius.system.deployment.design/description/deployment.odesign#//@ownedViewpoints[name='DeploymentViewpoint']/@ownedRepresentations[name='DeploymentDiagram']/@defaultLayer/@edgeMappings[name='DeployEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ezFAMENjEeqwLYoSmC5klw" name="ComponentWebotsTIAGo" tooltipText="ComponentArtefact" outgoingEdges="_iMyG8ENjEeqwLYoSmC5klw">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_ezFAMENjEeqwLYoSmC5klw" name="ComponentLaserObstacleAvoid" tooltipText="ComponentArtefact" outgoingEdges="_iMyG8ENjEeqwLYoSmC5klw">
       <target xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.deployment#//@elements.5"/>
       <semanticElements xmi:type="Deployment:ComponentArtefact" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.deployment#//@elements.5"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -548,7 +548,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_t5jjQD3VEeqn3dldd-94Mw" name="ComponentWebotsLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_t5jjQD3VEeqn3dldd-94Mw" name="TiagoLidar: ComponentWebotsLidar" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.componentArch#//@components.1"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.componentArch#//@components.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_t5kKUj3VEeqn3dldd-94Mw" name="BaseStateServiceIn" tooltipText="InputRequestor" outgoingEdges="_TM8L0EaKEeqrb8xMqtSdFQ" width="3" height="3" resizeKind="NSEW">
@@ -582,7 +582,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.sirius.system.componentArchitecture.design/description/componentArchitecture.odesign#//@ownedViewpoints[name='SystemArchitectureViewpoint']/@ownedRepresentations[name='SystemArchitectureDiagram']/@defaultLayer/@containerMappings[name='ComponentInstanceContainer']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_wqb9YD3_EeqSEdNyQt3GnA" name="ComponentWebotsTIAGo: ComponentWebotsTIAGo" tooltipText="ComponentInstance">
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_wqb9YD3_EeqSEdNyQt3GnA" name="Tiago: ComponentWebotsRobot" tooltipText="ComponentInstance">
       <target xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.componentArch#//@components.2"/>
       <semanticElements xmi:type="ComponentArchitecture:ComponentInstance" href="model/SystemLaserObstacleAvoidTiagoWebotsSimulator.componentArch#//@components.2"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" uid="_TM3TUEaKEeqrb8xMqtSdFQ" name="BaseStateAnswerer" tooltipText="2WayAnswer" width="3" height="3" resizeKind="NSEW">
