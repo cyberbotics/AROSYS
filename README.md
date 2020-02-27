@@ -119,12 +119,12 @@ This system shows an example of multi-robots simulation. All the robots are usin
 ![SystemWebotsMultiRobots](SystemWebotsMultiRobots/model/SystemWebotsMultiRobotsComponentArchitecture.jpg)
 
 ### SystemWebotsPioneer3DXNavigation
-This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) robot (`ComponentWebotsPioneer3DX`) to navigate in a square arena filled with obstacles. It works with the new components developped to use Webots.
+This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) robot (`ComponentWebotsRobot`) to navigate in a square arena filled with obstacles. It works with the new components developped to use Webots.
 
 ![SystemWebotsPioneer3DXNavigation](SystemWebotsPioneer3DXNavigation/model/SystemWebotsPioneer3DXNavigationComponentArchitecture.jpg)
 
 ### SystemWebotsRobotino3Navigation
-This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Robotino 3](https://cyberbotics.com/doc/guide/robotino3) robot (`ComponentWebotsRobotino3`) to navigate in a square arena filled with obstacles. It works with the new components developped to use Webots.
+This system shows a complete example of communication between a [lidar sensor](https://cyberbotics.com/doc/guide/lidar-sensors) (`ComponentWebotsLidar`) used by a [Robotino 3](https://cyberbotics.com/doc/guide/robotino3) robot (`ComponentWebotsRobot`) to navigate in a square arena filled with obstacles. It works with the new components developped to use Webots.
 
 ![SystemWebotsRobotino3Navigation](SystemWebotsRobotino3Navigation/model/SystemWebotsRobotino3NavigationComponentArchitecture.jpg)
 
