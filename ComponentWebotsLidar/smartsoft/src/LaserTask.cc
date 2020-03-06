@@ -152,7 +152,7 @@ int LaserTask::on_execute()
   {
     // time settings and update scan count
     timeval _receiveTime;
-    gettimeofday(&_receiveTime, 0);
+    ::gettimeofday(&_receiveTime, 0);
     scan.set_scan_time_stamp(CommBasicObjects::CommTimeStamp(_receiveTime));
     scan.set_scan_update_count(scanCount);
 
