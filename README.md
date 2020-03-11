@@ -53,6 +53,9 @@ When used in a system, the name of the robot and its navigation properties shoul
 #### JSON configuration
 Each robot has his specification such as the wheel radius (R), wheel separation (L) and the velocity coefficients. For two wheeled robot, these latter are calculated using simple formulas such as `V_right = w(R+L/2)` and `V_left = w(R-L/2)` which gives `coeff_0 (for Vx) = 1/R`, `coeff_1 (for Vy) = 0` and `coeff_2 (for Omega) = L/(2R)`.  For omniwheeled robot such as the Robotino 3, a matrix conversion can be found in [this paper](http://ftp.itam.mx/pub/alfredo/ROBOCUP/SSLDocs/PapersTDPs/omnidrive.pdf) at section 4. 
 
+> **Note** : JSON file format for configuration relies on `libjsoncpp`, it can easily be installed with this command: `sudo apt install libjsoncpp-dev`
+
+
 * **Pioneer 3-DX**
 
   For the [Pioneer 3-DX](https://cyberbotics.com/doc/guide/pioneer-3dx) from Adept, when using `ComponentWebotsRobot` in   SmartMDSD Toolchain, you have to configure the `configuration.json` file with this code:
